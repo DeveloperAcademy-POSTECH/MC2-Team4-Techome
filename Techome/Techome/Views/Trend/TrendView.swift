@@ -24,7 +24,12 @@ struct TrendChart: View {
                         VStack(alignment: .leading, spacing: 0) {
                             Text("하루 평균 섭취량")
                                 .font(.subheadline)
-                                //.foregroundColor(.)
+                                .foregroundColor(.gray)
+                            HStack {
+                                Text("360")
+                                    .font(.largeTitle)
+                                    .foregroundColor(.black)
+                            }
                         }
                     }
                 }
