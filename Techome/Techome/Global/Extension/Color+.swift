@@ -15,4 +15,5 @@ extension Color {
     static let secondaryBrown = Color("SecondaryBrown")
     static let chartBrown = Color("ChartBrown")
     static let backgroundCream = Color("BackgroundCream")
+    static let secondaryTextGray = Color("SecondaryTextGray")
 }
