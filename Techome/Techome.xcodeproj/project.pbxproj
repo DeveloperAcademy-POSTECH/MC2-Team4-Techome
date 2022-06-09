@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2AC7A36628517C9100D7CA60 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7A36528517C9100D7CA60 /* Color+.swift */; };
+		2AC7A369285180A100D7CA60 /* TrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7A368285180A100D7CA60 /* TrendView.swift */; };
 		AB9CD1A728515F4B00589D07 /* TechomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1A628515F4B00589D07 /* TechomeApp.swift */; };
 		AB9CD1A928515F4B00589D07 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1A828515F4B00589D07 /* ContentView.swift */; };
 		AB9CD1AB28515F4D00589D07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB9CD1AA28515F4D00589D07 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		2AC7A36528517C9100D7CA60 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		2AC7A368285180A100D7CA60 /* TrendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendView.swift; sourceTree = "<group>"; };
 		AB9CD1A328515F4B00589D07 /* Techome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Techome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9CD1A628515F4B00589D07 /* TechomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechomeApp.swift; sourceTree = "<group>"; };
 		AB9CD1A828515F4B00589D07 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,6 +44,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2AC7A3672851809400D7CA60 /* Trend */ = {
+			isa = PBXGroup;
+			children = (
+				2AC7A368285180A100D7CA60 /* TrendView.swift */,
+			);
+			path = Trend;
+			sourceTree = "<group>";
+		};
 		AB9CD19A28515F4B00589D07 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +94,7 @@
 		AB9CD1B4285166C100589D07 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2AC7A3672851809400D7CA60 /* Trend */,
 				AB9CD1A828515F4B00589D07 /* ContentView.swift */,
 			);
 			path = Views;
@@ -202,6 +213,7 @@
 			files = (
 				AB9CD1A928515F4B00589D07 /* ContentView.swift in Sources */,
 				AB9CD1A728515F4B00589D07 /* TechomeApp.swift in Sources */,
+				2AC7A369285180A100D7CA60 /* TrendView.swift in Sources */,
 				AB9CD1BB2851675600589D07 /* tempExtension.swift in Sources */,
 				AB9CD1BD2851675E00589D07 /* tempResources.swift in Sources */,
 				AB9CD1C02851676A00589D07 /* tempModel.swift in Sources */,
