@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1422449A2852E7FB00EE056A /* TotalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142244992852E7FB00EE056A /* TotalListView.swift */; };
 		2AC7A36628517C9100D7CA60 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7A36528517C9100D7CA60 /* Color+.swift */; };
 		AB9CD1A728515F4B00589D07 /* TechomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1A628515F4B00589D07 /* TechomeApp.swift */; };
 		AB9CD1A928515F4B00589D07 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1A828515F4B00589D07 /* ContentView.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		142244992852E7FB00EE056A /* TotalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalListView.swift; sourceTree = "<group>"; };
 		2AC7A36528517C9100D7CA60 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		AB9CD1A328515F4B00589D07 /* Techome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Techome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9CD1A628515F4B00589D07 /* TechomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechomeApp.swift; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		142244982852E7EA00EE056A /* TotalList */ = {
+			isa = PBXGroup;
+			children = (
+				142244992852E7FB00EE056A /* TotalListView.swift */,
+			);
+			path = TotalList;
+			sourceTree = "<group>";
+		};
 		AB9CD19A28515F4B00589D07 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +108,7 @@
 		AB9CD1B4285166C100589D07 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				142244982852E7EA00EE056A /* TotalList */,
 				AB9CD1A828515F4B00589D07 /* ContentView.swift */,
 			);
 			path = Views;
@@ -254,6 +265,7 @@
 				AB9CD1BB2851675600589D07 /* tempExtension.swift in Sources */,
 				AB9CD1BD2851675E00589D07 /* tempResources.swift in Sources */,
 				DA774E512851C23C009BA4EA /* DrinkData.swift in Sources */,
+				1422449A2852E7FB00EE056A /* TotalListView.swift in Sources */,
 				AB9CD1C02851676A00589D07 /* tempModel.swift in Sources */,
 				DA774E5A2851C2FC009BA4EA /* SideEffectRecord.swift in Sources */,
 				AB9CD1C22851677000589D07 /* tempViewModel.swift in Sources */,
