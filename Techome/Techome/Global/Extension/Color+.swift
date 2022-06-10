@@ -13,6 +13,9 @@ extension Color {
     static let customRed = Color("CustomRed")
     static let primaryBrown = Color("PrimaryBrown")
     static let secondaryBrown = Color("SecondaryBrown")
-    static let chartBrown = Color("ChartBrown")
+    static let tertiaryBrown = Color("TertiaryBrown")
     static let backgroundCream = Color("BackgroundCream")
+    static let secondaryTextGray = Color("SecondaryTextGray")
+    static let primaryShadowGray = Color("PrimaryShadowGray")
+    static let secondaryShadowGray = Color("SecondaryShadowGray")
 }
