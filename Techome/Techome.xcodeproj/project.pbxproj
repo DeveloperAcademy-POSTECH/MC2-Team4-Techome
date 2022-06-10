@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2AC7A36628517C9100D7CA60 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7A36528517C9100D7CA60 /* Color+.swift */; };
 		79017CE7285182C90099B8E6 /* SearchCaffeineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79017CE6285182C90099B8E6 /* SearchCaffeineView.swift */; };
+		79D3F78628530A990093443D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D3F78528530A990093443D /* HomeView.swift */; };
 		AB9CD1A728515F4B00589D07 /* TechomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1A628515F4B00589D07 /* TechomeApp.swift */; };
 		AB9CD1A928515F4B00589D07 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1A828515F4B00589D07 /* ContentView.swift */; };
 		AB9CD1AB28515F4D00589D07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB9CD1AA28515F4D00589D07 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		2AC7A36528517C9100D7CA60 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		79017CE6285182C90099B8E6 /* SearchCaffeineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCaffeineView.swift; sourceTree = "<group>"; };
+		79D3F78528530A990093443D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		AB9CD1A328515F4B00589D07 /* Techome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Techome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9CD1A628515F4B00589D07 /* TechomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechomeApp.swift; sourceTree = "<group>"; };
 		AB9CD1A828515F4B00589D07 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				79017CE6285182C90099B8E6 /* SearchCaffeineView.swift */,
+				79D3F78528530A990093443D /* HomeView.swift */,
 			);
 			path = AddCaffeine;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				AB9CD1A928515F4B00589D07 /* ContentView.swift in Sources */,
 				DA774E4F2851C21B009BA4EA /* Drink.swift in Sources */,
 				DA774E4C2851C1CD009BA4EA /* JSONManager.swift in Sources */,
+				79D3F78628530A990093443D /* HomeView.swift in Sources */,
 				AB9CD1A728515F4B00589D07 /* TechomeApp.swift in Sources */,
 				DA774E5C2851C3F3009BA4EA /* DrinkRecord.swift in Sources */,
 				AB9CD1BB2851675600589D07 /* tempExtension.swift in Sources */,
