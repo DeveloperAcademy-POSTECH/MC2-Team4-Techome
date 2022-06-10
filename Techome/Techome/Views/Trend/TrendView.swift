@@ -39,26 +39,8 @@ struct TrendChart: View {
             TabView {
                 ForEach(0..<5) {index in
                     VStack(alignment: .leading, spacing: 0) {
-                        Group {
-                            Text("하루 평균 섭취량")
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                                .padding(.bottom, 5)
-                                .padding(.top, 15)
-                            HStack(alignment: .firstTextBaseline, spacing: 0){
-                                Text("360")
-                                    .font(.largeTitle)
-                                    .foregroundColor(.black)
-                                Text("mg")
-                                    .font(.body)
-                                    .foregroundColor(.secondaryTextGray)
-                            }
-                            .padding(.bottom, 5)
-                            Text("2022.06.03~2022.06.09")
-                                .font(.body)
-                                .foregroundColor(.secondaryTextGray)
-                        }
-                        .padding(.leading, 15)
+                        TotalCaffeineByDay()
+                            .padding(.leading, 15)
                         Spacer()
                     }
                     .frame(maxWidth: chartWidth, alignment: .leading)
@@ -72,6 +54,30 @@ struct TrendChart: View {
             .tabViewStyle(.page(indexDisplayMode: .never))
         }
         .frame(height: chartWidth * 1.26)
+    }
+}
+
+struct TotalCaffeineByDay: View {
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("하루 평균 섭취량")
+                .font(.subheadline)
+                .foregroundColor(.gray)
+                .padding(.bottom, 5)
+                .padding(.top, 15)
+            HStack(alignment: .firstTextBaseline, spacing: 0){
+                Text("360")
+                    .font(.largeTitle)
+                    .foregroundColor(.black)
+                Text("mg")
+                    .font(.body)
+                    .foregroundColor(.secondaryTextGray)
+            }
+            .padding(.bottom, 5)
+            Text("2022.06.03~2022.06.09")
+                .font(.body)
+                .foregroundColor(.secondaryTextGray)
+        }
     }
 }
 
