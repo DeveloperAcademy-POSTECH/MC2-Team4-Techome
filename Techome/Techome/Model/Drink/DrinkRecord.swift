@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DrinkRecord{
-    var date: String
+struct DrinkRecord: Hashable, Codable{
+    var date: Date
     var drink: Drink
 }

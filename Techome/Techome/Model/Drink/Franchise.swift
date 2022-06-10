@@ -7,9 +7,13 @@
 
 import Foundation
 
-enum Franchise: String{
+enum Franchise: String, Hashable, Codable{
     case starbucks = "스타벅스"
     case twosomePlace = "투썸플레이스"
+
+    func getFranchiseName() -> String{
+        return self.rawValue
+    }
 
     func getCaffeinPerShot() -> Int{
         switch(self){

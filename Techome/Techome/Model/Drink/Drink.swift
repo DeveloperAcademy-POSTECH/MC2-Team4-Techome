@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Drink{
+struct Drink: Hashable, Codable{
     var name: String
     var franchise: Franchise
     var caffeineAmount: Int

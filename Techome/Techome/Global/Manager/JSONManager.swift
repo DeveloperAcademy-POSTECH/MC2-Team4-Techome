@@ -17,7 +17,10 @@ class JSONManager{
             let fileURL = url.appendingPathComponent(filename)
             let data = try Data(contentsOf: fileURL)
             
+            print(fileURL)
+            
             let result = try JSONDecoder().decode([T].self, from: data)
+            
             return result
         }
         return nil
@@ -30,7 +33,10 @@ class JSONManager{
         
         if let url = urls.first {
             let fileURL = url.appendingPathComponent(filename)
-            let jsonData = try JSONEncoder().encode(data)
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            
+            let jsonData = try encoder.encode(data)
             
             try jsonData.write(to: fileURL, options: [.atomicWrite])
         }
