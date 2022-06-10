@@ -16,13 +16,14 @@ struct TrendView: View {
                     SideEffectRecordsByDay()
                     CaffeineRecordByDay()
                         .padding(15)
-                    Button{
+                    NavigationLink {
                         
                     } label: {
                         Text("전체 리스트 보기")
                             .font(.system(size: 15))
                             .foregroundColor(.secondaryTextGray)
                     }
+
                     Spacer()
                 }
                 .navigationTitle("카페인 리포트")
@@ -33,6 +34,7 @@ struct TrendView: View {
 
 struct TrendChart: View {
     let chartWidth: CGFloat = UIScreen.main.bounds.width - 30
+    
     
     var body: some View {
         LazyHStack() {
@@ -92,7 +94,7 @@ struct SideEffectRecordsByDay: View {
         
         LazyHGrid(rows: columns, spacing: 32) {
             ForEach(0..<10) { idx in
-                SideEffectRecord()
+                SideEffectRecordItem()
                     .padding(.vertical, 14)
             }
         }
@@ -103,7 +105,7 @@ struct SideEffectRecordsByDay: View {
     }
 }
 
-struct SideEffectRecord: View {
+struct SideEffectRecordItem: View {
     var body: some View {
         VStack(spacing: 0) {
             Image("esophagitis")
