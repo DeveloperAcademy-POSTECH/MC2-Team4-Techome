@@ -7,29 +7,30 @@
 
 import Foundation
 
-struct SideEffectRecord: Hashable, Codable{
+struct SideEffectRecord: Hashable, Codable {
+    var uuid = UUID()
     var date: Date
     var sideEffect: [SideEffect]
 }
 
-enum SideEffect: String, Hashable, Codable{
+enum SideEffect: String, CaseIterable, Hashable, Codable {
     case fastHeartRate = "fastHeartRate"            //  두근거림
     case shake = "shake"                            //  손떨림
     case esophagitis = "esophagitis"                //  식도염
     case depression = "depression"                  //  우울함
-    case heartburn = "heartburn"                    //
-    case dehydration = "dehydration"
-    case restlessness = "restlessness"
-    case lethargy = "lethargy"
-    case insomnia = "insomnia"
-    case dizziness = "dizziness"
+    case heartburn = "heartburn"                    //  속쓰림
+    case dehydration = "dehydration"                //  탈수
+    case restlessness = "restlessness"              //  불안감
+    case lethargy = "lethargy"                      //  무기력
+    case insomnia = "insomnia"                      //  불면증
+    case dizziness = "dizziness"                    //  현기증
     
-    func getImageName() -> String{
+    func getImageName() -> String {
         return self.rawValue
     }
     
-    func getSideEffectName() -> String{
-        switch(self){
+    func getSideEffectName() -> String {
+        switch self {
         case .fastHeartRate:
             return "두근거림"
         case .shake:
