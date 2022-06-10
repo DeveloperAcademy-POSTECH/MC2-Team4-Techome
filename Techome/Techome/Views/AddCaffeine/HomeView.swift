@@ -8,12 +8,30 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State var showSheet: Bool = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color(.white)
+                .ignoresSafeArea()
+            
+            Button(action: {
+                showSheet.toggle()
+            }) {
+                Text("카페인 추가하기")
+                    .font(.title)
+                    .foregroundColor(.black)
+                    .padding()
+                    .background(Color.white)
+                    .fullScreenCover(isPresented: $showSheet, content: {
+                        SearchCaffeineView()
+                    })
+            }
+        }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
+    
     static var previews: some View {
         HomeView()
     }
