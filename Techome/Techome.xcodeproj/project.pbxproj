@@ -20,7 +20,6 @@
 		DA774E4C2851C1CD009BA4EA /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E4B2851C1CD009BA4EA /* JSONManager.swift */; };
 		DA774E4F2851C21B009BA4EA /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E4E2851C21B009BA4EA /* Drink.swift */; };
 		DA774E512851C23C009BA4EA /* DrinkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E502851C23C009BA4EA /* DrinkData.swift */; };
-		DA774E552851C275009BA4EA /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E542851C275009BA4EA /* DummyData.swift */; };
 		DA774E572851C29D009BA4EA /* Franchise.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E562851C29D009BA4EA /* Franchise.swift */; };
 		DA774E5A2851C2FC009BA4EA /* SideEffectRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E592851C2FC009BA4EA /* SideEffectRecord.swift */; };
 		DA774E5C2851C3F3009BA4EA /* DrinkRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E5B2851C3F3009BA4EA /* DrinkRecord.swift */; };
@@ -41,7 +40,6 @@
 		DA774E4B2851C1CD009BA4EA /* JSONManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
 		DA774E4E2851C21B009BA4EA /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		DA774E502851C23C009BA4EA /* DrinkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkData.swift; sourceTree = "<group>"; };
-		DA774E542851C275009BA4EA /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DummyData.swift; path = Techome/Model/DummyData.swift; sourceTree = SOURCE_ROOT; };
 		DA774E562851C29D009BA4EA /* Franchise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Franchise.swift; sourceTree = "<group>"; };
 		DA774E592851C2FC009BA4EA /* SideEffectRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideEffectRecord.swift; sourceTree = "<group>"; };
 		DA774E5B2851C3F3009BA4EA /* DrinkRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkRecord.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 			children = (
 				DA774E4E2851C21B009BA4EA /* Drink.swift */,
 				DA774E502851C23C009BA4EA /* DrinkData.swift */,
-				DA774E542851C275009BA4EA /* DummyData.swift */,
 				DA774E562851C29D009BA4EA /* Franchise.swift */,
 				DA774E5B2851C3F3009BA4EA /* DrinkRecord.swift */,
 			);
@@ -256,7 +253,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA774E552851C275009BA4EA /* DummyData.swift in Sources */,
 				AB9CD1A928515F4B00589D07 /* ContentView.swift in Sources */,
 				DA774E4F2851C21B009BA4EA /* Drink.swift in Sources */,
 				DA774E4C2851C1CD009BA4EA /* JSONManager.swift in Sources */,
