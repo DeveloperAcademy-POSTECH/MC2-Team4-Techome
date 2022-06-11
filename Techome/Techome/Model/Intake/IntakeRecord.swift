@@ -11,4 +11,5 @@ struct IntakeRecord: Hashable, Codable {
     var uuid = UUID()
     let date: Date
     let beverage: Beverage
+    var addedShotCount: Int
 }

@@ -14,5 +14,4 @@ struct Beverage: Hashable, Codable {
     let size: String
     let caffeineAmount: Int
     let defaultShotCount: Int
-    var addedShotCount = 0
 }

@@ -13,8 +13,8 @@ final class IntakeManager {
     
     let repository = IntakeRepository()
     
-    func addRecord(beverage: Beverage) {
-        repository.addRecord(record: IntakeRecord(date: Date.now, beverage: beverage))
+    func addRecord(beverage: Beverage, addedShotCount: Int) {
+        repository.addRecord(record: IntakeRecord(date: Date.now, beverage: beverage, addedShotCount: addedShotCount))
     }
     
     func getDailyRecords(date: Date) -> [IntakeRecord] {
@@ -29,12 +29,19 @@ final class IntakeManager {
         repository.deleteRecord(intakeRecord: intakeRecord)
     }
     
+    func getCaffeineAmount(record: IntakeRecord) -> Int {
+        var caffenine = record.beverage.caffeineAmount
+        caffenine += (record.beverage.franchise.getCaffeinPerShot() * record.addedShotCount)
+        
+        return caffenine
+    }
+    
     func getTodayIntakeCaffeineAmount() -> Int {
         let todayRecords = getDailyRecords(date: Date.now)
         
         var amount = 0
         for record in todayRecords {
-            amount += record.beverage.caffeineAmount
+            amount += getCaffeineAmount(record: record)
         }
         
         return amount
@@ -58,7 +65,7 @@ final class IntakeManager {
         var amount = 0.0
         for record in records {
             let remainCaffeine = self.calculateRemainCaffeine(date: record.date,
-                                                              caffeine: record.beverage.caffeineAmount)
+                                                              caffeine: IntakeManager.shared.getCaffeineAmount(record: record))
             amount += remainCaffeine
         }
         
