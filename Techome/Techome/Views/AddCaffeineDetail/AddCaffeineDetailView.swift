@@ -36,7 +36,7 @@ struct AddCaffeineDetailViewLayoutValue {
 
 struct AddCaffeineDetailView: View {
     var body: some View {
-        Text("Hello, World!")
+        AddCaffeineButton()
     }
 }
 
@@ -66,7 +66,26 @@ struct HowLongCaffeineStay: View {
 
 struct AddCaffeineButton: View {
     var body: some View {
-        Text("카페인 추가 버튼")
+        Button {
+            
+        } label: {
+            Text("추가하기")
+                .font(.title2)
+                .fontWeight(.bold)
+                .foregroundColor(.backgroundCream)
+                .background(AddCaffeineButtonBackground())
+        }
+        
+        
+    }
+}
+
+struct AddCaffeineButtonBackground: View {
+    var body: some View {
+        RoundedRectangle(cornerRadius: AddCaffeineDetailViewLayoutValue.CornerRadius.cardRadius)
+            .foregroundColor(.primaryBrown)
+            .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.cardVerticalPadding)
+            .frame(width: UIScreen.main.bounds.width, height: AddCaffeineDetailViewLayoutValue.Sizes.addCaffeineButtonHeight, alignment: .center)
     }
 }
 
