@@ -36,6 +36,9 @@ struct TotalListLayout {
 
 // 전체 리스트
 struct TotalListView: View {
+    
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         
         ScrollView(){
@@ -48,9 +51,23 @@ struct TotalListView: View {
                 
             }
             .padding(.horizontal, 15) //전체 스크린 좌우 padding 15
+            .padding(.top, 23) //navigation bar와 간격
         }
         .background(Color.backgroundCream)
-            
+        .navigationTitle(Text("전체 리스트").font(.caption))
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar{
+            ToolbarItem(placement: .navigationBarLeading){
+                        Button(action: {
+                            presentationMode.wrappedValue.dismiss()
+                        }) {
+                            Image(systemName: "chevron.left")
+                                .font(.headline)
+                                .foregroundColor(.primaryBrown)
+                        }
+                }
+        }
     }
 }
 
@@ -106,7 +123,7 @@ struct SideEffectRecordRow: View {
                 Image(systemName: "exclamationmark.circle")
                     .resizable()
                     .frame(width: 15, height: 15)
-                    .foregroundColor(Color.customRed)
+                    .foregroundColor(.customRed)
                     .padding(.leading, 5)
             }
             .padding(.leading, 20)
@@ -198,6 +215,12 @@ struct CaffeineRecordCellList: View {
 
 struct TotalListView_Previews: PreviewProvider {
     static var previews: some View {
+        NavigationView {
+            NavigationLink("to total list") {
+                TotalListView()
+            }
+        }
+        
         TotalListView()
     }
 }
