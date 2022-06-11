@@ -22,21 +22,73 @@ struct AddSideEffectLayoutValue {
     // AddSideEffectView Sizes
     struct Sizes {
         static let sideEffectImageWidth: CGFloat = 20
-        static let gridImageTextWidth: CGFloat = 66
+        static let gridTextWidth: CGFloat = 66
     }
     
     // AddSideEffectView Radius
     struct Radius {
         static let buttonRadius: CGFloat = 5
+        static let buttonShadowRadius: CGFloat = 2
     }
 }
 
 struct AddSideEffectView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
+    var body: some View {
+        NavigationView {
+            ZStack {
+                Color.backgroundCream.edgesIgnoringSafeArea(.all)
+                
+                VStack(alignment: .leading, spacing: .zero) {
+                    SideEffectDate()
+                    SideEffectType()
+                    Spacer()
+                } // VStack
+                .padding(.horizontal, AddSideEffectLayoutValue.Paddings.contentHorizontalPadding)
+            } // ZStack
+            .navigationTitle("부작용 추가하기")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(
+                leading: Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("취소")
+                        .foregroundColor(.primaryBrown)
+                },
+                trailing: Button(action: {
+                    // run 저장(update) method
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("저장")
+                        .foregroundColor(.primaryBrown)
+                }
+            )
+        } // NavigationView
+    }
+}
+
+struct SideEffectDate: View {
     
     @State private var sideEffectDate = Date()
-    @State private var isSelected: [Bool] = [false, false, false, false, false, false, false, false, false, false]
+    
+    var body: some View {
+        Text("언제 부작용을 겪으셨나요?")
+            .foregroundColor(.secondaryTextGray)
+            .font(.subheadline)
+            .padding(.top, AddSideEffectLayoutValue.Paddings.contentBetweenVerticalPadding)
+            .padding(.bottom, AddSideEffectLayoutValue.Paddings.labelBottomPadding)
+        
+        DatePicker("부작용 일시", selection: $sideEffectDate, in: ...Date())
+            .labelsHidden()
+            .accentColor(.primaryBrown)
+            .frame(alignment: .leading)
+            .padding(.bottom, AddSideEffectLayoutValue.Paddings.contentBetweenVerticalPadding)
+    }
+}
+
+struct SideEffectType: View {
     
     let columns = [
         GridItem(.flexible()),
@@ -44,85 +96,53 @@ struct AddSideEffectView: View {
     ]
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color.backgroundCream.edgesIgnoringSafeArea(.all)
+        
+        Text("어떤 부작용을 겪으셨나요?")
+            .foregroundColor(.secondaryTextGray)
+            .font(.subheadline)
+            .padding(.bottom, AddSideEffectLayoutValue.Paddings.labelBottomPadding)
+        
+        LazyVGrid(columns: columns, spacing: AddSideEffectLayoutValue.Paddings.gridItemHorizantalPadding) {
+            
+            ForEach(sideEffects.indices, id: \.self) { sideEffect in
+                SideEffectButton(sideEffect: sideEffect)
+            } // ForEach
+            
+        } // LazyVGrid
+    }
+}
+
+struct SideEffectButton: View {
+    
+    @State private var isSelected: [Bool] = [false, false, false, false, false, false, false, false, false, false]
+    
+    var sideEffect: Int
+    
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: AddSideEffectLayoutValue.Radius.buttonRadius)
+                .foregroundColor(isSelected[sideEffect] ? .primaryBrown : .white)
+                .shadow(color: .primaryShadowGray, radius: AddSideEffectLayoutValue.Radius.buttonShadowRadius, x: .zero, y: .zero)
+            
+            HStack(spacing: .zero) {
+                Image("heartburn")
+                    .renderingMode(.template)
+                    .fixedSize()
+                    .frame(width: AddSideEffectLayoutValue.Sizes.sideEffectImageWidth, alignment: .center)
                 
-                VStack(alignment: .leading, spacing: 0) {
-                    
-                    Text("언제 부작용을 겪으셨나요?")
-                        .foregroundColor(.secondaryTextGray)
-                        .font(.subheadline)
-                        .padding(.top, AddSideEffectLayoutValue.Paddings.contentBetweenVerticalPadding)
-                        .padding(.bottom, AddSideEffectLayoutValue.Paddings.labelBottomPadding)
-                    
-                    DatePicker("부작용 일시", selection: $sideEffectDate, in: ...Date())
-                        .labelsHidden()
-                        .accentColor(.primaryBrown)
-                        .frame(alignment: .leading)
-                        .padding(.bottom, AddSideEffectLayoutValue.Paddings.contentBetweenVerticalPadding)
-                    
-                    Text("어떤 부작용을 겪으셨나요?")
-                        .foregroundColor(.secondaryTextGray)
-                        .font(.subheadline)
-                        .padding(.bottom, AddSideEffectLayoutValue.Paddings.labelBottomPadding)
-                    
-                    LazyVGrid(columns: columns, spacing: AddSideEffectLayoutValue.Paddings.gridItemHorizantalPadding) {
-                        
-                        ForEach(sideEffects.indices, id: \.self) { sideEffect in
-                            ZStack {
-                                
-                                RoundedRectangle(cornerRadius: AddSideEffectLayoutValue.Radius.buttonRadius)
-                                    .foregroundColor(isSelected[sideEffect] ? .primaryBrown : .white)
-                                    .shadow(color: .primaryShadowGray, radius: 2, x: 0, y: 0)
-                                
-                                HStack(spacing: 0) {
-                                    Image("heartburn")
-                                        .renderingMode(.template)
-                                        .fixedSize()
-                                        .frame(width: AddSideEffectLayoutValue.Sizes.sideEffectImageWidth, alignment: .center)
-                                    
-                                    Text(sideEffects[sideEffect])
-                                        .padding(.vertical, AddSideEffectLayoutValue.Paddings.gridTextVerticalPadding)
-                                        .padding(.leading, AddSideEffectLayoutValue.Paddings.gridImageTextPadding)
-                                        .font(.body)
-                                        .fixedSize()
-                                        .frame(width: AddSideEffectLayoutValue.Sizes.gridImageTextWidth, alignment: .center)
-                                    
-                                } // HStack
-                                .padding(.horizontal)
-                                .foregroundColor(isSelected[sideEffect] ? .white : .customBlack)
-                                
-                            } // ZStack
-                            .onTapGesture {
-                                isSelected[sideEffect].toggle()
-                            }
-                        } // ForEach
-                        
-                    } // LazyVGrid
-                    
-                    Spacer()
-                    
-                } // VStack
-                .padding(.horizontal, AddSideEffectLayoutValue.Paddings.contentHorizontalPadding)
-            }
-            .navigationTitle("부작용 추가하기")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(leading:
-                Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text("취소")
-                        .foregroundColor(.primaryBrown)
-                })
-            .navigationBarItems(trailing:
-                Button(action: {
-                    // run 저장(update) method
-                    self.presentationMode.wrappedValue.dismiss()
-            }) {
-                Text("저장")
-                    .foregroundColor(.primaryBrown)
-            })
+                Text(sideEffects[sideEffect])
+                    .font(.body)
+                    .padding(.vertical, AddSideEffectLayoutValue.Paddings.gridTextVerticalPadding)
+                    .padding(.leading, AddSideEffectLayoutValue.Paddings.gridImageTextPadding)
+                    .fixedSize()
+                    .frame(width: AddSideEffectLayoutValue.Sizes.gridTextWidth, alignment: .center)
+                
+            } // HStack
+            .padding(.horizontal)
+            .foregroundColor(isSelected[sideEffect] ? .white : .customBlack)
+        } // ZStack
+        .onTapGesture {
+            isSelected[sideEffect].toggle()
         }
     }
 }
