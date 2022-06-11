@@ -11,13 +11,14 @@ struct TrendLayout {
     
     struct Paddings {
         //TrendView Paddings
-        static let dayRecordPadding: CGFloat = 8
+        static let dayRecordPadding: CGFloat = 4
         static let caffeineRecordRowVerticalPadding: CGFloat = 15
         static let caffeineRecordRowHorizontalPadding: CGFloat = 20
         static let chartPadding: CGFloat = 8
         static let textVerticalPadding: CGFloat = 5
         static let averageCaffeineWeekPadding: CGFloat = 7
         static let sideEffectRecordCellHorizontalPadding: CGFloat = 21
+        static let sideEffectRecordCellVerticalPadding: CGFloat = 20
         static let averageCaffeineAmountPadding: CGFloat = 15
         static let caffeineRecordAmountUnitPadding: CGFloat = 1
         static let TotalListViewPadding: CGFloat = 20
@@ -127,18 +128,19 @@ struct AverageCaffeineAmountForWeek: View {
 }
 
 struct SideEffectRecordsByDay: View {
-    let sideEffectRecordRow = [
-        GridItem(.flexible(), spacing: .zero, alignment: .center),
-        GridItem(.flexible(), spacing: .zero, alignment: .center)
-    ]
     var body: some View {
-        LazyHGrid(rows: sideEffectRecordRow, spacing: TrendLayout.Paddings.sideEffectRecordCellHorizontalPadding) {
-            //TODO: 임시 데이터 수
-            ForEach(0 ..< 10) { SideEffectItemIndex in
-                SideEffectRecordItem()
+        VStack(alignment: .center, spacing: TrendLayout.Paddings.sideEffectRecordCellVerticalPadding) {
+            ForEach(0..<2) { sideEffectRowIndex in
+                HStack(alignment: .center, spacing: TrendLayout.Paddings.sideEffectRecordCellHorizontalPadding) {
+                    //TODO: 임시 데이터 수
+                    ForEach(0..<5) { sideEffectItemIndex in
+                        SideEffectRecordItem()
+                    }
+                }
             }
         }
-        .frame(width: TrendLayout.Sizes.cardWidth, height: TrendLayout.Sizes.sideEffectRecordHeight)
+        .padding(.vertical, TrendLayout.Paddings.sideEffectRecordCellVerticalPadding)
+        .frame(width: TrendLayout.Sizes.cardWidth)
     }
 }
 
@@ -162,6 +164,7 @@ struct CaffeineRecordsByDay: View {
             }
         }
         .frame(width: TrendLayout.Sizes.cardWidth)
+        
     }
 }
 
@@ -204,7 +207,7 @@ struct CardBackground: View {
     var body: some View {
         RoundedRectangle(cornerRadius: TrendLayout.Radius.cardRadius)
             .foregroundColor(.white)
-            .shadow(color: .primaryShadowGray, radius: TrendLayout.Radius.shadowRadius, x: 0, y: 0)
+            .shadow(color: .primaryShadowGray, radius: TrendLayout.Radius.shadowRadius, x: .zero, y: .zero)
     }
 }
 
