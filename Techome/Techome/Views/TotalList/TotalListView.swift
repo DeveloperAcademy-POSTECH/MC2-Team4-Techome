@@ -11,30 +11,31 @@ import SwiftUI
 struct TrendLayout {
     
     struct Paddings {
-        //TrendView Paddings
-        static let dayRecordPadding: CGFloat = 8
+        ///TrendView Paddings
+        static let dayRecordPadding: CGFloat = 4
         static let caffeineRecordRowVerticalPadding: CGFloat = 15
         static let caffeineRecordRowHorizontalPadding: CGFloat = 20
         static let chartPadding: CGFloat = 8
         static let textVerticalPadding: CGFloat = 5
         static let averageCaffeineWeekPadding: CGFloat = 7
         static let sideEffectRecordCellHorizontalPadding: CGFloat = 21
+        static let sideEffectRecordCellVerticalPadding: CGFloat = 20
         static let averageCaffeineAmountPadding: CGFloat = 15
         static let caffeineRecordAmountUnitPadding: CGFloat = 1
         static let TotalListViewPadding: CGFloat = 20
     }
     
-    //TrendView Sizes
+    ///TrendView Sizes
     struct Sizes {
         static let mainWidth: CGFloat = UIScreen.main.bounds.width
         static let mainHeight: CGFloat = UIScreen.main.bounds.height
         static let cardWidth: CGFloat = UIScreen.main.bounds.width - 30
         static let chartHeight: CGFloat = cardWidth * 1.26
         static let sideEffectRecordHeight: CGFloat = cardWidth / 2.4
-        static let sideEffectRecordCellFrame: CGFloat = 46
+        static let sideEffectRecordCellFixedWidth: CGFloat = 46
     }
     
-    //TrendView Radius
+    ///TrendView Radius
     struct Radius {
         static let cardRadius: CGFloat = 7
         static let shadowRadius: CGFloat = 2
@@ -131,19 +132,21 @@ struct SideEffectRecordRow: View {
 
 //trend 의 sideEffectRecordsByDay 와 동일
 //부작용 데이터
+
 struct SideEffectRecordsByDayList: View {
-    let sideEffectRecordRow = [
-        GridItem(.flexible(), spacing: 0, alignment: .center),
-        GridItem(.flexible(), spacing: 0, alignment: .center)
-    ]
     var body: some View {
-        LazyHGrid(rows: sideEffectRecordRow, spacing: TrendLayout.Paddings.sideEffectRecordCellHorizontalPadding) {
-            //TODO: 임시 데이터 수
-            ForEach(0 ..< 10) { SideEffectItemIndex in
-                SideEffectRecordItemList()
+        VStack(alignment: .center, spacing: TrendLayout.Paddings.sideEffectRecordCellVerticalPadding) {
+            ForEach(0..<2) { sideEffectRowIndex in
+                HStack(alignment: .center, spacing: TrendLayout.Paddings.sideEffectRecordCellHorizontalPadding) {
+                    //TODO: 임시 데이터 수
+                    ForEach(0..<5) { sideEffectItemIndex in
+                        SideEffectRecordItemList()
+                    }
+                }
             }
         }
-        .frame(width: TrendLayout.Sizes.cardWidth, height: TrendLayout.Sizes.sideEffectRecordHeight)
+        .padding(.vertical, TrendLayout.Paddings.sideEffectRecordCellVerticalPadding)
+        .frame(width: TrendLayout.Sizes.cardWidth)
     }
 }
 
@@ -155,7 +158,7 @@ struct SideEffectRecordItemList: View {
             Text("식도염")
                 .font(.caption)
         }
-        .frame(width: TrendLayout.Sizes.sideEffectRecordCellFrame)
+        .frame(width: TrendLayout.Sizes.sideEffectRecordCellFixedWidth)
     }
 }
 
