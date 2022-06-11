@@ -12,8 +12,6 @@ struct AddSideEffect: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State private var sideEffectDate = Date()
-    @State private var showDatePicker = false
-    @State private var showHourAndMinutePicker = false
     @State private var isSelected: [Bool] = [false, false, false, false, false, false, false, false, false, false]
     
     let navigationBarBottomPadding: CGFloat = 70
@@ -30,7 +28,6 @@ struct AddSideEffect: View {
     var body: some View {
         NavigationView {
             ZStack {
-                
                 Color.backgroundCream.edgesIgnoringSafeArea(.all)
                 
                 VStack(alignment: .leading, spacing: 0) {
@@ -41,18 +38,11 @@ struct AddSideEffect: View {
                             .font(.subheadline)
                             .padding(.bottom, labelBottomPadding)
                         
-                        HStack {
-                            DatePicker("부작용 일시", selection: $sideEffectDate, in: ...Date(), displayedComponents: [.date])
-                                .fixedSize()
-                                .frame(width: 117)
-                            
-                            DatePicker("부작용 일시", selection: $sideEffectDate, in: ...Date(), displayedComponents: [.hourAndMinute])
-                                .fixedSize()
-                                .frame(width: 97)
-                        }
-                        .labelsHidden()
-                        .accentColor(.primaryBrown)
-                        .padding(.bottom, contentBetweenPadding)
+                        DatePicker("부작용 일시", selection: $sideEffectDate, in: ...Date())
+                            .labelsHidden()
+                            .accentColor(.primaryBrown)
+                            .padding(.bottom, contentBetweenPadding)
+                            .frame(alignment: .leading)
                         
                         Text("어떤 부작용을 겪으셨나요?")
                             .foregroundColor(.secondaryTextGray)
@@ -83,15 +73,14 @@ struct AddSideEffect: View {
                                         .fixedSize()
                                         .frame(width: 66, alignment: .center)
                                         .padding(.leading, 18)
-                                }
+                                } // HStack
                                 .padding(.horizontal)
-                            }
+                            } // ZStack
                             .onTapGesture {
-                                print("두근거림")
+                                print(sideEffect)
                             }
-                            
                         }
-                    }
+                    } // LazyVGrid
                     .padding(.horizontal)
                     
                     Spacer()
