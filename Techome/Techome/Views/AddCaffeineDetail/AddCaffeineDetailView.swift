@@ -10,16 +10,27 @@ import SwiftUI
 struct AddCaffeineDetailViewLayoutValue {
     
     struct Paddings {
+        static let sectionPadding: CGFloat = 42
+        static let sectionTitleToComponentPadding: CGFloat = 15
+        static let cardVerticalPadding: CGFloat = 15
+        static let franchiseDrinkSizeButtonHorizontalPadding: CGFloat = 5
+        
+        static let franchiseDrinkSizeButtonInsideHorizontalPadding: CGFloat = 44
+        static let franchiseDrinkSizeButtonInsideVerticalPadding: CGFloat = 13.5
+        
+        static let effectCardInsideLeadingPadding: CGFloat = 18
+        static let effectCardInsideVerticalPadding: CGFloat = 14
+        static let effectDividerHorizontalPadding: CGFloat = 10
         
     }
     
     struct Sizes {
-        
+        static let addCaffeineButtonHeight: CGFloat = 60
         
     }
     
     struct CornerRadius {
-        
+        static let cardRadius: CGFloat = 5
     }
 }
 
@@ -31,7 +42,13 @@ struct AddCaffeineDetailView: View {
 
 struct FranchiseDrinkSizeButton: View {
     var body: some View {
-        Text("프랜차이즈 음료 크기")
+        Text("프랜차이즈 음료 크기 버튼")
+    }
+}
+
+struct FranchiseDrinkSizeButtonGroup: View {
+    var body: some View {
+        Text("프랜차이즈 음료 크기 버튼 그룹")
     }
 }
 
