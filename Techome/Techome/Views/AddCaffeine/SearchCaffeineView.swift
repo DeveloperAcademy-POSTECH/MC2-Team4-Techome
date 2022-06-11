@@ -34,10 +34,10 @@ struct SearchCaffeineView: View {
                     
                     CaffeineRecordByDay()
                 }
-                .frame(height: UIScreen.main.bounds.height*0.8, alignment: .top)
+                .frame(height: UIScreen.main.bounds.height * 0.8, alignment: .top)
                 .padding(.horizontal)
             }
-            .navigationTitle("카페인 추가하기")ㅊ
+            .navigationTitle("카페인 추가하기")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
