@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct TrendLayout {
+struct TrendViewLayoutValue {
     
     struct Paddings {
-        //TrendView Paddings
+        ///TrendView Paddings
         static let dayRecordPadding: CGFloat = 4
         static let caffeineRecordRowVerticalPadding: CGFloat = 15
         static let caffeineRecordRowHorizontalPadding: CGFloat = 20
@@ -24,17 +24,17 @@ struct TrendLayout {
         static let TotalListViewPadding: CGFloat = 20
     }
     
-    //TrendView Sizes
+    ///TrendView Sizes
     struct Sizes {
         static let mainWidth: CGFloat = UIScreen.main.bounds.width
         static let mainHeight: CGFloat = UIScreen.main.bounds.height
         static let cardWidth: CGFloat = UIScreen.main.bounds.width - 30
         static let chartHeight: CGFloat = cardWidth * 1.26
         static let sideEffectRecordHeight: CGFloat = cardWidth / 2.4
-        static let sideEffectRecordCellFrame: CGFloat = 46
+        static let sideEffectRecordCellFixedWidth: CGFloat = 46
     }
     
-    //TrendView Radius
+    ///TrendView Radius
     struct Radius {
         static let cardRadius: CGFloat = 7
         static let shadowRadius: CGFloat = 2
@@ -56,7 +56,7 @@ struct TrendView: View {
                             CaffeineRecordsByDay()
                         }
                         .background(CardBackground())
-                        .padding(.vertical, TrendLayout.Paddings.dayRecordPadding)
+                        .padding(.vertical, TrendViewLayoutValue.Paddings.dayRecordPadding)
                         
                         NavigationLink {
                             
@@ -64,7 +64,7 @@ struct TrendView: View {
                             Text("전체 리스트 보기")
                                 .font(.subheadline)
                                 .foregroundColor(.secondaryTextGray)
-                                .padding(TrendLayout.Paddings.TotalListViewPadding)
+                                .padding(TrendViewLayoutValue.Paddings.TotalListViewPadding)
                         }
                         
                         Spacer()
@@ -85,21 +85,21 @@ struct TrendChart: View {
                 ForEach(0 ..< 5) { chartIndex in
                     VStack(alignment: .leading, spacing: .zero) {
                         AverageCaffeineAmountForWeek()
-                            .padding(TrendLayout.Paddings.averageCaffeineAmountPadding)
+                            .padding(TrendViewLayoutValue.Paddings.averageCaffeineAmountPadding)
                         
                         Spacer()
                     }
                     .tag(chartIndex)
-                    .frame(maxWidth: TrendLayout.Sizes.cardWidth, alignment: .leading)
+                    .frame(maxWidth: TrendViewLayoutValue.Sizes.cardWidth, alignment: .leading)
                     .background(CardBackground())
-                    .padding(TrendLayout.Paddings.chartPadding)
+                    .padding(TrendViewLayoutValue.Paddings.chartPadding)
                     
                 }
             }
-            .frame(width: TrendLayout.Sizes.mainWidth, height: TrendLayout.Sizes.chartHeight, alignment: .center)
+            .frame(width: TrendViewLayoutValue.Sizes.mainWidth, height: TrendViewLayoutValue.Sizes.chartHeight, alignment: .center)
             .tabViewStyle(.page(indexDisplayMode: .never))
         }
-        .frame(height: TrendLayout.Sizes.chartHeight)
+        .frame(height: TrendViewLayoutValue.Sizes.chartHeight)
     }
 }
 
@@ -109,17 +109,17 @@ struct AverageCaffeineAmountForWeek: View {
             Text("하루 평균 섭취량")
                 .font(.subheadline)
                 .foregroundColor(.black)
-                .padding(.bottom, TrendLayout.Paddings.textVerticalPadding)
+                .padding(.bottom, TrendViewLayoutValue.Paddings.textVerticalPadding)
             HStack(alignment: .firstTextBaseline, spacing: .zero){
                 Text("360")
                     .font(.largeTitle)
                     .foregroundColor(.black)
-                    .padding(.trailing, TrendLayout.Paddings.caffeineRecordAmountUnitPadding)
+                    .padding(.trailing, TrendViewLayoutValue.Paddings.caffeineRecordAmountUnitPadding)
                 Text("mg")
                     .font(.body)
                     .foregroundColor(.secondaryTextGray)
             }
-            .padding(.bottom, TrendLayout.Paddings.averageCaffeineWeekPadding)
+            .padding(.bottom, TrendViewLayoutValue.Paddings.averageCaffeineWeekPadding)
             Text("2022.06.03~2022.06.09")
                 .font(.body)
                 .foregroundColor(.secondaryTextGray)
@@ -129,9 +129,9 @@ struct AverageCaffeineAmountForWeek: View {
 
 struct SideEffectRecordsByDay: View {
     var body: some View {
-        VStack(alignment: .center, spacing: TrendLayout.Paddings.sideEffectRecordCellVerticalPadding) {
+        VStack(alignment: .center, spacing: TrendViewLayoutValue.Paddings.sideEffectRecordCellVerticalPadding) {
             ForEach(0..<2) { sideEffectRowIndex in
-                HStack(alignment: .center, spacing: TrendLayout.Paddings.sideEffectRecordCellHorizontalPadding) {
+                HStack(alignment: .center, spacing: TrendViewLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding) {
                     //TODO: 임시 데이터 수
                     ForEach(0..<5) { sideEffectItemIndex in
                         SideEffectRecordItem()
@@ -139,8 +139,8 @@ struct SideEffectRecordsByDay: View {
                 }
             }
         }
-        .padding(.vertical, TrendLayout.Paddings.sideEffectRecordCellVerticalPadding)
-        .frame(width: TrendLayout.Sizes.cardWidth)
+        .padding(.vertical, TrendViewLayoutValue.Paddings.sideEffectRecordCellVerticalPadding)
+        .frame(width: TrendViewLayoutValue.Sizes.cardWidth)
     }
 }
 
@@ -151,7 +151,7 @@ struct SideEffectRecordItem: View {
             Text("식도염")
                 .font(.caption)
         }
-        .frame(width: TrendLayout.Sizes.sideEffectRecordCellFrame)
+        .frame(width: TrendViewLayoutValue.Sizes.sideEffectRecordCellFixedWidth)
     }
 }
 
@@ -163,7 +163,7 @@ struct CaffeineRecordsByDay: View {
                 CaffeineRecordCell()
             }
         }
-        .frame(width: TrendLayout.Sizes.cardWidth)
+        .frame(width: TrendViewLayoutValue.Sizes.cardWidth)
         
     }
 }
@@ -176,11 +176,11 @@ struct CaffeineRecordCell: View {
                     Text("09:30")
                         .font(.caption)
                         .foregroundColor(.secondaryTextGray)
-                        .padding(.bottom, TrendLayout.Paddings.dayRecordPadding)
+                        .padding(.bottom, TrendViewLayoutValue.Paddings.dayRecordPadding)
                     HStack(alignment: .firstTextBaseline, spacing: .zero) {
                         Text("아메리카노")
                             .font(.title3)
-                            .padding(.trailing, TrendLayout.Paddings.textVerticalPadding)
+                            .padding(.trailing, TrendViewLayoutValue.Paddings.textVerticalPadding)
                         Text("스타벅스/Tall")
                             .font(.caption)
                             .foregroundColor(.secondaryTextGray)
@@ -190,13 +190,13 @@ struct CaffeineRecordCell: View {
                 HStack(alignment: .firstTextBaseline, spacing: .zero) {
                     Text("150")
                         .font(.title)
-                        .padding(.trailing, TrendLayout.Paddings.caffeineRecordAmountUnitPadding)
+                        .padding(.trailing, TrendViewLayoutValue.Paddings.caffeineRecordAmountUnitPadding)
                     Text("mg")
                         .font(.subheadline)
                         .foregroundColor(.secondaryTextGray)
                 }
             }
-            .padding(TrendLayout.Paddings.caffeineRecordRowVerticalPadding)
+            .padding(TrendViewLayoutValue.Paddings.caffeineRecordRowVerticalPadding)
             Divider()
             
         }
@@ -205,9 +205,9 @@ struct CaffeineRecordCell: View {
 
 struct CardBackground: View {
     var body: some View {
-        RoundedRectangle(cornerRadius: TrendLayout.Radius.cardRadius)
+        RoundedRectangle(cornerRadius: TrendViewLayoutValue.Radius.cardRadius)
             .foregroundColor(.white)
-            .shadow(color: .primaryShadowGray, radius: TrendLayout.Radius.shadowRadius, x: .zero, y: .zero)
+            .shadow(color: .primaryShadowGray, radius: TrendViewLayoutValue.Radius.shadowRadius, x: .zero, y: .zero)
     }
 }
 
