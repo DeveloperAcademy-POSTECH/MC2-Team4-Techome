@@ -27,36 +27,15 @@ enum Franchise: String, Hashable, Codable {
     func getSizeAmount(size: String) -> Int {
         switch self {
         case .starbucks:
-            switch size {
-            case "Tall":
-                return 355
-                
-            case "Grande":
-                return 473
-                
-            case "Venti":
-                return 591
-                
-            default:
-                fatalError("No Size")
-            }
+            return SizeMap.starbucks[size]!
             
         case .twosomePlace:
-            switch size {
-            case "Tall":
-                return 355
-                
-            case "Grande":
-                return 473
-                
-            case "Venti":
-                return 591
-                
-            default:
-                fatalError("No Size")
-            }
+            return SizeMap.twosomePlace[size]!
         }
     }
 }
 
-
+struct SizeMap{
+    static let starbucks = ["Tall": 355, "Grande": 473, "Venti": 591]
+    static let twosomePlace = ["Regular": 355, "Large": 473, "Venti": 591]
+}
