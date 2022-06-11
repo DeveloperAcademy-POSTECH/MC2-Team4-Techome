@@ -53,33 +53,34 @@ struct AddSideEffect: View {
                     .padding(.horizontal, contentHorizontalPadding)
                     
                     LazyVGrid(columns: columns, spacing: 15) {
-                        ForEach(sideEffects, id: \.self) { sideEffect in
+                        ForEach(sideEffects.indices, id: \.self) { sideEffect in
                             ZStack {
                                 RoundedRectangle(cornerRadius: 5)
-                                    .foregroundColor(.white)
-                                //                                    .foregroundColor(isSelected[idx] ? .brown : .white)
+                                    .foregroundColor(isSelected[sideEffect] ? .primaryBrown : .white)
                                     .shadow(color: .primaryShadowGray, radius: 2, x: 0, y: 0)
                                 
                                 HStack(spacing: 0) {
                                     Image("heartburn")
                                         .renderingMode(.template)
                                         .fixedSize()
-                                        .foregroundColor(.customBlack)
                                         .frame(width: 20, alignment: .center)
                                     
-                                    Text(sideEffect)
+                                    Text(sideEffects[sideEffect])
                                         .padding(.vertical, 12.5)
+                                        .padding(.leading, 18)
                                         .font(.body)
                                         .fixedSize()
                                         .frame(width: 66, alignment: .center)
-                                        .padding(.leading, 18)
+                                    
                                 } // HStack
                                 .padding(.horizontal)
+                                .foregroundColor(isSelected[sideEffect] ? .white : .customBlack)
+                                
                             } // ZStack
                             .onTapGesture {
-                                print(sideEffect)
+                                isSelected[sideEffect].toggle()
                             }
-                        }
+                        } // ForEach
                     } // LazyVGrid
                     .padding(.horizontal)
                     
@@ -102,6 +103,7 @@ struct AddSideEffect: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         print("저장 누름")
+                        self.presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("저장")
                             .foregroundColor(.primaryBrown)
