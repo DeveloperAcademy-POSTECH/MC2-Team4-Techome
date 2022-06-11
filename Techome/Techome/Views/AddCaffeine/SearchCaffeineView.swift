@@ -32,7 +32,7 @@ struct SearchCaffeineView: View {
                         .padding(EdgeInsets(top: widthPadding, leading: listTextPadding, bottom: 0, trailing: 0))
                     
                     
-                    CaffeineRecordByDay()
+                    RecentlyAddedCaffeine()
                 }
                 .frame(height: UIScreen.main.bounds.height * 0.8, alignment: .top)
                 .padding(.horizontal)
@@ -54,9 +54,9 @@ struct SearchCaffeineView: View {
     }
 }
 
-struct CaffeineRecordByDay: View {
+struct RecentlyAddedCaffeine: View {
     var body: some View {
-        LazyVStack(spacing: 0) {
+        VStack(spacing: 0) {
             ForEach (0 ..< 7) {_ in
                 CaffeineRecordRow()
             }
