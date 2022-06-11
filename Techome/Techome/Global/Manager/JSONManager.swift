@@ -12,7 +12,7 @@ final class JSONManager {
     private init() {}
     
     //  referenced by https://gist.github.com/norsez/aa3f11c0e875526e5270e7791f3891fb
-    func load<T: Decodable>(filename: String) throws -> [T] {
+    func load<T: Decodable>(filename: String) -> [T] {
         let fileManager = FileManager.default
         let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
         
@@ -21,13 +21,12 @@ final class JSONManager {
         }
         let fileURL = url.appendingPathComponent(filename)
         
-        print(fileURL)
-        
         var data = Data()
         do {
             data = try Data(contentsOf: fileURL)
         } catch {
-            fatalError("No File at \(fileURL)")
+            print("No File at \(fileURL)")
+            return []
         }
         
         do {
@@ -38,7 +37,7 @@ final class JSONManager {
     }
     
     //  referenced by https://gist.github.com/norsez/aa3f11c0e875526e5270e7791f3891fb
-    func store<T: Encodable>(data: T, filename: String) throws {
+    func store<T: Encodable>(data: T, filename: String) {
         let fileManager = FileManager.default
         let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
         
@@ -63,5 +62,23 @@ final class JSONManager {
             fatalError("File Write Error")
         }
         
+    }
+    
+    //  referenced by https://stackoverflow.com/questions/37947509/swift-how-to-determine-application-folder
+    func copyBeverageData() {
+        let fileManager = FileManager.default
+        let sourceUrl = URL(fileURLWithPath: Bundle.main.bundleURL.absoluteString)
+        let destinationUrls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        do {
+            guard let destinationUrl = destinationUrls.first else {
+                fatalError("No Url")
+            }
+            
+            try fileManager.copyItem(at: sourceUrl.appendingPathComponent("BeverageData.json"),
+                                     to: destinationUrl.appendingPathComponent("BeverageData.json"))
+        } catch {
+            fatalError("Init Data Error")
+        }
     }
 }

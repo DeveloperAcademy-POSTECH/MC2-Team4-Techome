@@ -16,15 +16,20 @@
 		AB9CD1BD2851675E00589D07 /* tempResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1BC2851675E00589D07 /* tempResources.swift */; };
 		AB9CD1C02851676A00589D07 /* tempModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1BF2851676A00589D07 /* tempModel.swift */; };
 		AB9CD1C22851677000589D07 /* tempViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1C12851677000589D07 /* tempViewModel.swift */; };
+		DA60EAE92854382F00B34799 /* BeverageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60EAE82854382F00B34799 /* BeverageManager.swift */; };
+		DA60EAEC28543B4200B34799 /* IntakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60EAEB28543B4200B34799 /* IntakeRepository.swift */; };
+		DA60EAEE2854439800B34799 /* SideEffectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60EAED2854439800B34799 /* SideEffectRepository.swift */; };
+		DA60EAF0285443A500B34799 /* BeverageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60EAEF285443A500B34799 /* BeverageRepository.swift */; };
+		DA60EAF228544DD100B34799 /* BeverageData.json in Resources */ = {isa = PBXBuildFile; fileRef = DA60EAF128544DD100B34799 /* BeverageData.json */; };
 		DA774E4C2851C1CD009BA4EA /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E4B2851C1CD009BA4EA /* JSONManager.swift */; };
 		DA774E4F2851C21B009BA4EA /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E4E2851C21B009BA4EA /* Beverage.swift */; };
 		DA774E572851C29D009BA4EA /* Franchise.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E562851C29D009BA4EA /* Franchise.swift */; };
 		DA774E5A2851C2FC009BA4EA /* SideEffectRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E592851C2FC009BA4EA /* SideEffectRecord.swift */; };
-		DA774E5C2851C3F3009BA4EA /* BeverageRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E5B2851C3F3009BA4EA /* BeverageRecord.swift */; };
-		DAD0F9F5285316540039FB08 /* SideEffectRecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD0F9F4285316540039FB08 /* SideEffectRecordManager.swift */; };
+		DA774E5C2851C3F3009BA4EA /* IntakeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E5B2851C3F3009BA4EA /* IntakeRecord.swift */; };
+		DAD0F9F5285316540039FB08 /* SideEffectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD0F9F4285316540039FB08 /* SideEffectManager.swift */; };
 		DAD0F9F7285323A20039FB08 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD0F9F6285323A20039FB08 /* Formatter.swift */; };
 		DADFFD6128526536009DB7E4 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFFD6028526536009DB7E4 /* DummyData.swift */; };
-		DADFFD6B28530CA3009DB7E4 /* IntakeRecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFFD6A28530CA3009DB7E4 /* IntakeRecordManager.swift */; };
+		DADFFD6B28530CA3009DB7E4 /* IntakeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFFD6A28530CA3009DB7E4 /* IntakeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,15 +43,20 @@
 		AB9CD1BC2851675E00589D07 /* tempResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempResources.swift; sourceTree = "<group>"; };
 		AB9CD1BF2851676A00589D07 /* tempModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempModel.swift; sourceTree = "<group>"; };
 		AB9CD1C12851677000589D07 /* tempViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempViewModel.swift; sourceTree = "<group>"; };
+		DA60EAE82854382F00B34799 /* BeverageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageManager.swift; sourceTree = "<group>"; };
+		DA60EAEB28543B4200B34799 /* IntakeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeRepository.swift; sourceTree = "<group>"; };
+		DA60EAED2854439800B34799 /* SideEffectRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideEffectRepository.swift; sourceTree = "<group>"; };
+		DA60EAEF285443A500B34799 /* BeverageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageRepository.swift; sourceTree = "<group>"; };
+		DA60EAF128544DD100B34799 /* BeverageData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BeverageData.json; sourceTree = "<group>"; };
 		DA774E4B2851C1CD009BA4EA /* JSONManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
 		DA774E4E2851C21B009BA4EA /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		DA774E562851C29D009BA4EA /* Franchise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Franchise.swift; sourceTree = "<group>"; };
 		DA774E592851C2FC009BA4EA /* SideEffectRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideEffectRecord.swift; sourceTree = "<group>"; };
-		DA774E5B2851C3F3009BA4EA /* BeverageRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageRecord.swift; sourceTree = "<group>"; };
-		DAD0F9F4285316540039FB08 /* SideEffectRecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideEffectRecordManager.swift; sourceTree = "<group>"; };
+		DA774E5B2851C3F3009BA4EA /* IntakeRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeRecord.swift; sourceTree = "<group>"; };
+		DAD0F9F4285316540039FB08 /* SideEffectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideEffectManager.swift; sourceTree = "<group>"; };
 		DAD0F9F6285323A20039FB08 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		DADFFD6028526536009DB7E4 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
-		DADFFD6A28530CA3009DB7E4 /* IntakeRecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeRecordManager.swift; sourceTree = "<group>"; };
+		DADFFD6A28530CA3009DB7E4 /* IntakeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +138,7 @@
 		AB9CD1B7285166F000589D07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA60EAF128544DD100B34799 /* BeverageData.json */,
 				AB9CD1BC2851675E00589D07 /* tempResources.swift */,
 			);
 			path = Resources;
@@ -145,6 +156,7 @@
 		AB9CD1B92851672500589D07 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				DA60EAEA28543B3400B34799 /* Repository */,
 				DA774E4A2851C1C6009BA4EA /* Manager */,
 				AB9CD1B82851670200589D07 /* Extension */,
 				DAD0F9F6285323A20039FB08 /* Formatter.swift */,
@@ -152,12 +164,23 @@
 			path = Global;
 			sourceTree = "<group>";
 		};
+		DA60EAEA28543B3400B34799 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				DA60EAEB28543B4200B34799 /* IntakeRepository.swift */,
+				DA60EAED2854439800B34799 /* SideEffectRepository.swift */,
+				DA60EAEF285443A500B34799 /* BeverageRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		DA774E4A2851C1C6009BA4EA /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 				DA774E4B2851C1CD009BA4EA /* JSONManager.swift */,
-				DADFFD6A28530CA3009DB7E4 /* IntakeRecordManager.swift */,
-				DAD0F9F4285316540039FB08 /* SideEffectRecordManager.swift */,
+				DADFFD6A28530CA3009DB7E4 /* IntakeManager.swift */,
+				DAD0F9F4285316540039FB08 /* SideEffectManager.swift */,
+				DA60EAE82854382F00B34799 /* BeverageManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -167,7 +190,7 @@
 			children = (
 				DA774E4E2851C21B009BA4EA /* Beverage.swift */,
 				DA774E562851C29D009BA4EA /* Franchise.swift */,
-				DA774E5B2851C3F3009BA4EA /* BeverageRecord.swift */,
+				DA774E5B2851C3F3009BA4EA /* IntakeRecord.swift */,
 				DADFFD6028526536009DB7E4 /* DummyData.swift */,
 			);
 			path = Intake;
@@ -240,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB9CD1AE28515F4D00589D07 /* Preview Assets.xcassets in Resources */,
+				DA60EAF228544DD100B34799 /* BeverageData.json in Resources */,
 				AB9CD1AB28515F4D00589D07 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,18 +277,22 @@
 			files = (
 				AB9CD1A928515F4B00589D07 /* ContentView.swift in Sources */,
 				DA774E4F2851C21B009BA4EA /* Beverage.swift in Sources */,
-				DAD0F9F5285316540039FB08 /* SideEffectRecordManager.swift in Sources */,
+				DA60EAEC28543B4200B34799 /* IntakeRepository.swift in Sources */,
+				DAD0F9F5285316540039FB08 /* SideEffectManager.swift in Sources */,
+				DA60EAF0285443A500B34799 /* BeverageRepository.swift in Sources */,
 				DA774E4C2851C1CD009BA4EA /* JSONManager.swift in Sources */,
+				DA60EAE92854382F00B34799 /* BeverageManager.swift in Sources */,
 				AB9CD1A728515F4B00589D07 /* TechomeApp.swift in Sources */,
-				DA774E5C2851C3F3009BA4EA /* BeverageRecord.swift in Sources */,
+				DA774E5C2851C3F3009BA4EA /* IntakeRecord.swift in Sources */,
 				AB9CD1BB2851675600589D07 /* tempExtension.swift in Sources */,
 				AB9CD1BD2851675E00589D07 /* tempResources.swift in Sources */,
 				AB9CD1C02851676A00589D07 /* tempModel.swift in Sources */,
 				DA774E5A2851C2FC009BA4EA /* SideEffectRecord.swift in Sources */,
-				DADFFD6B28530CA3009DB7E4 /* IntakeRecordManager.swift in Sources */,
+				DADFFD6B28530CA3009DB7E4 /* IntakeManager.swift in Sources */,
 				DAD0F9F7285323A20039FB08 /* Formatter.swift in Sources */,
 				DADFFD6128526536009DB7E4 /* DummyData.swift in Sources */,
 				AB9CD1C22851677000589D07 /* tempViewModel.swift in Sources */,
+				DA60EAEE2854439800B34799 /* SideEffectRepository.swift in Sources */,
 				DA774E572851C29D009BA4EA /* Franchise.swift in Sources */,
 				2AC7A36628517C9100D7CA60 /* Color+.swift in Sources */,
 			);

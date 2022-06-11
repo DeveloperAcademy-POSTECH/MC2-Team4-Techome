@@ -10,23 +10,44 @@ import Foundation
 struct SideEffectRecord: Hashable, Codable {
     var uuid = UUID()
     var date: Date
-    var sideEffect: [SideEffect]
+    var sideEffects: [SideEffect]
 }
 
-enum SideEffect: String, CaseIterable, Hashable, Codable {
-    case fastHeartRate = "fastHeartRate"            //  두근거림
-    case shake = "shake"                            //  손떨림
-    case esophagitis = "esophagitis"                //  식도염
-    case depression = "depression"                  //  우울함
-    case heartburn = "heartburn"                    //  속쓰림
-    case dehydration = "dehydration"                //  탈수
-    case restlessness = "restlessness"              //  불안감
-    case lethargy = "lethargy"                      //  무기력
-    case insomnia = "insomnia"                      //  불면증
-    case dizziness = "dizziness"                    //  현기증
+enum SideEffect: Int, CaseIterable, Hashable, Codable {
+    case fastHeartRate = 0                  //  두근거림
+    case shake = 1                          //  손떨림
+    case esophagitis = 2                    //  식도염
+    case depression = 3                     //  우울함
+    case heartburn = 4                      //  속쓰림
+    case dehydration = 5                    //  탈수
+    case restlessness = 6                   //  불안감
+    case lethargy = 7                       //  무기력
+    case insomnia = 8                       //  불면증
+    case dizziness = 9                      //  현기증
     
     func getImageName() -> String {
-        return self.rawValue
+        switch self {
+        case .fastHeartRate:
+            return "fastHeartRate"
+        case .shake:
+            return "shake"
+        case .esophagitis:
+            return "esophagitis"
+        case .depression:
+            return "depression"
+        case .heartburn:
+            return "heartburn"
+        case .dehydration:
+            return "dehydration"
+        case .restlessness:
+            return "restlessness"
+        case .lethargy:
+            return "lethargy"
+        case .insomnia:
+            return "insomnia"
+        case .dizziness:
+            return "dizziness"
+        }
     }
     
     func getSideEffectName() -> String {
