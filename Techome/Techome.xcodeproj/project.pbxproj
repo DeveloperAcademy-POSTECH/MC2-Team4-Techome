@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2AC7A36628517C9100D7CA60 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7A36528517C9100D7CA60 /* Color+.swift */; };
 		AB9CD1A728515F4B00589D07 /* TechomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1A628515F4B00589D07 /* TechomeApp.swift */; };
-		AB9CD1A928515F4B00589D07 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1A828515F4B00589D07 /* ContentView.swift */; };
 		AB9CD1AB28515F4D00589D07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB9CD1AA28515F4D00589D07 /* Assets.xcassets */; };
 		AB9CD1AE28515F4D00589D07 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB9CD1AD28515F4D00589D07 /* Preview Assets.xcassets */; };
 		AB9CD1BB2851675600589D07 /* tempExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1BA2851675600589D07 /* tempExtension.swift */; };
@@ -28,7 +27,6 @@
 		DA774E5C2851C3F3009BA4EA /* IntakeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E5B2851C3F3009BA4EA /* IntakeRecord.swift */; };
 		DAD0F9F5285316540039FB08 /* SideEffectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD0F9F4285316540039FB08 /* SideEffectManager.swift */; };
 		DAD0F9F7285323A20039FB08 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD0F9F6285323A20039FB08 /* Formatter.swift */; };
-		DADFFD6128526536009DB7E4 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFFD6028526536009DB7E4 /* DummyData.swift */; };
 		DADFFD6B28530CA3009DB7E4 /* IntakeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFFD6A28530CA3009DB7E4 /* IntakeManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +34,6 @@
 		2AC7A36528517C9100D7CA60 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		AB9CD1A328515F4B00589D07 /* Techome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Techome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9CD1A628515F4B00589D07 /* TechomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechomeApp.swift; sourceTree = "<group>"; };
-		AB9CD1A828515F4B00589D07 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AB9CD1AA28515F4D00589D07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB9CD1AD28515F4D00589D07 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AB9CD1BA2851675600589D07 /* tempExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempExtension.swift; sourceTree = "<group>"; };
@@ -55,7 +52,6 @@
 		DA774E5B2851C3F3009BA4EA /* IntakeRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeRecord.swift; sourceTree = "<group>"; };
 		DAD0F9F4285316540039FB08 /* SideEffectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideEffectManager.swift; sourceTree = "<group>"; };
 		DAD0F9F6285323A20039FB08 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
-		DADFFD6028526536009DB7E4 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		DADFFD6A28530CA3009DB7E4 /* IntakeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,7 +108,6 @@
 		AB9CD1B4285166C100589D07 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AB9CD1A828515F4B00589D07 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -188,10 +183,9 @@
 		DA774E4D2851C1F2009BA4EA /* Intake */ = {
 			isa = PBXGroup;
 			children = (
-				DA774E4E2851C21B009BA4EA /* Beverage.swift */,
 				DA774E562851C29D009BA4EA /* Franchise.swift */,
+				DA774E4E2851C21B009BA4EA /* Beverage.swift */,
 				DA774E5B2851C3F3009BA4EA /* IntakeRecord.swift */,
-				DADFFD6028526536009DB7E4 /* DummyData.swift */,
 			);
 			path = Intake;
 			sourceTree = "<group>";
@@ -275,7 +269,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB9CD1A928515F4B00589D07 /* ContentView.swift in Sources */,
 				DA774E4F2851C21B009BA4EA /* Beverage.swift in Sources */,
 				DA60EAEC28543B4200B34799 /* IntakeRepository.swift in Sources */,
 				DAD0F9F5285316540039FB08 /* SideEffectManager.swift in Sources */,
@@ -290,7 +283,6 @@
 				DA774E5A2851C2FC009BA4EA /* SideEffectRecord.swift in Sources */,
 				DADFFD6B28530CA3009DB7E4 /* IntakeManager.swift in Sources */,
 				DAD0F9F7285323A20039FB08 /* Formatter.swift in Sources */,
-				DADFFD6128526536009DB7E4 /* DummyData.swift in Sources */,
 				AB9CD1C22851677000589D07 /* tempViewModel.swift in Sources */,
 				DA60EAEE2854439800B34799 /* SideEffectRepository.swift in Sources */,
 				DA774E572851C29D009BA4EA /* Franchise.swift in Sources */,
