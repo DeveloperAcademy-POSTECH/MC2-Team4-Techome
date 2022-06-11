@@ -13,48 +13,143 @@ struct AddCaffeineDetailViewLayoutValue {
         static let sectionPadding: CGFloat = 42
         static let sectionTitleToComponentPadding: CGFloat = 15
         static let cardVerticalPadding: CGFloat = 15
-        static let franchiseDrinkSizeButtonHorizontalPadding: CGFloat = 5
-        
+        static let franchiseDrinkSizeButtonHorizontalPadding: CGFloat = 2.5
         static let franchiseDrinkSizeButtonInsideHorizontalPadding: CGFloat = 44
         static let franchiseDrinkSizeButtonInsideVerticalPadding: CGFloat = 13.5
-        
-        static let effectCardInsideLeadingPadding: CGFloat = 18
+        static let effectCardInsideHorizontalPadding: CGFloat = 18
         static let effectCardInsideVerticalPadding: CGFloat = 14
         static let effectDividerHorizontalPadding: CGFloat = 10
-        
+        static let effectSectionIconToTextPadding: CGFloat = 6
+        static let AddCaffeineAmountToUnitPadding: CGFloat = 3
     }
     
     struct Sizes {
         static let addCaffeineButtonHeight: CGFloat = 60
-        
     }
     
     struct CornerRadius {
         static let cardRadius: CGFloat = 5
+        static let shadowRadius: CGFloat = 2
     }
 }
 
 struct AddCaffeineDetailView: View {
     var body: some View {
-        AddCaffeineButton()
+        VStack(alignment: .center, spacing: .zero) {
+            FranchiseDrinkSizeButtonGroup()
+                .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.sectionPadding)
+            Group {
+                EffectSectionAddCaffeineAmout()
+                    .background(EffectSectionBackground())
+            }
+            .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.cardVerticalPadding)
+            .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.sectionPadding)
+            Spacer()
+            AddCaffeineButton()
+        }
     }
 }
 
 struct FranchiseDrinkSizeButton: View {
     var body: some View {
-        Text("프랜차이즈 음료 크기 버튼")
+        Button {
+            
+        } label: {
+            //TODO: 음료 크기 임시 더미데이터
+            Text("Tall")
+                .font(.body)
+                .foregroundColor(.secondaryTextGray)
+                .padding(.vertical, AddCaffeineDetailViewLayoutValue.Paddings.franchiseDrinkSizeButtonInsideVerticalPadding)
+                .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.franchiseDrinkSizeButtonInsideHorizontalPadding)
+                .background(RoundedRectangle(cornerRadius: AddCaffeineDetailViewLayoutValue.CornerRadius.cardRadius)
+                    .foregroundColor(.white)
+                    .shadow(color: .primaryShadowGray, radius: AddCaffeineDetailViewLayoutValue.CornerRadius.shadowRadius, x: .zero, y: .zero))
+            
+        }
     }
 }
+
 
 struct FranchiseDrinkSizeButtonGroup: View {
     var body: some View {
-        Text("프랜차이즈 음료 크기 버튼 그룹")
+        HStack(alignment: .center, spacing: .zero) {
+            //TODO: 임시 버튼 갯수 로직 구현 필요
+            ForEach(0..<3) { franchiseDrinkSizeButtonIndex in
+                FranchiseDrinkSizeButton()
+                    .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.franchiseDrinkSizeButtonHorizontalPadding)
+            }
+            
+        }
     }
 }
 
-struct AddCaffeineAmout: View {
+struct EffectSectionAddCaffeineAmout: View {
     var body: some View {
-        Text("카페인 섭취량")
+        VStack(alignment: .leading, spacing: .zero) {
+            HStack(alignment: .center, spacing: .zero) {
+                Image(systemName: "circle.hexagongrid")
+                    .padding(.trailing, AddCaffeineDetailViewLayoutValue.Paddings.effectSectionIconToTextPadding)
+                //TODO: 임시 더미데이터 변경 필요
+                Text("추가되는 카페인은 150mg 입니다.")
+                    .fontWeight(.semibold)
+            }
+            .font(.subheadline)
+            .foregroundColor(.primaryBrown)
+            .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.effectCardInsideVerticalPadding)
+            
+            Divider()
+                .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.effectCardInsideVerticalPadding)
+            CurrentCaffeineAmount()
+                .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.effectCardInsideVerticalPadding)
+            AfterCaffeineAmount()
+        }
+        .padding(.vertical, AddCaffeineDetailViewLayoutValue.Paddings.effectCardInsideVerticalPadding)
+        .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.effectCardInsideHorizontalPadding)
+    }
+}
+
+struct CurrentCaffeineAmount: View {
+    var body: some View {
+        HStack(alignment: .center, spacing: .zero) {
+            Text("현재")
+                .font(.subheadline)
+                .foregroundColor(.secondaryTextGray)
+            Spacer()
+            HStack(alignment: .firstTextBaseline, spacing: .zero) {
+                //TODO: 임시 더미데이터 변경 필요
+                Text("130")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                //TODO: customBlack으로 변경 필요
+                    .foregroundColor(.black)
+                    .padding(.trailing, AddCaffeineDetailViewLayoutValue.Paddings.AddCaffeineAmountToUnitPadding)
+                Text("mg")
+                    .font(.footnote)
+                    .foregroundColor(.secondaryTextGray)
+            }
+        }
+    }
+}
+
+struct AfterCaffeineAmount: View {
+    var body: some View {
+        HStack(alignment: .center, spacing: .zero) {
+            Text("섭취 후")
+                .font(.subheadline)
+                .foregroundColor(.secondaryTextGray)
+            Spacer()
+            HStack(alignment: .firstTextBaseline, spacing: .zero) {
+                //TODO: 임시 더미데이터 변경 필요
+                Text("280")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.primaryBrown)
+                    .padding(.trailing, AddCaffeineDetailViewLayoutValue.Paddings.AddCaffeineAmountToUnitPadding)
+                Text("mg")
+                    .font(.footnote)
+                    .foregroundColor(.secondaryTextGray)
+            }
+        }
     }
 }
 
@@ -92,6 +187,14 @@ struct AddCaffeineButtonBackground: View {
 struct EspressoShotCountButton: View {
     var body: some View {
         Text("에스프레소 샷 수 버튼")
+    }
+}
+
+struct EffectSectionBackground: View {
+    var body: some View {
+        RoundedRectangle(cornerRadius: AddCaffeineDetailViewLayoutValue.CornerRadius.cardRadius)
+            .foregroundColor(.white)
+            .shadow(color: .primaryShadowGray, radius: AddCaffeineDetailViewLayoutValue.CornerRadius.shadowRadius, x: .zero, y: .zero)
     }
 }
 
