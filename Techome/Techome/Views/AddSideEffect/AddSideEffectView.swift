@@ -7,22 +7,40 @@
 
 import SwiftUI
 
-struct AddSideEffect: View {
+struct AddSideEffectLayoutValue {
+    
+    // AddSideEffectView Paddings
+    struct Paddings {
+        static let contentHorizontalPadding: CGFloat = 15
+        static let contentBetweenVerticalPadding: CGFloat = 31
+        static let labelBottomPadding: CGFloat = 15
+        static let gridItemHorizantalPadding: CGFloat = 15
+        static let gridTextVerticalPadding: CGFloat = 12.5
+        static let gridImageTextPadding: CGFloat = 18
+    }
+    
+    // AddSideEffectView Sizes
+    struct Sizes {
+        static let sideEffectImageWidth: CGFloat = 20
+        static let gridImageTextWidth: CGFloat = 66
+    }
+    
+    // AddSideEffectView Radius
+    struct Radius {
+        static let buttonRadius: CGFloat = 5
+    }
+}
+
+struct AddSideEffectView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State private var sideEffectDate = Date()
     @State private var isSelected: [Bool] = [false, false, false, false, false, false, false, false, false, false]
     
-    let navigationBarBottomPadding: CGFloat = 70
-    let navigationBarHorizontalPadding: CGFloat = 19
-    let contentHorizontalPadding: CGFloat = 15
-    let labelBottomPadding: CGFloat = 15
-    let contentBetweenPadding: CGFloat = 31
-    
     let columns = [
-        GridItem(.adaptive(minimum: 172)),
-        GridItem(.adaptive(minimum: 172))
+        GridItem(.flexible()),
+        GridItem(.flexible())
     ]
     
     var body: some View {
@@ -32,30 +50,29 @@ struct AddSideEffect: View {
                 
                 VStack(alignment: .leading, spacing: 0) {
                     
-                    Group {
-                        Text("언제 부작용을 겪으셨나요?")
-                            .foregroundColor(.secondaryTextGray)
-                            .font(.subheadline)
-                            .padding(.bottom, labelBottomPadding)
-                        
-                        DatePicker("부작용 일시", selection: $sideEffectDate, in: ...Date())
-                            .labelsHidden()
-                            .accentColor(.primaryBrown)
-                            .padding(.bottom, contentBetweenPadding)
-                            .frame(alignment: .leading)
-                        
-                        Text("어떤 부작용을 겪으셨나요?")
-                            .foregroundColor(.secondaryTextGray)
-                            .font(.subheadline)
-                            .padding(.bottom, labelBottomPadding)
-                        
-                    } // Group
-                    .padding(.horizontal, contentHorizontalPadding)
+                    Text("언제 부작용을 겪으셨나요?")
+                        .foregroundColor(.secondaryTextGray)
+                        .font(.subheadline)
+                        .padding(.top, AddSideEffectLayoutValue.Paddings.contentBetweenVerticalPadding)
+                        .padding(.bottom, AddSideEffectLayoutValue.Paddings.labelBottomPadding)
                     
-                    LazyVGrid(columns: columns, spacing: 15) {
+                    DatePicker("부작용 일시", selection: $sideEffectDate, in: ...Date())
+                        .labelsHidden()
+                        .accentColor(.primaryBrown)
+                        .frame(alignment: .leading)
+                        .padding(.bottom, AddSideEffectLayoutValue.Paddings.contentBetweenVerticalPadding)
+                    
+                    Text("어떤 부작용을 겪으셨나요?")
+                        .foregroundColor(.secondaryTextGray)
+                        .font(.subheadline)
+                        .padding(.bottom, AddSideEffectLayoutValue.Paddings.labelBottomPadding)
+                    
+                    LazyVGrid(columns: columns, spacing: AddSideEffectLayoutValue.Paddings.gridItemHorizantalPadding) {
+                        
                         ForEach(sideEffects.indices, id: \.self) { sideEffect in
                             ZStack {
-                                RoundedRectangle(cornerRadius: 5)
+                                
+                                RoundedRectangle(cornerRadius: AddSideEffectLayoutValue.Radius.buttonRadius)
                                     .foregroundColor(isSelected[sideEffect] ? .primaryBrown : .white)
                                     .shadow(color: .primaryShadowGray, radius: 2, x: 0, y: 0)
                                 
@@ -63,14 +80,14 @@ struct AddSideEffect: View {
                                     Image("heartburn")
                                         .renderingMode(.template)
                                         .fixedSize()
-                                        .frame(width: 20, alignment: .center)
+                                        .frame(width: AddSideEffectLayoutValue.Sizes.sideEffectImageWidth, alignment: .center)
                                     
                                     Text(sideEffects[sideEffect])
-                                        .padding(.vertical, 12.5)
-                                        .padding(.leading, 18)
+                                        .padding(.vertical, AddSideEffectLayoutValue.Paddings.gridTextVerticalPadding)
+                                        .padding(.leading, AddSideEffectLayoutValue.Paddings.gridImageTextPadding)
                                         .font(.body)
                                         .fixedSize()
-                                        .frame(width: 66, alignment: .center)
+                                        .frame(width: AddSideEffectLayoutValue.Sizes.gridImageTextWidth, alignment: .center)
                                     
                                 } // HStack
                                 .padding(.horizontal)
@@ -81,41 +98,37 @@ struct AddSideEffect: View {
                                 isSelected[sideEffect].toggle()
                             }
                         } // ForEach
+                        
                     } // LazyVGrid
-                    .padding(.horizontal)
                     
                     Spacer()
                     
                 } // VStack
-                .padding(.top, 57)
+                .padding(.horizontal, AddSideEffectLayoutValue.Paddings.contentHorizontalPadding)
             }
             .navigationTitle("부작용 추가하기")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {
-                        self.presentationMode.wrappedValue.dismiss()
-                    }) {
-                        Text("취소")
-                            .foregroundColor(.primaryBrown)
-                    }
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        print("저장 누름")
-                        self.presentationMode.wrappedValue.dismiss()
-                    }) {
-                        Text("저장")
-                            .foregroundColor(.primaryBrown)
-                    }
-                }
-            }
+            .navigationBarItems(leading:
+                Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("취소")
+                        .foregroundColor(.primaryBrown)
+                })
+            .navigationBarItems(trailing:
+                Button(action: {
+                    // run 저장(update) method
+                    self.presentationMode.wrappedValue.dismiss()
+            }) {
+                Text("저장")
+                    .foregroundColor(.primaryBrown)
+            })
         }
     }
 }
 
 struct AddSideEffect_Previews: PreviewProvider {
     static var previews: some View {
-        AddSideEffect()
+        AddSideEffectView()
     }
 }

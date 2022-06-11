@@ -18,7 +18,7 @@ struct Home: View {
             Text("부작용 추가하기")
         }
         .sheet(isPresented: self.$showModal){
-            AddSideEffect()
+            AddSideEffectView()
         }
     }
 }
