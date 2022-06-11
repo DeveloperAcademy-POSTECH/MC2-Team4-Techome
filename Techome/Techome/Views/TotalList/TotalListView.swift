@@ -7,40 +7,32 @@
 
 import SwiftUI
 
-//TotalListLayout으로 수정 예정
-struct TrendLayout {
+
+struct TotalListLayout {
     
     struct Paddings {
-        ///TrendView Paddings
+        
         static let dayRecordPadding: CGFloat = 4
         static let caffeineRecordRowVerticalPadding: CGFloat = 15
         static let caffeineRecordRowHorizontalPadding: CGFloat = 20
-        static let chartPadding: CGFloat = 8
         static let textVerticalPadding: CGFloat = 5
-        static let averageCaffeineWeekPadding: CGFloat = 7
         static let sideEffectRecordCellHorizontalPadding: CGFloat = 21
         static let sideEffectRecordCellVerticalPadding: CGFloat = 20
-        static let averageCaffeineAmountPadding: CGFloat = 15
         static let caffeineRecordAmountUnitPadding: CGFloat = 1
         static let TotalListViewPadding: CGFloat = 20
+        
     }
     
-    ///TrendView Sizes
     struct Sizes {
         static let mainWidth: CGFloat = UIScreen.main.bounds.width
         static let mainHeight: CGFloat = UIScreen.main.bounds.height
         static let cardWidth: CGFloat = UIScreen.main.bounds.width - 30
-        static let chartHeight: CGFloat = cardWidth * 1.26
-        static let sideEffectRecordHeight: CGFloat = cardWidth / 2.4
         static let sideEffectRecordCellFixedWidth: CGFloat = 46
     }
     
-    ///TrendView Radius
-    struct Radius {
-        static let cardRadius: CGFloat = 7
-        static let shadowRadius: CGFloat = 2
-    }
+    
 }
+
 
 // 전체 리스트
 struct TotalListView: View {
@@ -77,12 +69,13 @@ struct TotalRecordsByDay: View {
                 .padding(.bottom, 6)
         
             VStack(spacing: 0){
-            
+                CaffeineRecordCellList()
+                    .padding(.horizontal, TotalListLayout.Paddings.caffeineRecordRowHorizontalPadding)
                 SideEffectRecordRow()
                 Divider()
                     .padding(.horizontal, 15.0)
                 CaffeineRecordCellList()
-                    .padding(.horizontal, 20.0)
+                    .padding(.horizontal, TotalListLayout.Paddings.caffeineRecordRowHorizontalPadding)
             }
             .padding(.vertical, 3)
             .background(Color.white)
@@ -135,9 +128,9 @@ struct SideEffectRecordRow: View {
 
 struct SideEffectRecordsByDayList: View {
     var body: some View {
-        VStack(alignment: .center, spacing: TrendLayout.Paddings.sideEffectRecordCellVerticalPadding) {
+        VStack(alignment: .center, spacing: TotalListLayout.Paddings.sideEffectRecordCellVerticalPadding) {
             ForEach(0..<2) { sideEffectRowIndex in
-                HStack(alignment: .center, spacing: TrendLayout.Paddings.sideEffectRecordCellHorizontalPadding) {
+                HStack(alignment: .center, spacing: TotalListLayout.Paddings.sideEffectRecordCellHorizontalPadding) {
                     //TODO: 임시 데이터 수
                     ForEach(0..<5) { sideEffectItemIndex in
                         SideEffectRecordItemList()
@@ -145,8 +138,8 @@ struct SideEffectRecordsByDayList: View {
                 }
             }
         }
-        .padding(.vertical, TrendLayout.Paddings.sideEffectRecordCellVerticalPadding)
-        .frame(width: TrendLayout.Sizes.cardWidth)
+        .padding(.vertical, TotalListLayout.Paddings.sideEffectRecordCellVerticalPadding)
+        .frame(width: TotalListLayout.Sizes.cardWidth)
     }
 }
 
@@ -158,7 +151,7 @@ struct SideEffectRecordItemList: View {
             Text("식도염")
                 .font(.caption)
         }
-        .frame(width: TrendLayout.Sizes.sideEffectRecordCellFixedWidth)
+        .frame(width: TotalListLayout.Sizes.sideEffectRecordCellFixedWidth)
     }
 }
 
@@ -174,11 +167,11 @@ struct CaffeineRecordCellList: View {
                     Text("09:30")
                         .font(.caption)
                         .foregroundColor(.secondaryTextGray)
-                        .padding(.bottom, TrendLayout.Paddings.dayRecordPadding)
+                        .padding(.bottom, TotalListLayout.Paddings.dayRecordPadding)
                     HStack(alignment: .firstTextBaseline, spacing: 0) {
                         Text("아메리카노")
                             .font(.title3)
-                            .padding(.trailing, TrendLayout.Paddings.textVerticalPadding)
+                            .padding(.trailing, TotalListLayout.Paddings.textVerticalPadding)
                         Text("스타벅스/Tall")
                             .font(.caption)
                             .foregroundColor(.secondaryTextGray)
@@ -188,13 +181,13 @@ struct CaffeineRecordCellList: View {
                 HStack(alignment: .firstTextBaseline, spacing: 0) {
                     Text("150")
                         .font(.title)
-                        .padding(.trailing, TrendLayout.Paddings.caffeineRecordAmountUnitPadding)
+                        .padding(.trailing, TotalListLayout.Paddings.caffeineRecordAmountUnitPadding)
                     Text("mg")
                         .font(.subheadline)
                         .foregroundColor(.secondaryTextGray)
                 }
             }
-            .padding(.vertical, TrendLayout.Paddings.caffeineRecordRowVerticalPadding)
+            .padding(.vertical, TotalListLayout.Paddings.caffeineRecordRowVerticalPadding)
             Divider()
             
         }
