@@ -103,11 +103,9 @@ struct SideEffectType: View {
             .padding(.bottom, AddSideEffectLayoutValue.Paddings.labelBottomPadding)
         
         LazyVGrid(columns: columns, spacing: AddSideEffectLayoutValue.Paddings.gridItemHorizantalPadding) {
-            
             ForEach(sideEffects.indices, id: \.self) { sideEffect in
                 SideEffectButton(sideEffect: sideEffect)
             } // ForEach
-            
         } // LazyVGrid
     }
 }
@@ -136,7 +134,6 @@ struct SideEffectButton: View {
                     .padding(.leading, AddSideEffectLayoutValue.Paddings.gridImageTextPadding)
                     .fixedSize()
                     .frame(width: AddSideEffectLayoutValue.Sizes.gridTextWidth, alignment: .center)
-                
             } // HStack
             .padding(.horizontal)
             .foregroundColor(isSelected[sideEffect] ? .white : .customBlack)
