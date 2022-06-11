@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A23FFB9285487A6004428FF /* AddCaffeineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A23FFB8285487A6004428FF /* AddCaffeineDetailView.swift */; };
 		2AC7A36628517C9100D7CA60 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7A36528517C9100D7CA60 /* Color+.swift */; };
 		AB9CD1A728515F4B00589D07 /* TechomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1A628515F4B00589D07 /* TechomeApp.swift */; };
 		AB9CD1A928515F4B00589D07 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1A828515F4B00589D07 /* ContentView.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A23FFB8285487A6004428FF /* AddCaffeineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCaffeineDetailView.swift; sourceTree = "<group>"; };
 		2AC7A36528517C9100D7CA60 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		AB9CD1A328515F4B00589D07 /* Techome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Techome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9CD1A628515F4B00589D07 /* TechomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechomeApp.swift; sourceTree = "<group>"; };
@@ -54,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A23FFB7285486F5004428FF /* AddCaffeineDetail */ = {
+			isa = PBXGroup;
+			children = (
+				2A23FFB8285487A6004428FF /* AddCaffeineDetailView.swift */,
+			);
+			path = AddCaffeineDetail;
+			sourceTree = "<group>";
+		};
 		AB9CD19A28515F4B00589D07 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +106,7 @@
 		AB9CD1B4285166C100589D07 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2A23FFB7285486F5004428FF /* AddCaffeineDetail */,
 				AB9CD1A828515F4B00589D07 /* ContentView.swift */,
 			);
 			path = Views;
@@ -248,6 +259,7 @@
 				AB9CD1A728515F4B00589D07 /* TechomeApp.swift in Sources */,
 				DA774E5C2851C3F3009BA4EA /* DrinkRecord.swift in Sources */,
 				AB9CD1BB2851675600589D07 /* tempExtension.swift in Sources */,
+				2A23FFB9285487A6004428FF /* AddCaffeineDetailView.swift in Sources */,
 				AB9CD1BD2851675E00589D07 /* tempResources.swift in Sources */,
 				DA774E512851C23C009BA4EA /* DrinkData.swift in Sources */,
 				AB9CD1C02851676A00589D07 /* tempModel.swift in Sources */,
