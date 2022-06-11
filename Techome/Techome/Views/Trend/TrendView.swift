@@ -40,13 +40,7 @@ struct TrendLayout {
     }
 }
 
-
-
-
-
-
 struct TrendView: View {
-    
     var body: some View {
         NavigationView {
             ZStack {
@@ -54,7 +48,7 @@ struct TrendView: View {
                 .edgesIgnoringSafeArea(.all)
                 
                 ScrollView {
-                    VStack(spacing: 0) {
+                    VStack(spacing: .zero) {
                         TrendChart()
                         Group {
                             SideEffectRecordsByDay()
@@ -88,7 +82,7 @@ struct TrendChart: View {
             TabView {
                 //TODO: 임시 데이터 수
                 ForEach(0 ..< 5) { chartIndex in
-                    VStack(alignment: .leading, spacing: 0) {
+                    VStack(alignment: .leading, spacing: .zero) {
                         AverageCaffeineAmountForWeek()
                             .padding(TrendLayout.Paddings.averageCaffeineAmountPadding)
                         
@@ -110,12 +104,12 @@ struct TrendChart: View {
 
 struct AverageCaffeineAmountForWeek: View {
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .leading, spacing: .zero) {
             Text("하루 평균 섭취량")
                 .font(.subheadline)
                 .foregroundColor(.black)
                 .padding(.bottom, TrendLayout.Paddings.textVerticalPadding)
-            HStack(alignment: .firstTextBaseline, spacing: 0){
+            HStack(alignment: .firstTextBaseline, spacing: .zero){
                 Text("360")
                     .font(.largeTitle)
                     .foregroundColor(.black)
@@ -134,8 +128,8 @@ struct AverageCaffeineAmountForWeek: View {
 
 struct SideEffectRecordsByDay: View {
     let sideEffectRecordRow = [
-        GridItem(.flexible(), spacing: 0, alignment: .center),
-        GridItem(.flexible(), spacing: 0, alignment: .center)
+        GridItem(.flexible(), spacing: .zero, alignment: .center),
+        GridItem(.flexible(), spacing: .zero, alignment: .center)
     ]
     var body: some View {
         LazyHGrid(rows: sideEffectRecordRow, spacing: TrendLayout.Paddings.sideEffectRecordCellHorizontalPadding) {
@@ -150,7 +144,7 @@ struct SideEffectRecordsByDay: View {
 
 struct SideEffectRecordItem: View {
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: .zero) {
             Image("esophagitis")
             Text("식도염")
                 .font(.caption)
@@ -161,7 +155,7 @@ struct SideEffectRecordItem: View {
 
 struct CaffeineRecordsByDay: View {
     var body: some View {
-        LazyVStack(spacing: 0) {
+        LazyVStack(spacing: .zero) {
             //TODO: 임시 데이터 수
             ForEach(0 ..< 10) { CaffeineRecordCellIndex in
                 CaffeineRecordCell()
@@ -173,14 +167,14 @@ struct CaffeineRecordsByDay: View {
 
 struct CaffeineRecordCell: View {
     var body: some View {
-        VStack(spacing: 0) {
-            HStack(alignment: .center, spacing: 0) {
-                VStack(alignment: .leading, spacing: 0) {
+        VStack(spacing: .zero) {
+            HStack(alignment: .center, spacing: .zero) {
+                VStack(alignment: .leading, spacing: .zero) {
                     Text("09:30")
                         .font(.caption)
                         .foregroundColor(.secondaryTextGray)
                         .padding(.bottom, TrendLayout.Paddings.dayRecordPadding)
-                    HStack(alignment: .firstTextBaseline, spacing: 0) {
+                    HStack(alignment: .firstTextBaseline, spacing: .zero) {
                         Text("아메리카노")
                             .font(.title3)
                             .padding(.trailing, TrendLayout.Paddings.textVerticalPadding)
@@ -190,7 +184,7 @@ struct CaffeineRecordCell: View {
                     }
                 }
                 Spacer()
-                HStack(alignment: .firstTextBaseline, spacing: 0) {
+                HStack(alignment: .firstTextBaseline, spacing: .zero) {
                     Text("150")
                         .font(.title)
                         .padding(.trailing, TrendLayout.Paddings.caffeineRecordAmountUnitPadding)
