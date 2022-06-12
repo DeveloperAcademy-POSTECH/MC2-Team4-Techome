@@ -36,19 +36,28 @@ struct AddCaffeineDetailViewLayoutValue {
 
 struct AddCaffeineDetailView: View {
     var body: some View {
-        VStack(alignment: .center, spacing: .zero) {
-            FranchiseDrinkSizeButtonsGroup()
-                .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.sectionPadding)
-            Group {
-                EffectSectionAddCaffeineAmout()
+        NavigationView {
+            VStack(alignment: .center, spacing: .zero) {
+                FranchiseDrinkSizeButtonsGroup()
+                    .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.sectionPadding)
+                Group {
+                    EffectSectionAddCaffeineAmout()
                     
-                HowLongCaffeineStay()
+                    HowLongCaffeineStay()
+                }
+                .background(EffectSectionBackground())
+                .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.cardVerticalPadding)
+                .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.effectCardVerticalPadding)
+                Spacer()
+                AddCaffeineButton()
             }
-            .background(EffectSectionBackground())
-            .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.cardVerticalPadding)
-            .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.effectCardVerticalPadding)
-            Spacer()
-            AddCaffeineButton()
+            .navigationTitle("카페인 추가하기")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(leading: Image(systemName: "chevron.left")
+                .font(.headline)
+                .foregroundColor(.primaryBrown), trailing: Text("취소")
+                .font(.body)
+                .foregroundColor(.primaryBrown))
         }
     }
 }
@@ -90,11 +99,9 @@ struct EffectSectionTextModifier {
                 .font(.subheadline)
                 .foregroundColor(.primaryBrown)
                 .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.effectCardInsideVerticalPadding)
-
         }
     }
 }
-
 extension View {
     func headlineModifier() -> some View {
         modifier(EffectSectionTextModifier.HeadlineModifier())
@@ -112,7 +119,7 @@ struct EffectSectionAddCaffeineAmout: View {
                     .fontWeight(.semibold)
             }
             .headlineModifier()
-                        
+            
             Divider()
                 .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.effectCardInsideVerticalPadding)
             CurrentCaffeineAmount()
