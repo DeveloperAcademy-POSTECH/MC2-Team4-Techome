@@ -1,0 +1,514 @@
+[
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 150,
+    "uuid" : "89468C57-98E5-4CCC-ADF6-9283F45FAA96",
+    "defaultShotCount" : 2,
+    "name" : "스타벅스 돌체 라떼"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 225,
+    "uuid" : "1B52CDA4-4705-4A38-99CD-3690C43C1CD6",
+    "defaultShotCount" : 3,
+    "name" : "스타벅스 돌체 라떼"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 300,
+    "uuid" : "DA27C0D8-439A-4CDB-909C-13186A24B222",
+    "defaultShotCount" : 4,
+    "name" : "스타벅스 돌체 라떼"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 95,
+    "uuid" : "9644B7F4-882D-4AB8-8A4E-257C7B923EDD",
+    "defaultShotCount" : 1,
+    "name" : "카페 모카"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 175,
+    "uuid" : "A4B38D76-B815-4C7C-8B72-16DCC38233FE",
+    "defaultShotCount" : 2,
+    "name" : "카페 모카"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 180,
+    "uuid" : "786955C6-8CAD-4290-ACCE-3915F73D541F",
+    "defaultShotCount" : 2,
+    "name" : "카페 모카"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 150,
+    "uuid" : "98C26C60-0830-43E1-B4B5-9445077063C8",
+    "defaultShotCount" : 2,
+    "name" : "카페 아메리카노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 225,
+    "uuid" : "5B5122B3-8A72-4F8F-BB21-17294212695D",
+    "defaultShotCount" : 3,
+    "name" : "카페 아메리카노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 300,
+    "uuid" : "74200B72-189C-4B15-B43D-C2386A05F936",
+    "defaultShotCount" : 4,
+    "name" : "카페 아메리카노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 75,
+    "uuid" : "169F8509-8AF2-4470-9B16-5EFF8A18AFFA",
+    "defaultShotCount" : 1,
+    "name" : "카페 라떼"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 150,
+    "uuid" : "99F6C3DB-7E86-4038-9F82-37305B66C980",
+    "defaultShotCount" : 2,
+    "name" : "카페 라떼"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 150,
+    "uuid" : "2092C2E8-2486-442C-AFA9-7AB48CDC8C37",
+    "defaultShotCount" : 2,
+    "name" : "카페 라떼"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 75,
+    "uuid" : "0C564786-3F29-486B-92C5-74755B7BB611",
+    "defaultShotCount" : 1,
+    "name" : "카푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 150,
+    "uuid" : "6B645665-EA8D-42BC-9B3A-2046A6171B3E",
+    "defaultShotCount" : 2,
+    "name" : "카푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 150,
+    "uuid" : "48AB8DE8-8149-4075-8985-551B159613CD",
+    "defaultShotCount" : 2,
+    "name" : "카푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 75,
+    "uuid" : "168A477A-C924-448F-BA64-85ADAF65B0CE",
+    "defaultShotCount" : 1,
+    "name" : "카라멜 마끼아또"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 150,
+    "uuid" : "2B4AFE7B-99DB-42B6-82AF-C608F378F1FC",
+    "defaultShotCount" : 2,
+    "name" : "카라멜 마끼아또"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 150,
+    "uuid" : "C0790446-C137-4658-B359-7788DCE85827",
+    "defaultShotCount" : 2,
+    "name" : "카라멜 마끼아또"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 75,
+    "uuid" : "96F3A42F-E77B-4A5A-9582-BA8C52F003A1",
+    "defaultShotCount" : 1,
+    "name" : "화이트 초콜릿 모카"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 150,
+    "uuid" : "6F36BF33-F69B-485E-840B-385934766054",
+    "defaultShotCount" : 2,
+    "name" : "화이트 초콜릿 모카"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 150,
+    "uuid" : "30FFDC08-E443-4B38-B419-A9A31DCDE004",
+    "defaultShotCount" : 2,
+    "name" : "화이트 초콜릿 모카"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 130,
+    "uuid" : "1425971E-9A14-44A5-9BFD-B4D028FC4EB9",
+    "defaultShotCount" : 2,
+    "name" : "더블 에스프레소 칩 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 130,
+    "uuid" : "1E675878-3E68-4625-B698-7CD957DB8104",
+    "defaultShotCount" : 2,
+    "name" : "더블 에스프레소 칩 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 130,
+    "uuid" : "35F2BD84-F8B0-4DB2-A486-AEF39CC823E4",
+    "defaultShotCount" : 4,
+    "name" : "더블 에스프레소 칩 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 60,
+    "uuid" : "9151F331-E57E-4C8A-9230-5231043D2A1A",
+    "defaultShotCount" : 0,
+    "name" : "제주 유기농 말차로 만든 크림 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 90,
+    "uuid" : "1ADF3B13-6E64-4892-B5A5-84A1288034C5",
+    "defaultShotCount" : 0,
+    "name" : "제주 유기농 말차로 만든 크림 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 120,
+    "uuid" : "A31A77EB-3361-4888-9A3E-3038E1C95243",
+    "defaultShotCount" : 0,
+    "name" : "제주 유기농 말차로 만든 크림 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 100,
+    "uuid" : "967F5D87-AAD8-4BEB-A1EA-A6AAEEFA8ECD",
+    "defaultShotCount" : 0,
+    "name" : "자바 칩 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 130,
+    "uuid" : "440147AC-B0C5-4487-BF58-0800EEB1A519",
+    "defaultShotCount" : 0,
+    "name" : "자바 칩 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 180,
+    "uuid" : "02EDE217-63DB-44AC-9EE0-B8DE82F2E93C",
+    "defaultShotCount" : 0,
+    "name" : "자바 칩 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 85,
+    "uuid" : "C2D6D955-B0AB-40A2-83B0-6BD5BCF73BE5",
+    "defaultShotCount" : 0,
+    "name" : "화이트 초콜릿 모카 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 110,
+    "uuid" : "EF5FFA45-CF00-4E20-8941-60A4D92A3F5A",
+    "defaultShotCount" : 0,
+    "name" : "화이트 초콜릿 모카 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 155,
+    "uuid" : "A0A85CAC-59A6-4029-950B-E59900146DBA",
+    "defaultShotCount" : 0,
+    "name" : "화이트 초콜릿 모카 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 90,
+    "uuid" : "009FC233-A7D8-4FA7-B713-92B44E9865E3",
+    "defaultShotCount" : 0,
+    "name" : "모카 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 115,
+    "uuid" : "BC24C634-6ABA-4110-8816-01A5C10A7839",
+    "defaultShotCount" : 0,
+    "name" : "모카 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 165,
+    "uuid" : "3C092D0F-CD94-460F-8EB0-00197AFAA1AE",
+    "defaultShotCount" : 0,
+    "name" : "모카 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 120,
+    "uuid" : "35FAB600-3FCF-420D-8BD0-C2A00B631409",
+    "defaultShotCount" : 1,
+    "name" : "에스프레소 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 155,
+    "uuid" : "54DB49E9-2182-4BB2-9B56-95CEE9471219",
+    "defaultShotCount" : 1,
+    "name" : "에스프레소 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 155,
+    "uuid" : "863AEFEE-CEF3-4E40-91BE-B4BA68B0108E",
+    "defaultShotCount" : 1,
+    "name" : "에스프레소 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 85,
+    "uuid" : "52139734-8F9F-4FC6-AE4F-45C367C425AE",
+    "defaultShotCount" : 0,
+    "name" : "카라멜 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 110,
+    "uuid" : "83CFC9CF-C2B5-453F-BA74-E3E0B62773A1",
+    "defaultShotCount" : 0,
+    "name" : "카라멜 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 155,
+    "uuid" : "56DFBBBF-EE02-45C4-A7F6-CFDACE0FD6B2",
+    "defaultShotCount" : 0,
+    "name" : "카라멜 프라푸치노"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 35,
+    "uuid" : "D4E62D66-BCD7-4CD6-8DF3-09841F85721F",
+    "defaultShotCount" : 0,
+    "name" : "돌체 블랙 밀크 티"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 45,
+    "uuid" : "0305080B-3CEE-4B09-8279-472F5B93C4CE",
+    "defaultShotCount" : 0,
+    "name" : "돌체 블랙 밀크 티"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 55,
+    "uuid" : "B2AD4D6D-5556-4B89-99EF-3287E6E15F76",
+    "defaultShotCount" : 0,
+    "name" : "돌체 블랙 밀크 티"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 60,
+    "uuid" : "B99C9FE8-78A8-4B49-9AF4-3AE107670B32",
+    "defaultShotCount" : 0,
+    "name" : "제주 유기농 말차로 만든 라떼"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 90,
+    "uuid" : "5FD0F61D-F328-4140-885F-2E64F4E578DC",
+    "defaultShotCount" : 0,
+    "name" : "제주 유기농 말차로 만든 라떼"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 120,
+    "uuid" : "E4CDFCC1-DE5A-41B2-BA5C-CB43400ADE07",
+    "defaultShotCount" : 0,
+    "name" : "제주 유기농 말차로 만든 라떼"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 70,
+    "uuid" : "2C59A2E4-2D04-4C38-84F1-73574A30B30E",
+    "defaultShotCount" : 0,
+    "name" : "차이 티 라떼"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 95,
+    "uuid" : "23384CAE-48F7-48E1-BC73-FB899E2D3811",
+    "defaultShotCount" : 0,
+    "name" : "차이 티 라떼"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 115,
+    "uuid" : "54253CD3-3EE9-4C38-9335-CCC682956B3A",
+    "defaultShotCount" : 0,
+    "name" : "차이 티 라떼"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 30,
+    "uuid" : "8A54A528-7B4F-488E-B20F-B5152F509426",
+    "defaultShotCount" : 0,
+    "name" : "자몽 허니 블랙 티"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 45,
+    "uuid" : "A96696F6-4956-4674-93AB-7FD4FBC6279A",
+    "defaultShotCount" : 0,
+    "name" : "자몽 허니 블랙 티"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 55,
+    "uuid" : "81717ACE-6B29-46E4-8596-92269934571B",
+    "defaultShotCount" : 0,
+    "name" : "자몽 허니 블랙 티"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 70,
+    "uuid" : "1D94EBF2-8B66-46F8-9175-955174ADE9DD",
+    "defaultShotCount" : 0,
+    "name" : "잉글리시 브렉퍼스트 티"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 150,
+    "uuid" : "B221D10E-344C-4E89-92BA-D70F3D2D3775",
+    "defaultShotCount" : 0,
+    "name" : "잉글리시 브렉퍼스트 티"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 70,
+    "uuid" : "5CD89EC3-2CBE-4056-A08B-7B76DA967CE2",
+    "defaultShotCount" : 0,
+    "name" : "얼 그레이 티"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 120,
+    "uuid" : "10E2BF69-7E09-4649-8626-D8927803C299",
+    "defaultShotCount" : 0,
+    "name" : "얼 그레이 티"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 260,
+    "uuid" : "4EB349A2-0CEE-4CB0-9D6A-1A2BB6092E96",
+    "defaultShotCount" : 0,
+    "name" : "오늘의 커피"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 330,
+    "uuid" : "2AAC89AE-24BC-4062-B7DA-86E192A7AA44",
+    "defaultShotCount" : 0,
+    "name" : "오늘의 커피"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 415,
+    "uuid" : "78AD405A-EBCD-4CE3-BCBD-DDB34002090B",
+    "defaultShotCount" : 0,
+    "name" : "오늘의 커피"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Tall",
+    "caffeineAmount" : 140,
+    "uuid" : "0922273B-9152-48D9-9C5E-7BD49C1242B9",
+    "defaultShotCount" : 0,
+    "name" : "아이스 커피"
+  },
+  {
+    "franchise" : "스타벅스",
+    "size" : "Grande",
+    "caffeineAmount" : 190,
+    "uuid" : "F4122E59-8E59-44D9-A6A7-3C43B3029E6F",
+    "defaultShotCount" : 0,
+    "name" : "아이스 커피"
+  },
+  { 
+    "franchise" : "스타벅스",
+    "size" : "Venti",
+    "caffeineAmount" : 220,
+    "uuid" : "1F0364F4-EB5A-4370-80D6-F23568DBE984",
+    "defaultShotCount" : 0,
+    "name" : "아이스 커피"
+  }
+]
