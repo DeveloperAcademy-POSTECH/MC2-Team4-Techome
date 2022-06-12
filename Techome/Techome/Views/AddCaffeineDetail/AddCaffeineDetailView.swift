@@ -11,8 +11,10 @@ struct AddCaffeineDetailViewLayoutValue {
     
     struct Paddings {
         static let sectionPadding: CGFloat = 42
+        static let navigationBarToTitlePadding: CGFloat = 34
         static let sectionTitleToComponentPadding: CGFloat = 15
         static let cardVerticalPadding: CGFloat = 15
+        static let titleToBrandPadding: CGFloat = 5
         static let drinkSizeButtonHorizontalPadding: CGFloat = 2.5
         static let drinkSizeButtonInsideHorizontalPadding: CGFloat = 44
         static let drinkSizeButtonInsideVerticalPadding: CGFloat = 13.5
@@ -22,10 +24,17 @@ struct AddCaffeineDetailViewLayoutValue {
         static let effectDividerHorizontalPadding: CGFloat = 10
         static let effectSectionIconToTextPadding: CGFloat = 6
         static let AddCaffeineAmountToUnitPadding: CGFloat = 3
+        static let stepperInsideVerticalPadding: CGFloat = 14
+        static let stepperInsideHorizontalPadding: CGFloat = 49
     }
     
     struct Sizes {
         static let addCaffeineButtonHeight: CGFloat = 60
+        
+        static let stepperStepFixedWidth: CGFloat = 17
+        static let stepperStepFixedHeight: CGFloat = 15
+        static let stepperValueFixedWidth: CGFloat = 20
+        static let stepperValueFixedHeight: CGFloat = 15
     }
     
     struct CornerRadius {
@@ -38,12 +47,29 @@ struct AddCaffeineDetailView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .center, spacing: .zero) {
+                HStack(alignment: .firstTextBaseline, spacing: .zero) {
+                    Text("아메리카노")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .padding(.leading, AddCaffeineDetailViewLayoutValue.Paddings.cardVerticalPadding)
+                    Text("스타벅스")
+                        .font(.title3)
+                        .foregroundColor(.secondaryTextGray)
+                        .padding(.leading, AddCaffeineDetailViewLayoutValue.Paddings.titleToBrandPadding)
+                    Spacer()
+                }
+                .padding(.top, AddCaffeineDetailViewLayoutValue.Paddings.navigationBarToTitlePadding)
+                .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.sectionPadding)
+                
                 FranchiseDrinkSizeButtonsGroup()
                     .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.sectionPadding)
+                
+                EspressoShotCountStepper()
+                    .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.sectionPadding)
                 Group {
-                    EffectSectionAddCaffeineAmout()
+                    EffectSectionAddCaffeineAmountProvider()
                     
-                    HowLongCaffeineStay()
+                    CaffeineResidualTimeProvider()
                 }
                 .background(EffectSectionBackground())
                 .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.cardVerticalPadding)
@@ -59,6 +85,31 @@ struct AddCaffeineDetailView: View {
                 .font(.body)
                 .foregroundColor(.primaryBrown))
         }
+    }
+}
+
+struct EffectSectionTextModifier {
+    struct HeadlineModifier: ViewModifier {
+        func body(content: Content) -> some View {
+            content
+                .font(.subheadline)
+                .foregroundColor(.primaryBrown)
+                .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.effectCardInsideVerticalPadding)
+        }
+    }
+}
+extension View {
+    func headlineModifier() -> some View {
+        modifier(EffectSectionTextModifier.HeadlineModifier())
+    }
+}
+
+struct SelectedButtonBackground: View {
+    var body: some View {
+        RoundedRectangle(cornerRadius: AddCaffeineDetailViewLayoutValue.CornerRadius.cardRadius)
+            .stroke(Color.primaryBrown, lineWidth: 1)
+            .foregroundColor(.white)
+            
     }
 }
 
@@ -92,23 +143,7 @@ struct FranchiseDrinkSizeButton: View {
     }
 }
 
-struct EffectSectionTextModifier {
-    struct HeadlineModifier: ViewModifier {
-        func body(content: Content) -> some View {
-            content
-                .font(.subheadline)
-                .foregroundColor(.primaryBrown)
-                .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.effectCardInsideVerticalPadding)
-        }
-    }
-}
-extension View {
-    func headlineModifier() -> some View {
-        modifier(EffectSectionTextModifier.HeadlineModifier())
-    }
-}
-
-struct EffectSectionAddCaffeineAmout: View {
+struct EffectSectionAddCaffeineAmountProvider: View {
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
             HStack(alignment: .center, spacing: .zero) {
@@ -176,7 +211,7 @@ struct AfterCaffeineAmount: View {
     }
 }
 
-struct HowLongCaffeineStay: View {
+struct CaffeineResidualTimeProvider: View {
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
             HStack(alignment: .center, spacing: .zero) {
@@ -255,10 +290,63 @@ struct AddCaffeineButtonBackground: View {
     }
 }
 
+//https://serialcoder.dev/text-tutorials/swiftui/rounding-specific-corners-in-swiftui-views/
+struct RoundedCornersShape: Shape {
+    let corners: UIRectCorner
+    let radius: CGFloat
+    
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect,
+                                byRoundingCorners: corners,
+                                cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
+    }
+}
+
 struct EspressoShotCountStepper: View {
-    //TODO: 에스프레소 샷 수 스텝퍼 구조체 구현 전
+    //TODO: 임시 더미 데이터
+    @State var shotCount: Int = 2
+    
     var body: some View {
-        Text("에스프레소 샷 수 버튼")
+        HStack(alignment: .center, spacing: .zero) {
+            Button {
+                if shotCount > 0 {
+                    shotCount -= 1
+                }
+            } label: {
+                Image(systemName: "minus")
+                    .frame(width: AddCaffeineDetailViewLayoutValue.Sizes.stepperStepFixedWidth, height: AddCaffeineDetailViewLayoutValue.Sizes.stepperStepFixedHeight, alignment: .center)
+                    .foregroundColor(.black)
+                    .padding(.vertical, AddCaffeineDetailViewLayoutValue.Paddings.stepperInsideVerticalPadding)
+                    .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.stepperInsideHorizontalPadding)
+                    .background(RoundedCornersShape(corners: [.topLeft, .bottomLeft], radius: AddCaffeineDetailViewLayoutValue.CornerRadius.cardRadius)
+                        .foregroundColor(.white)
+                        .shadow(color: .primaryShadowGray, radius: AddCaffeineDetailViewLayoutValue.CornerRadius.shadowRadius, x: .zero, y: .zero))
+            }
+            Text("\(shotCount)")
+                .font(.body)
+                .fontWeight(.bold)
+                .foregroundColor(.primaryBrown)
+                .frame(width: AddCaffeineDetailViewLayoutValue.Sizes.stepperValueFixedWidth, height: AddCaffeineDetailViewLayoutValue.Sizes.stepperValueFixedHeight, alignment: .center)
+                .padding(.vertical, AddCaffeineDetailViewLayoutValue.Paddings.stepperInsideVerticalPadding)
+                .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.stepperInsideHorizontalPadding)
+                .background(Rectangle()
+                    .foregroundColor(.white)
+                    .shadow(color: .primaryShadowGray, radius: AddCaffeineDetailViewLayoutValue.CornerRadius.shadowRadius, x: .zero, y: .zero))
+            Button {
+                shotCount += 1
+            } label: {
+                Image(systemName: "plus")
+                    .frame(width: AddCaffeineDetailViewLayoutValue.Sizes.stepperStepFixedWidth, height: AddCaffeineDetailViewLayoutValue.Sizes.stepperStepFixedHeight, alignment: .center)
+                    .foregroundColor(.black)
+                    .padding(.vertical, AddCaffeineDetailViewLayoutValue.Paddings.stepperInsideVerticalPadding)
+                    .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.stepperInsideHorizontalPadding)
+                    .background(RoundedCornersShape(corners: [.topRight, .bottomRight], radius: AddCaffeineDetailViewLayoutValue.CornerRadius.cardRadius)
+                        .foregroundColor(.white)
+                        .shadow(color: .primaryShadowGray, radius: AddCaffeineDetailViewLayoutValue.CornerRadius.shadowRadius, x: .zero, y: .zero))
+            }
+
+        }
     }
 }
 
