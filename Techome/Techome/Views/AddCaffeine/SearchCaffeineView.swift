@@ -25,15 +25,6 @@ struct SearchCaffeineView: View {
                         .foregroundColor(.white)
                         .shadow(color: .secondaryTextGray, radius: SearchCaffeineViewLayoutValue.Radius.shadowRadius, x: .zero, y: .zero)
                     
-                    
-                    Text("최근 추가한 카페인")
-                        .foregroundColor(.black)
-                        .fontWeight(.bold)
-                        .frame(maxWidth:.infinity, alignment: .leading)
-                        .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardTitleHorizontalPadding)
-                        .padding(EdgeInsets(top: SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding, leading: .zero, bottom: .zero, trailing: .zero))
-                    
-                    
                     RecentlyAddedCaffeine()
                 }
                 .frame(height: SearchCaffeineViewLayoutValue.Size.mainHeight * 0.8, alignment: .top)
@@ -58,14 +49,26 @@ struct SearchCaffeineView: View {
 
 struct RecentlyAddedCaffeine: View {
     var body: some View {
-        VStack(spacing: 0) {
-            ForEach (0 ..< 7) { _ in
-                CaffeineRecordRow()
+        
+        
+        VStack {
+            Text("최근 추가한 카페인")
+                .foregroundColor(.black)
+                .fontWeight(.bold)
+                .frame(maxWidth:.infinity, alignment: .leading)
+                .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardTitleHorizontalPadding)
+            
+            VStack(spacing: 0) {
+                ForEach (0 ..< 7) { _ in
+                    CaffeineRecordRow()
+                }
             }
+            .background(RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.cardRadius)
+                .foregroundColor(.white)
+                .shadow(color: .secondaryTextGray, radius: SearchCaffeineViewLayoutValue.Radius.shadowRadius, x: 0, y: 0))
+            
         }
-        .background(RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.cardRadius)
-            .foregroundColor(.white)
-            .shadow(color: .secondaryTextGray, radius: SearchCaffeineViewLayoutValue.Radius.shadowRadius, x: 0, y: 0))
+        .padding(EdgeInsets(top: SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding, leading: .zero, bottom: .zero, trailing: .zero))
     }
 }
 
