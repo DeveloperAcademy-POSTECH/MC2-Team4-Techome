@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    
     @State var showSheet: Bool = false
+    
     var body: some View {
         ZStack {
             Color(.white)

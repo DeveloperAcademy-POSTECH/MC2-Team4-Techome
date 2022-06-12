@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SearchCaffeineView: View {
+    
     @Environment(\.presentationMode) var presentationMode
     let widthPadding = 15.0
     let listTextPadding = 10.0
@@ -57,7 +58,7 @@ struct SearchCaffeineView: View {
 struct RecentlyAddedCaffeine: View {
     var body: some View {
         VStack(spacing: 0) {
-            ForEach (0 ..< 7) {_ in
+            ForEach (0 ..< 7) { _ in
                 CaffeineRecordRow()
             }
         }
