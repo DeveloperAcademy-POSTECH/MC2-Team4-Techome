@@ -59,14 +59,14 @@ struct RecentlyAddedCaffeine: View {
                 .frame(maxWidth:.infinity, alignment: .leading)
                 .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardTitleHorizontalPadding)
             
-            VStack(spacing: 0) {
+            VStack(spacing: .zero) {
                 ForEach (0 ..< 7) { _ in
                     CaffeineRecordRow()
                 }
             }
             .background(RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.cardRadius)
                 .foregroundColor(.white)
-                .shadow(color: .secondaryTextGray, radius: SearchCaffeineViewLayoutValue.Radius.shadowRadius, x: 0, y: 0))
+                .shadow(color: .secondaryTextGray, radius: SearchCaffeineViewLayoutValue.Radius.shadowRadius, x: .zero, y: .zero))
             
         }
         .padding(EdgeInsets(top: SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding, leading: .zero, bottom: .zero, trailing: .zero))
@@ -75,8 +75,8 @@ struct RecentlyAddedCaffeine: View {
 
 struct CaffeineRecordRow: View {
     var body: some View {
-        VStack(spacing: 0) {
-            HStack(alignment: .center, spacing: 0) {
+        VStack(spacing: .zero) {
+            HStack(alignment: .center, spacing: .zero) {
                 VStack (alignment: .leading){
                     Text("아메리카노")
                         .font(.title3)
@@ -85,7 +85,7 @@ struct CaffeineRecordRow: View {
                         .foregroundColor(.secondaryTextGray)
                 }
                 Spacer()
-                HStack (alignment: .firstTextBaseline, spacing: 0){
+                HStack (alignment: .firstTextBaseline, spacing: .zero){
                     Text("150")
                         .font(.title3)
                     Text("mg")
