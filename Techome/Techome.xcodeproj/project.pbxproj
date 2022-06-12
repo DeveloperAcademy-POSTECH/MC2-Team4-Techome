@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A00E77428562A2A005026B9 /* TrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A00E77328562A2A005026B9 /* TrendView.swift */; };
 		2AC7A36628517C9100D7CA60 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7A36528517C9100D7CA60 /* Color+.swift */; };
-		2AC7A369285180A100D7CA60 /* TrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7A368285180A100D7CA60 /* TrendView.swift */; };
 		AB9CD1A728515F4B00589D07 /* TechomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1A628515F4B00589D07 /* TechomeApp.swift */; };
 		AB9CD1AB28515F4D00589D07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB9CD1AA28515F4D00589D07 /* Assets.xcassets */; };
 		AB9CD1AE28515F4D00589D07 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB9CD1AD28515F4D00589D07 /* Preview Assets.xcassets */; };
@@ -33,9 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A00E77128562A0A005026B9 /* Techome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Techome.app; path = "/Users/hantaekhwan/workspace/MC2-Team4-Techome/Techome/build/Debug-iphoneos/Techome.app"; sourceTree = "<absolute>"; };
+		2A00E77328562A2A005026B9 /* TrendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendView.swift; sourceTree = "<group>"; };
 		2AC7A36528517C9100D7CA60 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
-		2AC7A368285180A100D7CA60 /* TrendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendView.swift; sourceTree = "<group>"; };
-		AB9CD1A328515F4B00589D07 /* Techome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Techome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9CD1A628515F4B00589D07 /* TechomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechomeApp.swift; sourceTree = "<group>"; };
 		AB9CD1AA28515F4D00589D07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB9CD1AD28515F4D00589D07 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -70,10 +70,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2AC7A3672851809400D7CA60 /* Trend */ = {
+		2A00E77228562A2A005026B9 /* Trend */ = {
 			isa = PBXGroup;
 			children = (
-				2AC7A368285180A100D7CA60 /* TrendView.swift */,
+				2A00E77328562A2A005026B9 /* TrendView.swift */,
 			);
 			path = Trend;
 			sourceTree = "<group>";
@@ -82,16 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				AB9CD1A528515F4B00589D07 /* Techome */,
-				AB9CD1A428515F4B00589D07 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		AB9CD1A428515F4B00589D07 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AB9CD1A328515F4B00589D07 /* Techome.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		AB9CD1A528515F4B00589D07 /* Techome */ = {
@@ -115,15 +106,6 @@
 				AB9CD1AD28515F4D00589D07 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		AB9CD1B4285166C100589D07 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				2AC7A3672851809400D7CA60 /* Trend */,
-				AB9CD1A828515F4B00589D07 /* ContentView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		AB9CD1B5285166C700589D07 /* Model */ = {
@@ -176,6 +158,7 @@
 		AB9CD1C728560F2500589D07 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2A00E77228562A2A005026B9 /* Trend */,
 				AB9CD1C828560F3C00589D07 /* ContentView.swift */,
 			);
 			path = Views;
@@ -237,7 +220,7 @@
 			);
 			name = Techome;
 			productName = Techome;
-			productReference = AB9CD1A328515F4B00589D07 /* Techome.app */;
+			productReference = 2A00E77128562A0A005026B9 /* Techome.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -264,7 +247,7 @@
 				Base,
 			);
 			mainGroup = AB9CD19A28515F4B00589D07;
-			productRefGroup = AB9CD1A428515F4B00589D07 /* Products */;
+			productRefGroup = AB9CD19A28515F4B00589D07;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -301,7 +284,6 @@
 				DA60EAE92854382F00B34799 /* BeverageManager.swift in Sources */,
 				AB9CD1A728515F4B00589D07 /* TechomeApp.swift in Sources */,
 				DA774E5C2851C3F3009BA4EA /* IntakeRecord.swift in Sources */,
-				2AC7A369285180A100D7CA60 /* TrendView.swift in Sources */,
 				AB9CD1BB2851675600589D07 /* tempExtension.swift in Sources */,
 				AB9CD1BD2851675E00589D07 /* tempResources.swift in Sources */,
 				AB9CD1C02851676A00589D07 /* tempModel.swift in Sources */,
@@ -311,6 +293,7 @@
 				AB9CD1C22851677000589D07 /* tempViewModel.swift in Sources */,
 				DA60EAEE2854439800B34799 /* SideEffectRepository.swift in Sources */,
 				DA774E572851C29D009BA4EA /* Franchise.swift in Sources */,
+				2A00E77428562A2A005026B9 /* TrendView.swift in Sources */,
 				2AC7A36628517C9100D7CA60 /* Color+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
