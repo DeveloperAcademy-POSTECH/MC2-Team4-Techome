@@ -15,7 +15,7 @@ struct AddCaffeineDetailViewLayoutValue {
         static let sectionTitleToComponentPadding: CGFloat = 15
         static let cardVerticalPadding: CGFloat = 15
         static let titleToBrandPadding: CGFloat = 5
-        static let drinkSizeButtonHorizontalPadding: CGFloat = 2.5
+        static let drinkSizeButtonHorizontalPadding: CGFloat = 3
         static let drinkSizeButtonInsideHorizontalPadding: CGFloat = 44
         static let drinkSizeButtonInsideVerticalPadding: CGFloat = 13.5
         static let effectCardVerticalPadding: CGFloat = 15
@@ -43,6 +43,26 @@ struct AddCaffeineDetailViewLayoutValue {
     }
 }
 
+extension View {
+    func headlineModifier() -> some View {
+        modifier(EffectSectionTextModifier.HeadlineModifier())
+    }
+    
+    func sectionTitleModifier() -> some View {
+        modifier(SectionTitleModifier())
+    }
+}
+
+struct SectionTitleModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.headline)
+            .foregroundColor(.black)
+            .padding(.leading, AddCaffeineDetailViewLayoutValue.Paddings.sectionTitleToComponentPadding)
+            .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.effectCardInsideVerticalPadding)
+    }
+}
+
 struct AddCaffeineDetailView: View {
     var body: some View {
         NavigationView {
@@ -61,14 +81,30 @@ struct AddCaffeineDetailView: View {
                 .padding(.top, AddCaffeineDetailViewLayoutValue.Paddings.navigationBarToTitlePadding)
                 .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.sectionPadding)
                 
+                HStack(alignment: .center, spacing: .zero) {
+                    Text("사이즈")
+                    Spacer()
+                }
+                .sectionTitleModifier()
+                
                 FranchiseDrinkSizeButtonsGroup()
                     .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.sectionPadding)
                 
+                HStack(alignment: .center, spacing: .zero) {
+                    Text("에스프레소 샷 수")
+                    Spacer()
+                }
+                .sectionTitleModifier()
                 EspressoShotCountStepper()
                     .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.sectionPadding)
+                
+                HStack(alignment: .center, spacing: .zero) {
+                    Text("영향")
+                    Spacer()
+                }
+                .sectionTitleModifier()
                 Group {
                     EffectSectionAddCaffeineAmountProvider()
-                    
                     CaffeineResidualTimeProvider()
                 }
                 .background(EffectSectionBackground())
@@ -98,11 +134,6 @@ struct EffectSectionTextModifier {
         }
     }
 }
-extension View {
-    func headlineModifier() -> some View {
-        modifier(EffectSectionTextModifier.HeadlineModifier())
-    }
-}
 
 struct SelectedButtonBackground: View {
     var body: some View {
@@ -119,9 +150,11 @@ struct FranchiseDrinkSizeButtonsGroup: View {
             //TODO: 임시 버튼 갯수 로직 구현 필요
             ForEach(0..<3) { drinkSizeButtonIndex in
                 FranchiseDrinkSizeButton()
-                    .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.drinkSizeButtonHorizontalPadding)
+                    
             }
+            .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.drinkSizeButtonHorizontalPadding)
         }
+        .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.cardVerticalPadding)
     }
 }
 
