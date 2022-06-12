@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AddSideEffectLayoutValue {
     
-    // AddSideEffectView Paddings
     struct Paddings {
         static let contentHorizontalPadding: CGFloat = 15
         static let contentBetweenVerticalPadding: CGFloat = 31
@@ -17,18 +16,24 @@ struct AddSideEffectLayoutValue {
         static let gridItemHorizantalPadding: CGFloat = 15
         static let gridTextVerticalPadding: CGFloat = 12.5
         static let gridImageTextPadding: CGFloat = 18
+        static let sideEffectColumnSpacing: CGFloat = 16
+        static let sideEffectRowSpacing: CGFloat = 15
     }
     
-    // AddSideEffectView Sizes
     struct Sizes {
         static let sideEffectImageWidth: CGFloat = 20
         static let gridTextWidth: CGFloat = 66
+        static let sideEffectButtonHeight: CGFloat = 47
     }
     
-    // AddSideEffectView Radius
     struct Radius {
         static let buttonRadius: CGFloat = 5
         static let buttonShadowRadius: CGFloat = 2
+    }
+    
+    struct Grid {
+        static let sideEffectTypeColumnCount: Int = 2
+        static let sideEffectTypeRowCount: Int = 5
     }
 }
 
@@ -45,9 +50,9 @@ struct AddSideEffectView: View {
                     SideEffectDate()
                     SideEffectType()
                     Spacer()
-                } // VStack
+                }
                 .padding(.horizontal, AddSideEffectLayoutValue.Paddings.contentHorizontalPadding)
-            } // ZStack
+            }
             .navigationTitle("부작용 추가하기")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
@@ -58,14 +63,14 @@ struct AddSideEffectView: View {
                         .foregroundColor(.primaryBrown)
                 },
                 trailing: Button(action: {
-                    // run 저장(update) method
+                    //TODO: run 저장(update) method
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("저장")
                         .foregroundColor(.primaryBrown)
                 }
             )
-        } // NavigationView
+        }
     }
 }
 
@@ -90,36 +95,35 @@ struct SideEffectDate: View {
 
 struct SideEffectType: View {
     
-    let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
-    
     var body: some View {
         
         Text("어떤 부작용을 겪으셨나요?")
             .foregroundColor(.secondaryTextGray)
             .font(.subheadline)
             .padding(.bottom, AddSideEffectLayoutValue.Paddings.labelBottomPadding)
-        
-        LazyVGrid(columns: columns, spacing: AddSideEffectLayoutValue.Paddings.gridItemHorizantalPadding) {
-            ForEach(sideEffects.indices, id: \.self) { sideEffect in
-                SideEffectButton(sideEffect: sideEffect)
-            } // ForEach
-        } // LazyVGrid
+                
+        HStack(spacing: AddSideEffectLayoutValue.Paddings.sideEffectColumnSpacing) {
+            ForEach(0..<AddSideEffectLayoutValue.Grid.sideEffectTypeColumnCount) { sideEffectColumnIndex in
+                VStack(spacing: AddSideEffectLayoutValue.Paddings.sideEffectRowSpacing) {
+                    ForEach(0..<AddSideEffectLayoutValue.Grid.sideEffectTypeRowCount) { sideEffectRowIndex in
+                        SideEffectButton(sideEffectIndex: sideEffectRowIndex * 2 + sideEffectColumnIndex)
+                    }
+                }
+            }
+        }
     }
 }
 
 struct SideEffectButton: View {
     
     @State private var isSelected: [Bool] = [false, false, false, false, false, false, false, false, false, false]
-    
-    var sideEffect: Int
+
+    var sideEffectIndex: Int
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: AddSideEffectLayoutValue.Radius.buttonRadius)
-                .foregroundColor(isSelected[sideEffect] ? .primaryBrown : .white)
+                .foregroundColor(isSelected[sideEffectIndex] ? .primaryBrown : .white)
                 .shadow(color: .primaryShadowGray, radius: AddSideEffectLayoutValue.Radius.buttonShadowRadius, x: .zero, y: .zero)
             
             HStack(spacing: .zero) {
@@ -128,18 +132,18 @@ struct SideEffectButton: View {
                     .fixedSize()
                     .frame(width: AddSideEffectLayoutValue.Sizes.sideEffectImageWidth, alignment: .center)
                 
-                Text(sideEffects[sideEffect])
+                Text(sideEffects[sideEffectIndex])
                     .font(.body)
-                    .padding(.vertical, AddSideEffectLayoutValue.Paddings.gridTextVerticalPadding)
                     .padding(.leading, AddSideEffectLayoutValue.Paddings.gridImageTextPadding)
                     .fixedSize()
                     .frame(width: AddSideEffectLayoutValue.Sizes.gridTextWidth, alignment: .center)
-            } // HStack
+            }
             .padding(.horizontal)
-            .foregroundColor(isSelected[sideEffect] ? .white : .customBlack)
-        } // ZStack
+            .foregroundColor(isSelected[sideEffectIndex] ? .white : .customBlack)
+        }
+        .frame(height: AddSideEffectLayoutValue.Sizes.sideEffectButtonHeight)
         .onTapGesture {
-            isSelected[sideEffect].toggle()
+            isSelected[sideEffectIndex].toggle()
         }
     }
 }
