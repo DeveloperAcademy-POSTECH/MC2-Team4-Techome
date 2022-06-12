@@ -16,6 +16,7 @@ struct AddCaffeineDetailViewLayoutValue {
         static let drinkSizeButtonHorizontalPadding: CGFloat = 2.5
         static let drinkSizeButtonInsideHorizontalPadding: CGFloat = 44
         static let drinkSizeButtonInsideVerticalPadding: CGFloat = 13.5
+        static let effectCardVerticalPadding: CGFloat = 15
         static let effectCardInsideHorizontalPadding: CGFloat = 18
         static let effectCardInsideVerticalPadding: CGFloat = 14
         static let effectDividerHorizontalPadding: CGFloat = 10
@@ -40,10 +41,12 @@ struct AddCaffeineDetailView: View {
                 .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.sectionPadding)
             Group {
                 EffectSectionAddCaffeineAmout()
-                    .background(EffectSectionBackground())
+                    
+                HowLongCaffeineStay()
             }
+            .background(EffectSectionBackground())
             .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.cardVerticalPadding)
-            .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.sectionPadding)
+            .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.effectCardVerticalPadding)
             Spacer()
             AddCaffeineButton()
         }
@@ -58,7 +61,6 @@ struct FranchiseDrinkSizeButtonsGroup: View {
                 FranchiseDrinkSizeButton()
                     .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.drinkSizeButtonHorizontalPadding)
             }
-            
         }
     }
 }
@@ -77,8 +79,25 @@ struct FranchiseDrinkSizeButton: View {
                 .background(RoundedRectangle(cornerRadius: AddCaffeineDetailViewLayoutValue.CornerRadius.cardRadius)
                     .foregroundColor(.white)
                     .shadow(color: .primaryShadowGray, radius: AddCaffeineDetailViewLayoutValue.CornerRadius.shadowRadius, x: .zero, y: .zero))
-            
         }
+    }
+}
+
+struct EffectSectionTextModifier {
+    struct HeadlineModifier: ViewModifier {
+        func body(content: Content) -> some View {
+            content
+                .font(.subheadline)
+                .foregroundColor(.primaryBrown)
+                .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.effectCardInsideVerticalPadding)
+
+        }
+    }
+}
+
+extension View {
+    func headlineModifier() -> some View {
+        modifier(EffectSectionTextModifier.HeadlineModifier())
     }
 }
 
@@ -92,10 +111,8 @@ struct EffectSectionAddCaffeineAmout: View {
                 Text("추가되는 카페인은 150mg 입니다.")
                     .fontWeight(.semibold)
             }
-            .font(.subheadline)
-            .foregroundColor(.primaryBrown)
-            .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.effectCardInsideVerticalPadding)
-            
+            .headlineModifier()
+                        
             Divider()
                 .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.effectCardInsideVerticalPadding)
             CurrentCaffeineAmount()
@@ -154,8 +171,47 @@ struct AfterCaffeineAmount: View {
 
 struct HowLongCaffeineStay: View {
     var body: some View {
-        //TODO: 카페인배출시간 섹션 구조체 구현 전
-        Text("카페인 배출 소요시간")
+        VStack(alignment: .leading, spacing: .zero) {
+            HStack(alignment: .center, spacing: .zero) {
+                Image(systemName: "timer")
+                    .padding(.trailing, AddCaffeineDetailViewLayoutValue.Paddings.effectSectionIconToTextPadding)
+                //TODO: 임시 더미데이터 변경 필요
+                Text("카페인 배출에 2시간 45분이 더 소요됩니다.")
+                    .fontWeight(.semibold)
+            }
+            .headlineModifier()
+            Divider()
+                .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.effectCardInsideVerticalPadding)
+            HStack(alignment: .center, spacing: .zero) {
+                Text("예상 배출 완료 시간")
+                    .font(.subheadline)
+                    .foregroundColor(.secondaryTextGray)
+                Spacer()
+                HStack(alignment: .firstTextBaseline, spacing: .zero) {
+                    Text("오후")
+                        .font(.footnote)
+                        .foregroundColor(.secondaryTextGray)
+                        .padding(.trailing, AddCaffeineDetailViewLayoutValue.Paddings.AddCaffeineAmountToUnitPadding)
+                    Text("5")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .foregroundColor(.primaryBrown)
+                    Text("시")
+                        .font(.footnote)
+                        .foregroundColor(.secondaryTextGray)
+                        .padding(.trailing, AddCaffeineDetailViewLayoutValue.Paddings.AddCaffeineAmountToUnitPadding)
+                    Text("33")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .foregroundColor(.primaryBrown)
+                    Text("분")
+                        .font(.footnote)
+                        .foregroundColor(.secondaryTextGray)
+                }
+            }
+        }
+        .padding(.vertical, AddCaffeineDetailViewLayoutValue.Paddings.effectCardInsideVerticalPadding)
+        .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.effectCardInsideHorizontalPadding)
     }
 }
 
