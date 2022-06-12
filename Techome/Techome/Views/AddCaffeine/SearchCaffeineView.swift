@@ -20,22 +20,23 @@ struct SearchCaffeineView: View {
                     .ignoresSafeArea()
             
                 VStack {
-                    RoundedRectangle(cornerRadius: 5)
-                        .frame(height: 48)
+                    RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.cardRadius)
+                        .frame(height: SearchCaffeineViewLayoutValue.Size.searchBarHeight)
                         .foregroundColor(.white)
-                        .shadow(color: .secondaryTextGray, radius: 2, x: 0, y: 0)
+                        .shadow(color: .secondaryTextGray, radius: SearchCaffeineViewLayoutValue.Radius.shadowRadius, x: .zero, y: .zero)
                     
                     
                     Text("최근 추가한 카페인")
                         .foregroundColor(.black)
                         .fontWeight(.bold)
                         .frame(maxWidth:.infinity, alignment: .leading)
-                        .padding(EdgeInsets(top: widthPadding, leading: listTextPadding, bottom: 0, trailing: 0))
+                        .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardTitleHorizontalPadding)
+                        .padding(EdgeInsets(top: SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding, leading: .zero, bottom: .zero, trailing: .zero))
                     
                     
                     RecentlyAddedCaffeine()
                 }
-                .frame(height: UIScreen.main.bounds.height * 0.8, alignment: .top)
+                .frame(height: SearchCaffeineViewLayoutValue.Size.mainHeight * 0.8, alignment: .top)
                 .padding(.horizontal)
             }
             .navigationTitle("카페인 추가하기")
@@ -62,9 +63,9 @@ struct RecentlyAddedCaffeine: View {
                 CaffeineRecordRow()
             }
         }
-        .background(RoundedRectangle(cornerRadius: 7)
+        .background(RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.cardRadius)
             .foregroundColor(.white)
-            .shadow(color: .secondaryTextGray, radius: 2, x: 0, y: 0))
+            .shadow(color: .secondaryTextGray, radius: SearchCaffeineViewLayoutValue.Radius.shadowRadius, x: 0, y: 0))
     }
 }
 
@@ -89,7 +90,8 @@ struct CaffeineRecordRow: View {
                 }
             }
             .foregroundColor(.black)
-            .padding(15)
+            .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardItemHorizontalPadding)
+            .padding(.vertical, SearchCaffeineViewLayoutValue.Padding.cardItemVerticalPadding)
             Divider()
             
         }
