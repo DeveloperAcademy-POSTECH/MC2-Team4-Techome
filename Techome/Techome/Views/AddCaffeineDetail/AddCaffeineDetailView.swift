@@ -13,9 +13,9 @@ struct AddCaffeineDetailViewLayoutValue {
         static let sectionPadding: CGFloat = 42
         static let sectionTitleToComponentPadding: CGFloat = 15
         static let cardVerticalPadding: CGFloat = 15
-        static let franchiseDrinkSizeButtonHorizontalPadding: CGFloat = 2.5
-        static let franchiseDrinkSizeButtonInsideHorizontalPadding: CGFloat = 44
-        static let franchiseDrinkSizeButtonInsideVerticalPadding: CGFloat = 13.5
+        static let drinkSizeButtonHorizontalPadding: CGFloat = 2.5
+        static let drinkSizeButtonInsideHorizontalPadding: CGFloat = 44
+        static let drinkSizeButtonInsideVerticalPadding: CGFloat = 13.5
         static let effectCardInsideHorizontalPadding: CGFloat = 18
         static let effectCardInsideVerticalPadding: CGFloat = 14
         static let effectDividerHorizontalPadding: CGFloat = 10
@@ -36,7 +36,7 @@ struct AddCaffeineDetailViewLayoutValue {
 struct AddCaffeineDetailView: View {
     var body: some View {
         VStack(alignment: .center, spacing: .zero) {
-            FranchiseDrinkSizeButtonGroup()
+            FranchiseDrinkSizeButtonsGroup()
                 .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.sectionPadding)
             Group {
                 EffectSectionAddCaffeineAmout()
@@ -50,6 +50,19 @@ struct AddCaffeineDetailView: View {
     }
 }
 
+struct FranchiseDrinkSizeButtonsGroup: View {
+    var body: some View {
+        HStack(alignment: .center, spacing: .zero) {
+            //TODO: 임시 버튼 갯수 로직 구현 필요
+            ForEach(0..<3) { drinkSizeButtonIndex in
+                FranchiseDrinkSizeButton()
+                    .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.drinkSizeButtonHorizontalPadding)
+            }
+            
+        }
+    }
+}
+
 struct FranchiseDrinkSizeButton: View {
     var body: some View {
         Button {
@@ -59,25 +72,11 @@ struct FranchiseDrinkSizeButton: View {
             Text("Tall")
                 .font(.body)
                 .foregroundColor(.secondaryTextGray)
-                .padding(.vertical, AddCaffeineDetailViewLayoutValue.Paddings.franchiseDrinkSizeButtonInsideVerticalPadding)
-                .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.franchiseDrinkSizeButtonInsideHorizontalPadding)
+                .padding(.vertical, AddCaffeineDetailViewLayoutValue.Paddings.drinkSizeButtonInsideVerticalPadding)
+                .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.drinkSizeButtonInsideHorizontalPadding)
                 .background(RoundedRectangle(cornerRadius: AddCaffeineDetailViewLayoutValue.CornerRadius.cardRadius)
                     .foregroundColor(.white)
                     .shadow(color: .primaryShadowGray, radius: AddCaffeineDetailViewLayoutValue.CornerRadius.shadowRadius, x: .zero, y: .zero))
-            
-        }
-    }
-}
-
-
-struct FranchiseDrinkSizeButtonGroup: View {
-    var body: some View {
-        HStack(alignment: .center, spacing: .zero) {
-            //TODO: 임시 버튼 갯수 로직 구현 필요
-            ForEach(0..<3) { franchiseDrinkSizeButtonIndex in
-                FranchiseDrinkSizeButton()
-                    .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.franchiseDrinkSizeButtonHorizontalPadding)
-            }
             
         }
     }
@@ -155,7 +154,16 @@ struct AfterCaffeineAmount: View {
 
 struct HowLongCaffeineStay: View {
     var body: some View {
+        //TODO: 카페인배출시간 섹션 구조체 구현 전
         Text("카페인 배출 소요시간")
+    }
+}
+
+struct EffectSectionBackground: View {
+    var body: some View {
+        RoundedRectangle(cornerRadius: AddCaffeineDetailViewLayoutValue.CornerRadius.cardRadius)
+            .foregroundColor(.white)
+            .shadow(color: .primaryShadowGray, radius: AddCaffeineDetailViewLayoutValue.CornerRadius.shadowRadius, x: .zero, y: .zero)
     }
 }
 
@@ -184,17 +192,10 @@ struct AddCaffeineButtonBackground: View {
     }
 }
 
-struct EspressoShotCountButton: View {
+struct EspressoShotCountStepper: View {
+    //TODO: 에스프레소 샷 수 스텝퍼 구조체 구현 전
     var body: some View {
         Text("에스프레소 샷 수 버튼")
-    }
-}
-
-struct EffectSectionBackground: View {
-    var body: some View {
-        RoundedRectangle(cornerRadius: AddCaffeineDetailViewLayoutValue.CornerRadius.cardRadius)
-            .foregroundColor(.white)
-            .shadow(color: .primaryShadowGray, radius: AddCaffeineDetailViewLayoutValue.CornerRadius.shadowRadius, x: .zero, y: .zero)
     }
 }
 
