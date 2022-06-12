@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-struct TotalListLayout {
+struct TotalListLayoutValue {
     
     struct Paddings {
         
@@ -16,10 +16,15 @@ struct TotalListLayout {
         static let caffeineRecordRowVerticalPadding: CGFloat = 15
         static let caffeineRecordRowHorizontalPadding: CGFloat = 20
         static let textVerticalPadding: CGFloat = 5
+        static let sideEffectRecordRowVerticalPadding: CGFloat = 15
+        static let sideEffectRecordRowHorizontalPadding: CGFloat = 20
         static let sideEffectRecordCellHorizontalPadding: CGFloat = 21
         static let sideEffectRecordCellVerticalPadding: CGFloat = 20
         static let caffeineRecordAmountUnitPadding: CGFloat = 1
-        static let TotalListViewPadding: CGFloat = 20
+        static let fullViewHorizontalPadding: CGFloat = 15
+        static let fullViewVerticalPadding: CGFloat = 23
+        static let dateVerticalPadding: CGFloat = 6
+        static let dividerHorizontalPadding: CGFloat = 15
         
     }
     
@@ -63,8 +68,8 @@ struct TotalListView: View {
                 
                 
             }
-            .padding(.horizontal, 15) //전체 스크린 좌우 padding 15
-            .padding(.top, 23) //navigation bar와 간격
+            .padding(.horizontal, TotalListLayoutValue.Paddings.fullViewHorizontalPadding)
+            .padding(.top, TotalListLayoutValue.Paddings.fullViewVerticalPadding) //navigation bar와 간격
         }
         .background(Color.backgroundCream)
         .navigationTitle(Text("전체 리스트").font(.caption))
@@ -85,7 +90,7 @@ struct TotalListView: View {
 }
 
 //날짜별 카페인 + 부작용 데이터 : 날짜별로 스트레스 + 부작용 데이터 받아와서 뷰 만들기
-//(추후) 카페인 데이터인지 부작용 데이터인지에 따라 맞는 리스트 보여주도록 구현, 마지막 리스트 다음에는 divider 없도록
+//(추후) 카페인 데이터인지 부작용 데이터인지에 따라 맞는 리스트 보여주도록 구현
 struct TotalRecordsByDay: View {
     let curDate : String
     let dataCount = tmpDataTotalListArr.count
@@ -97,14 +102,14 @@ struct TotalRecordsByDay: View {
             Text(curDate)
                 .font(.title3)
                 .fontWeight(.semibold)
-                .padding(.bottom, 6)
+                .padding(.bottom, TotalListLayoutValue.Paddings.dateVerticalPadding)
         
             VStack(spacing: 0){
                 
                 ForEach(Array(tmpDataTotalListArr.enumerated()), id: \.element) { idx, element in
                     if (element.dataType == "drink"){
                         CaffeineRecordCellList()
-                            .padding(.horizontal, TotalListLayout.Paddings.caffeineRecordRowHorizontalPadding)
+                            .padding(.horizontal, TotalListLayoutValue.Paddings.caffeineRecordRowHorizontalPadding)
                     }
                     else if (element.dataType == "sideEffect"){
                         SideEffectRecordRow()
@@ -116,7 +121,7 @@ struct TotalRecordsByDay: View {
                     //마지막 데이터 다음 divider 없애기
                     if (idx != tmpDataTotalListArr.count - 1) {
                         Divider()
-                            .padding(.horizontal, 15.0)
+                            .padding(.horizontal, TotalListLayoutValue.Paddings.dividerHorizontalPadding)
                     }
                     
                 }
@@ -154,12 +159,12 @@ struct SideEffectRecordRow: View {
                     .foregroundColor(.customRed)
                     .padding(.leading, 5)
             }
-            .padding(.leading, 20)
+            .padding(.leading, TotalListLayoutValue.Paddings.sideEffectRecordRowHorizontalPadding)
             
             SideEffectRecordsByDayList()
             
         }
-        .padding(.top, 15)
+        .padding(.top, TotalListLayoutValue.Paddings.sideEffectRecordRowVerticalPadding)
     }
     
 }
@@ -173,9 +178,9 @@ struct SideEffectRecordRow: View {
 
 struct SideEffectRecordsByDayList: View {
     var body: some View {
-        VStack(alignment: .center, spacing: TotalListLayout.Paddings.sideEffectRecordCellVerticalPadding) {
+        VStack(alignment: .center, spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellVerticalPadding) {
             ForEach(0..<2) { sideEffectRowIndex in
-                HStack(alignment: .center, spacing: TotalListLayout.Paddings.sideEffectRecordCellHorizontalPadding) {
+                HStack(alignment: .center, spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding) {
                     //TODO: 임시 데이터 수
                     ForEach(0..<5) { sideEffectItemIndex in
                         SideEffectRecordItemList()
@@ -183,8 +188,8 @@ struct SideEffectRecordsByDayList: View {
                 }
             }
         }
-        .padding(.vertical, TotalListLayout.Paddings.sideEffectRecordCellVerticalPadding)
-        .frame(width: TotalListLayout.Sizes.cardWidth)
+        .padding(.vertical, TotalListLayoutValue.Paddings.sideEffectRecordCellVerticalPadding)
+        .frame(width: TotalListLayoutValue.Sizes.cardWidth)
     }
 }
 
@@ -196,7 +201,7 @@ struct SideEffectRecordItemList: View {
             Text("식도염")
                 .font(.caption)
         }
-        .frame(width: TotalListLayout.Sizes.sideEffectRecordCellFixedWidth)
+        .frame(width: TotalListLayoutValue.Sizes.sideEffectRecordCellFixedWidth)
     }
 }
 
@@ -212,11 +217,11 @@ struct CaffeineRecordCellList: View {
                     Text("09:30")
                         .font(.caption)
                         .foregroundColor(.secondaryTextGray)
-                        .padding(.bottom, TotalListLayout.Paddings.dayRecordPadding)
+                        .padding(.bottom, TotalListLayoutValue.Paddings.dayRecordPadding)
                     HStack(alignment: .firstTextBaseline, spacing: 0) {
                         Text("아메리카노")
                             .font(.title3)
-                            .padding(.trailing, TotalListLayout.Paddings.textVerticalPadding)
+                            .padding(.trailing, TotalListLayoutValue.Paddings.textVerticalPadding)
                         Text("스타벅스/Tall")
                             .font(.caption)
                             .foregroundColor(.secondaryTextGray)
@@ -226,13 +231,13 @@ struct CaffeineRecordCellList: View {
                 HStack(alignment: .firstTextBaseline, spacing: 0) {
                     Text("150")
                         .font(.title)
-                        .padding(.trailing, TotalListLayout.Paddings.caffeineRecordAmountUnitPadding)
+                        .padding(.trailing, TotalListLayoutValue.Paddings.caffeineRecordAmountUnitPadding)
                     Text("mg")
                         .font(.subheadline)
                         .foregroundColor(.secondaryTextGray)
                 }
             }
-            .padding(.vertical, TotalListLayout.Paddings.caffeineRecordRowVerticalPadding)
+            .padding(.vertical, TotalListLayoutValue.Paddings.caffeineRecordRowVerticalPadding)
 //            Divider()
             
         }
