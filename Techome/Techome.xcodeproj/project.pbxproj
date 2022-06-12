@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2AC7A36628517C9100D7CA60 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7A36528517C9100D7CA60 /* Color+.swift */; };
+		79017CE7285182C90099B8E6 /* SearchCaffeineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79017CE6285182C90099B8E6 /* SearchCaffeineView.swift */; };
+		79537B892855B66D006EEF84 /* SearchCaffeineLayoutValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79537B882855B66D006EEF84 /* SearchCaffeineLayoutValue.swift */; };
+		79D3F78628530A990093443D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D3F78528530A990093443D /* HomeView.swift */; };
 		2AC7A369285180A100D7CA60 /* TrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7A368285180A100D7CA60 /* TrendView.swift */; };
 		AB9CD1A728515F4B00589D07 /* TechomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1A628515F4B00589D07 /* TechomeApp.swift */; };
 		AB9CD1AB28515F4D00589D07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB9CD1AA28515F4D00589D07 /* Assets.xcassets */; };
@@ -34,6 +37,9 @@
 
 /* Begin PBXFileReference section */
 		2AC7A36528517C9100D7CA60 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		79017CE6285182C90099B8E6 /* SearchCaffeineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCaffeineView.swift; sourceTree = "<group>"; };
+		79537B882855B66D006EEF84 /* SearchCaffeineLayoutValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCaffeineLayoutValue.swift; sourceTree = "<group>"; };
+		79D3F78528530A990093443D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2AC7A368285180A100D7CA60 /* TrendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendView.swift; sourceTree = "<group>"; };
 		AB9CD1A328515F4B00589D07 /* Techome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Techome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9CD1A628515F4B00589D07 /* TechomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechomeApp.swift; sourceTree = "<group>"; };
@@ -70,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		79017CE8285183450099B8E6 /* AddCaffeine */ = {
+			isa = PBXGroup;
+			children = (
+				79017CE6285182C90099B8E6 /* SearchCaffeineView.swift */,
+				79D3F78528530A990093443D /* HomeView.swift */,
+				79537B882855B66D006EEF84 /* SearchCaffeineLayoutValue.swift */,
+			);
+			path = AddCaffeine;
 		2AC7A3672851809400D7CA60 /* Trend */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +136,7 @@
 			children = (
 				2AC7A3672851809400D7CA60 /* Trend */,
 				AB9CD1A828515F4B00589D07 /* ContentView.swift */,
+				79017CE8285183450099B8E6 /* AddCaffeine */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -297,6 +312,7 @@
 				DA60EAF0285443A500B34799 /* BeverageRepository.swift in Sources */,
 				DA774E4F2851C21B009BA4EA /* Beverage.swift in Sources */,
 				DA774E4C2851C1CD009BA4EA /* JSONManager.swift in Sources */,
+				79D3F78628530A990093443D /* HomeView.swift in Sources */,
 				AB9CD1C928560F3C00589D07 /* ContentView.swift in Sources */,
 				DA60EAE92854382F00B34799 /* BeverageManager.swift in Sources */,
 				AB9CD1A728515F4B00589D07 /* TechomeApp.swift in Sources */,
@@ -309,6 +325,8 @@
 				DADFFD6B28530CA3009DB7E4 /* IntakeManager.swift in Sources */,
 				DAD0F9F7285323A20039FB08 /* Formatter.swift in Sources */,
 				AB9CD1C22851677000589D07 /* tempViewModel.swift in Sources */,
+				79537B892855B66D006EEF84 /* SearchCaffeineLayoutValue.swift in Sources */,
+				79017CE7285182C90099B8E6 /* SearchCaffeineView.swift in Sources */,
 				DA60EAEE2854439800B34799 /* SideEffectRepository.swift in Sources */,
 				DA774E572851C29D009BA4EA /* Franchise.swift in Sources */,
 				2AC7A36628517C9100D7CA60 /* Color+.swift in Sources */,
