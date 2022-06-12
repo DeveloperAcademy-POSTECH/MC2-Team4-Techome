@@ -33,6 +33,19 @@ struct TotalListLayout {
     
 }
 
+//카페인 + 부작용 리스트 병합에 사용
+struct tmpDataTotalList : Hashable {
+    var dataType: String
+    var dataIdx: Int
+}
+
+//카페인 + 부작용 리스트 병합 결과
+//(추후 구현) datatype과 idx 활용해 리스트에 넣을 알맞은 데이터 찾기
+private var tmpDataTotalListArr : [tmpDataTotalList] = [
+    tmpDataTotalList(dataType: "drink", dataIdx: 1),
+    tmpDataTotalList(dataType: "sideEffect", dataIdx: 1),
+    tmpDataTotalList(dataType: "drink", dataIdx: 2)
+]
 
 // 전체 리스트
 struct TotalListView: View {
@@ -75,6 +88,7 @@ struct TotalListView: View {
 //(추후) 카페인 데이터인지 부작용 데이터인지에 따라 맞는 리스트 보여주도록 구현, 마지막 리스트 다음에는 divider 없도록
 struct TotalRecordsByDay: View {
     let curDate : String
+    let dataCount = tmpDataTotalListArr.count
     
     var body: some View {
         
@@ -86,13 +100,27 @@ struct TotalRecordsByDay: View {
                 .padding(.bottom, 6)
         
             VStack(spacing: 0){
-                CaffeineRecordCellList()
-                    .padding(.horizontal, TotalListLayout.Paddings.caffeineRecordRowHorizontalPadding)
-                SideEffectRecordRow()
-                Divider()
-                    .padding(.horizontal, 15.0)
-                CaffeineRecordCellList()
-                    .padding(.horizontal, TotalListLayout.Paddings.caffeineRecordRowHorizontalPadding)
+                
+                ForEach(Array(tmpDataTotalListArr.enumerated()), id: \.element) { idx, element in
+                    if (element.dataType == "drink"){
+                        CaffeineRecordCellList()
+                            .padding(.horizontal, TotalListLayout.Paddings.caffeineRecordRowHorizontalPadding)
+                    }
+                    else if (element.dataType == "sideEffect"){
+                        SideEffectRecordRow()
+                    }
+                    else {
+                        
+                    }
+                    
+                    //마지막 데이터 다음 divider 없애기
+                    if (idx != tmpDataTotalListArr.count - 1) {
+                        Divider()
+                            .padding(.horizontal, 15.0)
+                    }
+                    
+                }
+
             }
             .padding(.vertical, 3)
             .background(Color.white)
@@ -174,7 +202,7 @@ struct SideEffectRecordItemList: View {
 
 
 
-//trend 의 CaffeineRecordCell 에 padding (.vertical)로 제한하는 코드 추가, 이외 동일
+//trend 의 CaffeineRecordCell 에 padding (.vertical)로 제한하는 코드 추가 & Divider 삭제, 이외 동일
 //카페인 데이터
 struct CaffeineRecordCellList: View {
     var body: some View {
@@ -205,7 +233,7 @@ struct CaffeineRecordCellList: View {
                 }
             }
             .padding(.vertical, TotalListLayout.Paddings.caffeineRecordRowVerticalPadding)
-            Divider()
+//            Divider()
             
         }
     }
@@ -215,12 +243,13 @@ struct CaffeineRecordCellList: View {
 
 struct TotalListView_Previews: PreviewProvider {
     static var previews: some View {
+        
+        TotalListView()
+        
         NavigationView {
             NavigationLink("to total list") {
                 TotalListView()
             }
         }
-        
-        TotalListView()
     }
 }
