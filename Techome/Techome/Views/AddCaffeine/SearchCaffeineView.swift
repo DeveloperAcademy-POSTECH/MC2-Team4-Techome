@@ -53,8 +53,9 @@ struct RecentlyAddedCaffeine: View {
         
         VStack {
             Text("최근 추가한 카페인")
+                .font(.body)
                 .foregroundColor(.black)
-                .fontWeight(.bold)
+                .fontWeight(.semibold)
                 .frame(maxWidth:.infinity, alignment: .leading)
                 .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardTitleHorizontalPadding)
             
