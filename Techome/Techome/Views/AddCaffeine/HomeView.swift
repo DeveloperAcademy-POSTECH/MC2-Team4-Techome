@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State var showSheet: Bool = false
+    @State var isShowedSheet: Bool = false
     
     var body: some View {
         ZStack {
@@ -17,14 +17,14 @@ struct HomeView: View {
                 .ignoresSafeArea()
             
             Button(action: {
-                showSheet.toggle()
+                isShowedSheet.toggle()
             }) {
                 Text("카페인 추가하기")
                     .font(.title)
                     .foregroundColor(.black)
                     .padding()
                     .background(Color.white)
-                    .fullScreenCover(isPresented: $showSheet, content: {
+                    .fullScreenCover(isPresented: $isShowedSheet, content: {
                         SearchCaffeineView()
                     })
             }

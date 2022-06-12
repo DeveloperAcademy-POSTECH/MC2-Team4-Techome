@@ -10,8 +10,6 @@ import SwiftUI
 struct SearchCaffeineView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    let widthPadding = 15.0
-    let listTextPadding = 10.0
     
     var body: some View {
         NavigationView {
