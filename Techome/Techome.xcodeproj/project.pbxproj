@@ -273,6 +273,7 @@
 				DA60EAEC28543B4200B34799 /* IntakeRepository.swift in Sources */,
 				DAD0F9F5285316540039FB08 /* SideEffectManager.swift in Sources */,
 				DA60EAF0285443A500B34799 /* BeverageRepository.swift in Sources */,
+				DA774E4F2851C21B009BA4EA /* Drink.swift in Sources */,
 				DA774E4C2851C1CD009BA4EA /* JSONManager.swift in Sources */,
 				DA60EAE92854382F00B34799 /* BeverageManager.swift in Sources */,
 				AB9CD1A728515F4B00589D07 /* TechomeApp.swift in Sources */,
