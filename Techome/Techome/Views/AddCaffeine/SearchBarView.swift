@@ -37,7 +37,7 @@ struct SearchBarView: View {
         }
         .font(.headline)
         .padding(.leading, SearchCaffeineViewLayoutValue.Padding.searchBarGlassLeft)
-        .frame(width: UIScreen.main.bounds.width * 0.9, height: SearchCaffeineViewLayoutValue.Size.searchBarHeight, alignment: .center)
+        .frame(height: SearchCaffeineViewLayoutValue.Size.searchBarHeight, alignment: .center)
         .background(
             RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.searchbar)
                 .fill(.white)

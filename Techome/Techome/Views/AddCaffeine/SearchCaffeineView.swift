@@ -18,17 +18,13 @@ struct SearchCaffeineView: View {
                     .ignoresSafeArea()
             
                 VStack {
-                    // TODO: 커스텀 검색바 구현
-                    RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.card)
-                        .frame(height: SearchCaffeineViewLayoutValue.Size.searchBarHeight)
-                        .foregroundColor(.white)
-                        .shadow(color: .secondaryTextGray, radius: SearchCaffeineViewLayoutValue.Radius.shadow, x: .zero, y: .zero)
+                    SearchBarView()
                     
                     // TODO: 더미데이터가 아닌 데이터 연동
                     RecentlyAddedCaffeine()
                 }
+                .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardHorizontalPadding)
                 .frame(height: SearchCaffeineViewLayoutValue.Size.mainHeight * 0.8, alignment: .top)
-                .padding(.horizontal)
             }
             .navigationTitle("카페인 추가하기")
             .navigationBarTitleDisplayMode(.inline)
