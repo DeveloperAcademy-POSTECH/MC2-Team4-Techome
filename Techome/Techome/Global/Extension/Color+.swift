@@ -20,4 +20,5 @@ extension Color {
     static let secondaryShadowGray = Color("SecondaryShadowGray")
     static let chartBackgroundLineGray = Color("ChartBackgroundLineGray")
     static let chartIndicatorBackgroundGray = Color("ChartIndicatorBackgroundGray")
+    static let gaugeBackgroundGray = Color("GaugeBackgroundGray")
 }
