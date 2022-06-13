@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2ABF49482856DCAD000E3387 /* BarChart in Frameworks */ = {isa = PBXBuildFile; productRef = 2ABF49472856DCAD000E3387 /* BarChart */; };
 		AB18CCED2856D8B300DD1C5A /* SideEffectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCC62856D8B300DD1C5A /* SideEffectRepository.swift */; };
 		AB18CCEE2856D8B300DD1C5A /* BeverageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCC72856D8B300DD1C5A /* BeverageRepository.swift */; };
 		AB18CCEF2856D8B300DD1C5A /* IntakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCC82856D8B300DD1C5A /* IntakeRepository.swift */; };
@@ -74,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ABF49482856DCAD000E3387 /* BarChart in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +261,9 @@
 			dependencies = (
 			);
 			name = Techome;
+			packageProductDependencies = (
+				2ABF49472856DCAD000E3387 /* BarChart */,
+			);
 			productName = Techome;
 			productReference = AB1FBDEF2856B93300EB4F95 /* Techome.app */;
 			productType = "com.apple.product-type.application";
@@ -288,6 +293,9 @@
 				Base,
 			);
 			mainGroup = AB1FBDE62856B93300EB4F95;
+			packageReferences = (
+				2ABF49462856DCAC000E3387 /* XCRemoteSwiftPackageReference "BarChart" */,
+			);
 			productRefGroup = AB1FBDF02856B93300EB4F95 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -545,6 +553,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2ABF49462856DCAC000E3387 /* XCRemoteSwiftPackageReference "BarChart" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dawigr/BarChart.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2ABF49472856DCAD000E3387 /* BarChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2ABF49462856DCAC000E3387 /* XCRemoteSwiftPackageReference "BarChart" */;
+			productName = BarChart;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AB1FBDE72856B93300EB4F95 /* Project object */;
 }
