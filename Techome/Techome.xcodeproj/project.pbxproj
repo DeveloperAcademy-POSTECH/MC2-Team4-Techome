@@ -30,6 +30,8 @@
 		AB4B854E2856BD2C00D04D5F /* tempViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B854D2856BD2C00D04D5F /* tempViewModel.swift */; };
 		AB4B85532856BD3000D04D5F /* TrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85512856BD3000D04D5F /* TrendView.swift */; };
 		AB4B85542856BD3000D04D5F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85522856BD3000D04D5F /* ContentView.swift */; };
+    523A746F285332FC003E6C7D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523A746D285332FC003E6C7D /* HomeView.swift */; };
+		523A7470285332FC003E6C7D /* AddSideEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523A746E285332FC003E6C7D /* AddSideEffectView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		AB4B854D2856BD2C00D04D5F /* tempViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempViewModel.swift; sourceTree = "<group>"; };
 		AB4B85512856BD3000D04D5F /* TrendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendView.swift; sourceTree = "<group>"; };
 		AB4B85522856BD3000D04D5F /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+    523A746D285332FC003E6C7D /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		523A746E285332FC003E6C7D /* AddSideEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSideEffectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52C1A8C82852ED2700568541 /* AddSideEffect */ = {
+			isa = PBXGroup;
+			children = (
+				523A746E285332FC003E6C7D /* AddSideEffectView.swift */,
+				523A746D285332FC003E6C7D /* HomeView.swift */,
+			);
+			path = AddSideEffect;
+			sourceTree = "<group>";
+		};
 		AB1FBDE62856B93300EB4F95 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +125,8 @@
 		AB4B85222856BD0E00D04D5F /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				52C1A8C82852ED2700568541 /* AddSideEffect */,
+				AB9CD1A828515F4B00589D07 /* ContentView.swift */,
 				AB4B85232856BD0E00D04D5F /* Repository */,
 				AB4B85272856BD0E00D04D5F /* Extension */,
 				AB4B852A2856BD0E00D04D5F /* Manager */,
@@ -308,6 +323,8 @@
 				AB4B85372856BD0E00D04D5F /* JSONManager.swift in Sources */,
 				AB4B85442856BD2000D04D5F /* IntakeRecord.swift in Sources */,
 				AB4B85362856BD0E00D04D5F /* SideEffectManager.swift in Sources */,
+        523A7470285332FC003E6C7D /* AddSideEffectView.swift in Sources */,
+				523A746F285332FC003E6C7D /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,7 +453,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Techome/Preview Content\"";
-				DEVELOPMENT_TEAM = 8QSTXVD8H9;
+				DEVELOPMENT_TEAM = 7PQ6FMV22H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -465,7 +482,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Techome/Preview Content\"";
-				DEVELOPMENT_TEAM = 8QSTXVD8H9;
+				DEVELOPMENT_TEAM = 7PQ6FMV22H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
