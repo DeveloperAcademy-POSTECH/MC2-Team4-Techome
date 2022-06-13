@@ -14,11 +14,11 @@ final class SideEffectManager {
     let repository = SideEffectRepository()
     
     func addRecord(date: Date, sideEffects: [SideEffect]) {
-        repository.addRecord(date: date, sideEffects: sideEffects)
+        repository.save(date: date, sideEffects: sideEffects)
     }
     
     func getDailyRecords(date: Date) -> [SideEffect] {
-        let dailyRecords = repository.getDailyRecords(date: date)
+        let dailyRecords = repository.findByDate(date: date)
         var dailySideEffects: Set<SideEffect> = []
         
         for record in dailyRecords {
@@ -29,10 +29,10 @@ final class SideEffectManager {
     }
     
     func getAllRecords() -> [SideEffectRecord] {
-        return repository.getAllRecords()
+        return repository.findAll()
     }
     
     func deleteRecord(sideEffectRecord: SideEffectRecord) {
-        repository.deleteRecord(sideEffectRecord: sideEffectRecord)
+        repository.remove(sideEffectRecord: sideEffectRecord)
     }
 }
