@@ -76,7 +76,7 @@ struct AddSideEffectView: View {
 
 struct SideEffectDate: View {
     
-    @State private var sideEffectDate = Date()
+    @EnvironmentObject var sideEffectStates: AddSideEffectStateHolder
     
     var body: some View {
         Text("언제 부작용을 겪으셨나요?")
@@ -85,7 +85,7 @@ struct SideEffectDate: View {
             .padding(.top, AddSideEffectLayoutValue.Paddings.contentBetweenVerticalPadding)
             .padding(.bottom, AddSideEffectLayoutValue.Paddings.labelBottomPadding)
         
-        DatePicker("부작용 일시", selection: $sideEffectDate, in: ...Date())
+        DatePicker("부작용 일시", selection: $sideEffectStates.sideEffectDate, in: ...Date())
             .labelsHidden()
             .accentColor(.primaryBrown)
             .frame(alignment: .leading)
@@ -115,15 +115,15 @@ struct SideEffectType: View {
 }
 
 struct SideEffectButton: View {
+        
+    @EnvironmentObject var sideEffectStates: AddSideEffectStateHolder
     
-    @State private var isSelected: [Bool] = [false, false, false, false, false, false, false, false, false, false]
-
     var sideEffectIndex: Int
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: AddSideEffectLayoutValue.Radius.buttonRadius)
-                .foregroundColor(isSelected[sideEffectIndex] ? .primaryBrown : .white)
+                .foregroundColor(sideEffectStates.isSelected[sideEffectIndex] ? .primaryBrown : .white)
                 .shadow(color: .primaryShadowGray, radius: AddSideEffectLayoutValue.Radius.buttonShadowRadius, x: .zero, y: .zero)
             
             HStack(spacing: .zero) {
@@ -139,17 +139,21 @@ struct SideEffectButton: View {
                     .frame(width: AddSideEffectLayoutValue.Sizes.gridTextWidth, alignment: .center)
             }
             .padding(.horizontal)
-            .foregroundColor(isSelected[sideEffectIndex] ? .white : .customBlack)
+            .foregroundColor(sideEffectStates.isSelected[sideEffectIndex] ? .white : .customBlack)
         }
         .frame(height: AddSideEffectLayoutValue.Sizes.sideEffectButtonHeight)
         .onTapGesture {
-            isSelected[sideEffectIndex].toggle()
+//            isSelected[sideEffectIndex].toggle()
+            sideEffectStates.onButtonTouched(sideEffectIndex: sideEffectIndex)
         }
     }
 }
 
 struct AddSideEffect_Previews: PreviewProvider {
     static var previews: some View {
+        let sideEffectStates = AddSideEffectStateHolder()
+        
         AddSideEffectView()
+            .environmentObject(sideEffectStates)
     }
 }

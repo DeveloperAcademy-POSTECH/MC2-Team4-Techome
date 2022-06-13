@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+class AddSideEffectStateHolder: ObservableObject {
+    
+    @Published var sideEffectDate = Date()
+    @Published var isSelected: [Bool] = [false, false, false, false, false, false, false, false, false, false]
+    
+    func onButtonTouched(sideEffectIndex: Int) {
+        isSelected[sideEffectIndex].toggle()
+    }
+}
