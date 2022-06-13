@@ -60,7 +60,7 @@ final class IntakeManager {
         let days = 3
         let halfLifeInSecond: Double = 4 * 60 * 60
         
-        if !isRecordExist(days: days) {
+        guard isRecordExist(days: days) else {
             return 0
         }
         
@@ -70,7 +70,7 @@ final class IntakeManager {
     }
     
     private func isRecordExist(days: Int) -> Bool {
-        return (getRecentRecords(days: days).count != 0)
+        return getRecentRecords(days: days).count == 0 ? false : true
     }
     
     func getRemainCaffeineAmount() -> Double {
@@ -101,7 +101,7 @@ final class IntakeManager {
         let hoursInDay: Double = 24 * 60 * 60
         var records: [IntakeRecord] = []
         
-        for day in 0..<days {
+        for day in 0 ..< days {
             records += getDailyRecords(date: Date(timeIntervalSinceNow: -hoursInDay * Double(day)))
         }
         return records
