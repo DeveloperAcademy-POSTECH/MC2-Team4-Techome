@@ -40,7 +40,7 @@ struct AddSideEffectLayoutValue {
 struct AddSideEffectView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -119,6 +119,7 @@ struct SideEffectButton: View {
     @EnvironmentObject var sideEffectStates: AddSideEffectStateHolder
     
     var sideEffectIndex: Int
+    let sideEffectList: [SideEffect] = SideEffect.allCases
     
     var body: some View {
         ZStack {
@@ -127,12 +128,12 @@ struct SideEffectButton: View {
                 .shadow(color: .primaryShadowGray, radius: AddSideEffectLayoutValue.Radius.buttonShadowRadius, x: .zero, y: .zero)
             
             HStack(spacing: .zero) {
-                Image("heartburn")
+                Image(sideEffectList[sideEffectIndex].getImageName())
                     .renderingMode(.template)
                     .fixedSize()
                     .frame(width: AddSideEffectLayoutValue.Sizes.sideEffectImageWidth, alignment: .center)
                 
-                Text("tempString"/*sideEffects[sideEffectIndex]*/)
+                Text(sideEffectList[sideEffectIndex].getSideEffectName())
                     .font(.body)
                     .padding(.leading, AddSideEffectLayoutValue.Paddings.gridImageTextPadding)
                     .fixedSize()
@@ -143,7 +144,6 @@ struct SideEffectButton: View {
         }
         .frame(height: AddSideEffectLayoutValue.Sizes.sideEffectButtonHeight)
         .onTapGesture {
-//            isSelected[sideEffectIndex].toggle()
             sideEffectStates.onButtonTouched(sideEffectIndex: sideEffectIndex)
         }
     }
@@ -152,7 +152,6 @@ struct SideEffectButton: View {
 struct AddSideEffect_Previews: PreviewProvider {
     static var previews: some View {
         let sideEffectStates = AddSideEffectStateHolder()
-        
         AddSideEffectView()
             .environmentObject(sideEffectStates)
     }
