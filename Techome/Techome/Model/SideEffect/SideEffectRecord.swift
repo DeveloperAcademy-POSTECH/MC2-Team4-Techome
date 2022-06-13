@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct SideEffectRecord: Hashable, Codable {
-    var uuid = UUID()
+struct SideEffectRecord: Identifiable, Hashable, Codable {
+    var id = UUID()
     var date: Date
     var sideEffects: [SideEffect]
 }
