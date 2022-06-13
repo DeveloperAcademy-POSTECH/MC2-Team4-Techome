@@ -66,7 +66,7 @@ struct RecentlyAddedCaffeine: View {
             }
             .background(RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.card)
                 .foregroundColor(.white)
-                .shadow(color: .secondaryTextGray, radius: SearchCaffeineViewLayoutValue.Radius.shadow, x: .zero, y: .zero))
+                .shadow(color: .secondaryShadowGray, radius: SearchCaffeineViewLayoutValue.Radius.shadow, x: .zero, y: .zero))
             
         }
         .padding(EdgeInsets(top: SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding, leading: .zero, bottom: .zero, trailing: .zero))
