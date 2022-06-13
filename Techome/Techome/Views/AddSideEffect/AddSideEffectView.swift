@@ -120,7 +120,6 @@ struct SideEffectButton: View {
     @EnvironmentObject var sideEffectStates: AddSideEffectStateHolder
     
     var sideEffectIndex: Int
-    let sideEffectList: [SideEffect] = SideEffect.allCases
     
     var body: some View {
         ZStack {
@@ -129,12 +128,12 @@ struct SideEffectButton: View {
                 .shadow(color: .primaryShadowGray, radius: AddSideEffectLayoutValue.Radius.buttonShadowRadius, x: .zero, y: .zero)
             
             HStack(spacing: .zero) {
-                Image(sideEffectList[sideEffectIndex].getImageName())
+                Image(sideEffectStates.totalSideEffectList[sideEffectIndex].getImageName())
                     .renderingMode(.template)
                     .fixedSize()
                     .frame(width: AddSideEffectLayoutValue.Sizes.sideEffectImageWidth, alignment: .center)
                 
-                Text(sideEffectList[sideEffectIndex].getSideEffectName())
+                Text(sideEffectStates.totalSideEffectList[sideEffectIndex].getSideEffectName())
                     .font(.body)
                     .padding(.leading, AddSideEffectLayoutValue.Paddings.gridImageTextPadding)
                     .fixedSize()
