@@ -10,31 +10,32 @@
 		AB1FBDF32856B93300EB4F95 /* TechomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1FBDF22856B93300EB4F95 /* TechomeApp.swift */; };
 		AB1FBDFA2856B93400EB4F95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1FBDF92856B93400EB4F95 /* Preview Assets.xcassets */; };
 		AB4B85212856BCFB00D04D5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB4B85202856BCFB00D04D5F /* Assets.xcassets */; };
-		AB4B856C2856CAED00D04D5F /* TrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85632856CAED00D04D5F /* TrendView.swift */; };
-		AB4B856D2856CAED00D04D5F /* HomeView_G.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85652856CAED00D04D5F /* HomeView_G.swift */; };
-		AB4B856E2856CAED00D04D5F /* AddSideEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85662856CAED00D04D5F /* AddSideEffectView.swift */; };
-		AB4B856F2856CAED00D04D5F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85672856CAED00D04D5F /* ContentView.swift */; };
-		AB4B85702856CAED00D04D5F /* SearchCaffeineLayoutValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85692856CAED00D04D5F /* SearchCaffeineLayoutValue.swift */; };
-		AB4B85712856CAED00D04D5F /* SearchCaffeineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B856A2856CAED00D04D5F /* SearchCaffeineView.swift */; };
-		AB4B85722856CAED00D04D5F /* HomeView_N.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B856B2856CAED00D04D5F /* HomeView_N.swift */; };
-		AB4B85752856CAF300D04D5F /* tempViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85742856CAF300D04D5F /* tempViewModel.swift */; };
-		AB4B857E2856CAF900D04D5F /* tempModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85772856CAF900D04D5F /* tempModel.swift */; };
-		AB4B857F2856CAF900D04D5F /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85792856CAF900D04D5F /* Beverage.swift */; };
-		AB4B85802856CAF900D04D5F /* IntakeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B857A2856CAF900D04D5F /* IntakeRecord.swift */; };
-		AB4B85812856CAF900D04D5F /* Franchise.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B857B2856CAF900D04D5F /* Franchise.swift */; };
-		AB4B85822856CAF900D04D5F /* SideEffectRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B857D2856CAF900D04D5F /* SideEffectRecord.swift */; };
-		AB4B85912856CB0200D04D5F /* SideEffectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85852856CB0200D04D5F /* SideEffectRepository.swift */; };
-		AB4B85922856CB0200D04D5F /* BeverageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85862856CB0200D04D5F /* BeverageRepository.swift */; };
-		AB4B85932856CB0200D04D5F /* IntakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85872856CB0200D04D5F /* IntakeRepository.swift */; };
-		AB4B85942856CB0200D04D5F /* tempExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85892856CB0200D04D5F /* tempExtension.swift */; };
-		AB4B85952856CB0200D04D5F /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B858A2856CB0200D04D5F /* Color+.swift */; };
-		AB4B85962856CB0200D04D5F /* BeverageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B858C2856CB0200D04D5F /* BeverageManager.swift */; };
-		AB4B85972856CB0200D04D5F /* SideEffectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B858D2856CB0200D04D5F /* SideEffectManager.swift */; };
-		AB4B85982856CB0200D04D5F /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B858E2856CB0200D04D5F /* JSONManager.swift */; };
-		AB4B85992856CB0200D04D5F /* IntakeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B858F2856CB0200D04D5F /* IntakeManager.swift */; };
-		AB4B859A2856CB0200D04D5F /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85902856CB0200D04D5F /* Formatter.swift */; };
-		AB4B859E2856CB1400D04D5F /* BeverageData.json in Resources */ = {isa = PBXBuildFile; fileRef = AB4B859C2856CB1400D04D5F /* BeverageData.json */; };
-		AB4B859F2856CB1400D04D5F /* tempResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B859D2856CB1400D04D5F /* tempResources.swift */; };
+		AB4B85A22856CCCF00D04D5F /* BeverageData.json in Resources */ = {isa = PBXBuildFile; fileRef = AB4B85A02856CCCF00D04D5F /* BeverageData.json */; };
+		AB4B85A32856CCCF00D04D5F /* tempResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85A12856CCCF00D04D5F /* tempResources.swift */; };
+		AB4B85A72856CCE500D04D5F /* IntakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85A42856CCE400D04D5F /* IntakeRepository.swift */; };
+		AB4B85A82856CCE500D04D5F /* SideEffectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85A52856CCE500D04D5F /* SideEffectRepository.swift */; };
+		AB4B85A92856CCE500D04D5F /* BeverageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85A62856CCE500D04D5F /* BeverageRepository.swift */; };
+		AB4B85AC2856CCF300D04D5F /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85AA2856CCF300D04D5F /* Color+.swift */; };
+		AB4B85AD2856CCF300D04D5F /* tempExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85AB2856CCF300D04D5F /* tempExtension.swift */; };
+		AB4B85B22856CD0400D04D5F /* BeverageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85AE2856CD0400D04D5F /* BeverageManager.swift */; };
+		AB4B85B32856CD0400D04D5F /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85AF2856CD0400D04D5F /* JSONManager.swift */; };
+		AB4B85B42856CD0400D04D5F /* IntakeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85B02856CD0400D04D5F /* IntakeManager.swift */; };
+		AB4B85B52856CD0400D04D5F /* SideEffectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85B12856CD0400D04D5F /* SideEffectManager.swift */; };
+		AB4B85B72856CD0D00D04D5F /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85B62856CD0D00D04D5F /* Formatter.swift */; };
+		AB4B85B92856CD1300D04D5F /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85B82856CD1200D04D5F /* Formatter.swift */; };
+		AB4B85BC2856CD4300D04D5F /* tempModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85BB2856CD4300D04D5F /* tempModel.swift */; };
+		AB4B85C02856CD6400D04D5F /* IntakeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85BD2856CD6400D04D5F /* IntakeRecord.swift */; };
+		AB4B85C12856CD6400D04D5F /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85BE2856CD6400D04D5F /* Beverage.swift */; };
+		AB4B85C22856CD6400D04D5F /* Franchise.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85BF2856CD6400D04D5F /* Franchise.swift */; };
+		AB4B85C42856CD6E00D04D5F /* SideEffectRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85C32856CD6E00D04D5F /* SideEffectRecord.swift */; };
+		AB4B85C62856CD7A00D04D5F /* tempViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85C52856CD7A00D04D5F /* tempViewModel.swift */; };
+		AB4B85C82856CD9400D04D5F /* TrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85C72856CD9400D04D5F /* TrendView.swift */; };
+		AB4B85CB2856CDA000D04D5F /* AddSideEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85C92856CDA000D04D5F /* AddSideEffectView.swift */; };
+		AB4B85CC2856CDA000D04D5F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85CA2856CDA000D04D5F /* HomeView.swift */; };
+		AB4B85CE2856CDB600D04D5F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85CD2856CDB600D04D5F /* ContentView.swift */; };
+		AB4B85D22856CF3C00D04D5F /* SearchCaffeineLayoutValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85CF2856CF3B00D04D5F /* SearchCaffeineLayoutValue.swift */; };
+		AB4B85D32856CF3C00D04D5F /* SearchCaffeineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85D02856CF3B00D04D5F /* SearchCaffeineView.swift */; };
+		AB4B85D42856CF3C00D04D5F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4B85D12856CF3C00D04D5F /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,31 +43,33 @@
 		AB1FBDF22856B93300EB4F95 /* TechomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechomeApp.swift; sourceTree = "<group>"; };
 		AB1FBDF92856B93400EB4F95 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AB4B85202856BCFB00D04D5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AB4B85632856CAED00D04D5F /* TrendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendView.swift; sourceTree = "<group>"; };
-		AB4B85652856CAED00D04D5F /* HomeView_G.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView_G.swift; sourceTree = "<group>"; };
-		AB4B85662856CAED00D04D5F /* AddSideEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSideEffectView.swift; sourceTree = "<group>"; };
-		AB4B85672856CAED00D04D5F /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		AB4B85692856CAED00D04D5F /* SearchCaffeineLayoutValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCaffeineLayoutValue.swift; sourceTree = "<group>"; };
-		AB4B856A2856CAED00D04D5F /* SearchCaffeineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCaffeineView.swift; sourceTree = "<group>"; };
-		AB4B856B2856CAED00D04D5F /* HomeView_N.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView_N.swift; sourceTree = "<group>"; };
-		AB4B85742856CAF300D04D5F /* tempViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempViewModel.swift; sourceTree = "<group>"; };
-		AB4B85772856CAF900D04D5F /* tempModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempModel.swift; sourceTree = "<group>"; };
-		AB4B85792856CAF900D04D5F /* Beverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
-		AB4B857A2856CAF900D04D5F /* IntakeRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntakeRecord.swift; sourceTree = "<group>"; };
-		AB4B857B2856CAF900D04D5F /* Franchise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Franchise.swift; sourceTree = "<group>"; };
-		AB4B857D2856CAF900D04D5F /* SideEffectRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideEffectRecord.swift; sourceTree = "<group>"; };
-		AB4B85852856CB0200D04D5F /* SideEffectRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideEffectRepository.swift; sourceTree = "<group>"; };
-		AB4B85862856CB0200D04D5F /* BeverageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageRepository.swift; sourceTree = "<group>"; };
-		AB4B85872856CB0200D04D5F /* IntakeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntakeRepository.swift; sourceTree = "<group>"; };
-		AB4B85892856CB0200D04D5F /* tempExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempExtension.swift; sourceTree = "<group>"; };
-		AB4B858A2856CB0200D04D5F /* Color+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
-		AB4B858C2856CB0200D04D5F /* BeverageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageManager.swift; sourceTree = "<group>"; };
-		AB4B858D2856CB0200D04D5F /* SideEffectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideEffectManager.swift; sourceTree = "<group>"; };
-		AB4B858E2856CB0200D04D5F /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
-		AB4B858F2856CB0200D04D5F /* IntakeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntakeManager.swift; sourceTree = "<group>"; };
-		AB4B85902856CB0200D04D5F /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
-		AB4B859C2856CB1400D04D5F /* BeverageData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BeverageData.json; sourceTree = "<group>"; };
-		AB4B859D2856CB1400D04D5F /* tempResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempResources.swift; sourceTree = "<group>"; };
+		AB4B85A02856CCCF00D04D5F /* BeverageData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BeverageData.json; sourceTree = "<group>"; };
+		AB4B85A12856CCCF00D04D5F /* tempResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempResources.swift; sourceTree = "<group>"; };
+		AB4B85A42856CCE400D04D5F /* IntakeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntakeRepository.swift; sourceTree = "<group>"; };
+		AB4B85A52856CCE500D04D5F /* SideEffectRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideEffectRepository.swift; sourceTree = "<group>"; };
+		AB4B85A62856CCE500D04D5F /* BeverageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageRepository.swift; sourceTree = "<group>"; };
+		AB4B85AA2856CCF300D04D5F /* Color+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		AB4B85AB2856CCF300D04D5F /* tempExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempExtension.swift; sourceTree = "<group>"; };
+		AB4B85AE2856CD0400D04D5F /* BeverageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageManager.swift; sourceTree = "<group>"; };
+		AB4B85AF2856CD0400D04D5F /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
+		AB4B85B02856CD0400D04D5F /* IntakeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntakeManager.swift; sourceTree = "<group>"; };
+		AB4B85B12856CD0400D04D5F /* SideEffectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideEffectManager.swift; sourceTree = "<group>"; };
+		AB4B85B62856CD0D00D04D5F /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		AB4B85B82856CD1200D04D5F /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		AB4B85BA2856CD1800D04D5F /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		AB4B85BB2856CD4300D04D5F /* tempModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempModel.swift; sourceTree = "<group>"; };
+		AB4B85BD2856CD6400D04D5F /* IntakeRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntakeRecord.swift; sourceTree = "<group>"; };
+		AB4B85BE2856CD6400D04D5F /* Beverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
+		AB4B85BF2856CD6400D04D5F /* Franchise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Franchise.swift; sourceTree = "<group>"; };
+		AB4B85C32856CD6E00D04D5F /* SideEffectRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideEffectRecord.swift; sourceTree = "<group>"; };
+		AB4B85C52856CD7A00D04D5F /* tempViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempViewModel.swift; sourceTree = "<group>"; };
+		AB4B85C72856CD9400D04D5F /* TrendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendView.swift; sourceTree = "<group>"; };
+		AB4B85C92856CDA000D04D5F /* AddSideEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSideEffectView.swift; sourceTree = "<group>"; };
+		AB4B85CA2856CDA000D04D5F /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AB4B85CD2856CDB600D04D5F /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AB4B85CF2856CF3B00D04D5F /* SearchCaffeineLayoutValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCaffeineLayoutValue.swift; sourceTree = "<group>"; };
+		AB4B85D02856CF3B00D04D5F /* SearchCaffeineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCaffeineView.swift; sourceTree = "<group>"; };
+		AB4B85D12856CF3C00D04D5F /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,7 @@
 				AB4B85202856BCFB00D04D5F /* Assets.xcassets */,
 				AB4B859B2856CB1400D04D5F /* Resources */,
 				AB4B85832856CB0200D04D5F /* Global */,
+				AB4B85B82856CD1200D04D5F /* Formatter.swift */,
 				AB4B85762856CAF900D04D5F /* Model */,
 				AB4B85732856CAF300D04D5F /* ViewModel */,
 				AB4B85612856CAED00D04D5F /* Views */,
@@ -122,9 +126,9 @@
 		AB4B85612856CAED00D04D5F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AB4B85CD2856CDB600D04D5F /* ContentView.swift */,
 				AB4B85622856CAED00D04D5F /* Trend */,
 				AB4B85642856CAED00D04D5F /* AddSideEffect */,
-				AB4B85672856CAED00D04D5F /* ContentView.swift */,
 				AB4B85682856CAED00D04D5F /* AddCaffeine */,
 			);
 			name = Views;
@@ -134,7 +138,7 @@
 		AB4B85622856CAED00D04D5F /* Trend */ = {
 			isa = PBXGroup;
 			children = (
-				AB4B85632856CAED00D04D5F /* TrendView.swift */,
+				AB4B85C72856CD9400D04D5F /* TrendView.swift */,
 			);
 			path = Trend;
 			sourceTree = "<group>";
@@ -142,8 +146,8 @@
 		AB4B85642856CAED00D04D5F /* AddSideEffect */ = {
 			isa = PBXGroup;
 			children = (
-				AB4B85652856CAED00D04D5F /* HomeView_G.swift */,
-				AB4B85662856CAED00D04D5F /* AddSideEffectView.swift */,
+				AB4B85C92856CDA000D04D5F /* AddSideEffectView.swift */,
+				AB4B85CA2856CDA000D04D5F /* HomeView.swift */,
 			);
 			path = AddSideEffect;
 			sourceTree = "<group>";
@@ -151,9 +155,9 @@
 		AB4B85682856CAED00D04D5F /* AddCaffeine */ = {
 			isa = PBXGroup;
 			children = (
-				AB4B85692856CAED00D04D5F /* SearchCaffeineLayoutValue.swift */,
-				AB4B856A2856CAED00D04D5F /* SearchCaffeineView.swift */,
-				AB4B856B2856CAED00D04D5F /* HomeView_N.swift */,
+				AB4B85D12856CF3C00D04D5F /* HomeView.swift */,
+				AB4B85CF2856CF3B00D04D5F /* SearchCaffeineLayoutValue.swift */,
+				AB4B85D02856CF3B00D04D5F /* SearchCaffeineView.swift */,
 			);
 			path = AddCaffeine;
 			sourceTree = "<group>";
@@ -161,7 +165,7 @@
 		AB4B85732856CAF300D04D5F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				AB4B85742856CAF300D04D5F /* tempViewModel.swift */,
+				AB4B85C52856CD7A00D04D5F /* tempViewModel.swift */,
 			);
 			name = ViewModel;
 			path = "../../../MC2-Team4-Techome/Techome/Techome/ViewModel";
@@ -170,7 +174,7 @@
 		AB4B85762856CAF900D04D5F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AB4B85772856CAF900D04D5F /* tempModel.swift */,
+				AB4B85BB2856CD4300D04D5F /* tempModel.swift */,
 				AB4B85782856CAF900D04D5F /* Intake */,
 				AB4B857C2856CAF900D04D5F /* SideEffect */,
 			);
@@ -181,9 +185,9 @@
 		AB4B85782856CAF900D04D5F /* Intake */ = {
 			isa = PBXGroup;
 			children = (
-				AB4B85792856CAF900D04D5F /* Beverage.swift */,
-				AB4B857A2856CAF900D04D5F /* IntakeRecord.swift */,
-				AB4B857B2856CAF900D04D5F /* Franchise.swift */,
+				AB4B85BE2856CD6400D04D5F /* Beverage.swift */,
+				AB4B85BF2856CD6400D04D5F /* Franchise.swift */,
+				AB4B85BD2856CD6400D04D5F /* IntakeRecord.swift */,
 			);
 			path = Intake;
 			sourceTree = "<group>";
@@ -191,7 +195,7 @@
 		AB4B857C2856CAF900D04D5F /* SideEffect */ = {
 			isa = PBXGroup;
 			children = (
-				AB4B857D2856CAF900D04D5F /* SideEffectRecord.swift */,
+				AB4B85C32856CD6E00D04D5F /* SideEffectRecord.swift */,
 			);
 			path = SideEffect;
 			sourceTree = "<group>";
@@ -199,10 +203,10 @@
 		AB4B85832856CB0200D04D5F /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				AB4B85BA2856CD1800D04D5F /* Formatter.swift */,
 				AB4B85842856CB0200D04D5F /* Repository */,
 				AB4B85882856CB0200D04D5F /* Extension */,
 				AB4B858B2856CB0200D04D5F /* Manager */,
-				AB4B85902856CB0200D04D5F /* Formatter.swift */,
 			);
 			name = Global;
 			path = "../../../MC2-Team4-Techome/Techome/Techome/Global";
@@ -211,9 +215,9 @@
 		AB4B85842856CB0200D04D5F /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				AB4B85852856CB0200D04D5F /* SideEffectRepository.swift */,
-				AB4B85862856CB0200D04D5F /* BeverageRepository.swift */,
-				AB4B85872856CB0200D04D5F /* IntakeRepository.swift */,
+				AB4B85A62856CCE500D04D5F /* BeverageRepository.swift */,
+				AB4B85A42856CCE400D04D5F /* IntakeRepository.swift */,
+				AB4B85A52856CCE500D04D5F /* SideEffectRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -221,8 +225,8 @@
 		AB4B85882856CB0200D04D5F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				AB4B85892856CB0200D04D5F /* tempExtension.swift */,
-				AB4B858A2856CB0200D04D5F /* Color+.swift */,
+				AB4B85AA2856CCF300D04D5F /* Color+.swift */,
+				AB4B85AB2856CCF300D04D5F /* tempExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -230,10 +234,11 @@
 		AB4B858B2856CB0200D04D5F /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				AB4B858C2856CB0200D04D5F /* BeverageManager.swift */,
-				AB4B858D2856CB0200D04D5F /* SideEffectManager.swift */,
-				AB4B858E2856CB0200D04D5F /* JSONManager.swift */,
-				AB4B858F2856CB0200D04D5F /* IntakeManager.swift */,
+				AB4B85AE2856CD0400D04D5F /* BeverageManager.swift */,
+				AB4B85B02856CD0400D04D5F /* IntakeManager.swift */,
+				AB4B85AF2856CD0400D04D5F /* JSONManager.swift */,
+				AB4B85B12856CD0400D04D5F /* SideEffectManager.swift */,
+				AB4B85B62856CD0D00D04D5F /* Formatter.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -241,8 +246,8 @@
 		AB4B859B2856CB1400D04D5F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AB4B859C2856CB1400D04D5F /* BeverageData.json */,
-				AB4B859D2856CB1400D04D5F /* tempResources.swift */,
+				AB4B85A02856CCCF00D04D5F /* BeverageData.json */,
+				AB4B85A12856CCCF00D04D5F /* tempResources.swift */,
 			);
 			name = Resources;
 			path = "../../../MC2-Team4-Techome/Techome/Techome/Resources";
@@ -307,7 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB4B85212856BCFB00D04D5F /* Assets.xcassets in Resources */,
-				AB4B859E2856CB1400D04D5F /* BeverageData.json in Resources */,
+				AB4B85A22856CCCF00D04D5F /* BeverageData.json in Resources */,
 				AB1FBDFA2856B93400EB4F95 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,30 +324,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB4B856E2856CAED00D04D5F /* AddSideEffectView.swift in Sources */,
-				AB4B85982856CB0200D04D5F /* JSONManager.swift in Sources */,
-				AB4B857F2856CAF900D04D5F /* Beverage.swift in Sources */,
-				AB4B85712856CAED00D04D5F /* SearchCaffeineView.swift in Sources */,
-				AB4B85992856CB0200D04D5F /* IntakeManager.swift in Sources */,
-				AB4B85752856CAF300D04D5F /* tempViewModel.swift in Sources */,
-				AB4B859A2856CB0200D04D5F /* Formatter.swift in Sources */,
-				AB4B85922856CB0200D04D5F /* BeverageRepository.swift in Sources */,
-				AB4B85912856CB0200D04D5F /* SideEffectRepository.swift in Sources */,
-				AB4B85932856CB0200D04D5F /* IntakeRepository.swift in Sources */,
-				AB4B85942856CB0200D04D5F /* tempExtension.swift in Sources */,
-				AB4B85972856CB0200D04D5F /* SideEffectManager.swift in Sources */,
-				AB4B859F2856CB1400D04D5F /* tempResources.swift in Sources */,
-				AB4B85802856CAF900D04D5F /* IntakeRecord.swift in Sources */,
-				AB4B856F2856CAED00D04D5F /* ContentView.swift in Sources */,
-				AB4B856C2856CAED00D04D5F /* TrendView.swift in Sources */,
-				AB4B857E2856CAF900D04D5F /* tempModel.swift in Sources */,
-				AB4B85962856CB0200D04D5F /* BeverageManager.swift in Sources */,
-				AB4B85952856CB0200D04D5F /* Color+.swift in Sources */,
-				AB4B85722856CAED00D04D5F /* HomeView_N.swift in Sources */,
-				AB4B856D2856CAED00D04D5F /* HomeView_G.swift in Sources */,
-				AB4B85822856CAF900D04D5F /* SideEffectRecord.swift in Sources */,
-				AB4B85702856CAED00D04D5F /* SearchCaffeineLayoutValue.swift in Sources */,
-				AB4B85812856CAF900D04D5F /* Franchise.swift in Sources */,
+				AB4B85C82856CD9400D04D5F /* TrendView.swift in Sources */,
+				AB4B85B22856CD0400D04D5F /* BeverageManager.swift in Sources */,
+				AB4B85C62856CD7A00D04D5F /* tempViewModel.swift in Sources */,
+				AB4B85AC2856CCF300D04D5F /* Color+.swift in Sources */,
+				AB4B85D22856CF3C00D04D5F /* SearchCaffeineLayoutValue.swift in Sources */,
+				AB4B85BC2856CD4300D04D5F /* tempModel.swift in Sources */,
+				AB4B85B32856CD0400D04D5F /* JSONManager.swift in Sources */,
+				AB4B85AD2856CCF300D04D5F /* tempExtension.swift in Sources */,
+				AB4B85A82856CCE500D04D5F /* SideEffectRepository.swift in Sources */,
+				AB4B85CB2856CDA000D04D5F /* AddSideEffectView.swift in Sources */,
+				AB4B85CE2856CDB600D04D5F /* ContentView.swift in Sources */,
+				AB4B85D32856CF3C00D04D5F /* SearchCaffeineView.swift in Sources */,
+				AB4B85A32856CCCF00D04D5F /* tempResources.swift in Sources */,
+				AB4B85A72856CCE500D04D5F /* IntakeRepository.swift in Sources */,
+				AB4B85C22856CD6400D04D5F /* Franchise.swift in Sources */,
+				AB4B85D42856CF3C00D04D5F /* HomeView.swift in Sources */,
+				AB4B85B92856CD1300D04D5F /* Formatter.swift in Sources */,
+				AB4B85CC2856CDA000D04D5F /* HomeView.swift in Sources */,
+				AB4B85C12856CD6400D04D5F /* Beverage.swift in Sources */,
+				AB4B85A92856CCE500D04D5F /* BeverageRepository.swift in Sources */,
+				AB4B85C02856CD6400D04D5F /* IntakeRecord.swift in Sources */,
+				AB4B85B72856CD0D00D04D5F /* Formatter.swift in Sources */,
+				AB4B85B42856CD0400D04D5F /* IntakeManager.swift in Sources */,
+				AB4B85B52856CD0400D04D5F /* SideEffectManager.swift in Sources */,
+				AB4B85C42856CD6E00D04D5F /* SideEffectRecord.swift in Sources */,
 				AB1FBDF32856B93300EB4F95 /* TechomeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
