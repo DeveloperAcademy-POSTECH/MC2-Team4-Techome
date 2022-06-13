@@ -9,4 +9,9 @@ import Foundation
 
 final class SearchCaffeineStateHolder: ObservableObject {
     @Published var searchText: String = ""
+    
+    
+    init() {
+        self.searchText = searchText
+    }
 }

@@ -9,17 +9,17 @@ import SwiftUI
 
 struct SearchBarView: View {
     
-    @Binding var searchText: String
+    @EnvironmentObject var searchCaffeineStateHolder: SearchCaffeineStateHolder
     
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass")
                 .foregroundColor(
-                    searchText.isEmpty ?
+                    searchCaffeineStateHolder.searchText.isEmpty ?
                     Color.secondaryTextGray : Color.primaryBrown
                 )
             
-            TextField("메뉴 또는 브랜드", text: $searchText)
+            TextField("메뉴 또는 브랜드", text: $searchCaffeineStateHolder.searchText)
                 .disableAutocorrection(true)
                 .multilineTextAlignment(.leading)
                 .foregroundColor(.black)
@@ -28,10 +28,10 @@ struct SearchBarView: View {
                         .foregroundColor(Color.primaryBrown)
                         .padding(SearchCaffeineViewLayoutValue.Padding.searchBarClearTotal)
                         .padding(.trailing, SearchCaffeineViewLayoutValue.Padding.searchBarClearRight)
-                        .opacity(searchText.isEmpty ?  0.0 : 1.0)
+                        .opacity(searchCaffeineStateHolder.searchText.isEmpty ?  0.0 : 1.0)
                         .onTapGesture {
                             UIApplication.shared.endEditing()
-                            searchText = ""
+                            searchCaffeineStateHolder.searchText = ""
                         }
                     , alignment: .trailing
                 )
@@ -48,8 +48,10 @@ struct SearchBarView: View {
     }
 }
 
-//struct SearchBarView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SearchBarView()
-//    }
-//}
+struct SearchBarView_Previews: PreviewProvider {
+    static var previews: some View {
+        let searchCaffeineStateHolder = SearchCaffeineStateHolder()
+        SearchBarView()
+            .environmentObject(searchCaffeineStateHolder)
+    }
+}

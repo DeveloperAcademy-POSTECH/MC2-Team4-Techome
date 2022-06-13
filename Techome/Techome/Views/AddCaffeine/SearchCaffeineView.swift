@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchCaffeineView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @State var searchText: String = ""
+    @EnvironmentObject var searchCaffeineStateHolder: SearchCaffeineStateHolder
     
     var body: some View {
         NavigationView {
@@ -19,10 +19,10 @@ struct SearchCaffeineView: View {
                     .ignoresSafeArea()
             
                 VStack {
-                    SearchBarView(searchText: $searchText)
+                    SearchBarView()
                     
                     // TODO: 더미데이터가 아닌 데이터 연동
-                    if (searchText == "") {
+                    if (searchCaffeineStateHolder.searchText == "") {
                         RecentlyAddedCaffeine()
                     } else {
                         SearchResultView()
@@ -105,6 +105,8 @@ struct CaffeineRecordRow: View {
 struct SearchCaffeineView_Previews: PreviewProvider {
     
     static var previews: some View {
+        let searchCaffeineStateHolder = SearchCaffeineStateHolder()
         SearchCaffeineView()
+            .environmentObject(searchCaffeineStateHolder)
     }
 }
