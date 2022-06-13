@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchCaffeineView: View {
     
     @Environment(\.presentationMode) var presentationMode
+    @State var searchText: String = ""
     
     var body: some View {
         NavigationView {
@@ -18,10 +19,14 @@ struct SearchCaffeineView: View {
                     .ignoresSafeArea()
             
                 VStack {
-                    SearchBarView()
+                    SearchBarView(searchText: $searchText)
                     
                     // TODO: 더미데이터가 아닌 데이터 연동
-                    RecentlyAddedCaffeine()
+                    if (searchText == "") {
+                        RecentlyAddedCaffeine()
+                    } else {
+                        SearchResultView()
+                    }
                 }
                 .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardHorizontalPadding)
                 .frame(height: SearchCaffeineViewLayoutValue.Size.mainHeight * 0.8, alignment: .top)
@@ -46,7 +51,6 @@ struct SearchCaffeineView: View {
 struct RecentlyAddedCaffeine: View {
     var body: some View {
         
-        
         VStack {
             Text("최근 추가한 카페인")
                 .font(.body)
@@ -56,7 +60,7 @@ struct RecentlyAddedCaffeine: View {
                 .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardTitleHorizontalPadding)
             
             VStack(spacing: .zero) {
-                ForEach (0 ..< 7) { _ in
+                ForEach (0 ..< 6) { _ in
                     CaffeineRecordRow()
                 }
             }
