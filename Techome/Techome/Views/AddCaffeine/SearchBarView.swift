@@ -21,6 +21,8 @@ struct SearchBarView: View {
             
             TextField("메뉴 또는 브랜드", text: $searchText)
                 .disableAutocorrection(true)
+                .multilineTextAlignment(.leading)
+                .foregroundColor(.black)
                 .overlay(
                     Image(systemName: "xmark.circle.fill")
                         .foregroundColor(Color.primaryBrown)
