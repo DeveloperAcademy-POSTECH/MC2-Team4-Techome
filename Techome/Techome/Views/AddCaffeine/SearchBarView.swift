@@ -11,7 +11,6 @@ struct SearchBarView: View {
     
     @State var searchText: String = ""
     
-    // TODO: 다른 브랜치 merge 후 padding, radius, size 값 변수 적용
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass")
@@ -25,8 +24,8 @@ struct SearchBarView: View {
                 .overlay(
                     Image(systemName: "xmark.circle.fill")
                         .foregroundColor(Color.primaryBrown)
-                        .padding(10)
-                        .padding(.trailing, 4)
+                        .padding(SearchCaffeineViewLayoutValue.Padding.searchBarClearTotal)
+                        .padding(.trailing, SearchCaffeineViewLayoutValue.Padding.searchBarClearRight)
                         .opacity(searchText.isEmpty ?  0.0 : 1.0)
                         .onTapGesture {
                             UIApplication.shared.endEditing()
@@ -37,12 +36,12 @@ struct SearchBarView: View {
                 
         }
         .font(.headline)
-        .padding(.leading, 12)
-        .frame(width: UIScreen.main.bounds.width * 0.9, height: 48, alignment: .center)
+        .padding(.leading, SearchCaffeineViewLayoutValue.Padding.searchBarGlassLeft)
+        .frame(width: UIScreen.main.bounds.width * 0.9, height: SearchCaffeineViewLayoutValue.Size.searchBarHeight, alignment: .center)
         .background(
-            RoundedRectangle(cornerRadius: 5)
+            RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.searchbar)
                 .fill(.white)
-                .shadow(color: .secondaryShadowGray, radius: 2, x: .zero, y: .zero)
+                .shadow(color: .secondaryShadowGray, radius: SearchCaffeineViewLayoutValue.Radius.shadow, x: .zero, y: .zero)
         )
     }
 }

@@ -15,6 +15,9 @@ struct SearchCaffeineViewLayoutValue {
         static let cardItemHorizontalPadding: CGFloat = 19
         static let cardItemVerticalPadding: CGFloat = 17
         static let cardTitleHorizontalPadding: CGFloat = 6
+        static let searchBarClearRight: CGFloat = 4
+        static let searchBarClearTotal: CGFloat = 10
+        static let searchBarGlassLeft: CGFloat = 12
         
     }
     
@@ -26,7 +29,8 @@ struct SearchCaffeineViewLayoutValue {
     }
     
     struct Radius {
-        static let shadowRadius: CGFloat = 2
-        static let cardRadius: CGFloat = 7
+        static let shadow: CGFloat = 2
+        static let searchbar: CGFloat = 5
+        static let card: CGFloat = 7
     }
 }

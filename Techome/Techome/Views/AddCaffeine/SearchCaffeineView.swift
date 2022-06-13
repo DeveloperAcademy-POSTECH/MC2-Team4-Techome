@@ -19,10 +19,10 @@ struct SearchCaffeineView: View {
             
                 VStack {
                     // TODO: 커스텀 검색바 구현
-                    RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.cardRadius)
+                    RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.card)
                         .frame(height: SearchCaffeineViewLayoutValue.Size.searchBarHeight)
                         .foregroundColor(.white)
-                        .shadow(color: .secondaryTextGray, radius: SearchCaffeineViewLayoutValue.Radius.shadowRadius, x: .zero, y: .zero)
+                        .shadow(color: .secondaryTextGray, radius: SearchCaffeineViewLayoutValue.Radius.shadow, x: .zero, y: .zero)
                     
                     // TODO: 더미데이터가 아닌 데이터 연동
                     RecentlyAddedCaffeine()
@@ -64,9 +64,9 @@ struct RecentlyAddedCaffeine: View {
                     CaffeineRecordRow()
                 }
             }
-            .background(RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.cardRadius)
+            .background(RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.card)
                 .foregroundColor(.white)
-                .shadow(color: .secondaryTextGray, radius: SearchCaffeineViewLayoutValue.Radius.shadowRadius, x: .zero, y: .zero))
+                .shadow(color: .secondaryTextGray, radius: SearchCaffeineViewLayoutValue.Radius.shadow, x: .zero, y: .zero))
             
         }
         .padding(EdgeInsets(top: SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding, leading: .zero, bottom: .zero, trailing: .zero))
