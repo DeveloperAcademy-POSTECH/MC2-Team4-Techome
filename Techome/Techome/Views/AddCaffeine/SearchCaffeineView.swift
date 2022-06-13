@@ -12,6 +12,7 @@ struct SearchCaffeineView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var searchCaffeineStateHolder: SearchCaffeineStateHolder
     
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -49,6 +50,7 @@ struct SearchCaffeineView: View {
 }
 
 struct RecentlyAddedCaffeine: View {
+    
     var body: some View {
         
         VStack {
@@ -60,33 +62,41 @@ struct RecentlyAddedCaffeine: View {
                 .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardTitleHorizontalPadding)
             
             VStack(spacing: .zero) {
-                ForEach (0 ..< 6) { _ in
-                    CaffeineRecordRow()
+                if IntakeManager.shared.getAllRecords().count != 0 {
+                    ForEach (IntakeManager.shared.getAllRecords(), id: \.self) { record in
+                        CaffeineRecordRow(recentRecord: record)
+                    }
+                    .background(RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.card)
+                        .foregroundColor(.white)
+                        .shadow(color: .secondaryShadowGray, radius: SearchCaffeineViewLayoutValue.Radius.shadow, x: .zero, y: .zero))
+                } else {
+                    Text("최근 추가된 카페인이 없습니다.")
+                        .padding(.top, 150)
+                        .foregroundColor(.black)
                 }
             }
-            .background(RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.card)
-                .foregroundColor(.white)
-                .shadow(color: .secondaryShadowGray, radius: SearchCaffeineViewLayoutValue.Radius.shadow, x: .zero, y: .zero))
-            
         }
         .padding(EdgeInsets(top: SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding, leading: .zero, bottom: .zero, trailing: .zero))
     }
 }
 
 struct CaffeineRecordRow: View {
+    
+    var recentRecord: IntakeRecord
+    
     var body: some View {
         VStack(spacing: .zero) {
             HStack(alignment: .center, spacing: .zero) {
                 VStack (alignment: .leading){
-                    Text("아메리카노")
+                    Text(recentRecord.beverage.name)
                         .font(.title3)
-                    Text("스타벅스/Tall")
+                    Text("\(recentRecord.beverage.franchise.rawValue)/\(recentRecord.beverage.size)")
                         .font(.caption)
                         .foregroundColor(.secondaryTextGray)
                 }
                 Spacer()
                 HStack (alignment: .firstTextBaseline, spacing: .zero){
-                    Text("150")
+                    Text("\(recentRecord.beverage.caffeineAmount)")
                         .font(.title3)
                     Text("mg")
                         .font(.subheadline)
