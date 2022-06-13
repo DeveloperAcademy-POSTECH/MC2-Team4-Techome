@@ -10,7 +10,9 @@ import SwiftUI
 struct SearchResultView: View {
     var body: some View {
         Text("검색 결과 없음")
-        .padding(EdgeInsets(top: SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding, leading: .zero, bottom: .zero, trailing: .zero))    }
+            .font(.title3)
+            .foregroundColor(.black)
+            .padding(EdgeInsets(top: SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding, leading: .zero, bottom: .zero, trailing: .zero))    }
 }
 
 struct SearchResultView_Previews: PreviewProvider {
