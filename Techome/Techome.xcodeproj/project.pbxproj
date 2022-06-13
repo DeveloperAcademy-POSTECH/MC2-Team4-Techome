@@ -37,6 +37,7 @@
 		AB18CD072856D8B300DD1C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB18CCEB2856D8B300DD1C5A /* Assets.xcassets */; };
 		AB1FBDFA2856B93400EB4F95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1FBDF92856B93400EB4F95 /* Preview Assets.xcassets */; };
 		ABC3E951285706910091CC8E /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC3E950285706910091CC8E /* TodayView.swift */; };
+		ABC3E9542857383B0091CC8E /* SineWaveShape in Frameworks */ = {isa = PBXBuildFile; productRef = ABC3E9532857383B0091CC8E /* SineWaveShape */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABC3E9542857383B0091CC8E /* SineWaveShape in Frameworks */,
 				2ABF49482856DCAD000E3387 /* BarChart in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +276,7 @@
 			name = Techome;
 			packageProductDependencies = (
 				2ABF49472856DCAD000E3387 /* BarChart */,
+				ABC3E9532857383B0091CC8E /* SineWaveShape */,
 			);
 			productName = Techome;
 			productReference = AB1FBDEF2856B93300EB4F95 /* Techome.app */;
@@ -306,6 +309,7 @@
 			mainGroup = AB1FBDE62856B93300EB4F95;
 			packageReferences = (
 				2ABF49462856DCAC000E3387 /* XCRemoteSwiftPackageReference "BarChart" */,
+				ABC3E9522857383B0091CC8E /* XCRemoteSwiftPackageReference "SineWaveShape" */,
 			);
 			productRefGroup = AB1FBDF02856B93300EB4F95 /* Products */;
 			projectDirPath = "";
@@ -573,6 +577,14 @@
 				kind = branch;
 			};
 		};
+		ABC3E9522857383B0091CC8E /* XCRemoteSwiftPackageReference "SineWaveShape" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MrChens/SineWaveShape.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -580,6 +592,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2ABF49462856DCAC000E3387 /* XCRemoteSwiftPackageReference "BarChart" */;
 			productName = BarChart;
+		};
+		ABC3E9532857383B0091CC8E /* SineWaveShape */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABC3E9522857383B0091CC8E /* XCRemoteSwiftPackageReference "SineWaveShape" */;
+			productName = SineWaveShape;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -8,6 +8,15 @@
         "branch" : "master",
         "revision" : "3d51d0cdeab6594364ef6f931666f8f3fe4cc10e"
       }
+    },
+    {
+      "identity" : "sinewaveshape",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MrChens/SineWaveShape.git",
+      "state" : {
+        "revision" : "f0db321d770a86dee477b982bedcd79ee7ad7b7a",
+        "version" : "1.0.1"
+      }
     }
   ],
   "version" : 2
