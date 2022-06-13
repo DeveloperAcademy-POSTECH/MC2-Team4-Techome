@@ -103,9 +103,9 @@ struct SideEffectType: View {
             .padding(.bottom, AddSideEffectLayoutValue.Paddings.labelBottomPadding)
                 
         HStack(spacing: AddSideEffectLayoutValue.Paddings.sideEffectColumnSpacing) {
-            ForEach(0..<AddSideEffectLayoutValue.Grid.sideEffectTypeColumnCount) { sideEffectColumnIndex in
+            ForEach(0 ..< AddSideEffectLayoutValue.Grid.sideEffectTypeColumnCount, id: \.self) { sideEffectColumnIndex in
                 VStack(spacing: AddSideEffectLayoutValue.Paddings.sideEffectRowSpacing) {
-                    ForEach(0..<AddSideEffectLayoutValue.Grid.sideEffectTypeRowCount) { sideEffectRowIndex in
+                    ForEach(0 ..< AddSideEffectLayoutValue.Grid.sideEffectTypeRowCount, id: \.self) { sideEffectRowIndex in
                         SideEffectButton(sideEffectIndex: sideEffectRowIndex * 2 + sideEffectColumnIndex)
                     }
                 }
@@ -132,7 +132,7 @@ struct SideEffectButton: View {
                     .fixedSize()
                     .frame(width: AddSideEffectLayoutValue.Sizes.sideEffectImageWidth, alignment: .center)
                 
-                Text(sideEffects[sideEffectIndex])
+                Text("tempString"/*sideEffects[sideEffectIndex]*/)
                     .font(.body)
                     .padding(.leading, AddSideEffectLayoutValue.Paddings.gridImageTextPadding)
                     .fixedSize()
