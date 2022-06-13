@@ -40,6 +40,7 @@ struct AddSideEffectLayoutValue {
 struct AddSideEffectView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var sideEffectStates: AddSideEffectStateHolder
     
     var body: some View {
         NavigationView {
@@ -63,7 +64,7 @@ struct AddSideEffectView: View {
                         .foregroundColor(.primaryBrown)
                 },
                 trailing: Button(action: {
-                    //TODO: run 저장(update) method
+                    sideEffectStates.onSavedPressed()
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("저장")
