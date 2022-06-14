@@ -10,27 +10,35 @@ import Foundation
 final class IntakeRepository {
     private var records: [IntakeRecord] = []
     private let resourceFileName = "IntakeRecord.json"
+    private let jsonManager = JSONManager.shared
+    private let formatter = Formatter.date
     
     init() {
-        records = JSONManager.shared.load(filename: resourceFileName)
+        records = jsonManager.load(filename: resourceFileName)
     }
     
-    func addRecord(record: IntakeRecord) {
+    func save(record: IntakeRecord) {
         records.append(record)
-        JSONManager.shared.store(data: records, filename: resourceFileName)
+        jsonManager.store(data: records, filename: resourceFileName)
     }
     
-    func getDailyRecords(date: Date) -> [IntakeRecord] {
+    func findByDate(date: Date) -> [IntakeRecord] {
+        let dateString = formatter.string(from: date)
+        
         return records.filter({
-            Formatter.date.string(from: $0.date) == Formatter.date.string(from: date)
+            formatter.string(from: $0.date) == dateString
         })
     }
     
-    func getAllRecords() -> [IntakeRecord] {
+    func findRecent(count: Int) -> [IntakeRecord] {
+        return records.suffix(count).reversed()
+    }
+    
+    func findAll() -> [IntakeRecord] {
         return records
     }
     
-    func deleteRecord(intakeRecord: IntakeRecord) {
+    func remove(intakeRecord: IntakeRecord) {
         let removeRecordIndex = records.firstIndex(of: intakeRecord)
         
         guard let index = removeRecordIndex else {
@@ -38,5 +46,6 @@ final class IntakeRepository {
         }
         
         records.remove(at: index)
+        jsonManager.store(data: records, filename: resourceFileName)
     }
 }

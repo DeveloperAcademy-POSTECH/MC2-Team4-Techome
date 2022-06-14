@@ -40,6 +40,11 @@
 		AB18CD062856D8B300DD1C5A /* tempViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCEA2856D8B300DD1C5A /* tempViewModel.swift */; };
 		AB18CD072856D8B300DD1C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB18CCEB2856D8B300DD1C5A /* Assets.xcassets */; };
 		AB1FBDFA2856B93400EB4F95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1FBDF92856B93400EB4F95 /* Preview Assets.xcassets */; };
+		ABC3E9572858122F0091CC8E /* TotalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC3E9562858122F0091CC8E /* TotalListView.swift */; };
+		DA11291028570EF20065BD33 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11290F28570EF20065BD33 /* DummyData.swift */; };
+		DA11291228570F4C0065BD33 /* TestView_P.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11291128570F4C0065BD33 /* TestView_P.swift */; };
+		DA8E714928581674009836DE /* IntakeRecord.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8E714728581674009836DE /* IntakeRecord.json */; };
+		DA8E714A28581674009836DE /* SideEffectRecord.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8E714828581674009836DE /* SideEffectRecord.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +81,11 @@
 		AB18CCEB2856D8B300DD1C5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB1FBDEF2856B93300EB4F95 /* Techome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Techome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB1FBDF92856B93400EB4F95 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ABC3E9562858122F0091CC8E /* TotalListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalListView.swift; sourceTree = "<group>"; };
+		DA11290F28570EF20065BD33 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		DA11291128570F4C0065BD33 /* TestView_P.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView_P.swift; sourceTree = "<group>"; };
+		DA8E714728581674009836DE /* IntakeRecord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = IntakeRecord.json; sourceTree = "<group>"; };
+		DA8E714828581674009836DE /* SideEffectRecord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SideEffectRecord.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +146,9 @@
 			isa = PBXGroup;
 			children = (
 				AB18CCD32856D8B300DD1C5A /* BeverageData.json */,
+				DA8E714728581674009836DE /* IntakeRecord.json */,
+				DA8E714828581674009836DE /* SideEffectRecord.json */,
+				DA11290F28570EF20065BD33 /* DummyData.swift */,
 				AB18CCD42856D8B300DD1C5A /* tempResources.swift */,
 			);
 			path = Resources;
@@ -175,7 +188,9 @@
 				AB18CCDE2856D8B300DD1C5A /* Trend */,
 				AB18CCE02856D8B300DD1C5A /* AddSideEffect */,
 				AB18CCE32856D8B300DD1C5A /* ContentView.swift */,
+				DA11291128570F4C0065BD33 /* TestView_P.swift */,
 				AB18CCE42856D8B300DD1C5A /* AddCaffeine */,
+				ABC3E9552858122F0091CC8E /* TotalList */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -257,6 +272,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		ABC3E9552858122F0091CC8E /* TotalList */ = {
+			isa = PBXGroup;
+			children = (
+				ABC3E9562858122F0091CC8E /* TotalListView.swift */,
+			);
+			name = TotalList;
+			path = Techome/Views/TotalList;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -322,6 +346,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA8E714928581674009836DE /* IntakeRecord.json in Resources */,
+				DA8E714A28581674009836DE /* SideEffectRecord.json in Resources */,
 				AB18CCF72856D8B300DD1C5A /* BeverageData.json in Resources */,
 				AB18CD072856D8B300DD1C5A /* Assets.xcassets in Resources */,
 				AB1FBDFA2856B93400EB4F95 /* Preview Assets.xcassets in Resources */,
@@ -345,10 +371,12 @@
 				AB18CD042856D8B300DD1C5A /* SearchCaffeineView.swift in Sources */,
 				AB18CD052856D8B300DD1C5A /* TechomeApp.swift in Sources */,
 				AB18CD022856D8B300DD1C5A /* HomeView.swift in Sources */,
+				DA11291228570F4C0065BD33 /* TestView_P.swift in Sources */,
 				AB18CD002856D8B300DD1C5A /* AddSideEffectView.swift in Sources */,
 				AB18CCF92856D8B300DD1C5A /* tempModel.swift in Sources */,
 				AB18CCEF2856D8B300DD1C5A /* IntakeRepository.swift in Sources */,
 				AB18CCF02856D8B300DD1C5A /* tempExtension.swift in Sources */,
+				ABC3E9572858122F0091CC8E /* TotalListView.swift in Sources */,
 				AB18CCFA2856D8B300DD1C5A /* Beverage.swift in Sources */,
 				AB18CCF22856D8B300DD1C5A /* BeverageManager.swift in Sources */,
 				AB18CCF52856D8B300DD1C5A /* IntakeManager.swift in Sources */,
@@ -363,6 +391,7 @@
 				AB18CCFE2856D8B300DD1C5A /* TrendView.swift in Sources */,
 				79421B9D285722B400DFD58A /* SearchCaffeineStateHolder.swift in Sources */,
 				AB18CCF32856D8B300DD1C5A /* SideEffectManager.swift in Sources */,
+				DA11291028570EF20065BD33 /* DummyData.swift in Sources */,
 				AB18CCFF2856D8B300DD1C5A /* HomeView_G.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
