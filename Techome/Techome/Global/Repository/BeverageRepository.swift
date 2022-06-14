@@ -30,4 +30,18 @@ final class BeverageRepository {
     func getAllBeverages() -> [Beverage] {
         return beverages
     }
+    
+    func findBySearchWords(searchWords: [String]) -> [Beverage] {
+        var results = beverages
+        for word in searchWords {
+            results = results.filter({
+                isContainingWord(beverage: $0, word: word)
+            })
+        }
+        return results
+    }
+    
+    func isContainingWord(beverage: Beverage, word: String) -> Bool {
+        return beverage.name.contains(word) || beverage.franchise.getFranchiseName().contains(word)
+    }
 }
