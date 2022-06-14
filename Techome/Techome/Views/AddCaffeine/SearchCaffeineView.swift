@@ -62,8 +62,11 @@ struct RecentlyAddedCaffeine: View {
                 .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardTitleHorizontalPadding)
             
             VStack(spacing: .zero) {
-                if IntakeManager.shared.getRecentRecords(count: SearchCaffeineViewLayoutValue.Number.recentRecords).count != 0 {
-                    
+                if IntakeManager.shared.getRecentRecords(count: SearchCaffeineViewLayoutValue.Number.recentRecords).isEmpty {
+                    Text("최근 추가된 카페인이 없습니다.")
+                        .padding(.top, 150)
+                        .foregroundColor(.customBlack)
+                } else {
                     VStack(spacing: .zero) {
                         ForEach (IntakeManager.shared.getRecentRecords(count: 6), id: \.self) { record in
                             CaffeineRecordRow(recentRecord: record)
@@ -72,11 +75,7 @@ struct RecentlyAddedCaffeine: View {
                     .background(RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.card)
                         .foregroundColor(.white)
                         .shadow(color: .secondaryShadowGray, radius: SearchCaffeineViewLayoutValue.Radius.shadow, x: .zero, y: .zero)
-                        )
-                } else {
-                    Text("최근 추가된 카페인이 없습니다.")
-                        .padding(.top, 150)
-                        .foregroundColor(.customBlack)
+                    )
                 }
             }
         }
@@ -86,7 +85,7 @@ struct RecentlyAddedCaffeine: View {
 
 struct CaffeineRecordRow: View {
     
-    var recentRecord: IntakeRecord
+    private var recentRecord: IntakeRecord
     
     var body: some View {
         VStack(spacing: .zero) {

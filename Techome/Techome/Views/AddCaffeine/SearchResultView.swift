@@ -12,7 +12,8 @@ struct SearchResultView: View {
         Text("검색 결과 없음")
             .font(.title3)
             .foregroundColor(.customBlack)
-            .padding(EdgeInsets(top: SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding, leading: .zero, bottom: .zero, trailing: .zero))    }
+            .padding(EdgeInsets(top: SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding, leading: .zero, bottom: .zero, trailing: .zero))
+    }
 }
 
 struct SearchResultView_Previews: PreviewProvider {
