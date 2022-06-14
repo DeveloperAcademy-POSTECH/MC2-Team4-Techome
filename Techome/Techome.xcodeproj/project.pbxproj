@@ -12,6 +12,8 @@
 		793214F8285702BB00D7E4E1 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793214F7285702BB00D7E4E1 /* SearchBarView.swift */; };
 		79421B9D285722B400DFD58A /* SearchCaffeineStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79421B9C285722B400DFD58A /* SearchCaffeineStateHolder.swift */; };
 		797B456728570C4200DB45FA /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797B456628570C4200DB45FA /* SearchResultView.swift */; };
+		52AFC473285704AB000199DF /* AddSideEffectStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */; };
+		52AFC475285826B6000199DF /* Test_G.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC474285826B6000199DF /* Test_G.swift */; };
 		AB18CCED2856D8B300DD1C5A /* SideEffectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCC62856D8B300DD1C5A /* SideEffectRepository.swift */; };
 		AB18CCEE2856D8B300DD1C5A /* BeverageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCC72856D8B300DD1C5A /* BeverageRepository.swift */; };
 		AB18CCEF2856D8B300DD1C5A /* IntakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCC82856D8B300DD1C5A /* IntakeRepository.swift */; };
@@ -52,6 +54,8 @@
 		793214F7285702BB00D7E4E1 /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		79421B9C285722B400DFD58A /* SearchCaffeineStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCaffeineStateHolder.swift; sourceTree = "<group>"; };
 		797B456628570C4200DB45FA /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
+		52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSideEffectStateHolder.swift; sourceTree = "<group>"; };
+		52AFC474285826B6000199DF /* Test_G.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_G.swift; sourceTree = "<group>"; };
 		AB18CCC62856D8B300DD1C5A /* SideEffectRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideEffectRepository.swift; sourceTree = "<group>"; };
 		AB18CCC72856D8B300DD1C5A /* BeverageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageRepository.swift; sourceTree = "<group>"; };
 		AB18CCC82856D8B300DD1C5A /* IntakeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntakeRepository.swift; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 				AB18CCE32856D8B300DD1C5A /* ContentView.swift */,
 				DA11291128570F4C0065BD33 /* TestView_P.swift */,
 				AB18CCE42856D8B300DD1C5A /* AddCaffeine */,
+				52AFC474285826B6000199DF /* Test_G.swift */,
 				ABC3E9552858122F0091CC8E /* TotalList */,
 			);
 			path = Views;
@@ -229,6 +234,7 @@
 			children = (
 				AB18CCEA2856D8B300DD1C5A /* tempViewModel.swift */,
 				79421B9C285722B400DFD58A /* SearchCaffeineStateHolder.swift */,
+				52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -366,6 +372,7 @@
 				AB18CCF62856D8B300DD1C5A /* Formatter.swift in Sources */,
 				AB18CCFD2856D8B300DD1C5A /* SideEffectRecord.swift in Sources */,
 				AB18CD062856D8B300DD1C5A /* tempViewModel.swift in Sources */,
+				52AFC473285704AB000199DF /* AddSideEffectStateHolder.swift in Sources */,
 				AB18CD012856D8B300DD1C5A /* ContentView.swift in Sources */,
 				AB18CCF12856D8B300DD1C5A /* Color+.swift in Sources */,
 				AB18CD042856D8B300DD1C5A /* SearchCaffeineView.swift in Sources */,
@@ -385,6 +392,7 @@
 				AB18CCEE2856D8B300DD1C5A /* BeverageRepository.swift in Sources */,
 				793214F8285702BB00D7E4E1 /* SearchBarView.swift in Sources */,
 				AB18CCED2856D8B300DD1C5A /* SideEffectRepository.swift in Sources */,
+				52AFC475285826B6000199DF /* Test_G.swift in Sources */,
 				AB18CD032856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift in Sources */,
 				AB18CCFC2856D8B300DD1C5A /* Franchise.swift in Sources */,
 				AB18CCF42856D8B300DD1C5A /* JSONManager.swift in Sources */,

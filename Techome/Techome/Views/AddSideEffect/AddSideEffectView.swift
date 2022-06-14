@@ -9,38 +9,37 @@ import SwiftUI
 
 struct AddSideEffectLayoutValue {
     
-    struct Paddings {
-        static let contentHorizontalPadding: CGFloat = 15
-        static let contentBetweenVerticalPadding: CGFloat = 31
-        static let labelBottomPadding: CGFloat = 15
-        static let gridItemHorizantalPadding: CGFloat = 15
-        static let gridTextVerticalPadding: CGFloat = 12.5
-        static let gridImageTextPadding: CGFloat = 18
-        static let sideEffectColumnSpacing: CGFloat = 16
-        static let sideEffectRowSpacing: CGFloat = 15
+    struct Padding {
+        static let contentHorizontal: CGFloat = 15
+        static let contentBetweenVertical: CGFloat = 31
+        static let labelBottom: CGFloat = 15
+        static let gridImageText: CGFloat = 18
+        static let gridColumnSpacing: CGFloat = 16
+        static let gridRowSpacing: CGFloat = 15
     }
     
-    struct Sizes {
+    struct Size {
         static let sideEffectImageWidth: CGFloat = 20
         static let gridTextWidth: CGFloat = 66
         static let sideEffectButtonHeight: CGFloat = 47
     }
     
     struct Radius {
-        static let buttonRadius: CGFloat = 5
-        static let buttonShadowRadius: CGFloat = 2
+        static let button: CGFloat = 5
+        static let buttonShadow: CGFloat = 2
     }
     
     struct Grid {
-        static let sideEffectTypeColumnCount: Int = 2
-        static let sideEffectTypeRowCount: Int = 5
+        static let columnCount: Int = 2
+        static let rowCount: Int = 5
     }
 }
 
 struct AddSideEffectView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    @EnvironmentObject var sideEffectStates: AddSideEffectStateHolder
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -51,7 +50,7 @@ struct AddSideEffectView: View {
                     SideEffectType()
                     Spacer()
                 }
-                .padding(.horizontal, AddSideEffectLayoutValue.Paddings.contentHorizontalPadding)
+                .padding(.horizontal, AddSideEffectLayoutValue.Padding.contentHorizontal)
             }
             .navigationTitle("부작용 추가하기")
             .navigationBarTitleDisplayMode(.inline)
@@ -63,12 +62,13 @@ struct AddSideEffectView: View {
                         .foregroundColor(.primaryBrown)
                 },
                 trailing: Button(action: {
-                    //TODO: run 저장(update) method
+                    sideEffectStates.onSavedPressed()
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("저장")
-                        .foregroundColor(.primaryBrown)
+                        .foregroundColor(sideEffectStates.isDisabled ? .secondaryTextGray : .primaryBrown)
                 }
+                    .disabled(sideEffectStates.isDisabled)
             )
         }
     }
@@ -76,20 +76,20 @@ struct AddSideEffectView: View {
 
 struct SideEffectDate: View {
     
-    @State private var sideEffectDate = Date()
+    @EnvironmentObject var sideEffectStates: AddSideEffectStateHolder
     
     var body: some View {
         Text("언제 부작용을 겪으셨나요?")
             .foregroundColor(.secondaryTextGray)
             .font(.subheadline)
-            .padding(.top, AddSideEffectLayoutValue.Paddings.contentBetweenVerticalPadding)
-            .padding(.bottom, AddSideEffectLayoutValue.Paddings.labelBottomPadding)
+            .padding(.top, AddSideEffectLayoutValue.Padding.contentBetweenVertical)
+            .padding(.bottom, AddSideEffectLayoutValue.Padding.labelBottom)
         
-        DatePicker("부작용 일시", selection: $sideEffectDate, in: ...Date())
+        DatePicker("부작용 일시", selection: $sideEffectStates.sideEffectDate, in: ...Date())
             .labelsHidden()
             .accentColor(.primaryBrown)
             .frame(alignment: .leading)
-            .padding(.bottom, AddSideEffectLayoutValue.Paddings.contentBetweenVerticalPadding)
+            .padding(.bottom, AddSideEffectLayoutValue.Padding.contentBetweenVertical)
     }
 }
 
@@ -100,12 +100,12 @@ struct SideEffectType: View {
         Text("어떤 부작용을 겪으셨나요?")
             .foregroundColor(.secondaryTextGray)
             .font(.subheadline)
-            .padding(.bottom, AddSideEffectLayoutValue.Paddings.labelBottomPadding)
+            .padding(.bottom, AddSideEffectLayoutValue.Padding.labelBottom)
                 
-        HStack(spacing: AddSideEffectLayoutValue.Paddings.sideEffectColumnSpacing) {
-            ForEach(0 ..< AddSideEffectLayoutValue.Grid.sideEffectTypeColumnCount, id: \.self) { sideEffectColumnIndex in
-                VStack(spacing: AddSideEffectLayoutValue.Paddings.sideEffectRowSpacing) {
-                    ForEach(0 ..< AddSideEffectLayoutValue.Grid.sideEffectTypeRowCount, id: \.self) { sideEffectRowIndex in
+        HStack(spacing: AddSideEffectLayoutValue.Padding.gridColumnSpacing) {
+            ForEach(0 ..< AddSideEffectLayoutValue.Grid.columnCount, id: \.self) { sideEffectColumnIndex in
+                VStack(spacing: AddSideEffectLayoutValue.Padding.gridRowSpacing) {
+                    ForEach(0 ..< AddSideEffectLayoutValue.Grid.rowCount, id: \.self) { sideEffectRowIndex in
                         SideEffectButton(sideEffectIndex: sideEffectRowIndex * 2 + sideEffectColumnIndex)
                     }
                 }
@@ -115,41 +115,43 @@ struct SideEffectType: View {
 }
 
 struct SideEffectButton: View {
+        
+    @EnvironmentObject var sideEffectStates: AddSideEffectStateHolder
     
-    @State private var isSelected: [Bool] = [false, false, false, false, false, false, false, false, false, false]
-
     var sideEffectIndex: Int
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: AddSideEffectLayoutValue.Radius.buttonRadius)
-                .foregroundColor(isSelected[sideEffectIndex] ? .primaryBrown : .white)
-                .shadow(color: .primaryShadowGray, radius: AddSideEffectLayoutValue.Radius.buttonShadowRadius, x: .zero, y: .zero)
+            RoundedRectangle(cornerRadius: AddSideEffectLayoutValue.Radius.button)
+                .foregroundColor(sideEffectStates.isSelected[sideEffectIndex] ? .primaryBrown : .white)
+                .shadow(color: .primaryShadowGray, radius: AddSideEffectLayoutValue.Radius.buttonShadow, x: .zero, y: .zero)
             
             HStack(spacing: .zero) {
-                Image("heartburn")
+                Image(sideEffectStates.totalSideEffectList[sideEffectIndex].getImageName())
                     .renderingMode(.template)
                     .fixedSize()
-                    .frame(width: AddSideEffectLayoutValue.Sizes.sideEffectImageWidth, alignment: .center)
+                    .frame(width: AddSideEffectLayoutValue.Size.sideEffectImageWidth, alignment: .center)
                 
-                Text("tempString"/*sideEffects[sideEffectIndex]*/)
+                Text(sideEffectStates.totalSideEffectList[sideEffectIndex].getSideEffectName())
                     .font(.body)
-                    .padding(.leading, AddSideEffectLayoutValue.Paddings.gridImageTextPadding)
+                    .padding(.leading, AddSideEffectLayoutValue.Padding.gridImageText)
                     .fixedSize()
-                    .frame(width: AddSideEffectLayoutValue.Sizes.gridTextWidth, alignment: .center)
+                    .frame(width: AddSideEffectLayoutValue.Size.gridTextWidth, alignment: .center)
             }
             .padding(.horizontal)
-            .foregroundColor(isSelected[sideEffectIndex] ? .white : .customBlack)
+            .foregroundColor(sideEffectStates.isSelected[sideEffectIndex] ? .white : .customBlack)
         }
-        .frame(height: AddSideEffectLayoutValue.Sizes.sideEffectButtonHeight)
+        .frame(height: AddSideEffectLayoutValue.Size.sideEffectButtonHeight)
         .onTapGesture {
-            isSelected[sideEffectIndex].toggle()
+            sideEffectStates.onButtonTouched(sideEffectIndex: sideEffectIndex)
         }
     }
 }
 
 struct AddSideEffect_Previews: PreviewProvider {
     static var previews: some View {
+        let sideEffectStates = AddSideEffectStateHolder()
         AddSideEffectView()
+            .environmentObject(sideEffectStates)
     }
 }

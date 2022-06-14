@@ -9,8 +9,9 @@
 import SwiftUI
 
 struct Home: View {
-    // modal 창 띄우기 - 초기 false
     @State private var showModal = false
+    
+    var sideEffectStates = AddSideEffectStateHolder()
     
     var body: some View {
         Button(action: {
@@ -20,6 +21,7 @@ struct Home: View {
         }
         .sheet(isPresented: self.$showModal){
             AddSideEffectView()
+                .environmentObject(sideEffectStates)
         }
     }
 }
