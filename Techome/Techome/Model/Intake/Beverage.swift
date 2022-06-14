@@ -7,11 +7,15 @@
 
 import Foundation
 
-struct Beverage: Hashable, Codable {
-    var uuid = UUID()
+struct Beverage: Identifiable, Hashable, Codable {
+    var id = UUID()
     let name: String
     let franchise: Franchise
-    let size: String
+    let sizeInfo: [SizeInfo]
+}
+
+struct SizeInfo: Hashable, Codable {
+    let name: String
     let caffeineAmount: Int
     let defaultShotCount: Int
 }
