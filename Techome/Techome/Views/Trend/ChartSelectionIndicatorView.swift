@@ -18,11 +18,10 @@ struct ChartSelectionIndicatorView: View {
     
     let entry: ChartDataEntry
     let location: CGFloat
-    let infoRectangleWidth: CGFloat = 130
     
     var body: some View {
         GeometryReader { proxy in
-            VStack(alignment: .leading, spacing: 0) {
+            VStack(alignment: .leading, spacing: .zero) {
                 Text("총")
                     .font(.footnote)
                 Text("\(Int(self.entry.y))mg")
@@ -31,11 +30,11 @@ struct ChartSelectionIndicatorView: View {
                 Text(getDay(Date()))
                     .font(.footnote).foregroundColor(.black)
             }
-            .padding(.horizontal, 15)
-            .padding(.vertical, 10)
-            .background(RoundedRectangle(cornerRadius: 7)
+            .padding(.horizontal, TrendViewLayoutValue.Paddings.chartInsidePadding)
+            .padding(.vertical, TrendViewLayoutValue.Paddings.chartIndicatorVertical)
+            .background(RoundedRectangle(cornerRadius: TrendViewLayoutValue.Radius.cardRadius)
                 .foregroundColor(.chartIndicatorBackgroundGray))
-            .frame(width: self.infoRectangleWidth)
+            .frame(width: ChartLayoutValue.ChartIndicatorLayoutValue.infoRectangleWidth)
             .offset(x: self.positionX(proxy, location: self.location))
             // '.id(UUID())' will prevent view from slide animation.
             .id(UUID())
@@ -43,15 +42,43 @@ struct ChartSelectionIndicatorView: View {
     }
     
     func positionX(_ proxy: GeometryProxy, location: CGFloat) -> CGFloat {
-        let selectorCentre = self.infoRectangleWidth / 2
+        let selectorCentre = ChartLayoutValue.ChartIndicatorLayoutValue.infoRectangleWidth / 2
         let startX = location - selectorCentre
         if startX < 0 {
             return 0
-        } else if startX + self.infoRectangleWidth > proxy.size.width {
-            return proxy.size.width - self.infoRectangleWidth
+        } else if startX + ChartLayoutValue.ChartIndicatorLayoutValue.infoRectangleWidth > proxy.size.width {
+            return proxy.size.width - ChartLayoutValue.ChartIndicatorLayoutValue.infoRectangleWidth
         } else {
             return startX
         }
     }
 }
 
+struct SelectionLine: View {
+    let location: CGPoint?
+    let height: CGFloat
+    
+    var body: some View {
+        Group {
+            if location != nil {
+                self.centreLine()
+                    .stroke(lineWidth: ChartLayoutValue.ChartIndicatorLayoutValue.selectionLineWidth)
+                    .offset(x: self.location!.x)
+                    .foregroundColor(.chartIndicatorBackgroundGray)
+                /* '.id(UUID())' will prevent view from slide animation.
+                 Because this view is a child view and passed to 'BarChartView' parent, parent might already has animation.
+                 So, If you want to disable it, just call '.animation(nil)' instead of '.id(UUID())' */
+                    .id(UUID())
+            }
+        }
+    }
+    
+    func centreLine() -> Path {
+        var path = Path()
+        let p1 = CGPoint(x: .zero, y: ChartLayoutValue.ChartIndicatorLayoutValue.moveSelectionLineY)
+        let p2 = CGPoint(x: .zero, y: ChartLayoutValue.ChartIndicatorLayoutValue.drawSelectionLineY)
+        path.move(to: p1)
+        path.addLine(to: p2)
+        return path
+    }
+}

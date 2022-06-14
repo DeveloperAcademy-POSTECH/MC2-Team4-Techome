@@ -21,7 +21,9 @@ struct TrendViewLayoutValue {
         static let sideEffectRecordCellVerticalPadding: CGFloat = 20
         static let averageCaffeineAmountPadding: CGFloat = 15
         static let caffeineRecordAmountUnitPadding: CGFloat = 1
-        static let TotalListViewPadding: CGFloat = 20
+        static let totalListViewPadding: CGFloat = 20
+        static let chartInsidePadding: CGFloat = 15
+        static let chartIndicatorVertical: CGFloat = 10
     }
     
     ///TrendView Sizes
@@ -32,6 +34,7 @@ struct TrendViewLayoutValue {
         static let chartHeight: CGFloat = cardWidth * 1.26
         static let sideEffectRecordHeight: CGFloat = cardWidth / 2.4
         static let sideEffectRecordCellFixedWidth: CGFloat = 46
+        static let chartSelectionIndicatorHeight: CGFloat = 83
     }
     
     ///TrendView Radius
@@ -64,7 +67,7 @@ struct TrendView: View {
                             Text("전체 리스트 보기")
                                 .font(.subheadline)
                                 .foregroundColor(.secondaryTextGray)
-                                .padding(TrendViewLayoutValue.Paddings.TotalListViewPadding)
+                                .padding(TrendViewLayoutValue.Paddings.totalListViewPadding)
                         }
                         
                         Spacer()
@@ -77,7 +80,6 @@ struct TrendView: View {
 }
 
 struct TrendChart: View {
-    
     var body: some View {
         LazyHStack() {
             TabView {
@@ -86,7 +88,7 @@ struct TrendChart: View {
                     VStack(alignment: .leading, spacing: .zero) {
                         AverageCaffeineAmountForWeek()
                             .padding(TrendViewLayoutValue.Paddings.averageCaffeineAmountPadding)
-                        
+                        TrendChartView()
                         Spacer()
                     }
                     .tag(chartIndex)
