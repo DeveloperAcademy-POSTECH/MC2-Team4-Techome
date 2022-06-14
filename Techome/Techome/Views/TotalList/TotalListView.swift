@@ -46,9 +46,9 @@ struct TotalListView: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        ScrollView(){
-            LazyVStack(spacing: 23){
-                ForEach(1..<10) { _ in
+        ScrollView() {
+            LazyVStack(spacing: 23) {
+                ForEach(1 ..< 10) { _ in
                     TotalRecordsByDay(curDate: "2022.06.03")
                 }
             }
@@ -59,8 +59,8 @@ struct TotalListView: View {
         .navigationTitle(Text("전체 리스트").font(.caption))
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
-        .toolbar{
-            ToolbarItem(placement: .navigationBarLeading){
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
                         Button(action: {
                             presentationMode.wrappedValue.dismiss()
                         }) {
@@ -87,19 +87,19 @@ struct TotalRecordsByDay: View {
     private let curDate : String
     private let dataCount : Int
     
-    init(curDate: String){
+    init(curDate: String) {
         self.curDate = curDate
         self.dataCount = TmpDataTotalListArr.count
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0){
+        VStack(alignment: .leading, spacing: 0) {
             Text(curDate)
                 .font(.title3)
                 .fontWeight(.semibold)
                 .padding(.bottom, TotalListLayoutValue.Paddings.dateVerticalPadding)
         
-            VStack(spacing: 0){
+            VStack(spacing: 0) {
                 ForEach(Array(TmpDataTotalListArr.enumerated()), id: \.element) { index, element in
                     switch element.dataType {
                     case "drink":
@@ -132,7 +132,7 @@ struct TotalRecordsByDay: View {
 struct SideEffectRecordRow: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            HStack(spacing: 0){
+            HStack(spacing: 0) {
                 Text("09:30")
                     .font(.caption)
                     .foregroundColor(.secondaryTextGray)
@@ -159,10 +159,10 @@ struct SideEffectRecordRow: View {
 struct SideEffectRecordsByDayList: View {
     var body: some View {
         VStack(alignment: .center, spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellVerticalPadding) {
-            ForEach(0..<2) { sideEffectRowIndex in
+            ForEach(0 ..< 2) { sideEffectRowIndex in
                 HStack(alignment: .center, spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding) {
                     //TODO: 임시 데이터 수
-                    ForEach(0..<5) { sideEffectItemIndex in
+                    ForEach(0 ..< 5) { sideEffectItemIndex in
                         SideEffectRecordItemList()
                     }
                 }
@@ -231,10 +231,10 @@ struct TotalListView_Previews: PreviewProvider {
         
         TotalListView()
         
-        NavigationView {
-            NavigationLink("to total list") {
-                TotalListView()
-            }
-        }
+//        NavigationView {
+//            NavigationLink("to total list") {
+//                TotalListView()
+//            }
+//        }
     }
 }
