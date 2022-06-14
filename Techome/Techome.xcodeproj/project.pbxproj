@@ -39,6 +39,8 @@
 		ABC3E9572858122F0091CC8E /* TotalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC3E9562858122F0091CC8E /* TotalListView.swift */; };
 		DA11291028570EF20065BD33 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11290F28570EF20065BD33 /* DummyData.swift */; };
 		DA11291228570F4C0065BD33 /* TestView_P.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11291128570F4C0065BD33 /* TestView_P.swift */; };
+		DA8E714928581674009836DE /* IntakeRecord.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8E714728581674009836DE /* IntakeRecord.json */; };
+		DA8E714A28581674009836DE /* SideEffectRecord.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8E714828581674009836DE /* SideEffectRecord.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,8 @@
 		ABC3E9562858122F0091CC8E /* TotalListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalListView.swift; sourceTree = "<group>"; };
 		DA11290F28570EF20065BD33 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		DA11291128570F4C0065BD33 /* TestView_P.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView_P.swift; sourceTree = "<group>"; };
+		DA8E714728581674009836DE /* IntakeRecord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = IntakeRecord.json; sourceTree = "<group>"; };
+		DA8E714828581674009836DE /* SideEffectRecord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SideEffectRecord.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				AB18CCD32856D8B300DD1C5A /* BeverageData.json */,
+				DA8E714728581674009836DE /* IntakeRecord.json */,
+				DA8E714828581674009836DE /* SideEffectRecord.json */,
 				DA11290F28570EF20065BD33 /* DummyData.swift */,
 				AB18CCD42856D8B300DD1C5A /* tempResources.swift */,
 			);
@@ -328,6 +334,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA8E714928581674009836DE /* IntakeRecord.json in Resources */,
+				DA8E714A28581674009836DE /* SideEffectRecord.json in Resources */,
 				AB18CCF72856D8B300DD1C5A /* BeverageData.json in Resources */,
 				AB18CD072856D8B300DD1C5A /* Assets.xcassets in Resources */,
 				AB1FBDFA2856B93400EB4F95 /* Preview Assets.xcassets in Resources */,
