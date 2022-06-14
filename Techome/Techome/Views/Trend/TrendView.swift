@@ -88,8 +88,18 @@ struct TrendChart: View {
                     VStack(alignment: .leading, spacing: .zero) {
                         AverageCaffeineAmountForWeek()
                             .padding(TrendViewLayoutValue.Paddings.averageCaffeineAmountPadding)
+                        HStack(alignment: .center, spacing: .zero) {
+                            Spacer()
+                            Circle()
+                                .foregroundColor(.customRed)
+                                .frame(width: 12, height: 12, alignment: .center)
+                                .padding(.trailing, 7)
+                            Text("부작용")
+                                .font(.caption)
+                                .foregroundColor(.secondaryTextGray)
+                        }
+                        .padding(.trailing, TrendViewLayoutValue.Paddings.chartInsidePadding)
                         TrendChartView()
-                        Spacer()
                     }
                     .tag(chartIndex)
                     .frame(maxWidth: TrendViewLayoutValue.Sizes.cardWidth, alignment: .leading)
