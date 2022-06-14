@@ -34,7 +34,9 @@ struct SearchBarView: View {
                         }
                     , alignment: .trailing
                 )
-                
+                .onChange(of: searchCaffeineStateHolder.searchText) {
+                    searchCaffeineStateHolder.onChangeString(searchString: $0)
+                }
         }
         .font(.headline)
         .padding(.leading, SearchCaffeineViewLayoutValue.Padding.searchBarGlassLeft)
@@ -44,6 +46,7 @@ struct SearchBarView: View {
                 .fill(.white)
                 .shadow(color: .secondaryShadowGray, radius: SearchCaffeineViewLayoutValue.Radius.shadow, x: .zero, y: .zero)
         )
+        .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardHorizontalPadding)
     }
 }
 

@@ -14,4 +14,10 @@ final class SearchCaffeineStateHolder: ObservableObject {
     init() {
         self.searchText = searchText
     }
+    
+    func onChangeString(searchString: String) -> [Beverage] {
+        let result = BeverageManager.shared.getSatisfiedBeveragesByString(searchString: searchString)
+        print(result)
+        return result
+    }
 }

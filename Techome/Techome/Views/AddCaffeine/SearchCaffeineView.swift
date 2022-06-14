@@ -18,19 +18,17 @@ struct SearchCaffeineView: View {
             ZStack {
                 Color.backgroundCream
                     .ignoresSafeArea()
-            
+                
                 VStack {
                     SearchBarView()
-                    
-                    // TODO: 더미데이터가 아닌 데이터 연동
                     if (searchCaffeineStateHolder.searchText == "") {
                         RecentlyAddedCaffeine()
                     } else {
                         SearchResultView()
                     }
                 }
-                .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardHorizontalPadding)
-                .frame(height: SearchCaffeineViewLayoutValue.Size.subMainHeight, alignment: .top)
+                .padding(.top, SearchCaffeineViewLayoutValue.Padding.mainVertical)
+                .frame(height: SearchCaffeineViewLayoutValue.Size.mainHeight, alignment: .top)
             }
             .navigationTitle("카페인 추가하기")
             .navigationBarTitleDisplayMode(.inline)
@@ -45,7 +43,6 @@ struct SearchCaffeineView: View {
                 }
             }
         }
-        
     }
 }
 
@@ -68,7 +65,7 @@ struct RecentlyAddedCaffeine: View {
                         .foregroundColor(.customBlack)
                 } else {
                     VStack(spacing: .zero) {
-                        ForEach (IntakeManager.shared.getRecentRecords(count: 6), id: \.self) { record in
+                        ForEach (IntakeManager.shared.getRecentRecords(count: SearchCaffeineViewLayoutValue.Number.recentRecords), id: \.self) { record in
                             CaffeineRecordRow(recentRecord: record)
                         }
                     }
@@ -79,7 +76,8 @@ struct RecentlyAddedCaffeine: View {
                 }
             }
         }
-        .padding(EdgeInsets(top: SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding, leading: .zero, bottom: .zero, trailing: .zero))
+        .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardHorizontalPadding)
+        .padding(.top, SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding)
     }
 }
 
@@ -110,7 +108,6 @@ struct CaffeineRecordRow: View {
             .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardItemHorizontalPadding)
             .padding(.vertical, SearchCaffeineViewLayoutValue.Padding.cardItemVerticalPadding)
             Divider()
-            
         }
     }
 }
