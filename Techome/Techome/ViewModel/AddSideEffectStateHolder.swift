@@ -9,7 +9,7 @@ import Foundation
 
 class AddSideEffectStateHolder: ObservableObject {
     
-    let manager = SideEffectManager.shared
+    let sideEffectManager = SideEffectManager.shared
     let totalSideEffectList: [SideEffect] = SideEffect.allCases
     
     @Published var sideEffectDate = Date()
@@ -38,6 +38,6 @@ class AddSideEffectStateHolder: ObservableObject {
                 selectedSideEffectTypes.append(totalSideEffectList[selectedIndex])
             }
         }
-        manager.addRecord(date: sideEffectDate, sideEffects: selectedSideEffectTypes)
+        sideEffectManager.addRecord(date: sideEffectDate, sideEffects: selectedSideEffectTypes)
     }
 }
