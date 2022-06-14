@@ -11,7 +11,7 @@ struct SearchResultView: View {
     var body: some View {
         Text("검색 결과 없음")
             .font(.title3)
-            .foregroundColor(.black)
+            .foregroundColor(.customBlack)
             .padding(EdgeInsets(top: SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding, leading: .zero, bottom: .zero, trailing: .zero))    }
 }
 

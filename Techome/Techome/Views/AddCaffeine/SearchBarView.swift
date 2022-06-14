@@ -22,7 +22,7 @@ struct SearchBarView: View {
             TextField("메뉴 또는 브랜드", text: $searchCaffeineStateHolder.searchText)
                 .disableAutocorrection(true)
                 .multilineTextAlignment(.leading)
-                .foregroundColor(.black)
+                .foregroundColor(.customBlack)
                 .overlay(
                     Image(systemName: "xmark.circle.fill")
                         .foregroundColor(Color.primaryBrown)

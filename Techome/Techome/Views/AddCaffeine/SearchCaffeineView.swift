@@ -56,7 +56,7 @@ struct RecentlyAddedCaffeine: View {
         VStack {
             Text("최근 추가한 카페인")
                 .font(.body)
-                .foregroundColor(.black)
+                .foregroundColor(.customBlack)
                 .fontWeight(.semibold)
                 .frame(maxWidth:.infinity, alignment: .leading)
                 .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardTitleHorizontalPadding)
@@ -76,7 +76,7 @@ struct RecentlyAddedCaffeine: View {
                 } else {
                     Text("최근 추가된 카페인이 없습니다.")
                         .padding(.top, 150)
-                        .foregroundColor(.black)
+                        .foregroundColor(.customBlack)
                 }
             }
         }
@@ -107,7 +107,7 @@ struct CaffeineRecordRow: View {
                         .foregroundColor(.secondaryTextGray)
                 }
             }
-            .foregroundColor(.black)
+            .foregroundColor(.customBlack)
             .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardItemHorizontalPadding)
             .padding(.vertical, SearchCaffeineViewLayoutValue.Padding.cardItemVerticalPadding)
             Divider()
