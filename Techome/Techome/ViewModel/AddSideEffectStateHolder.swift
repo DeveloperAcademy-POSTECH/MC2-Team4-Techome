@@ -7,9 +7,9 @@
 
 import Foundation
 
-class AddSideEffectStateHolder: ObservableObject {
+final class AddSideEffectStateHolder: ObservableObject {
     
-    let sideEffectManager = SideEffectManager.shared
+    private let sideEffectManager = SideEffectManager.shared
     let totalSideEffectList: [SideEffect] = SideEffect.allCases
     
     @Published var sideEffectDate = Date()
