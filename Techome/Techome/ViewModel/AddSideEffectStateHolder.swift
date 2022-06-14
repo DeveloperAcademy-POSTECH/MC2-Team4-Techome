@@ -14,10 +14,22 @@ class AddSideEffectStateHolder: ObservableObject {
     
     @Published var sideEffectDate = Date()
     @Published var isSelected: [Bool] = [false, false, false, false, false, false, false, false, false, false]
-    @Published var selectedSideEffectTypes: [SideEffect] = []
+    @Published var isDisabled: Bool = true
+    
+    var selectedSideEffectTypes: [SideEffect] = []
     
     func onButtonTouched(sideEffectIndex: Int) {
+        
         isSelected[sideEffectIndex].toggle()
+
+        for eachSelected in isSelected {
+            if eachSelected == true {
+                isDisabled = false
+                break
+            }
+            isDisabled = true
+        }
+
     }
     
     func onSavedPressed() {

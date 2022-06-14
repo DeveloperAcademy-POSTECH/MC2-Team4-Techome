@@ -16,8 +16,8 @@ struct AddSideEffectLayoutValue {
         static let gridItemHorizantalPadding: CGFloat = 15
         static let gridTextVerticalPadding: CGFloat = 12.5
         static let gridImageTextPadding: CGFloat = 18
-        static let sideEffectColumnSpacing: CGFloat = 16
-        static let sideEffectRowSpacing: CGFloat = 15
+        static let gridColumnSpacing: CGFloat = 16
+        static let gridRowSpacing: CGFloat = 15
     }
     
     struct Sizes {
@@ -32,8 +32,8 @@ struct AddSideEffectLayoutValue {
     }
     
     struct Grid {
-        static let sideEffectTypeColumnCount: Int = 2
-        static let sideEffectTypeRowCount: Int = 5
+        static let columnCount: Int = 2
+        static let rowCount: Int = 5
     }
 }
 
@@ -68,8 +68,9 @@ struct AddSideEffectView: View {
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("저장")
-                        .foregroundColor(.primaryBrown)
+                        .foregroundColor(sideEffectStates.isDisabled ? .secondaryTextGray : .primaryBrown)
                 }
+                    .disabled(sideEffectStates.isDisabled)
             )
         }
     }
@@ -103,10 +104,10 @@ struct SideEffectType: View {
             .font(.subheadline)
             .padding(.bottom, AddSideEffectLayoutValue.Paddings.labelBottomPadding)
                 
-        HStack(spacing: AddSideEffectLayoutValue.Paddings.sideEffectColumnSpacing) {
-            ForEach(0 ..< AddSideEffectLayoutValue.Grid.sideEffectTypeColumnCount, id: \.self) { sideEffectColumnIndex in
-                VStack(spacing: AddSideEffectLayoutValue.Paddings.sideEffectRowSpacing) {
-                    ForEach(0 ..< AddSideEffectLayoutValue.Grid.sideEffectTypeRowCount, id: \.self) { sideEffectRowIndex in
+        HStack(spacing: AddSideEffectLayoutValue.Paddings.gridColumnSpacing) {
+            ForEach(0 ..< AddSideEffectLayoutValue.Grid.columnCount, id: \.self) { sideEffectColumnIndex in
+                VStack(spacing: AddSideEffectLayoutValue.Paddings.gridRowSpacing) {
+                    ForEach(0 ..< AddSideEffectLayoutValue.Grid.rowCount, id: \.self) { sideEffectRowIndex in
                         SideEffectButton(sideEffectIndex: sideEffectRowIndex * 2 + sideEffectColumnIndex)
                     }
                 }
