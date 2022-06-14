@@ -10,27 +10,31 @@ import Foundation
 final class SideEffectRepository {
     private var records: [SideEffectRecord] = []
     private let resourceFileName = "SideEffectRecord.json"
+    private let jsonManager = JSONManager.shared
+    private let formatter = Formatter.date
     
     init() {
-        records = JSONManager.shared.load(filename: resourceFileName)
+        records = jsonManager.load(filename: resourceFileName)
     }
     
-    func addRecord(date: Date, sideEffects: [SideEffect]) {
+    func save(date: Date, sideEffects: [SideEffect]) {
         records.append(SideEffectRecord(date: date, sideEffects: sideEffects))
-        JSONManager.shared.store(data: records, filename: resourceFileName)
+        jsonManager.store(data: records, filename: resourceFileName)
     }
     
-    func getDailyRecords(date: Date) -> [SideEffectRecord] {
+    func findByDate(date: Date) -> [SideEffectRecord] {
+        let dateString = formatter.string(from: date)
+        
         return records.filter({
-            Formatter.date.string(from: $0.date) == Formatter.date.string(from: date)
+            formatter.string(from: $0.date) == dateString
         })
     }
     
-    func getAllRecords() -> [SideEffectRecord] {
+    func findAll() -> [SideEffectRecord] {
         return records
     }
     
-    func deleteRecord(sideEffectRecord: SideEffectRecord) {
+    func remove(sideEffectRecord: SideEffectRecord) {
         let removeRecordIndex = records.firstIndex(of: sideEffectRecord)
         
         guard let index = removeRecordIndex else {
@@ -38,5 +42,6 @@ final class SideEffectRepository {
         }
         
         records.remove(at: index)
+        jsonManager.store(data: records, filename: resourceFileName)
     }
 }

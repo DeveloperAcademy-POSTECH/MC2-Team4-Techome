@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct IntakeRecord: Hashable, Codable {
-    var uuid = UUID()
+struct IntakeRecord: Identifiable, Hashable, Codable {
+    var id = UUID()
     let date: Date
     let beverage: Beverage
+    let size: SizeInfo
     var addedShotCount: Int
 }
