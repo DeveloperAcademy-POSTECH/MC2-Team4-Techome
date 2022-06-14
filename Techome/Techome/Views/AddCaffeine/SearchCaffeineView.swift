@@ -85,7 +85,7 @@ struct RecentlyAddedCaffeine: View {
 
 struct CaffeineRecordRow: View {
     
-    private var recentRecord: IntakeRecord
+    var recentRecord: IntakeRecord
     
     var body: some View {
         VStack(spacing: .zero) {
