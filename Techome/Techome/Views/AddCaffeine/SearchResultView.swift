@@ -14,12 +14,16 @@ struct SearchResultView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("검색 \(searchCaffeineStateHolder.onChangeString(searchString: searchCaffeineStateHolder.searchText).count) 건")
-                    .font(.body)
-                    .foregroundColor(.customBlack)
-                    .fontWeight(.semibold)
-                    .frame(maxWidth:.infinity, alignment: .leading)
-                    .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardTitleHorizontalPadding)
+                HStack {
+                    Text("검색")
+                    Text("\(searchCaffeineStateHolder.onChangeString(searchString: searchCaffeineStateHolder.searchText).count)")
+                        .fontWeight(.semibold)
+                    Text("건")
+                }
+                .font(.body)
+                .foregroundColor(.customBlack)
+                .frame(maxWidth:.infinity, alignment: .leading)
+                .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardTitleHorizontalPadding)
                 
                 VStack (spacing: .zero) {
                     if searchCaffeineStateHolder.onChangeString(searchString: searchCaffeineStateHolder.searchText).isEmpty {
@@ -56,6 +60,7 @@ struct JustifiedCaffeineItem: View {
                 VStack (alignment: .leading){
                     Text(justifiedCaffeineItem.name)
                         .font(.title3)
+                        .multilineTextAlignment(.leading)
                     Text("\(justifiedCaffeineItem.franchise.rawValue)")
                         .font(.caption)
                         .foregroundColor(.secondaryTextGray)
