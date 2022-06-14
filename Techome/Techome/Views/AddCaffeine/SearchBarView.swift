@@ -30,7 +30,6 @@ struct SearchBarView: View {
                         .padding(.trailing, SearchCaffeineViewLayoutValue.Padding.searchBarClearRight)
                         .opacity(searchCaffeineStateHolder.searchText.isEmpty ?  0.0 : 1.0)
                         .onTapGesture {
-                            UIApplication.shared.endEditing()
                             searchCaffeineStateHolder.searchText = ""
                         }
                     , alignment: .trailing
