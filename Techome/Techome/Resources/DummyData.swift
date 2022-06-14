@@ -106,9 +106,4 @@ let dummyBeverages: [Beverage] = [
              sizeInfo: [SizeInfo(name: "Tall", caffeineAmount: 260, defaultShotCount: 0),
                         SizeInfo(name: "Grande", caffeineAmount: 330, defaultShotCount: 0),
                         SizeInfo(name: "Venti", caffeineAmount: 415, defaultShotCount: 0)]),
-    Beverage(name: "오늘의 커피",
-             franchise: Franchise.starbucks,
-             sizeInfo: [SizeInfo(name: "Tall", caffeineAmount: 140, defaultShotCount: 0),
-                        SizeInfo(name: "Grande", caffeineAmount: 190, defaultShotCount: 0),
-                        SizeInfo(name: "Venti", caffeineAmount: 220, defaultShotCount: 0)]),
 ]
