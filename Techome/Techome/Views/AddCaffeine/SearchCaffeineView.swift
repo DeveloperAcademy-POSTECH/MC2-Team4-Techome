@@ -30,7 +30,7 @@ struct SearchCaffeineView: View {
                     }
                 }
                 .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardHorizontalPadding)
-                .frame(height: SearchCaffeineViewLayoutValue.Size.mainHeight * 0.8, alignment: .top)
+                .frame(height: SearchCaffeineViewLayoutValue.Size.subMainHeight, alignment: .top)
             }
             .navigationTitle("카페인 추가하기")
             .navigationBarTitleDisplayMode(.inline)
@@ -62,7 +62,7 @@ struct RecentlyAddedCaffeine: View {
                 .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardTitleHorizontalPadding)
             
             VStack(spacing: .zero) {
-                if IntakeManager.shared.getRecentRecords(count: 6).count != 0 {
+                if IntakeManager.shared.getRecentRecords(count: SearchCaffeineViewLayoutValue.Number.recentRecords).count != 0 {
                     
                     VStack(spacing: .zero) {
                         ForEach (IntakeManager.shared.getRecentRecords(count: 6), id: \.self) { record in
