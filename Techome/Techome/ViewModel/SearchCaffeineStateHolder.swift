@@ -9,12 +9,7 @@ import Foundation
 
 final class SearchCaffeineStateHolder: ObservableObject {
     @Published var searchText: String = ""
-    
-    
-    init() {
-        self.searchText = searchText
-    }
-    
+        
     func onChangeString(searchString: String) -> [Beverage] {
         let result = BeverageManager.shared.getSatisfiedBeveragesByString(searchString: searchString)
         print(result)
