@@ -62,13 +62,17 @@ struct RecentlyAddedCaffeine: View {
                 .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardTitleHorizontalPadding)
             
             VStack(spacing: .zero) {
-                if IntakeManager.shared.getAllRecords().count != 0 {
-                    ForEach (IntakeManager.shared.getAllRecords(), id: \.self) { record in
-                        CaffeineRecordRow(recentRecord: record)
+                if IntakeManager.shared.getRecentRecords(count: 6).count != 0 {
+                    
+                    VStack(spacing: .zero) {
+                        ForEach (IntakeManager.shared.getRecentRecords(count: 6), id: \.self) { record in
+                            CaffeineRecordRow(recentRecord: record)
+                        }
                     }
                     .background(RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.card)
                         .foregroundColor(.white)
-                        .shadow(color: .secondaryShadowGray, radius: SearchCaffeineViewLayoutValue.Radius.shadow, x: .zero, y: .zero))
+                        .shadow(color: .secondaryShadowGray, radius: SearchCaffeineViewLayoutValue.Radius.shadow, x: .zero, y: .zero)
+                        )
                 } else {
                     Text("최근 추가된 카페인이 없습니다.")
                         .padding(.top, 150)
@@ -90,15 +94,15 @@ struct CaffeineRecordRow: View {
                 VStack (alignment: .leading){
                     Text(recentRecord.beverage.name)
                         .font(.title3)
-                    Text("\(recentRecord.beverage.franchise.rawValue)/\(recentRecord.beverage.size)")
+                    Text("\(recentRecord.beverage.franchise.rawValue)")
                         .font(.caption)
                         .foregroundColor(.secondaryTextGray)
                 }
                 Spacer()
                 HStack (alignment: .firstTextBaseline, spacing: .zero){
-                    Text("\(recentRecord.beverage.caffeineAmount)")
+                    Text("\(recentRecord.size.caffeineAmount)")
                         .font(.title3)
-                    Text("mg")
+                    Text(" mg")
                         .font(.subheadline)
                         .foregroundColor(.secondaryTextGray)
                 }
