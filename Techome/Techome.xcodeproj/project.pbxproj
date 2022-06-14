@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A427E292858548900089AC0 /* ChartSelectionIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A427E282858548900089AC0 /* ChartSelectionIndicatorView.swift */; };
 		2ABF49482856DCAD000E3387 /* BarChart in Frameworks */ = {isa = PBXBuildFile; productRef = 2ABF49472856DCAD000E3387 /* BarChart */; };
 		AB18CCED2856D8B300DD1C5A /* SideEffectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCC62856D8B300DD1C5A /* SideEffectRepository.swift */; };
 		AB18CCEE2856D8B300DD1C5A /* BeverageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCC72856D8B300DD1C5A /* BeverageRepository.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A427E282858548900089AC0 /* ChartSelectionIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartSelectionIndicatorView.swift; sourceTree = "<group>"; };
 		AB18CCC62856D8B300DD1C5A /* SideEffectRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideEffectRepository.swift; sourceTree = "<group>"; };
 		AB18CCC72856D8B300DD1C5A /* BeverageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageRepository.swift; sourceTree = "<group>"; };
 		AB18CCC82856D8B300DD1C5A /* IntakeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntakeRepository.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				AB18CCDF2856D8B300DD1C5A /* TrendView.swift */,
+				2A427E282858548900089AC0 /* ChartSelectionIndicatorView.swift */,
 			);
 			path = Trend;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				AB18CCEF2856D8B300DD1C5A /* IntakeRepository.swift in Sources */,
 				AB18CCF02856D8B300DD1C5A /* tempExtension.swift in Sources */,
 				ABC3E9572858122F0091CC8E /* TotalListView.swift in Sources */,
+				2A427E292858548900089AC0 /* ChartSelectionIndicatorView.swift in Sources */,
 				AB18CCFA2856D8B300DD1C5A /* Beverage.swift in Sources */,
 				AB18CCF22856D8B300DD1C5A /* BeverageManager.swift in Sources */,
 				AB18CCF52856D8B300DD1C5A /* IntakeManager.swift in Sources */,
