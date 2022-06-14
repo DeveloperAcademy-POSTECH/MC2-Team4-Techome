@@ -9,7 +9,7 @@ import SwiftUI
 import SineWaveShape
 
 struct MainView: View {
-    
+
     init() {
         UITabBar.appearance().backgroundColor = .white
     }
@@ -40,13 +40,14 @@ struct MainView: View {
 
 
 struct TodayView: View {
+    @State private var caffeinePercent: Double = 0.5
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                BackgroundAnimationView()
+                BackgroundAnimationView(caffeinePercent: $caffeinePercent)
                 VStack(spacing: 0) {
-                    TodayViewTopBottons(geometry: geometry)
+                    TodayViewTopBottons(caffeinePercent: $caffeinePercent, geometry: geometry)
                     Spacer()
                 }
             }
@@ -56,24 +57,32 @@ struct TodayView: View {
 }
 
 struct BackgroundAnimationView: View {
+    @Binding var caffeinePercent: Double
+    @State var phase: Double = 0
     let screenSize = UIScreen.main.bounds
+    var percent = 0.4
+    
     
     var body: some View {
         ZStack {
             Color.gaugeBackgroundGray
-            SineWaveShape(percent: 0.4, strength: 30, frequency: 7, phase: 0)
+            SineWaveShape(percent: caffeinePercent, strength: 30, frequency: 7, phase: self.phase)
                 .fill(Color.primaryBrown)
                                     .offset(y: CGFloat(1) * 2)
-                                    .animation(.linear(duration: 1.0).repeatForever(autoreverses: false))
+                                    .animation(.linear(duration: 3).repeatForever(autoreverses: false), value: phase)
             Image("TodayGauge")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: screenSize.width)
         }
+        .onAppear {
+            phase = .pi * 2
+        }
     }
 }
 
 struct TodayViewTopBottons: View {
+    @Binding var caffeinePercent: Double
     let geometry: GeometryProxy
     
     var body: some View {
@@ -81,6 +90,7 @@ struct TodayViewTopBottons: View {
             Spacer()
             Button {
                 print("add sideEffect button pressed")
+                caffeinePercent -= 0.1 // 애니메이션 Test를 위한 임시 로직
             } label: {
                 Image("AddSideEffectViewIcon")
                     .resizable()
@@ -91,6 +101,7 @@ struct TodayViewTopBottons: View {
             .padding(.trailing, 18)
             Button {
                 print("add setting button pressed")
+                caffeinePercent += 0.1 // 애니메이션 Test를 위한 임시 로직
             } label: {
                 Image(systemName: "gearshape.fill")
                     .resizable()
