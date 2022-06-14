@@ -9,26 +9,24 @@ import SwiftUI
 
 struct AddSideEffectLayoutValue {
     
-    struct Paddings {
-        static let contentHorizontalPadding: CGFloat = 15
-        static let contentBetweenVerticalPadding: CGFloat = 31
-        static let labelBottomPadding: CGFloat = 15
-        static let gridItemHorizantalPadding: CGFloat = 15
-        static let gridTextVerticalPadding: CGFloat = 12.5
-        static let gridImageTextPadding: CGFloat = 18
+    struct Padding {
+        static let contentHorizontal: CGFloat = 15
+        static let contentBetweenVertical: CGFloat = 31
+        static let labelBottom: CGFloat = 15
+        static let gridImageText: CGFloat = 18
         static let gridColumnSpacing: CGFloat = 16
         static let gridRowSpacing: CGFloat = 15
     }
     
-    struct Sizes {
+    struct Size {
         static let sideEffectImageWidth: CGFloat = 20
         static let gridTextWidth: CGFloat = 66
         static let sideEffectButtonHeight: CGFloat = 47
     }
     
     struct Radius {
-        static let buttonRadius: CGFloat = 5
-        static let buttonShadowRadius: CGFloat = 2
+        static let button: CGFloat = 5
+        static let buttonShadow: CGFloat = 2
     }
     
     struct Grid {
@@ -52,7 +50,7 @@ struct AddSideEffectView: View {
                     SideEffectType()
                     Spacer()
                 }
-                .padding(.horizontal, AddSideEffectLayoutValue.Paddings.contentHorizontalPadding)
+                .padding(.horizontal, AddSideEffectLayoutValue.Padding.contentHorizontal)
             }
             .navigationTitle("부작용 추가하기")
             .navigationBarTitleDisplayMode(.inline)
@@ -84,14 +82,14 @@ struct SideEffectDate: View {
         Text("언제 부작용을 겪으셨나요?")
             .foregroundColor(.secondaryTextGray)
             .font(.subheadline)
-            .padding(.top, AddSideEffectLayoutValue.Paddings.contentBetweenVerticalPadding)
-            .padding(.bottom, AddSideEffectLayoutValue.Paddings.labelBottomPadding)
+            .padding(.top, AddSideEffectLayoutValue.Padding.contentBetweenVertical)
+            .padding(.bottom, AddSideEffectLayoutValue.Padding.labelBottom)
         
         DatePicker("부작용 일시", selection: $sideEffectStates.sideEffectDate, in: ...Date())
             .labelsHidden()
             .accentColor(.primaryBrown)
             .frame(alignment: .leading)
-            .padding(.bottom, AddSideEffectLayoutValue.Paddings.contentBetweenVerticalPadding)
+            .padding(.bottom, AddSideEffectLayoutValue.Padding.contentBetweenVertical)
     }
 }
 
@@ -102,11 +100,11 @@ struct SideEffectType: View {
         Text("어떤 부작용을 겪으셨나요?")
             .foregroundColor(.secondaryTextGray)
             .font(.subheadline)
-            .padding(.bottom, AddSideEffectLayoutValue.Paddings.labelBottomPadding)
+            .padding(.bottom, AddSideEffectLayoutValue.Padding.labelBottom)
                 
-        HStack(spacing: AddSideEffectLayoutValue.Paddings.gridColumnSpacing) {
+        HStack(spacing: AddSideEffectLayoutValue.Padding.gridColumnSpacing) {
             ForEach(0 ..< AddSideEffectLayoutValue.Grid.columnCount, id: \.self) { sideEffectColumnIndex in
-                VStack(spacing: AddSideEffectLayoutValue.Paddings.gridRowSpacing) {
+                VStack(spacing: AddSideEffectLayoutValue.Padding.gridRowSpacing) {
                     ForEach(0 ..< AddSideEffectLayoutValue.Grid.rowCount, id: \.self) { sideEffectRowIndex in
                         SideEffectButton(sideEffectIndex: sideEffectRowIndex * 2 + sideEffectColumnIndex)
                     }
@@ -124,26 +122,26 @@ struct SideEffectButton: View {
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: AddSideEffectLayoutValue.Radius.buttonRadius)
+            RoundedRectangle(cornerRadius: AddSideEffectLayoutValue.Radius.button)
                 .foregroundColor(sideEffectStates.isSelected[sideEffectIndex] ? .primaryBrown : .white)
-                .shadow(color: .primaryShadowGray, radius: AddSideEffectLayoutValue.Radius.buttonShadowRadius, x: .zero, y: .zero)
+                .shadow(color: .primaryShadowGray, radius: AddSideEffectLayoutValue.Radius.buttonShadow, x: .zero, y: .zero)
             
             HStack(spacing: .zero) {
                 Image(sideEffectStates.totalSideEffectList[sideEffectIndex].getImageName())
                     .renderingMode(.template)
                     .fixedSize()
-                    .frame(width: AddSideEffectLayoutValue.Sizes.sideEffectImageWidth, alignment: .center)
+                    .frame(width: AddSideEffectLayoutValue.Size.sideEffectImageWidth, alignment: .center)
                 
                 Text(sideEffectStates.totalSideEffectList[sideEffectIndex].getSideEffectName())
                     .font(.body)
-                    .padding(.leading, AddSideEffectLayoutValue.Paddings.gridImageTextPadding)
+                    .padding(.leading, AddSideEffectLayoutValue.Padding.gridImageText)
                     .fixedSize()
-                    .frame(width: AddSideEffectLayoutValue.Sizes.gridTextWidth, alignment: .center)
+                    .frame(width: AddSideEffectLayoutValue.Size.gridTextWidth, alignment: .center)
             }
             .padding(.horizontal)
             .foregroundColor(sideEffectStates.isSelected[sideEffectIndex] ? .white : .customBlack)
         }
-        .frame(height: AddSideEffectLayoutValue.Sizes.sideEffectButtonHeight)
+        .frame(height: AddSideEffectLayoutValue.Size.sideEffectButtonHeight)
         .onTapGesture {
             sideEffectStates.onButtonTouched(sideEffectIndex: sideEffectIndex)
         }
