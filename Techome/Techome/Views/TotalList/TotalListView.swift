@@ -35,13 +35,9 @@ struct TotalListLayoutValue {
 
 //카페인 + 부작용 리스트 병합에 사용
 struct DataListByDay : Hashable {
-//    var id = UUID()
     var dataType: String
     var dataIndex: Int
 }
-
-//var prevSelected : DataListByDay?
-
 
 class datas: ObservableObject { //observable 객체 생성
     @Published var tmpDataSortedByDate : [ String : [DataListByDay] ]
@@ -50,12 +46,10 @@ class datas: ObservableObject { //observable 객체 생성
 
     init(tmpDataSortedByDate: [String : [DataListByDay]]) {
         self.tmpDataSortedByDate = tmpDataSortedByDate
-//        self.tmpOffsets = [CGFloat](repeating: .zero, count:.count)
         
         for key in self.tmpDataSortedByDate.keys {
             self.tmpOffsets[key] = [CGFloat](repeating: .zero, count: tmpDataSortedByDate[key]!.count)
         }
-        
     }
     
     func resetOffsets() {
@@ -67,19 +61,14 @@ class datas: ObservableObject { //observable 객체 생성
     func countRows() -> Int {
         return tmpDataSortedByDate.count
     }
-    
 }
-
-
 
 // 전체 리스트
 struct TotalListView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    
-//    @State var offsetArr = [CGFloat]()
+
     //TODO: 전체 데이터 받아오고 데이터 합쳐서 날짜로 정렬 및 그룹화하기
-    
     @ObservedObject var testData = datas(tmpDataSortedByDate:
                         [ "2022.06.03" : [ DataListByDay(dataType: "drink", dataIndex: 1),
                                            DataListByDay(dataType: "sideEffect", dataIndex: 1),
@@ -92,25 +81,10 @@ struct TotalListView: View {
                                           DataListByDay(dataType: "drink", dataIndex: 2) ],
                         ])
     
-//    init() {
-//        @State var offsets = [CGFloat](repeating: .zero, count: tmpFullData.count)
-//    }
-    
-    //전체 데이터 수 9개라고 가정
-//    @State var offsets = [CGFloat](repeating: .zero, count: 9)
-    
     var body: some View {
-        
-//        let keys = tmpDataSortedByDate.map{$0.key}
         
         ScrollView() {
             LazyVStack(spacing: 23) {
-//                ForEach(1 ..< 10) { _ in
-//                    TotalRecordsByDay(tmpDataListByDayArr: $tmpData, curDate: "2022.06.03", dataCount: tmpData.count)
-//                }
-//                ForEach(0 ..< testData.count()) { index in
-//                    TotalRecordsByDay(testData: testData, curDate: Array(testData)[index].key)
-//                }
                 
                 ForEach(Array(testData.tmpDataSortedByDate.keys), id: \.self) { curDate in
                     TotalRecordsByDay(testData: testData, curDate: curDate, dataCount: testData.countRows())
@@ -147,21 +121,9 @@ struct TotalRecordsByDay: View {
     public var curDate : String
     public var dataCount : Int
     
-//    @Binding public var fullData : [DataListByDay]
-    
-//    @State private var offsets = [CGFloat](repeating: .zero, count: 3)
-//    private var index : Int = 1
-    
-//    init(curDate: String, tmpDataListByDayArr: [DataListByDay]) {
-//        self.tmpDataListByDayArr = tmpDataListByDayArr
-//        self.curDate = curDate
-//        self.dataCount = tmpDataListByDayArr.count
-//    }
     
     var body: some View {
-        
-//        let dataCount = tmpDataListByDayArr.count
-        
+                
         VStack(alignment: .leading, spacing: 0) {
             Text(curDate)
                 .font(.title3)
@@ -221,9 +183,6 @@ struct TotalRecordsByDay: View {
 
 
 struct TotalRecordsByDayRow: View {
-    
-    //    @Binding public var fullData : [DataListByDay]
-    //    @Binding public var tmpDataListByDayArr : [DataListByDay]
     @ObservedObject var testData : datas
     var curDate : String
     var rowIndex : Int
@@ -235,16 +194,12 @@ struct TotalRecordsByDayRow: View {
         case "drink":
             //TODO: 데이터 넘겨주기
             CaffeineRecordCellList()
-//                                    .background(Color.white)
                 .padding(.horizontal, TotalListLayoutValue.Paddings.caffeineRecordRowHorizontalPadding)
                 .background(Color.white)
                 .offset(x: testData.tmpOffsets[curDate]![rowIndex])
                 .gesture(
                     DragGesture()
                         .onChanged { gesture in
-//                            for index in 0 ..< fullData.count {
-//                                fullData[index].offset = .zero
-//                            }
                             testData.resetOffsets()
                             testData.tmpOffsets[curDate]![rowIndex] = gesture.translation.width
                             if testData.tmpOffsets[curDate]![rowIndex] > 74 {
@@ -254,7 +209,6 @@ struct TotalRecordsByDayRow: View {
                         .onEnded { _ in
                             if testData.tmpOffsets[curDate]![rowIndex] < -74 {
                                 testData.tmpOffsets[curDate]![rowIndex] = -74
-//                                element.offset = element.offset
                             }
                             else if testData.tmpOffsets[curDate]![rowIndex] > -74 {
                                 testData.tmpOffsets[curDate]![rowIndex] = .zero
@@ -412,12 +366,12 @@ struct CaffeineRecordCellList: View {
 struct TotalListView_Previews: PreviewProvider {
     static var previews: some View {
         
-        TotalListView()
+//        TotalListView()
         
-//        NavigationView {
-//            NavigationLink("to total list") {
-//                TotalListView()
-//            }
-//        }
+        NavigationView {
+            NavigationLink("to total list") {
+                TotalListView()
+            }
+        }
     }
 }
