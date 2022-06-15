@@ -16,7 +16,7 @@ struct SearchBarView: View {
             Image(systemName: "magnifyingglass")
                 .foregroundColor(
                     searchCaffeineStateHolder.searchText.isEmpty ?
-                    Color.secondaryTextGray : Color.primaryBrown
+                    .secondaryTextGray : .primaryBrown
                 )
             
             TextField("메뉴 또는 브랜드", text: $searchCaffeineStateHolder.searchText)
@@ -25,7 +25,7 @@ struct SearchBarView: View {
                 .foregroundColor(.customBlack)
                 .overlay(
                     Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(Color.primaryBrown)
+                        .foregroundColor(.primaryBrown)
                         .padding(SearchCaffeineViewLayoutValue.Padding.searchBarClearTotal)
                         .padding(.trailing, SearchCaffeineViewLayoutValue.Padding.searchBarClearRight)
                         .opacity(searchCaffeineStateHolder.searchText.isEmpty ?  0.0 : 1.0)
