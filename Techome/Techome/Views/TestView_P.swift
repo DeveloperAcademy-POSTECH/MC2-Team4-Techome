@@ -130,7 +130,7 @@ struct TestView_P: View {
                 print("[잔존량]")
                 print(Int(intakeManager.getRemainCaffeineAmount()))
                 
-                let time = intakeManager.getRemainTimeToDischarge()
+                let time = intakeManager.getRemainTimeToDischarge(caffeine: intakeManager.getRemainCaffeineAmount())
                 let hours = time / 3600
                 let minutes = (time % 3600) / 60
                 let seconds = time % 60
