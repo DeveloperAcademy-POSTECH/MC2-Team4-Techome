@@ -91,11 +91,17 @@ struct CaffeineBeverage: View {
 }
 
 struct CaffeineSizeButtonGroup: View {
+    
+    @State var isSelected: Int = 0
+
     var body: some View {
         HStack(spacing: CaffeineBookDetailLayoutValue.Padding.buttonBetweenSpace) {
-            CaffeineSizeButton(size: "Tall", volume: "355ml")
-            CaffeineSizeButton(size: "Grande", volume: "450ml")
-            CaffeineSizeButton(size: "Venti", volume: "530ml")
+            ForEach(0 ..< 3, id: \.self) { buttonIndex in
+                CaffeineSizeButton(size: "Tall", volume: "355ml", buttonIndex: buttonIndex, isSelected: $isSelected)
+            }
+//            CaffeineSizeButton(size: "Tall", volume: "355ml")
+//            CaffeineSizeButton(size: "Grande", volume: "450ml")
+//            CaffeineSizeButton(size: "Venti", volume: "530ml")
         }
         .padding(.top, CaffeineBookDetailLayoutValue.Padding.buttonGroupTop)
         .padding(.bottom, CaffeineBookDetailLayoutValue.Padding.buttonGroupBottom)
@@ -106,25 +112,28 @@ struct CaffeineSizeButton: View {
     
     var size: String
     var volume: String
+    var buttonIndex: Int
+    
+    @Binding var isSelected: Int
     
     var body: some View {
         RoundedRectangle(cornerRadius: CaffeineBookDetailLayoutValue.Radius.sizeButton)
             .frame(width: CaffeineBookDetailLayoutValue.Size.sizeButtonWidth, height: CaffeineBookDetailLayoutValue.Size.sizeButtonHeight)
-            .foregroundColor(.white)
+            .foregroundColor(isSelected == buttonIndex ? .primaryBrown : .white)
             .shadow(color: Color.primaryShadowGray, radius: CaffeineBookDetailLayoutValue.Radius.sizeButtonShadow, x: .zero, y: .zero)
             .overlay(
                 VStack(spacing: .zero) {
                     Text(size)
                         .font(.title2)
-                        .foregroundColor(.customBlack)
+                        .foregroundColor(isSelected == buttonIndex ? .white : .customBlack)
                     Text(volume)
                         .padding(.top, CaffeineBookDetailLayoutValue.Padding.buttonTextSpace)
                         .font(.caption)
-                        .foregroundColor(.secondaryTextGray)
+                        .foregroundColor(isSelected == buttonIndex ? .white : .secondaryTextGray)
                 }
             )
             .onTapGesture {
-                //TODO: Button Toggle Logic
+                isSelected = buttonIndex
             }
     }
 }
@@ -172,6 +181,6 @@ struct CaffeineInfoRow: View {
 
 struct CaffeineBookDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CaffeineBookDetailView()
+            CaffeineBookDetailView()
     }
 }
