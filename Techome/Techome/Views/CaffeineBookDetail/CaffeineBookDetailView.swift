@@ -145,7 +145,20 @@ struct BeverageSizeButton: View {
 struct CaffeineInfoGroup: View {
     
     @EnvironmentObject var caffeineBookDetailStates: CaffeineBookDetailStateHolder
+    
+    let intakeManager = IntakeManager.shared
+    
+    func calculateHourAndMinute() -> String {
         
+        let remainTimeToDischargeSecond: Int = intakeManager.getRemainTimeToDischarge(caffeine: Double(caffeineBookDetailStates.Beverage.sizeInfo[caffeineBookDetailStates.isSelected].caffeineAmount))
+        
+        let remainTimeToDischargeHour: Int = remainTimeToDischargeSecond / 3600
+        let remainTimeToDischargeMinute: Int = (remainTimeToDischargeSecond % 3600) / 60
+        
+        return String(remainTimeToDischargeHour) + "시간 " + String(remainTimeToDischargeMinute) + "분"
+
+    }
+
     var body: some View {
         Group {
             CaffeineInfoRow(label: "샷 수", info: String(caffeineBookDetailStates.Beverage.sizeInfo[caffeineBookDetailStates.isSelected].defaultShotCount)+"샷")
@@ -159,7 +172,7 @@ struct CaffeineInfoGroup: View {
                     .font(.caption)
                     .foregroundColor(.secondaryTextGray)
             }
-            CaffeineInfoRow(label: "배출", info: "2시간 45분")
+            CaffeineInfoRow(label: "배출", info: calculateHourAndMinute())
                 .padding(.bottom, CaffeineBookDetailLayoutValue.Padding.infoRowBottom)
         }
         .padding(.horizontal, CaffeineBookDetailLayoutValue.Padding.infoGroupHorizontal)
