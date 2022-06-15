@@ -39,17 +39,32 @@ struct DataListByDay : Hashable {
     var dataIndex: Int
 }
 
-class datas: ObservableObject { //observable 객체 생성
+final class datas: ObservableObject { //observable 객체 생성
     @Published var tmpDataSortedByDate : [ String : [DataListByDay] ]
+
     //offset 추가하기
     @Published var tmpOffsets = [ String : [CGFloat] ]()
 
     init(tmpDataSortedByDate: [String : [DataListByDay]]) {
         self.tmpDataSortedByDate = tmpDataSortedByDate
-        
+
         for key in self.tmpDataSortedByDate.keys {
             self.tmpOffsets[key] = [CGFloat](repeating: .zero, count: tmpDataSortedByDate[key]!.count)
         }
+    }
+    
+    init() {
+        self.tmpDataSortedByDate =
+            [ "2022.06.03" : [ DataListByDay(dataType: "drink", dataIndex: 1),
+                               DataListByDay(dataType: "sideEffect", dataIndex: 1),
+                              DataListByDay(dataType: "drink", dataIndex: 2) ],
+              "2022.06.02" : [ DataListByDay(dataType: "drink", dataIndex: 1),
+                               DataListByDay(dataType: "sideEffect", dataIndex: 1),
+                              DataListByDay(dataType: "drink", dataIndex: 2) ],
+              "2022.06.01" : [ DataListByDay(dataType: "drink", dataIndex: 1),
+                               DataListByDay(dataType: "sideEffect", dataIndex: 1),
+                              DataListByDay(dataType: "drink", dataIndex: 2) ],
+            ]
     }
     
     func resetOffsets() {
@@ -58,8 +73,17 @@ class datas: ObservableObject { //observable 객체 생성
         }
     }
     
-    func countRows() -> Int {
-        return tmpDataSortedByDate.count
+    func deleteData(date : String, index : Int){
+        tmpDataSortedByDate[date]!.remove(at: index)
+        tmpOffsets[date]!.remove(at: index)
+        print(tmpDataSortedByDate)
+        print(tmpOffsets)
+        
+    }
+    
+    func countDatasByDate(date : String) -> Int {
+        return tmpDataSortedByDate[date]!.count
+
     }
 }
 
@@ -69,17 +93,20 @@ struct TotalListView: View {
     @Environment(\.presentationMode) var presentationMode
 
     //TODO: 전체 데이터 받아오고 데이터 합쳐서 날짜로 정렬 및 그룹화하기
-    @ObservedObject var testData = datas(tmpDataSortedByDate:
-                        [ "2022.06.03" : [ DataListByDay(dataType: "drink", dataIndex: 1),
-                                           DataListByDay(dataType: "sideEffect", dataIndex: 1),
-                                          DataListByDay(dataType: "drink", dataIndex: 2) ],
-                          "2022.06.02" : [ DataListByDay(dataType: "drink", dataIndex: 1),
-                                           DataListByDay(dataType: "sideEffect", dataIndex: 1),
-                                          DataListByDay(dataType: "drink", dataIndex: 2) ],
-                          "2022.06.01" : [ DataListByDay(dataType: "drink", dataIndex: 1),
-                                           DataListByDay(dataType: "sideEffect", dataIndex: 1),
-                                          DataListByDay(dataType: "drink", dataIndex: 2) ],
-                        ])
+    @ObservedObject var testData = datas( tmpDataSortedByDate:
+            [ "2022.06.03" : [ DataListByDay(dataType: "drink", dataIndex: 1),
+                               DataListByDay(dataType: "sideEffect", dataIndex: 1),
+                              DataListByDay(dataType: "drink", dataIndex: 2) ],
+              "2022.06.02" : [ DataListByDay(dataType: "drink", dataIndex: 1),
+                               DataListByDay(dataType: "sideEffect", dataIndex: 1),
+                              DataListByDay(dataType: "drink", dataIndex: 2) ],
+              "2022.06.01" : [ DataListByDay(dataType: "drink", dataIndex: 1),
+                               DataListByDay(dataType: "sideEffect", dataIndex: 1),
+                              DataListByDay(dataType: "drink", dataIndex: 2) ],
+            ]
+    )
+    
+//    @ObservedObject var testData = datas()
     
     var body: some View {
         
@@ -87,14 +114,14 @@ struct TotalListView: View {
             LazyVStack(spacing: 23) {
                 
                 ForEach(Array(testData.tmpDataSortedByDate.keys), id: \.self) { curDate in
-                    TotalRecordsByDay(testData: testData, curDate: curDate, dataCount: testData.countRows())
+                    TotalRecordsByDay(testData: testData, curDate: curDate, dataCount: testData.countDatasByDate(date: curDate))
                 }
             }
             .padding(.horizontal, TotalListLayoutValue.Paddings.fullViewHorizontalPadding)
             .padding(.top, TotalListLayoutValue.Paddings.fullViewVerticalPadding) //navigation bar와 간격
         }
         .background(Color.backgroundCream)
-        .navigationTitle(Text("전체 리스트").font(.caption)) //TODO : navigation bar title toolbar custom으로 넣기
+//        .navigationTitle(Text("전체 리스트").font(.caption)) //TODO : navigation bar title toolbar custom으로 넣기
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -132,7 +159,9 @@ struct TotalRecordsByDay: View {
         
             VStack(spacing: 0) {
                 ForEach(Array(testData.tmpDataSortedByDate[curDate]!.enumerated()), id: \.element) { index, element in
+//                ForEach(Array(testData.tmpDataSortedByDate[curDate]), id: \.self) { index in
                     ZStack {
+                        //TODO: 삭제 배경 + 버튼 뷰 분리하기
                         //삭제 버튼 배경
                         HStack(spacing: 0) {
                             Color.white
@@ -145,7 +174,13 @@ struct TotalRecordsByDay: View {
                             HStack {
                                 Spacer()
                                 
-                                Button(action: {}) {
+                                Button(action: {
+//                                    testData.tmpDataSortedByDate[curDate]!.remove(at: index)
+//                                    testData.tmpOffsets[curDate]!.remove(at: index)
+                                    print("삭제하기 : \(curDate), \(index)")
+                                    
+                                    testData.deleteData(date: curDate, index: index)
+                                }) {
                                     Text("삭제")
                                         .font(.body)
                                         .foregroundColor(Color.white)
@@ -162,6 +197,10 @@ struct TotalRecordsByDay: View {
                         VStack (spacing : 0) {
                             
                             TotalRecordsByDayRow(testData: testData, curDate: curDate, rowIndex: index, element: element)
+                                .onAppear{
+                                    print(element)
+                                    print("curDate: \(curDate), rowIndex: \(index)")
+                                }
                             
                             //마지막 데이터 다음 divider 없애기
                             if (index != dataCount - 1) {
@@ -366,12 +405,12 @@ struct CaffeineRecordCellList: View {
 struct TotalListView_Previews: PreviewProvider {
     static var previews: some View {
         
-//        TotalListView()
+        TotalListView()
         
-        NavigationView {
-            NavigationLink("to total list") {
-                TotalListView()
-            }
-        }
+//        NavigationView {
+//            NavigationLink("to total list") {
+//                TotalListView()
+//            }
+//        }
     }
 }
