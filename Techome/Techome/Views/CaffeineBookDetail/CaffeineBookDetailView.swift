@@ -48,7 +48,7 @@ struct CaffeineBookDetailView: View {
             ZStack {
                 Color.backgroundCream.edgesIgnoringSafeArea(.all)
                 
-                VStack {
+                VStack(spacing: .zero) {
                     VStack(alignment: .center, spacing: .zero) {
                         CaffeineBeverage()
                         CaffeineSizeButtonGroup()

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CaffeineBookDetailStateHolder: ObservableObject {
+final class CaffeineBookDetailStateHolder: ObservableObject {
     
     @Published var Beverage: Beverage = dummyBeverages[0]
     @Published var isSelected: Int = 0
