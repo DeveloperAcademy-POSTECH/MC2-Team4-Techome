@@ -41,7 +41,9 @@ struct CaffeineBookDetailLayoutValue {
 
 struct CaffeineBookDetailView: View {
     
-    @State var Test : Beverage = Beverage(name: "카페 아메리카노", franchise: .starbucks, sizeInfo: [SizeInfo(name: "Tall", caffeineAmount: 150, defaultShotCount: 2), SizeInfo(name: "Grande", caffeineAmount: 225, defaultShotCount: 3), SizeInfo(name: "Venti", caffeineAmount: 300, defaultShotCount: 4)])
+    @State var Test : Beverage = dummyBeverages[0]
+    
+    @State var isSelected: Int = 0
     
     var body: some View {
         NavigationView {
@@ -51,8 +53,8 @@ struct CaffeineBookDetailView: View {
                 VStack {
                     VStack(alignment: .center, spacing: .zero) {
                         CaffeineBeverage(test: Test)
-                        CaffeineSizeButtonGroup(test: Test)
-                        CaffeineInfoGroup(test: Test)
+                        CaffeineSizeButtonGroup(test: Test, isSelected: $isSelected)
+                        CaffeineInfoGroup(test: Test, isSelected: $isSelected)
                     }
                     .background(.white)
                     .clipShape(RoundedRectangle(cornerRadius: CaffeineBookDetailLayoutValue.Radius.backgroundCard))
@@ -97,10 +99,8 @@ struct CaffeineBeverage: View {
 }
 
 struct CaffeineSizeButtonGroup: View {
-    
-    @State var isSelected: Int = 0
-    
     var test: Beverage
+    @Binding var isSelected: Int
 
     var body: some View {
         HStack(spacing: CaffeineBookDetailLayoutValue.Padding.buttonBetweenSpace) {
@@ -147,11 +147,13 @@ struct CaffeineInfoGroup: View {
     
     var test: Beverage
     
+    @Binding var isSelected: Int
+    
     var body: some View {
         Group {
-            CaffeineInfoRow(label: "샷 수", info: String(test.sizeInfo[0].defaultShotCount)+"샷")
+            CaffeineInfoRow(label: "샷 수", info: String(test.sizeInfo[isSelected].defaultShotCount)+"샷")
                 .padding(.top, CaffeineBookDetailLayoutValue.Padding.infoRowBetweenSpaceExceptCaption)
-            CaffeineInfoRow(label: "카페인", info: String(test.sizeInfo[0].caffeineAmount) + "mg")
+            CaffeineInfoRow(label: "카페인", info: String(test.sizeInfo[isSelected].caffeineAmount) + "mg")
                 .padding(.top, CaffeineBookDetailLayoutValue.Padding.infoRowBetweenSpaceExceptCaption)
             HStack {
                 Spacer()
