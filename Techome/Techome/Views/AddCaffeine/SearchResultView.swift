@@ -59,7 +59,6 @@ struct SatisfiedCaffeineItem: View {
             HStack(alignment: .center, spacing: .zero) {
                 VStack (alignment: .leading){
                     Text(satisfiedCaffeineItem.name)
-                        .font(.title3)
                         .multilineTextAlignment(.leading)
                     Text("\(satisfiedCaffeineItem.franchise.rawValue)")
                         .font(.caption)
@@ -67,10 +66,15 @@ struct SatisfiedCaffeineItem: View {
                 }
                 Spacer()
                 HStack (alignment: .firstTextBaseline, spacing: .zero){
+                    Text("Tall 기준")
+                        .font(.caption2)
+                        .foregroundColor(.secondaryTextGray)
+                        .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.sizeCriterion)
                     Text("\(satisfiedCaffeineItem.sizeInfo[0].caffeineAmount)")
                         .font(.title3)
+                        .frame(width: SearchCaffeineViewLayoutValue.Size.caffeineAmountText, alignment: .trailing)
                     Text(" mg")
-                        .font(.subheadline)
+                        .font(.caption2)
                         .foregroundColor(.secondaryTextGray)
                 }
             }

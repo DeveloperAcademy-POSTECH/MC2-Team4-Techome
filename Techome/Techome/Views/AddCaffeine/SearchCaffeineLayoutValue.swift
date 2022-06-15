@@ -19,6 +19,7 @@ struct SearchCaffeineViewLayoutValue {
         static let searchBarClearTotal: CGFloat = 10
         static let searchBarGlassLeft: CGFloat = 12
         static let mainVertical: CGFloat = UIScreen.main.bounds.height * 0.1
+        static let sizeCriterion: CGFloat = 5
         
     }
     
@@ -28,6 +29,7 @@ struct SearchCaffeineViewLayoutValue {
         static let searchBarMaxWidth: CGFloat = 600
         static let searchBarHeight: CGFloat = 48
         static let subMainHeight: CGFloat = UIScreen.main.bounds.height * 0.8
+        static let caffeineAmountText: CGFloat = 36
     }
     
     struct Radius {

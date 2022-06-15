@@ -90,17 +90,22 @@ struct CaffeineRecordRow: View {
             HStack(alignment: .center, spacing: .zero) {
                 VStack (alignment: .leading){
                     Text(recentRecord.beverage.name)
-                        .font(.title3)
+                        .multilineTextAlignment(.leading)
                     Text("\(recentRecord.beverage.franchise.rawValue)")
                         .font(.caption)
                         .foregroundColor(.secondaryTextGray)
                 }
                 Spacer()
                 HStack (alignment: .firstTextBaseline, spacing: .zero){
+                    Text("Tall 기준")
+                        .font(.caption2)
+                        .foregroundColor(.secondaryTextGray)
+                        .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.sizeCriterion)
                     Text("\(recentRecord.size.caffeineAmount)")
                         .font(.title3)
+                        .frame(width: SearchCaffeineViewLayoutValue.Size.caffeineAmountText, alignment: .trailing)
                     Text(" mg")
-                        .font(.subheadline)
+                        .font(.caption2)
                         .foregroundColor(.secondaryTextGray)
                 }
             }
