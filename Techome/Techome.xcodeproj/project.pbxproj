@@ -10,7 +10,6 @@
 		2ABF49482856DCAD000E3387 /* BarChart in Frameworks */ = {isa = PBXBuildFile; productRef = 2ABF49472856DCAD000E3387 /* BarChart */; };
 		5220177F2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */; };
 		52AFC473285704AB000199DF /* AddSideEffectStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */; };
-		52AFC475285826B6000199DF /* Test_G.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC474285826B6000199DF /* Test_G.swift */; };
 		52AFC4782858614E000199DF /* CaffeineBookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC4772858614E000199DF /* CaffeineBookDetailView.swift */; };
 		793214F6285702A500D7E4E1 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793214F5285702A500D7E4E1 /* UIApplication+.swift */; };
 		793214F8285702BB00D7E4E1 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793214F7285702BB00D7E4E1 /* SearchBarView.swift */; };
@@ -69,7 +68,6 @@
 /* Begin PBXFileReference section */
 		5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookDetailStateHolder.swift; sourceTree = "<group>"; };
 		52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSideEffectStateHolder.swift; sourceTree = "<group>"; };
-		52AFC474285826B6000199DF /* Test_G.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_G.swift; sourceTree = "<group>"; };
 		52AFC4772858614E000199DF /* CaffeineBookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookDetailView.swift; sourceTree = "<group>"; };
 		793214F5285702A500D7E4E1 /* UIApplication+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		793214F7285702BB00D7E4E1 /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
@@ -238,7 +236,6 @@
 				AB18CCE32856D8B300DD1C5A /* ContentView.swift */,
 				DA11291128570F4C0065BD33 /* TestView_P.swift */,
 				AB18CCE42856D8B300DD1C5A /* AddCaffeine */,
-				52AFC474285826B6000199DF /* Test_G.swift */,
 				ABC3E9552858122F0091CC8E /* TotalList */,
 				ABFE83F02859A876001461D4 /* AddCaffeineDetail */,
 			);
@@ -515,7 +512,6 @@
 				AB18CCFB2856D8B300DD1C5A /* IntakeRecord.swift in Sources */,
 				793214F8285702BB00D7E4E1 /* SearchBarView.swift in Sources */,
 				AB18CCED2856D8B300DD1C5A /* SideEffectRepository.swift in Sources */,
-				52AFC475285826B6000199DF /* Test_G.swift in Sources */,
 				AB18CD032856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift in Sources */,
 				ABC0E95B2859CDDE0046C9C8 /* CaffeineBookLayoutValue.swift in Sources */,
 				AB18CCF42856D8B300DD1C5A /* JSONManager.swift in Sources */,
