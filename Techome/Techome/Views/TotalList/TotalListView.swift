@@ -44,27 +44,38 @@ final class datas: ObservableObject { //observable 객체 생성
 
     //offset 추가하기
     @Published var tmpOffsets = [ String : [CGFloat] ]()
-
-    init(tmpDataSortedByDate: [String : [DataListByDay]]) {
-        self.tmpDataSortedByDate = tmpDataSortedByDate
-
-        for key in self.tmpDataSortedByDate.keys {
-            self.tmpOffsets[key] = [CGFloat](repeating: .zero, count: tmpDataSortedByDate[key]!.count)
-        }
-    }
+    
+//    init(tmpDataSortedByDate: [String : [DataListByDay]]) {
+//        self.tmpDataSortedByDate = tmpDataSortedByDate
+//
+//        for key in self.tmpDataSortedByDate.keys {
+//            self.tmpOffsets[key] = [CGFloat](repeating: .zero, count: tmpDataSortedByDate[key]!.count)
+//        }
+//    }
     
     init() {
         self.tmpDataSortedByDate =
             [ "2022.06.03" : [ DataListByDay(dataType: "drink", dataIndex: 1),
-                               DataListByDay(dataType: "sideEffect", dataIndex: 1),
-                              DataListByDay(dataType: "drink", dataIndex: 2) ],
-              "2022.06.02" : [ DataListByDay(dataType: "drink", dataIndex: 1),
-                               DataListByDay(dataType: "sideEffect", dataIndex: 1),
-                              DataListByDay(dataType: "drink", dataIndex: 2) ],
-              "2022.06.01" : [ DataListByDay(dataType: "drink", dataIndex: 1),
-                               DataListByDay(dataType: "sideEffect", dataIndex: 1),
-                              DataListByDay(dataType: "drink", dataIndex: 2) ],
+                               DataListByDay(dataType: "drink", dataIndex: 2),
+                              DataListByDay(dataType: "sideEffect", dataIndex: 1),
+                               DataListByDay(dataType: "sideEffect", dataIndex: 2) ],
+              "2022.06.02" : [ DataListByDay(dataType: "drink", dataIndex: 3),
+                               DataListByDay(dataType: "sideEffect", dataIndex: 3),
+                              DataListByDay(dataType: "drink", dataIndex: 4),
+                               DataListByDay(dataType: "sideEffect", dataIndex: 4) ],
+              "2022.06.01" : [ DataListByDay(dataType: "drink", dataIndex: 5),
+                               DataListByDay(dataType: "sideEffect", dataIndex: 5),
+                              DataListByDay(dataType: "drink", dataIndex: 6) ],
+              "2022.05.31" : [ DataListByDay(dataType: "drink", dataIndex: 7),
+                               DataListByDay(dataType: "sideEffect", dataIndex: 6),
+                              DataListByDay(dataType: "drink", dataIndex: 8) ]
             ]
+        
+//        self.tmpDataSortedByDate = tmpDataSortedByDate.sorted { $0.0 > $1.0 }
+        
+        for key in self.tmpDataSortedByDate.keys {
+            self.tmpOffsets[key] = [CGFloat](repeating: .zero, count: tmpDataSortedByDate[key]!.count)
+        }
     }
     
     func resetOffsets() {
@@ -74,11 +85,8 @@ final class datas: ObservableObject { //observable 객체 생성
     }
     
     func deleteData(date : String, index : Int){
-        tmpDataSortedByDate[date]!.remove(at: index)
-        tmpOffsets[date]!.remove(at: index)
-        print(tmpDataSortedByDate)
-        print(tmpOffsets)
-        
+        self.tmpDataSortedByDate[date]!.remove(at: index)
+        self.tmpOffsets[date]!.remove(at: index)
     }
     
     func countDatasByDate(date : String) -> Int {
@@ -93,28 +101,17 @@ struct TotalListView: View {
     @Environment(\.presentationMode) var presentationMode
 
     //TODO: 전체 데이터 받아오고 데이터 합쳐서 날짜로 정렬 및 그룹화하기
-    @ObservedObject var testData = datas( tmpDataSortedByDate:
-            [ "2022.06.03" : [ DataListByDay(dataType: "drink", dataIndex: 1),
-                               DataListByDay(dataType: "sideEffect", dataIndex: 1),
-                              DataListByDay(dataType: "drink", dataIndex: 2) ],
-              "2022.06.02" : [ DataListByDay(dataType: "drink", dataIndex: 1),
-                               DataListByDay(dataType: "sideEffect", dataIndex: 1),
-                              DataListByDay(dataType: "drink", dataIndex: 2) ],
-              "2022.06.01" : [ DataListByDay(dataType: "drink", dataIndex: 1),
-                               DataListByDay(dataType: "sideEffect", dataIndex: 1),
-                              DataListByDay(dataType: "drink", dataIndex: 2) ],
-            ]
-    )
+
     
-//    @ObservedObject var testData = datas()
+    @ObservedObject var testData = datas()
     
     var body: some View {
         
         ScrollView() {
             LazyVStack(spacing: 23) {
                 
-                ForEach(Array(testData.tmpDataSortedByDate.keys), id: \.self) { curDate in
-                    TotalRecordsByDay(testData: testData, curDate: curDate, dataCount: testData.countDatasByDate(date: curDate))
+                ForEach(Array(testData.tmpDataSortedByDate.keys).sorted(by: >), id: \.self) { curDate in
+                    TotalRecordsByDay(testDataByDay: testData, curDateByDay: curDate, dataCountByDay: testData.countDatasByDate(date: curDate))
                 }
             }
             .padding(.horizontal, TotalListLayoutValue.Paddings.fullViewHorizontalPadding)
@@ -144,22 +141,22 @@ struct TotalRecordsByDay: View {
     //카페인 + 부작용 리스트 병합 결과
     //TODO: datatype과 idx 활용해 리스트에 넣을 알맞은 데이터 찾기
     
-    @ObservedObject var testData : datas
-    public var curDate : String
-    public var dataCount : Int
+    @ObservedObject var testDataByDay : datas
+    var curDateByDay : String
+    var dataCountByDay : Int
     
     
     var body: some View {
                 
         VStack(alignment: .leading, spacing: 0) {
-            Text(curDate)
+            Text(curDateByDay)
                 .font(.title3)
                 .fontWeight(.semibold)
                 .padding(.bottom, TotalListLayoutValue.Paddings.dateVerticalPadding)
         
             VStack(spacing: 0) {
-                ForEach(Array(testData.tmpDataSortedByDate[curDate]!.enumerated()), id: \.element) { index, element in
-//                ForEach(Array(testData.tmpDataSortedByDate[curDate]), id: \.self) { index in
+                ForEach(Array(testDataByDay.tmpDataSortedByDate[curDateByDay]!.enumerated()), id: \.element) { index, element in
+//                ForEach(0 ..< dataCountByDay) { index in
                     ZStack {
                         //TODO: 삭제 배경 + 버튼 뷰 분리하기
                         //삭제 버튼 배경
@@ -175,11 +172,20 @@ struct TotalRecordsByDay: View {
                                 Spacer()
                                 
                                 Button(action: {
-//                                    testData.tmpDataSortedByDate[curDate]!.remove(at: index)
-//                                    testData.tmpOffsets[curDate]!.remove(at: index)
-                                    print("삭제하기 : \(curDate), \(index)")
+                                    print(dataCountByDay)
+                                    print("삭제하기 : \(curDateByDay), \(index)")
+                                    print(testDataByDay.tmpDataSortedByDate)
+//                                    print(Array(testData.tmpDataSortedByDate[curDate]!.enumerated()))
                                     
-                                    testData.deleteData(date: curDate, index: index)
+                                    print("삭제 작업 수행하기")
+                                    
+                                    testDataByDay.deleteData(date: curDateByDay, index: index)
+                                    
+                                    print("삭제 작업 수행 완료")
+                                    print(testDataByDay.tmpDataSortedByDate)
+                                    
+                                    print("모든 작업 완료")
+                                    
                                 }) {
                                     Text("삭제")
                                         .font(.body)
@@ -196,14 +202,10 @@ struct TotalRecordsByDay: View {
                         //TODO: component 만들기
                         VStack (spacing : 0) {
                             
-                            TotalRecordsByDayRow(testData: testData, curDate: curDate, rowIndex: index, element: element)
-                                .onAppear{
-                                    print(element)
-                                    print("curDate: \(curDate), rowIndex: \(index)")
-                                }
+                            TotalRecordsByDayRow(testDataByDayRow: testDataByDay, curDateByDayRow: curDateByDay, rowIndexByDayRow: index, dataCountByDayRow : dataCountByDay)
                             
                             //마지막 데이터 다음 divider 없애기
-                            if (index != dataCount - 1) {
+                            if (index != dataCountByDay - 1) {
                                 Divider()
                                     .padding(.horizontal, TotalListLayoutValue.Paddings.dividerHorizontalPadding)
                                     .background(Color.white)
@@ -222,58 +224,59 @@ struct TotalRecordsByDay: View {
 
 
 struct TotalRecordsByDayRow: View {
-    @ObservedObject var testData : datas
-    var curDate : String
-    var rowIndex : Int
-    @State public var element : DataListByDay
+    @ObservedObject var testDataByDayRow : datas
+    var curDateByDayRow : String
+    var rowIndexByDayRow : Int
+    var dataCountByDayRow : Int
+//    @State public var element : DataListByDay
     
     var body: some View {
         
-        switch element.dataType {
+        switch testDataByDayRow.tmpDataSortedByDate[curDateByDayRow]![rowIndexByDayRow].dataType {
         case "drink":
             //TODO: 데이터 넘겨주기
             CaffeineRecordCellList()
                 .padding(.horizontal, TotalListLayoutValue.Paddings.caffeineRecordRowHorizontalPadding)
                 .background(Color.white)
-                .offset(x: testData.tmpOffsets[curDate]![rowIndex])
+                .offset(x: testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow])
                 .gesture(
                     DragGesture()
                         .onChanged { gesture in
-                            testData.resetOffsets()
-                            testData.tmpOffsets[curDate]![rowIndex] = gesture.translation.width
-                            if testData.tmpOffsets[curDate]![rowIndex] > 74 {
-                                testData.tmpOffsets[curDate]![rowIndex] = .zero
+                            testDataByDayRow.resetOffsets()
+                            testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] = gesture.translation.width
+                            if testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] > 74 {
+                                testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] = .zero
                             }
                         }
                         .onEnded { _ in
-                            if testData.tmpOffsets[curDate]![rowIndex] < -74 {
-                                testData.tmpOffsets[curDate]![rowIndex] = -74
+                            if testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] < -74 {
+                                testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] = -74
                             }
-                            else if testData.tmpOffsets[curDate]![rowIndex] > -74 {
-                                testData.tmpOffsets[curDate]![rowIndex] = .zero
+                            else if testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] > -74 {
+                                testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] = .zero
                             }
                         }
                     )
         case "sideEffect":
             SideEffectRecordRow()
                 .background(Color.white)
-                .offset(x: testData.tmpOffsets[curDate]![rowIndex])
+                .offset(x: testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow])
                 .gesture(
                     DragGesture()
                         .onChanged { gesture in
-                            testData.resetOffsets()
-                            testData.tmpOffsets[curDate]![rowIndex] = gesture.translation.width
-                            if testData.tmpOffsets[curDate]![rowIndex] > 74 {
-                                testData.tmpOffsets[curDate]![rowIndex] = .zero
+                            testDataByDayRow.resetOffsets()
+                            testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] = gesture.translation.width
+                            if testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] > 74 {
+                                testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] = .zero
                             }
                         }
                         .onEnded { _ in
 
-                            if testData.tmpOffsets[curDate]![rowIndex] <= -74 {
-                                testData.tmpOffsets[curDate]![rowIndex] = -74
+                            if testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] <= -74 {
+                                testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] = -74
                             }
-                            else if testData.tmpOffsets[curDate]![rowIndex] > -74 {
-                                testData.tmpOffsets[curDate]![rowIndex] = .zero
+                            else if testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] > -74 {
+                                testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] = .zero
                             }
                         }
                     )
