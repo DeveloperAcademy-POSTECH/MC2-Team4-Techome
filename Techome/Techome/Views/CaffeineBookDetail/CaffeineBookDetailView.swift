@@ -41,7 +41,7 @@ struct CaffeineBookDetailLayoutValue {
 
 struct CaffeineBookDetailView: View {
     
-    var caffeineBookDetailStates = CaffeineBookDetailStateHolder()
+    let caffeineBookDetailStates = CaffeineBookDetailStateHolder()
         
     var body: some View {
         NavigationView {
@@ -51,7 +51,7 @@ struct CaffeineBookDetailView: View {
                 VStack(spacing: .zero) {
                     VStack(alignment: .center, spacing: .zero) {
                         CaffeineBeverage()
-                        CaffeineSizeButtonGroup()
+                        BeverageSizeButtonGroup()
                         CaffeineInfoGroup()
                     }
                     .environmentObject(caffeineBookDetailStates)
@@ -97,14 +97,14 @@ struct CaffeineBeverage: View {
     }
 }
 
-struct CaffeineSizeButtonGroup: View {
+struct BeverageSizeButtonGroup: View {
 
     @EnvironmentObject var caffeineBookDetailStates: CaffeineBookDetailStateHolder
 
     var body: some View {
         HStack(spacing: CaffeineBookDetailLayoutValue.Padding.buttonBetweenSpace) {
             ForEach(0 ..< caffeineBookDetailStates.Beverage.sizeInfo.count, id: \.self) { buttonIndex in
-                CaffeineSizeButton(size: caffeineBookDetailStates.Beverage.sizeInfo[buttonIndex].name, volume: caffeineBookDetailStates.Beverage.franchise.getSizeAmount(size: caffeineBookDetailStates.Beverage.sizeInfo[buttonIndex].name), buttonIndex: buttonIndex)
+                BeverageSizeButton(size: caffeineBookDetailStates.Beverage.sizeInfo[buttonIndex].name, volume: caffeineBookDetailStates.Beverage.franchise.getSizeAmount(size: caffeineBookDetailStates.Beverage.sizeInfo[buttonIndex].name), buttonIndex: buttonIndex)
             }
         }
         .padding(.top, CaffeineBookDetailLayoutValue.Padding.buttonGroupTop)
@@ -112,7 +112,7 @@ struct CaffeineSizeButtonGroup: View {
     }
 }
 
-struct CaffeineSizeButton: View {
+struct BeverageSizeButton: View {
     
     @EnvironmentObject var caffeineBookDetailStates: CaffeineBookDetailStateHolder
     
@@ -130,7 +130,7 @@ struct CaffeineSizeButton: View {
                     Text(size)
                         .font(.title2)
                         .foregroundColor(caffeineBookDetailStates.isSelected == buttonIndex ? .white : .customBlack)
-                    Text("\(String(volume))ml")
+                    Text("\(volume)ml")
                         .padding(.top, CaffeineBookDetailLayoutValue.Padding.buttonTextSpace)
                         .font(.caption)
                         .foregroundColor(caffeineBookDetailStates.isSelected == buttonIndex ? .white : .secondaryTextGray)
