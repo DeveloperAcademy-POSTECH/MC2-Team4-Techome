@@ -1,5 +1,5 @@
 //
-//  LayoutValue.swift
+//  CaffeineBookLayoutValue.swift
 //  Techome
 //
 //  Created by Yeongwoo Kim on 2022/06/15.
