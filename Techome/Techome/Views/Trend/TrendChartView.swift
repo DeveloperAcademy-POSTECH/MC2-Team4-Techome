@@ -8,6 +8,7 @@
 import SwiftUI
 import BarChart
 
+///https://github.com/romanbaitaliuk/BarChart
 struct ChartLayoutValue {
     static let chartLabelFontSize: CGFloat = 10
     static let axisLineWidth: CGFloat = 0.5
@@ -25,11 +26,11 @@ struct ChartLayoutValue {
 struct TrendChartView: View {
     
     //MARK: library 필요 변수
-    let config = ChartConfiguration()
+    private let config = ChartConfiguration()
     @State private var entries = [ChartDataEntry]()
     @State private var selectedBarTopCentreLocation: CGPoint?
     @State private var selectedEntry: ChartDataEntry?
-    let xAxisLabelCount = 7
+    private let xAxisLabelCount = 7
     @State private var xAxisTicksIntervalValue: Double = 1
     @State private var isXAxisTicksHidden: Bool = false
     
@@ -85,9 +86,8 @@ struct TrendChartView: View {
         Group {
             if self.selectedEntry != nil && self.selectedBarTopCentreLocation != nil {
                 ChartSelectionIndicatorView(entry: self.selectedEntry!,
-                                   location: self.selectedBarTopCentreLocation!.x)
-            }
-            else {
+                                   location: self.selectedBarTopCentreLocation?.x ?? 0)
+            } else {
                 Rectangle().foregroundColor(.clear)
             }
         }
