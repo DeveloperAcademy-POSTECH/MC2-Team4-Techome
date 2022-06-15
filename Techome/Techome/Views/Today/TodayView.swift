@@ -26,10 +26,11 @@ final class TodayStatesHolder: ObservableObject {
         let seconds = intakeManager.getRemainTimeToDischarge()
         let hour = seconds / 3600
         let minutes = (seconds % 3600) / 60
+        let today = Date()
+        var updatedDate = Calendar.current.date(byAdding: .hour, value: hour, to: today) ?? Date()
+        updatedDate = Calendar.current.date(byAdding: .minute, value: minutes, to: updatedDate) ?? Date()
         
-        
-        
-        return ""
+        return Formatter.remainingTime.string(from: updatedDate)
     }
     
     
