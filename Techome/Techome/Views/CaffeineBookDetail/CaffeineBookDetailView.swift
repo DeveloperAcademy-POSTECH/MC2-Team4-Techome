@@ -41,8 +41,14 @@ struct CaffeineBookDetailLayoutValue {
 
 struct CaffeineBookDetailView: View {
     
-    let caffeineBookDetailStates = CaffeineBookDetailStateHolder()
-        
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
+    var caffeineBookDetailStates: CaffeineBookDetailStateHolder
+    
+    init(beverage: Beverage) {
+        caffeineBookDetailStates = CaffeineBookDetailStateHolder(beverage: beverage)
+    }
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -68,7 +74,8 @@ struct CaffeineBookDetailView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 leading: Button(action: {
-                    //TODO: navigation goBack
+                    self.mode.wrappedValue.dismiss()
+                    
                 }) {
                     Image(systemName: "chevron.left")
                         .font(.headline)
@@ -84,13 +91,13 @@ struct CaffeineBeverage: View {
     @EnvironmentObject var caffeineBookDetailStates: CaffeineBookDetailStateHolder
     
     var body: some View {
-        Text(caffeineBookDetailStates.Beverage.name)
+        Text(caffeineBookDetailStates.beverage.name)
             .font(.title)
             .fontWeight(.bold)
             .foregroundColor(.customBlack)
             .padding(.top, CaffeineBookDetailLayoutValue.Padding.titleTop)
         
-        Text(caffeineBookDetailStates.Beverage.franchise.getFranchiseName())
+        Text(caffeineBookDetailStates.beverage.franchise.getFranchiseName())
             .font(.caption)
             .foregroundColor(.secondaryTextGray)
             .padding(.top, CaffeineBookDetailLayoutValue.Padding.franchiseTop)
@@ -98,13 +105,13 @@ struct CaffeineBeverage: View {
 }
 
 struct BeverageSizeButtonGroup: View {
-
+    
     @EnvironmentObject var caffeineBookDetailStates: CaffeineBookDetailStateHolder
-
+    
     var body: some View {
         HStack(spacing: CaffeineBookDetailLayoutValue.Padding.buttonBetweenSpace) {
-            ForEach(0 ..< caffeineBookDetailStates.Beverage.sizeInfo.count, id: \.self) { buttonIndex in
-                BeverageSizeButton(size: caffeineBookDetailStates.Beverage.sizeInfo[buttonIndex].name, volume: caffeineBookDetailStates.Beverage.franchise.getSizeAmount(size: caffeineBookDetailStates.Beverage.sizeInfo[buttonIndex].name), buttonIndex: buttonIndex)
+            ForEach(0 ..< caffeineBookDetailStates.beverage.sizeInfo.count, id: \.self) { buttonIndex in
+                BeverageSizeButton(size: caffeineBookDetailStates.beverage.sizeInfo[buttonIndex].name, volume: caffeineBookDetailStates.beverage.franchise.getSizeAmount(size: caffeineBookDetailStates.beverage.sizeInfo[buttonIndex].name), buttonIndex: buttonIndex)
             }
         }
         .padding(.top, CaffeineBookDetailLayoutValue.Padding.buttonGroupTop)
@@ -119,7 +126,7 @@ struct BeverageSizeButton: View {
     var size: String
     var volume: Int
     var buttonIndex: Int
-        
+    
     var body: some View {
         RoundedRectangle(cornerRadius: CaffeineBookDetailLayoutValue.Radius.sizeButton)
             .frame(width: CaffeineBookDetailLayoutValue.Size.sizeButtonWidth, height: CaffeineBookDetailLayoutValue.Size.sizeButtonHeight)
@@ -150,20 +157,20 @@ struct CaffeineInfoGroup: View {
     
     func calculateHourAndMinute() -> String {
         
-        let remainTimeToDischargeSecond: Int = intakeManager.getRemainTimeToDischarge(caffeine: Double(caffeineBookDetailStates.Beverage.sizeInfo[caffeineBookDetailStates.isSelected].caffeineAmount))
+        let remainTimeToDischargeSecond: Int = intakeManager.getRemainTimeToDischarge(caffeine: Double(caffeineBookDetailStates.beverage.sizeInfo[caffeineBookDetailStates.isSelected].caffeineAmount))
         
         let remainTimeToDischargeHour: Int = remainTimeToDischargeSecond / 3600
         let remainTimeToDischargeMinute: Int = (remainTimeToDischargeSecond % 3600) / 60
         
         return String(remainTimeToDischargeHour) + "시간 " + String(remainTimeToDischargeMinute) + "분"
-
+        
     }
-
+    
     var body: some View {
         Group {
-            CaffeineInfoRow(label: "샷 수", info: String(caffeineBookDetailStates.Beverage.sizeInfo[caffeineBookDetailStates.isSelected].defaultShotCount)+"샷")
+            CaffeineInfoRow(label: "샷 수", info: String(caffeineBookDetailStates.beverage.sizeInfo[caffeineBookDetailStates.isSelected].defaultShotCount)+"샷")
                 .padding(.top, CaffeineBookDetailLayoutValue.Padding.infoRowBetweenSpaceExceptCaption)
-            CaffeineInfoRow(label: "카페인", info: String(caffeineBookDetailStates.Beverage.sizeInfo[caffeineBookDetailStates.isSelected].caffeineAmount) + "mg")
+            CaffeineInfoRow(label: "카페인", info: String(caffeineBookDetailStates.beverage.sizeInfo[caffeineBookDetailStates.isSelected].caffeineAmount) + "mg")
                 .padding(.top, CaffeineBookDetailLayoutValue.Padding.infoRowBetweenSpaceExceptCaption)
             HStack {
                 Spacer()
@@ -200,6 +207,7 @@ struct CaffeineInfoRow: View {
 
 struct CaffeineBookDetailView_Previews: PreviewProvider {
     static var previews: some View {
-            CaffeineBookDetailView()
+        let beverage = Beverage(id: UUID(), name: "아메리카노", franchise: Franchise.starbucks, sizeInfo: [SizeInfo(name: "Tall", caffeineAmount: 150, defaultShotCount: 2), SizeInfo(name: "Grande", caffeineAmount: 225, defaultShotCount: 3), SizeInfo(name: "Venti", caffeineAmount: 300, defaultShotCount: 4)])
+        CaffeineBookDetailView(beverage: beverage)
     }
 }

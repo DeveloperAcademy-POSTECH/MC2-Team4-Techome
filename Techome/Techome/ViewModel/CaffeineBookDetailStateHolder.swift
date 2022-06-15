@@ -9,7 +9,11 @@ import Foundation
 
 final class CaffeineBookDetailStateHolder: ObservableObject {
     
-    @Published var Beverage: Beverage = dummyBeverages[0]
+    @Published var beverage: Beverage
     @Published var isSelected: Int = 0
+    
+    init(beverage: Beverage) {
+        self.beverage = beverage
+    }
 
 }

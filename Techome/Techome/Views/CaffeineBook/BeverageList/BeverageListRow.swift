@@ -13,7 +13,8 @@ struct BeverageListRow: View {
     var body: some View {
         VStack(spacing: .zero) {
             NavigationLink(destination: {
-//                CaffeineBookDetailView(beverage: beverage)
+                CaffeineBookDetailView(beverage: beverage)
+                    .navigationBarHidden(true)
             }) {
                 VStack(spacing: .zero) {
                     HStack(alignment: .center, spacing: .zero) {
@@ -27,7 +28,7 @@ struct BeverageListRow: View {
                         
                         HStack(alignment: .bottom, spacing: .zero) {
                             if let defaultSize = beverage.sizeInfo.first {
-                                Text(defaultSize.name + "기준")
+                                Text(defaultSize.name + " 기준")
                                     .font(.system(size: 12, weight: .regular))
                                     .foregroundColor(.secondaryTextGray)
                                     .padding(.horizontal, CaffeineBookLayoutValue.Padding.BeverageList.textBetweenSizeAndAmount.rawValue)
