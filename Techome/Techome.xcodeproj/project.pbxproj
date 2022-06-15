@@ -38,6 +38,12 @@
 		AB1FBDFA2856B93400EB4F95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1FBDF92856B93400EB4F95 /* Preview Assets.xcassets */; };
 		ABC3E951285706910091CC8E /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC3E950285706910091CC8E /* TodayView.swift */; };
 		ABC3E9542857383B0091CC8E /* SineWaveShape in Frameworks */ = {isa = PBXBuildFile; productRef = ABC3E9532857383B0091CC8E /* SineWaveShape */; };
+		ABFE83E128598EF9001461D4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83E028598EF9001461D4 /* MainView.swift */; };
+		ABFE83E528598F5C001461D4 /* BackgroundAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83E428598F5C001461D4 /* BackgroundAnimationView.swift */; };
+		ABFE83E728598FF8001461D4 /* TodayViewTopBottons.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83E628598FF8001461D4 /* TodayViewTopBottons.swift */; };
+		ABFE83E928599044001461D4 /* RemainingCaffeineStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83E828599044001461D4 /* RemainingCaffeineStatement.swift */; };
+		ABFE83EB2859905C001461D4 /* ExhaustTimeStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83EA2859905C001461D4 /* ExhaustTimeStatement.swift */; };
+		ABFE83ED28599078001461D4 /* AddCaffeineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83EC28599078001461D4 /* AddCaffeineButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +77,12 @@
 		AB1FBDEF2856B93300EB4F95 /* Techome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Techome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB1FBDF92856B93400EB4F95 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ABC3E950285706910091CC8E /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		ABFE83E028598EF9001461D4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		ABFE83E428598F5C001461D4 /* BackgroundAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundAnimationView.swift; sourceTree = "<group>"; };
+		ABFE83E628598FF8001461D4 /* TodayViewTopBottons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewTopBottons.swift; sourceTree = "<group>"; };
+		ABFE83E828599044001461D4 /* RemainingCaffeineStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainingCaffeineStatement.swift; sourceTree = "<group>"; };
+		ABFE83EA2859905C001461D4 /* ExhaustTimeStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhaustTimeStatement.swift; sourceTree = "<group>"; };
+		ABFE83EC28599078001461D4 /* AddCaffeineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCaffeineButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +179,7 @@
 		AB18CCDD2856D8B300DD1C5A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ABFE83E028598EF9001461D4 /* MainView.swift */,
 				ABC3E94F285706830091CC8E /* Today */,
 				AB18CCDE2856D8B300DD1C5A /* Trend */,
 				AB18CCE02856D8B300DD1C5A /* AddSideEffect */,
@@ -254,8 +267,21 @@
 			isa = PBXGroup;
 			children = (
 				ABC3E950285706910091CC8E /* TodayView.swift */,
+				ABFE83E228598F3C001461D4 /* Modules */,
 			);
 			path = Today;
+			sourceTree = "<group>";
+		};
+		ABFE83E228598F3C001461D4 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				ABFE83E428598F5C001461D4 /* BackgroundAnimationView.swift */,
+				ABFE83E628598FF8001461D4 /* TodayViewTopBottons.swift */,
+				ABFE83E828599044001461D4 /* RemainingCaffeineStatement.swift */,
+				ABFE83EA2859905C001461D4 /* ExhaustTimeStatement.swift */,
+				ABFE83EC28599078001461D4 /* AddCaffeineButton.swift */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,15 +366,20 @@
 			files = (
 				AB18CCF62856D8B300DD1C5A /* Formatter.swift in Sources */,
 				AB18CCFD2856D8B300DD1C5A /* SideEffectRecord.swift in Sources */,
+				ABFE83EB2859905C001461D4 /* ExhaustTimeStatement.swift in Sources */,
+				ABFE83E928599044001461D4 /* RemainingCaffeineStatement.swift in Sources */,
 				AB18CD062856D8B300DD1C5A /* tempViewModel.swift in Sources */,
 				AB18CD012856D8B300DD1C5A /* ContentView.swift in Sources */,
+				ABFE83E728598FF8001461D4 /* TodayViewTopBottons.swift in Sources */,
 				AB18CCF12856D8B300DD1C5A /* Color+.swift in Sources */,
+				ABFE83ED28599078001461D4 /* AddCaffeineButton.swift in Sources */,
 				AB18CD042856D8B300DD1C5A /* SearchCaffeineView.swift in Sources */,
 				ABC3E951285706910091CC8E /* TodayView.swift in Sources */,
 				AB18CD052856D8B300DD1C5A /* TechomeApp.swift in Sources */,
 				AB18CD022856D8B300DD1C5A /* HomeView.swift in Sources */,
 				AB18CD002856D8B300DD1C5A /* AddSideEffectView.swift in Sources */,
 				AB18CCF92856D8B300DD1C5A /* tempModel.swift in Sources */,
+				ABFE83E528598F5C001461D4 /* BackgroundAnimationView.swift in Sources */,
 				AB18CCEF2856D8B300DD1C5A /* IntakeRepository.swift in Sources */,
 				AB18CCF02856D8B300DD1C5A /* tempExtension.swift in Sources */,
 				AB18CCFA2856D8B300DD1C5A /* Beverage.swift in Sources */,
@@ -357,6 +388,7 @@
 				AB18CCF82856D8B300DD1C5A /* tempResources.swift in Sources */,
 				AB18CCFB2856D8B300DD1C5A /* IntakeRecord.swift in Sources */,
 				AB18CCEE2856D8B300DD1C5A /* BeverageRepository.swift in Sources */,
+				ABFE83E128598EF9001461D4 /* MainView.swift in Sources */,
 				AB18CCED2856D8B300DD1C5A /* SideEffectRepository.swift in Sources */,
 				AB18CD032856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift in Sources */,
 				AB18CCFC2856D8B300DD1C5A /* Franchise.swift in Sources */,
