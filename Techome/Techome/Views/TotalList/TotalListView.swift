@@ -40,10 +40,11 @@ struct DataListByDay : Hashable {
 }
 
 final class datas: ObservableObject { //observable 객체 생성
-    @Published var tmpDataSortedByDate : [ String : [DataListByDay] ]
+    var tmpDataSortedByDate : [ String : [DataListByDay] ]
 
     //offset 추가하기
     @Published var tmpOffsets = [ String : [CGFloat] ]()
+    @Published var dateArr : [String] = []
     
 //    init(tmpDataSortedByDate: [String : [DataListByDay]]) {
 //        self.tmpDataSortedByDate = tmpDataSortedByDate
@@ -70,11 +71,10 @@ final class datas: ObservableObject { //observable 객체 생성
                                DataListByDay(dataType: "sideEffect", dataIndex: 6),
                               DataListByDay(dataType: "drink", dataIndex: 8) ]
             ]
-        
-//        self.tmpDataSortedByDate = tmpDataSortedByDate.sorted { $0.0 > $1.0 }
-        
+                        
         for key in self.tmpDataSortedByDate.keys {
             self.tmpOffsets[key] = [CGFloat](repeating: .zero, count: tmpDataSortedByDate[key]!.count)
+            self.dateArr.append(key)
         }
     }
     
@@ -87,6 +87,11 @@ final class datas: ObservableObject { //observable 객체 생성
     func deleteData(date : String, index : Int){
         self.tmpDataSortedByDate[date]!.remove(at: index)
         self.tmpOffsets[date]!.remove(at: index)
+        
+        if (countDatasByDate(date: date) == 0){
+            self.tmpDataSortedByDate.removeValue(forKey: date)
+            self.tmpOffsets.removeValue(forKey: date)
+        }
     }
     
     func countDatasByDate(date : String) -> Int {
@@ -118,7 +123,7 @@ struct TotalListView: View {
             .padding(.top, TotalListLayoutValue.Paddings.fullViewVerticalPadding) //navigation bar와 간격
         }
         .background(Color.backgroundCream)
-//        .navigationTitle(Text("전체 리스트").font(.caption)) //TODO : navigation bar title toolbar custom으로 넣기
+        .navigationTitle(Text("전체 리스트").font(.caption)) //TODO : navigation bar title toolbar custom으로 넣기
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -156,7 +161,6 @@ struct TotalRecordsByDay: View {
         
             VStack(spacing: 0) {
                 ForEach(Array(testDataByDay.tmpDataSortedByDate[curDateByDay]!.enumerated()), id: \.element) { index, element in
-//                ForEach(0 ..< dataCountByDay) { index in
                     ZStack {
                         //TODO: 삭제 배경 + 버튼 뷰 분리하기
                         //삭제 버튼 배경
@@ -175,8 +179,6 @@ struct TotalRecordsByDay: View {
                                     print(dataCountByDay)
                                     print("삭제하기 : \(curDateByDay), \(index)")
                                     print(testDataByDay.tmpDataSortedByDate)
-//                                    print(Array(testData.tmpDataSortedByDate[curDate]!.enumerated()))
-                                    
                                     print("삭제 작업 수행하기")
                                     
                                     testDataByDay.deleteData(date: curDateByDay, index: index)
@@ -201,6 +203,8 @@ struct TotalRecordsByDay: View {
                         //row
                         //TODO: component 만들기
                         VStack (spacing : 0) {
+                            
+//                            Text("데이터입니다")
                             
                             TotalRecordsByDayRow(testDataByDayRow: testDataByDay, curDateByDayRow: curDateByDay, rowIndexByDayRow: index, dataCountByDayRow : dataCountByDay)
                             
@@ -232,7 +236,9 @@ struct TotalRecordsByDayRow: View {
     
     var body: some View {
         
-        switch testDataByDayRow.tmpDataSortedByDate[curDateByDayRow]![rowIndexByDayRow].dataType {
+        var row = testDataByDayRow.tmpDataSortedByDate[curDateByDayRow]![rowIndexByDayRow]
+        
+        switch row.dataType {
         case "drink":
             //TODO: 데이터 넘겨주기
             CaffeineRecordCellList()
