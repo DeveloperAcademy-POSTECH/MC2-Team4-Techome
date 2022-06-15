@@ -27,14 +27,15 @@ struct TrendChartView: View {
     
     //MARK: library 필요 변수
     private let config = ChartConfiguration()
+    
     @State private var entries = [ChartDataEntry]()
     @State private var selectedBarTopCentreLocation: CGPoint?
     @State private var selectedEntry: ChartDataEntry?
-    private let xAxisLabelCount = 7
+    
     @State private var xAxisTicksIntervalValue: Double = 1
     @State private var isXAxisTicksHidden: Bool = false
     
-    var isSideEffect: Bool = false
+    
     
     var body: some View {
         
@@ -62,18 +63,18 @@ struct TrendChartView: View {
                                       height: ChartLayoutValue.ChartIndicatorLayoutValue.selectionLineHeight)
                     }
                     .onAppear() {
-                        initChartView()
-                        initTicksColor()
-                        initTicksStyle()
-                        initLabelsColor()
-                        setLabelFont()
-                        yUnitFormatter()
+                        config.initChartView()
+                        config.initTicksColor()
+                        config.initTicksStyle()
+                        config.initLabelsColor()
+                        config.setLabelFont()
+                        config.yUnitFormatter()
                     }
                     .onDisappear() {
                         selectedBarTopCentreLocation = nil
                     }
                     .onReceive([self.isXAxisTicksHidden].publisher.first()) { (value) in
-                        self.config.xAxis.ticksColor = value ? .clear : .chartBackgroundLineGray
+                        self.config.xAxis.ticksColor = value ? Color.clear : .chartBackgroundLineGray
                     }
                     .onReceive([self.xAxisTicksIntervalValue].publisher.first()) { (value) in
                         self.config.xAxis.ticksInterval = Int(value)
@@ -93,6 +94,42 @@ struct TrendChartView: View {
         }
         .frame(height: TrendViewLayoutValue.Sizes.chartSelectionIndicatorHeight)
     }
+}
+//TODO: merge 과정에서 Extension으로 옮길 예정
+extension ChartConfiguration {
+    
+    func initLabelsColor() {
+        self.xAxis.labelsColor = .secondaryTextGray
+        self.yAxis.labelsColor = .secondaryTextGray
+    }
+    func setLabelFont() {
+        let labelsFont = CTFontCreateWithName(("SFProText-Regular" as CFString), ChartLayoutValue.chartLabelFontSize, nil)
+        self.labelsCTFont = labelsFont
+    }
+    func yUnitFormatter() {
+        self.yAxis.formatter = { (value, decimals) in
+            let format = value == 0 ? "" : ""
+            return String(format: " %.\(decimals)f\(format)", value)
+        }
+    }
+    func initTicksStyle() {
+        self.xAxis.ticksStyle = StrokeStyle(lineWidth: ChartLayoutValue.axisLineWidth)
+        self.yAxis.ticksStyle = StrokeStyle(lineWidth: ChartLayoutValue.axisLineWidth)
+    }
+    func initTicksColor() {
+        self.xAxis.ticksColor = .chartBackgroundLineGray
+        self.yAxis.ticksColor = .chartBackgroundLineGray
+    }
+    func initChartView() {
+        self.data.entries = SetEntries().randomEntries()
+        self.data.color = .tertiaryBrown
+        self.yAxis.minTicksSpacing = ChartLayoutValue.yAxisSpacing
+    }
+}
+
+struct SetEntries {
+    private let xAxisLabelCount = 7
+
     //TODO: 임시 formatter
     func getDayOfWeek(_ today:Date) -> String {
         let dateFormatter = DateFormatter()
@@ -112,43 +149,4 @@ struct TrendChartView: View {
         }
         return entries
     }
-    //TODO: 임시 빈 데이터 넣는 함수
-    func emptyEntries() -> [ChartDataEntry] {
-        var entries = [ChartDataEntry]()
-        let dayOfWeek: [String] = ["일", "월", "화", "수", "목", "금", "토"]
-        for data in 0 ..< xAxisLabelCount {
-            let newEntry = ChartDataEntry(x: dayOfWeek[data], y: 600)
-            entries.append(newEntry)
-        }
-        return entries
-    }
-    func initLabelsColor() {
-        config.xAxis.labelsColor = .secondaryTextGray
-        config.yAxis.labelsColor = .secondaryTextGray
-    }
-    func setLabelFont() {
-        let labelsFont = CTFontCreateWithName(("SFProText-Regular" as CFString), ChartLayoutValue.chartLabelFontSize, nil)
-        config.labelsCTFont = labelsFont
-    }
-    func yUnitFormatter() {
-        config.yAxis.formatter = { (value, decimals) in
-            let format = value == 0 ? "" : ""
-            return String(format: " %.\(decimals)f\(format)", value)
-        }
-    }
-    func initTicksStyle() {
-        config.xAxis.ticksStyle = StrokeStyle(lineWidth: ChartLayoutValue.axisLineWidth)
-        config.yAxis.ticksStyle = StrokeStyle(lineWidth: ChartLayoutValue.axisLineWidth)
-    }
-    func initTicksColor() {
-        config.xAxis.ticksColor = .chartBackgroundLineGray
-        config.yAxis.ticksColor = .chartBackgroundLineGray
-    }
-    func initChartView() {
-        config.data.entries = randomEntries()
-        config.data.color = (isSideEffect ? .customRed : .tertiaryBrown)
-        config.yAxis.minTicksSpacing = ChartLayoutValue.yAxisSpacing
-    }
 }
-
-

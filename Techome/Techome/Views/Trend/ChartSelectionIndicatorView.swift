@@ -44,11 +44,13 @@ struct ChartSelectionIndicatorView: View {
     func positionX(_ proxy: GeometryProxy, location: CGFloat) -> CGFloat {
         let selectorCentre = ChartLayoutValue.ChartIndicatorLayoutValue.infoRectangleWidth / 2
         let startX = location - selectorCentre
-        if startX < 0 {
+        
+        switch startX {
+        case ...0 :
             return 0
-        } else if startX + ChartLayoutValue.ChartIndicatorLayoutValue.infoRectangleWidth > proxy.size.width {
+        case (proxy.size.width - ChartLayoutValue.ChartIndicatorLayoutValue.infoRectangleWidth)...:
             return proxy.size.width - ChartLayoutValue.ChartIndicatorLayoutValue.infoRectangleWidth
-        } else {
+        default:
             return startX
         }
     }
