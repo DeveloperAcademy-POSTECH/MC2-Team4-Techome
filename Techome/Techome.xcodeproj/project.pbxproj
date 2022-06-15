@@ -10,6 +10,10 @@
 		2ABF49482856DCAD000E3387 /* BarChart in Frameworks */ = {isa = PBXBuildFile; productRef = 2ABF49472856DCAD000E3387 /* BarChart */; };
 		52AFC473285704AB000199DF /* AddSideEffectStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */; };
 		52AFC475285826B6000199DF /* Test_G.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC474285826B6000199DF /* Test_G.swift */; };
+		793214F6285702A500D7E4E1 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793214F5285702A500D7E4E1 /* UIApplication+.swift */; };
+		793214F8285702BB00D7E4E1 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793214F7285702BB00D7E4E1 /* SearchBarView.swift */; };
+		79421B9D285722B400DFD58A /* SearchCaffeineStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79421B9C285722B400DFD58A /* SearchCaffeineStateHolder.swift */; };
+		797B456728570C4200DB45FA /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797B456628570C4200DB45FA /* SearchResultView.swift */; };
 		52AFC4782858614E000199DF /* CaffeineBookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC4772858614E000199DF /* CaffeineBookDetailView.swift */; };
 		AB18CCED2856D8B300DD1C5A /* SideEffectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCC62856D8B300DD1C5A /* SideEffectRepository.swift */; };
 		AB18CCEF2856D8B300DD1C5A /* IntakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCC82856D8B300DD1C5A /* IntakeRepository.swift */; };
@@ -64,6 +68,10 @@
 /* Begin PBXFileReference section */
 		52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSideEffectStateHolder.swift; sourceTree = "<group>"; };
 		52AFC474285826B6000199DF /* Test_G.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_G.swift; sourceTree = "<group>"; };
+		793214F5285702A500D7E4E1 /* UIApplication+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
+		793214F7285702BB00D7E4E1 /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		79421B9C285722B400DFD58A /* SearchCaffeineStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCaffeineStateHolder.swift; sourceTree = "<group>"; };
+		797B456628570C4200DB45FA /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		52AFC4772858614E000199DF /* CaffeineBookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookDetailView.swift; sourceTree = "<group>"; };
 		AB18CCC62856D8B300DD1C5A /* SideEffectRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideEffectRepository.swift; sourceTree = "<group>"; };
 		AB18CCC82856D8B300DD1C5A /* IntakeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntakeRepository.swift; sourceTree = "<group>"; };
@@ -160,6 +168,7 @@
 		AB18CCC92856D8B300DD1C5A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				793214F5285702A500D7E4E1 /* UIApplication+.swift */,
 				AB18CCCA2856D8B300DD1C5A /* tempExtension.swift */,
 				AB18CCCB2856D8B300DD1C5A /* Color+.swift */,
 			);
@@ -254,9 +263,11 @@
 		AB18CCE42856D8B300DD1C5A /* AddCaffeine */ = {
 			isa = PBXGroup;
 			children = (
+				793214F7285702BB00D7E4E1 /* SearchBarView.swift */,
 				AB18CCE52856D8B300DD1C5A /* HomeView.swift */,
 				AB18CCE62856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift */,
 				AB18CCE72856D8B300DD1C5A /* SearchCaffeineView.swift */,
+				797B456628570C4200DB45FA /* SearchResultView.swift */,
 			);
 			path = AddCaffeine;
 			sourceTree = "<group>";
@@ -266,6 +277,7 @@
 			children = (
 				ABC0E94B2859CDC60046C9C8 /* CaffeineBook */,
 				AB18CCEA2856D8B300DD1C5A /* tempViewModel.swift */,
+				79421B9C285722B400DFD58A /* SearchCaffeineStateHolder.swift */,
 				52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */,
 			);
 			path = ViewModel;
@@ -459,6 +471,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				793214F6285702A500D7E4E1 /* UIApplication+.swift in Sources */,
+				797B456728570C4200DB45FA /* SearchResultView.swift in Sources */,
 				AB18CCF62856D8B300DD1C5A /* Formatter.swift in Sources */,
 				ABC0E9472859CD5B0046C9C8 /* Franchise.swift in Sources */,
 				ABC0E95E2859CDDE0046C9C8 /* FranchiseRow.swift in Sources */,
@@ -495,12 +509,15 @@
 				AB18CCF52856D8B300DD1C5A /* IntakeManager.swift in Sources */,
 				AB18CCF82856D8B300DD1C5A /* tempResources.swift in Sources */,
 				AB18CCFB2856D8B300DD1C5A /* IntakeRecord.swift in Sources */,
+				AB18CCEE2856D8B300DD1C5A /* BeverageRepository.swift in Sources */,
+				793214F8285702BB00D7E4E1 /* SearchBarView.swift in Sources */,
 				AB18CCED2856D8B300DD1C5A /* SideEffectRepository.swift in Sources */,
 				52AFC475285826B6000199DF /* Test_G.swift in Sources */,
 				AB18CD032856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift in Sources */,
 				ABC0E95B2859CDDE0046C9C8 /* CaffeineBookLayoutValue.swift in Sources */,
 				AB18CCF42856D8B300DD1C5A /* JSONManager.swift in Sources */,
 				AB18CCFE2856D8B300DD1C5A /* TrendView.swift in Sources */,
+				79421B9D285722B400DFD58A /* SearchCaffeineStateHolder.swift in Sources */,
 				AB18CCF32856D8B300DD1C5A /* SideEffectManager.swift in Sources */,
 				DA11291028570EF20065BD33 /* DummyData.swift in Sources */,
 				AB18CCFF2856D8B300DD1C5A /* HomeView_G.swift in Sources */,
