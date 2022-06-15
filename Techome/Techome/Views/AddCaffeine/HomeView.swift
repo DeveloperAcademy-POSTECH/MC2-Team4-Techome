@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    var searchCaffeineStateHolder = SearchCaffeineStateHolder()
+    private var searchCaffeineStateHolder = SearchCaffeineStateHolder()
     
     @State var isShowedSheet: Bool = false
     
