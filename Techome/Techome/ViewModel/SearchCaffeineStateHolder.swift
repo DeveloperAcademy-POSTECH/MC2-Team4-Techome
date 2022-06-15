@@ -10,7 +10,7 @@ import Foundation
 final class SearchCaffeineStateHolder: ObservableObject {
     @Published var searchText: String = ""
     @Published var oneStepPreviousItems: [Beverage] = []
-    @Published var twoStepPreviousItems: [Beverage] = []
+    @Published var nonEmptyPreviousItems: [Beverage] = []
     @Published var currentItems: [Beverage] = []
     @Published var previousSearchText: String = ""
     
@@ -23,13 +23,13 @@ final class SearchCaffeineStateHolder: ObservableObject {
                 currentItems = []
             }
             else if previousSearchText.count > searchText.count {
-                currentItems = twoStepPreviousItems
+                currentItems = nonEmptyPreviousItems
             }
             else {
                 currentItems = oneStepPreviousItems
             }
         } else {
-            twoStepPreviousItems = currentItems
+            nonEmptyPreviousItems = currentItems
         }
         oneStepPreviousItems = currentItems
         previousSearchText = searchText
