@@ -44,6 +44,7 @@
 		ABFE83E928599044001461D4 /* RemainingCaffeineStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83E828599044001461D4 /* RemainingCaffeineStatement.swift */; };
 		ABFE83EB2859905C001461D4 /* ExhaustTimeStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83EA2859905C001461D4 /* ExhaustTimeStatement.swift */; };
 		ABFE83ED28599078001461D4 /* AddCaffeineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83EC28599078001461D4 /* AddCaffeineButton.swift */; };
+		ABFE83EF2859A5E0001461D4 /* TodayLayoutValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83EE2859A5E0001461D4 /* TodayLayoutValue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		ABFE83E828599044001461D4 /* RemainingCaffeineStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainingCaffeineStatement.swift; sourceTree = "<group>"; };
 		ABFE83EA2859905C001461D4 /* ExhaustTimeStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhaustTimeStatement.swift; sourceTree = "<group>"; };
 		ABFE83EC28599078001461D4 /* AddCaffeineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCaffeineButton.swift; sourceTree = "<group>"; };
+		ABFE83EE2859A5E0001461D4 /* TodayLayoutValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayLayoutValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				ABC3E950285706910091CC8E /* TodayView.swift */,
+				ABFE83EE2859A5E0001461D4 /* TodayLayoutValue.swift */,
 				ABFE83E228598F3C001461D4 /* Modules */,
 			);
 			path = Today;
@@ -395,6 +398,7 @@
 				AB18CCF42856D8B300DD1C5A /* JSONManager.swift in Sources */,
 				AB18CCFE2856D8B300DD1C5A /* TrendView.swift in Sources */,
 				AB18CCF32856D8B300DD1C5A /* SideEffectManager.swift in Sources */,
+				ABFE83EF2859A5E0001461D4 /* TodayLayoutValue.swift in Sources */,
 				AB18CCFF2856D8B300DD1C5A /* HomeView_G.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
