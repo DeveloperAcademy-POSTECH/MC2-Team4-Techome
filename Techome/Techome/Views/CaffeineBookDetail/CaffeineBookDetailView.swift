@@ -40,17 +40,21 @@ struct CaffeineBookDetailLayoutValue {
 }
 
 struct CaffeineBookDetailView: View {
+    
+    let caffeineBookDetailStates = CaffeineBookDetailStateHolder()
+        
     var body: some View {
         NavigationView {
             ZStack {
                 Color.backgroundCream.edgesIgnoringSafeArea(.all)
                 
-                VStack {
+                VStack(spacing: .zero) {
                     VStack(alignment: .center, spacing: .zero) {
                         CaffeineBeverage()
-                        CaffeineSizeButtonGroup()
+                        BeverageSizeButtonGroup()
                         CaffeineInfoGroup()
                     }
+                    .environmentObject(caffeineBookDetailStates)
                     .background(.white)
                     .clipShape(RoundedRectangle(cornerRadius: CaffeineBookDetailLayoutValue.Radius.backgroundCard))
                     .padding(.horizontal, CaffeineBookDetailLayoutValue.Padding.backgroundHorizantal)
@@ -76,66 +80,77 @@ struct CaffeineBookDetailView: View {
 }
 
 struct CaffeineBeverage: View {
+    
+    @EnvironmentObject var caffeineBookDetailStates: CaffeineBookDetailStateHolder
+    
     var body: some View {
-        Text("아메리카노")
+        Text(caffeineBookDetailStates.Beverage.name)
             .font(.title)
             .fontWeight(.bold)
             .foregroundColor(.customBlack)
             .padding(.top, CaffeineBookDetailLayoutValue.Padding.titleTop)
         
-        Text("스타벅스")
+        Text(caffeineBookDetailStates.Beverage.franchise.getFranchiseName())
             .font(.caption)
             .foregroundColor(.secondaryTextGray)
             .padding(.top, CaffeineBookDetailLayoutValue.Padding.franchiseTop)
     }
 }
 
-struct CaffeineSizeButtonGroup: View {
+struct BeverageSizeButtonGroup: View {
+
+    @EnvironmentObject var caffeineBookDetailStates: CaffeineBookDetailStateHolder
+
     var body: some View {
         HStack(spacing: CaffeineBookDetailLayoutValue.Padding.buttonBetweenSpace) {
-            CaffeineSizeButton(size: "Tall", volume: "355ml")
-            CaffeineSizeButton(size: "Grande", volume: "450ml")
-            CaffeineSizeButton(size: "Venti", volume: "530ml")
+            ForEach(0 ..< caffeineBookDetailStates.Beverage.sizeInfo.count, id: \.self) { buttonIndex in
+                BeverageSizeButton(size: caffeineBookDetailStates.Beverage.sizeInfo[buttonIndex].name, volume: caffeineBookDetailStates.Beverage.franchise.getSizeAmount(size: caffeineBookDetailStates.Beverage.sizeInfo[buttonIndex].name), buttonIndex: buttonIndex)
+            }
         }
         .padding(.top, CaffeineBookDetailLayoutValue.Padding.buttonGroupTop)
         .padding(.bottom, CaffeineBookDetailLayoutValue.Padding.buttonGroupBottom)
     }
 }
 
-struct CaffeineSizeButton: View {
+struct BeverageSizeButton: View {
+    
+    @EnvironmentObject var caffeineBookDetailStates: CaffeineBookDetailStateHolder
     
     var size: String
-    var volume: String
-    
+    var volume: Int
+    var buttonIndex: Int
+        
     var body: some View {
         RoundedRectangle(cornerRadius: CaffeineBookDetailLayoutValue.Radius.sizeButton)
             .frame(width: CaffeineBookDetailLayoutValue.Size.sizeButtonWidth, height: CaffeineBookDetailLayoutValue.Size.sizeButtonHeight)
-            .foregroundColor(.white)
+            .foregroundColor(caffeineBookDetailStates.isSelected == buttonIndex ? .primaryBrown : .white)
             .shadow(color: Color.primaryShadowGray, radius: CaffeineBookDetailLayoutValue.Radius.sizeButtonShadow, x: .zero, y: .zero)
             .overlay(
                 VStack(spacing: .zero) {
                     Text(size)
                         .font(.title2)
-                        .foregroundColor(.customBlack)
-                    Text(volume)
+                        .foregroundColor(caffeineBookDetailStates.isSelected == buttonIndex ? .white : .customBlack)
+                    Text("\(volume)ml")
                         .padding(.top, CaffeineBookDetailLayoutValue.Padding.buttonTextSpace)
                         .font(.caption)
-                        .foregroundColor(.secondaryTextGray)
+                        .foregroundColor(caffeineBookDetailStates.isSelected == buttonIndex ? .white : .secondaryTextGray)
                 }
             )
             .onTapGesture {
-                //TODO: Button Toggle Logic
+                caffeineBookDetailStates.isSelected = buttonIndex
             }
     }
 }
 
 struct CaffeineInfoGroup: View {
     
+    @EnvironmentObject var caffeineBookDetailStates: CaffeineBookDetailStateHolder
+        
     var body: some View {
         Group {
-            CaffeineInfoRow(label: "샷 수", info: "2샷")
+            CaffeineInfoRow(label: "샷 수", info: String(caffeineBookDetailStates.Beverage.sizeInfo[caffeineBookDetailStates.isSelected].defaultShotCount)+"샷")
                 .padding(.top, CaffeineBookDetailLayoutValue.Padding.infoRowBetweenSpaceExceptCaption)
-            CaffeineInfoRow(label: "카페인", info: "175mg")
+            CaffeineInfoRow(label: "카페인", info: String(caffeineBookDetailStates.Beverage.sizeInfo[caffeineBookDetailStates.isSelected].caffeineAmount) + "mg")
                 .padding(.top, CaffeineBookDetailLayoutValue.Padding.infoRowBetweenSpaceExceptCaption)
             HStack {
                 Spacer()
@@ -172,6 +187,6 @@ struct CaffeineInfoRow: View {
 
 struct CaffeineBookDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CaffeineBookDetailView()
+            CaffeineBookDetailView()
     }
 }
