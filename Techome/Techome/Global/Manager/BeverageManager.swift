@@ -25,4 +25,8 @@ final class BeverageManager {
         let searchWords = searchString.components(separatedBy: " ")
         return repository.findBySearchWords(searchWords: searchWords)
     }
+    
+    func getBeverages(franchise: Franchise) -> [Beverage] {
+        return repository.findByFranchise(franchise: franchise)
+    }
 }
