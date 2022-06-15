@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct RemainingCaffeineStatement: View {
+    @EnvironmentObject private var todayStates: TodayStatesHolder
+    
     var body: some View {
         VStack(spacing: .zero) {
             HStack(alignment: .firstTextBaseline, spacing: .zero) {
                 Text("몸속에")
                     .font(.title3)
                     .padding(.trailing, TodayLayoutValue.Padding.RemainingStatement.textVInterval)
-                Text("137")
+                Text("\(Int(todayStates.remainingAmount))")
                     .font(.system(size: TodayLayoutValue.Size.remainingTextSize).bold())
                     .foregroundColor(.primaryBrown)
                 Text("mg의")

@@ -18,13 +18,12 @@ struct MainView: View {
     var body: some View {
         TabView {
             TodayView()
+                .environmentObject(todayStates)
                 .navigationBarHidden(true)
                 .tabItem {
                     Image(systemName: "1.square.fill")
                     Text("투데이")
                 }
-                .environmentObject(todayStates)
-            
             Text("카페인북 view가 여기 들어와야 해요.")
                 .tabItem {
                     Image(systemName: "2.square.fill")

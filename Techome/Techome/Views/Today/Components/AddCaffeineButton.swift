@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AddCaffeineButton: View {
+    @EnvironmentObject private var todayStates: TodayStatesHolder
+    
     var body: some View {
         VStack(spacing: .zero) {
             Button {
@@ -25,7 +27,7 @@ struct AddCaffeineButton: View {
                 
             }
             .padding(.bottom, 10)
-            Text("오늘 총 300mg 섭취")
+            Text("오늘 총 \(todayStates.getTodyIntakeAmount())mg 섭취")
                 .font(.caption)
         }
     }

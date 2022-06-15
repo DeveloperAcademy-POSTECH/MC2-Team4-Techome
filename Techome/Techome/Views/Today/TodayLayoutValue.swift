@@ -29,7 +29,7 @@ struct TodayLayoutValue {
         static let addSideEffectButtonWidth: CGFloat = 35
         static let addSettingButtonWidth: CGFloat = 31
         static let remainingTextSize: CGFloat = 53.0
-        static let exhaustTextSize: CGFloat = 53.0
+        static let exhaustTextSize: CGFloat = 30.0
         static let addCaffeineButtonWidth: CGFloat = 200.0
         static let addCaffeineButtonRatio: CGSize = CGSize(width: 4.0, height: 1.0)
     }

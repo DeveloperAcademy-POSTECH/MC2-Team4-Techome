@@ -49,7 +49,7 @@ final class IntakeManager {
     
     func getRemainTimeToDischarge() -> Int {
         let standard = 50.0
-        let remainCaffeine = self.getRemainCaffeineAmount()
+        let remainCaffeine = self.getRemainCaffeineAmount() + 0.1
         let halfLifeInSecond: Double = 4 * 60 * 60
         
         return Int((-log2(standard / Double(remainCaffeine)) * halfLifeInSecond))

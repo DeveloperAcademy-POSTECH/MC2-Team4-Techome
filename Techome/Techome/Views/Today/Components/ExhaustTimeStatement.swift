@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ExhaustTimeStatement: View {
+    @EnvironmentObject private var todayStates: TodayStatesHolder
+    
     var body: some View {
         VStack(spacing: .zero) {
             HStack(alignment: .firstTextBaseline, spacing: .zero) {
-                Text("오후 9시 15분")
+                Text("\(todayStates.getRemainingTimeString())")
                     .font(.system(size: TodayLayoutValue.Size.exhaustTextSize).bold())
                     .foregroundColor(.primaryBrown)
                 Text("에")

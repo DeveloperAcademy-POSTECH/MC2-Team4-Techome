@@ -18,6 +18,14 @@ final class TodayStatesHolder: ObservableObject {
         remainingAmount = intakeManager.getRemainCaffeineAmount()
     }
     
+    func setRemainingAmount() {
+        remainingAmount = intakeManager.getRemainCaffeineAmount()
+    }
+    
+    func getTodyIntakeAmount() -> Int {
+        return intakeManager.getTodayIntakeCaffeineAmount()
+    }
+    
     func getRemainingPercentage() -> Double {
         return (remainingAmount / fullChargeAmount)
     }
@@ -27,19 +35,17 @@ final class TodayStatesHolder: ObservableObject {
         let hour = seconds / 3600
         let minutes = (seconds % 3600) / 60
         let today = Date()
+        
         var updatedDate = Calendar.current.date(byAdding: .hour, value: hour, to: today) ?? Date()
         updatedDate = Calendar.current.date(byAdding: .minute, value: minutes, to: updatedDate) ?? Date()
-        
         return Formatter.remainingTime.string(from: updatedDate)
     }
-    
-    
 }
 
 
 struct TodayView: View {
     @State private var caffeinePercent: Double = 0.5
-    @EnvironmentObject private var todayStates: TodayStatesHolder
+    @EnvironmentObject var todayStates: TodayStatesHolder
     
     var body: some View {
         GeometryReader { geometry in
