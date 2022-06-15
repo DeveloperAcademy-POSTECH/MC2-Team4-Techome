@@ -16,7 +16,9 @@ struct CategoryRow: View {
                 CategoryCell(category: category,
                              isSelected: category == stateHolder.selectedCategory)
                     .onTapGesture {
-                        stateHolder.selectedCategory = category
+                        withAnimation(.linear(duration: CaffeineBookAnimationValue.Duration.tabBar.rawValue)) {
+                            stateHolder.selectedCategory = category
+                        }
                     }
             }
         }
@@ -27,5 +29,6 @@ struct CategoryRow_Previews: PreviewProvider {
     static var previews: some View {
         CategoryRow()
             .environmentObject(CaffenineBookStateHolder())
+            .previewLayout(.sizeThatFits)
     }
 }

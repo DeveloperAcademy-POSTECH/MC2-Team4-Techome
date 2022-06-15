@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct BeverageList: View {
+    @EnvironmentObject var stateHolder: CaffenineBookStateHolder
+    let manager = BeverageManager.shared
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             ZStack {
@@ -15,15 +18,31 @@ struct BeverageList: View {
                     .foregroundColor(.white)
                 
                 LazyVStack(spacing: 0) {
-                    ForEach(dummyBeverages, id: \.self) { beverage in
-                        BeverageListRow(beverage: beverage)
+                    switch stateHolder.selectedCategory {
+                    case .franchise:
+                        let beverages = manager.getBeverages(franchise: stateHolder.selectedFranchise)
+                        
+                        if beverages.count == 0 {
+                            EmptyListView()
+                        } else {
+                            ForEach(beverages, id: \.self) { beverage in
+                                BeverageListRow(beverage: beverage)
+                            }
+                        }
+                        
+                    case .personal:
+                        EmptyListView()
+                        
+                    case .mart:
+                        EmptyListView()
                     }
                 }
             }
             .padding(.top, CaffeineBookLayoutValue.Padding.BeverageList.top.rawValue)
-            .frame(width: screenWidth - CaffeineBookLayoutValue.Padding.BeverageList.horizontal.rawValue * 2)
+            .padding(.horizontal, CaffeineBookLayoutValue.Padding.BeverageList.horizontal.rawValue)
+            .shadow(color: .primaryShadowGray, radius: CaffeineBookLayoutValue.Radius.shadow.rawValue, x: 0, y: 0)
         }
-        .shadow(color: .primaryShadowGray, radius: CaffeineBookLayoutValue.Radius.shadow.rawValue, x: 0, y: 0)
+        
     }
 }
 
@@ -31,5 +50,6 @@ struct BeverageList: View {
 struct BeverageList_Previews: PreviewProvider {
     static var previews: some View {
         BeverageList()
+            .previewLayout(.sizeThatFits)
     }
 }

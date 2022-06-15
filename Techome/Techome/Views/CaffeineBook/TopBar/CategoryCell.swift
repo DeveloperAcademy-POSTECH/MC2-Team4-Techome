@@ -40,5 +40,7 @@ struct CategoryCell_Previews: PreviewProvider {
             CategoryCell(category: Category.franchise, isSelected: true)
             CategoryCell(category: Category.franchise, isSelected: false)
         }
+        .frame(width: screenWidth / 3)
+        .previewLayout(.sizeThatFits)
     }
 }

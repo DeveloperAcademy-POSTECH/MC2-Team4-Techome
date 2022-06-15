@@ -55,5 +55,6 @@ struct BeverageListRow: View {
 struct BeverageListRow_Previews: PreviewProvider {
     static var previews: some View {
         BeverageListRow(beverage: dummyBeverages[0])
+            .previewLayout(.sizeThatFits)
     }
 }

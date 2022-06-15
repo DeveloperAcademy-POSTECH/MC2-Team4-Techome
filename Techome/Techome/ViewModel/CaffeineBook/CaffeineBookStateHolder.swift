@@ -8,8 +8,8 @@
 import Foundation
 
 final class CaffenineBookStateHolder: ObservableObject {
-    @Published var selectedCategory: Category = Category.franchise
-    @Published var selectedFranchise: Franchise = Franchise.starbucks
+    @Published var selectedCategory: Category = .franchise
+    @Published var selectedFranchise: Franchise = .starbucks
     
     let categories = Category.allCases
     let franchises = Franchise.allCases

@@ -38,6 +38,7 @@ struct FranchiseCell_Previews: PreviewProvider {
             FranchiseCell(franchise: Franchise.starbucks, isSelected: true)
             FranchiseCell(franchise: Franchise.starbucks, isSelected: true)
         }
-        
+        .frame(width: screenWidth / 3)
+        .previewLayout(.sizeThatFits)
     }
 }

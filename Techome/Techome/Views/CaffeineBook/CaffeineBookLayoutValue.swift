@@ -61,3 +61,9 @@ enum CaffeineBookLayoutValue {
         case shadow = 4
     }
 }
+
+enum CaffeineBookAnimationValue {    
+    enum Duration: CGFloat {
+        case tabBar = 0.1
+    }
+}

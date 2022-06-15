@@ -43,13 +43,14 @@
 		DA11291228570F4C0065BD33 /* TestView_P.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11291128570F4C0065BD33 /* TestView_P.swift */; };
 		DA5CFB5128596A7600218CEE /* CaffeineBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CFB5028596A7600218CEE /* CaffeineBookView.swift */; };
 		DA5CFB5428596A9800218CEE /* CaffeineBookStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CFB5328596A9800218CEE /* CaffeineBookStateHolder.swift */; };
-		DA5CFB5628596C3600218CEE /* LayoutValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CFB5528596C3600218CEE /* LayoutValue.swift */; };
+		DA5CFB5628596C3600218CEE /* CaffeineBookLayoutValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CFB5528596C3600218CEE /* CaffeineBookLayoutValue.swift */; };
 		DA5CFB5928596C7100218CEE /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CFB5828596C7100218CEE /* CategoryRow.swift */; };
 		DA5CFB5B28596C8200218CEE /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CFB5A28596C8200218CEE /* CategoryCell.swift */; };
 		DA5CFB5E28596CAF00218CEE /* FranchiseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CFB5D28596CAF00218CEE /* FranchiseRow.swift */; };
 		DA5CFB6028596CC300218CEE /* FranchiseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CFB5F28596CC300218CEE /* FranchiseCell.swift */; };
 		DA5CFB6628596CFE00218CEE /* BeverageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CFB6528596CFE00218CEE /* BeverageList.swift */; };
 		DA5CFB6828596D1200218CEE /* BeverageListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CFB6728596D1200218CEE /* BeverageListRow.swift */; };
+		DA5CFB6A28598BA900218CEE /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CFB6928598BA900218CEE /* EmptyListView.swift */; };
 		DA8E714928581674009836DE /* IntakeRecord.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8E714728581674009836DE /* IntakeRecord.json */; };
 		DA8E714A28581674009836DE /* SideEffectRecord.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8E714828581674009836DE /* SideEffectRecord.json */; };
 /* End PBXBuildFile section */
@@ -91,13 +92,14 @@
 		DA11291128570F4C0065BD33 /* TestView_P.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView_P.swift; sourceTree = "<group>"; };
 		DA5CFB5028596A7600218CEE /* CaffeineBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookView.swift; sourceTree = "<group>"; };
 		DA5CFB5328596A9800218CEE /* CaffeineBookStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookStateHolder.swift; sourceTree = "<group>"; };
-		DA5CFB5528596C3600218CEE /* LayoutValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutValue.swift; sourceTree = "<group>"; };
+		DA5CFB5528596C3600218CEE /* CaffeineBookLayoutValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookLayoutValue.swift; sourceTree = "<group>"; };
 		DA5CFB5828596C7100218CEE /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		DA5CFB5A28596C8200218CEE /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		DA5CFB5D28596CAF00218CEE /* FranchiseRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FranchiseRow.swift; sourceTree = "<group>"; };
 		DA5CFB5F28596CC300218CEE /* FranchiseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FranchiseCell.swift; sourceTree = "<group>"; };
 		DA5CFB6528596CFE00218CEE /* BeverageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageList.swift; sourceTree = "<group>"; };
 		DA5CFB6728596D1200218CEE /* BeverageListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageListRow.swift; sourceTree = "<group>"; };
+		DA5CFB6928598BA900218CEE /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		DA8E714728581674009836DE /* IntakeRecord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = IntakeRecord.json; sourceTree = "<group>"; };
 		DA8E714828581674009836DE /* SideEffectRecord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SideEffectRecord.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -301,7 +303,7 @@
 				DA5CFB6228596CD600218CEE /* TopBar */,
 				DA5CFB6128596CCD00218CEE /* BeverageList */,
 				DA5CFB5028596A7600218CEE /* CaffeineBookView.swift */,
-				DA5CFB5528596C3600218CEE /* LayoutValue.swift */,
+				DA5CFB5528596C3600218CEE /* CaffeineBookLayoutValue.swift */,
 			);
 			path = CaffeineBook;
 			sourceTree = "<group>";
@@ -319,6 +321,7 @@
 			children = (
 				DA5CFB6528596CFE00218CEE /* BeverageList.swift */,
 				DA5CFB6728596D1200218CEE /* BeverageListRow.swift */,
+				DA5CFB6928598BA900218CEE /* EmptyListView.swift */,
 			);
 			path = BeverageList;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				AB18CCFD2856D8B300DD1C5A /* SideEffectRecord.swift in Sources */,
 				AB18CD062856D8B300DD1C5A /* tempViewModel.swift in Sources */,
 				DA5CFB5128596A7600218CEE /* CaffeineBookView.swift in Sources */,
+				DA5CFB6A28598BA900218CEE /* EmptyListView.swift in Sources */,
 				52AFC473285704AB000199DF /* AddSideEffectStateHolder.swift in Sources */,
 				AB18CD012856D8B300DD1C5A /* ContentView.swift in Sources */,
 				AB18CCF12856D8B300DD1C5A /* Color+.swift in Sources */,
@@ -425,7 +429,7 @@
 				DA5CFB5E28596CAF00218CEE /* FranchiseRow.swift in Sources */,
 				DA5CFB5928596C7100218CEE /* CategoryRow.swift in Sources */,
 				AB18CD052856D8B300DD1C5A /* TechomeApp.swift in Sources */,
-				DA5CFB5628596C3600218CEE /* LayoutValue.swift in Sources */,
+				DA5CFB5628596C3600218CEE /* CaffeineBookLayoutValue.swift in Sources */,
 				DA5CFB6628596CFE00218CEE /* BeverageList.swift in Sources */,
 				AB18CD022856D8B300DD1C5A /* HomeView.swift in Sources */,
 				DA11291228570F4C0065BD33 /* TestView_P.swift in Sources */,

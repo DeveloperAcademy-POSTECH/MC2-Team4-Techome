@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CaffeineBookView: View {
-    let stateHolder = CaffenineBookStateHolder()
+    @StateObject var stateHolder = CaffenineBookStateHolder()
     
     var body: some View {
         NavigationView {
@@ -24,6 +24,7 @@ struct CaffeineBookView: View {
                 BeverageList()
                     .frame(width: screenWidth)
                     .background(Color.backgroundCream)
+                    .environmentObject(stateHolder)
             }
             .navigationTitle("카페인 찾아보기")
         }

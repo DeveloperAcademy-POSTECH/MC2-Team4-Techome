@@ -17,7 +17,9 @@ struct FranchiseRow: View {
                     FranchiseCell(franchise: franchise,
                                       isSelected: franchise == stateHolder.selectedFranchise)
                     .onTapGesture {
-                        stateHolder.selectedFranchise = franchise
+                        withAnimation(.linear(duration: CaffeineBookAnimationValue.Duration.tabBar.rawValue)) {
+                            stateHolder.selectedFranchise = franchise
+                        }
                     }
                 }
             }
@@ -29,5 +31,6 @@ struct FranchiseRow_Previews: PreviewProvider {
     static var previews: some View {
         FranchiseRow()
             .environmentObject(CaffenineBookStateHolder())
+            .previewLayout(.sizeThatFits)
     }
 }
