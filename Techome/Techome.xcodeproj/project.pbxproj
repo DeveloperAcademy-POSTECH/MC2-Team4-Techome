@@ -172,9 +172,9 @@
 		AB18CCD72856D8B300DD1C5A /* Intake */ = {
 			isa = PBXGroup;
 			children = (
+				AB18CCDA2856D8B300DD1C5A /* Franchise.swift */,
 				AB18CCD82856D8B300DD1C5A /* Beverage.swift */,
 				AB18CCD92856D8B300DD1C5A /* IntakeRecord.swift */,
-				AB18CCDA2856D8B300DD1C5A /* Franchise.swift */,
 			);
 			path = Intake;
 			sourceTree = "<group>";

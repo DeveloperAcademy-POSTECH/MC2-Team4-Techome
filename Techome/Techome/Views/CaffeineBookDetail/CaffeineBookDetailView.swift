@@ -40,6 +40,9 @@ struct CaffeineBookDetailLayoutValue {
 }
 
 struct CaffeineBookDetailView: View {
+    
+    @State var Test : Beverage = Beverage(name: "카페 아메리카노", franchise: .starbucks, sizeInfo: [SizeInfo(name: "Tall", caffeineAmount: 150, defaultShotCount: 2), SizeInfo(name: "Grande", caffeineAmount: 225, defaultShotCount: 3), SizeInfo(name: "Venti", caffeineAmount: 300, defaultShotCount: 4)])
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -47,9 +50,9 @@ struct CaffeineBookDetailView: View {
                 
                 VStack {
                     VStack(alignment: .center, spacing: .zero) {
-                        CaffeineBeverage()
-                        CaffeineSizeButtonGroup()
-                        CaffeineInfoGroup()
+                        CaffeineBeverage(test: Test)
+                        CaffeineSizeButtonGroup(test: Test)
+                        CaffeineInfoGroup(test: Test)
                     }
                     .background(.white)
                     .clipShape(RoundedRectangle(cornerRadius: CaffeineBookDetailLayoutValue.Radius.backgroundCard))
@@ -76,14 +79,17 @@ struct CaffeineBookDetailView: View {
 }
 
 struct CaffeineBeverage: View {
+    
+    var test: Beverage
+    
     var body: some View {
-        Text("아메리카노")
+        Text(test.name)
             .font(.title)
             .fontWeight(.bold)
             .foregroundColor(.customBlack)
             .padding(.top, CaffeineBookDetailLayoutValue.Padding.titleTop)
         
-        Text("스타벅스")
+        Text(test.franchise.getFranchiseName())
             .font(.caption)
             .foregroundColor(.secondaryTextGray)
             .padding(.top, CaffeineBookDetailLayoutValue.Padding.franchiseTop)
@@ -93,15 +99,14 @@ struct CaffeineBeverage: View {
 struct CaffeineSizeButtonGroup: View {
     
     @State var isSelected: Int = 0
+    
+    var test: Beverage
 
     var body: some View {
         HStack(spacing: CaffeineBookDetailLayoutValue.Padding.buttonBetweenSpace) {
-            ForEach(0 ..< 3, id: \.self) { buttonIndex in
-                CaffeineSizeButton(size: "Tall", volume: "355ml", buttonIndex: buttonIndex, isSelected: $isSelected)
+            ForEach(0 ..< test.sizeInfo.count, id: \.self) { buttonIndex in
+                CaffeineSizeButton(size: test.sizeInfo[buttonIndex].name, volume: test.franchise.getSizeAmount(size: test.sizeInfo[buttonIndex].name), buttonIndex: buttonIndex, isSelected: $isSelected)
             }
-//            CaffeineSizeButton(size: "Tall", volume: "355ml")
-//            CaffeineSizeButton(size: "Grande", volume: "450ml")
-//            CaffeineSizeButton(size: "Venti", volume: "530ml")
         }
         .padding(.top, CaffeineBookDetailLayoutValue.Padding.buttonGroupTop)
         .padding(.bottom, CaffeineBookDetailLayoutValue.Padding.buttonGroupBottom)
@@ -111,7 +116,7 @@ struct CaffeineSizeButtonGroup: View {
 struct CaffeineSizeButton: View {
     
     var size: String
-    var volume: String
+    var volume: Int
     var buttonIndex: Int
     
     @Binding var isSelected: Int
@@ -126,7 +131,7 @@ struct CaffeineSizeButton: View {
                     Text(size)
                         .font(.title2)
                         .foregroundColor(isSelected == buttonIndex ? .white : .customBlack)
-                    Text(volume)
+                    Text("\(String(volume))ml")
                         .padding(.top, CaffeineBookDetailLayoutValue.Padding.buttonTextSpace)
                         .font(.caption)
                         .foregroundColor(isSelected == buttonIndex ? .white : .secondaryTextGray)
@@ -140,11 +145,13 @@ struct CaffeineSizeButton: View {
 
 struct CaffeineInfoGroup: View {
     
+    var test: Beverage
+    
     var body: some View {
         Group {
-            CaffeineInfoRow(label: "샷 수", info: "2샷")
+            CaffeineInfoRow(label: "샷 수", info: String(test.sizeInfo[0].defaultShotCount)+"샷")
                 .padding(.top, CaffeineBookDetailLayoutValue.Padding.infoRowBetweenSpaceExceptCaption)
-            CaffeineInfoRow(label: "카페인", info: "175mg")
+            CaffeineInfoRow(label: "카페인", info: String(test.sizeInfo[0].caffeineAmount) + "mg")
                 .padding(.top, CaffeineBookDetailLayoutValue.Padding.infoRowBetweenSpaceExceptCaption)
             HStack {
                 Spacer()
