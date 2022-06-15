@@ -7,238 +7,314 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A23FFB9285487A6004428FF /* AddCaffeineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A23FFB8285487A6004428FF /* AddCaffeineDetailView.swift */; };
-		2A427E2F28586EAB00089AC0 /* AddCaffeineDetailCustomModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A427E2E28586EAB00089AC0 /* AddCaffeineDetailCustomModifier.swift */; };
-		2A427E3128588E9C00089AC0 /* EspressoShotCountCustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A427E3028588E9C00089AC0 /* EspressoShotCountCustomStepper.swift */; };
-		2A427E342858904600089AC0 /* FranchiseDrinkSizeButtonsGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A427E332858904600089AC0 /* FranchiseDrinkSizeButtonsGroupView.swift */; };
-		2A427E362858907B00089AC0 /* EffectSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A427E352858907B00089AC0 /* EffectSectionView.swift */; };
-		2AC7A36628517C9100D7CA60 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7A36528517C9100D7CA60 /* Color+.swift */; };
-		AB9CD1A728515F4B00589D07 /* TechomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1A628515F4B00589D07 /* TechomeApp.swift */; };
-		AB9CD1A928515F4B00589D07 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1A828515F4B00589D07 /* ContentView.swift */; };
-		AB9CD1AB28515F4D00589D07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB9CD1AA28515F4D00589D07 /* Assets.xcassets */; };
-		AB9CD1AE28515F4D00589D07 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB9CD1AD28515F4D00589D07 /* Preview Assets.xcassets */; };
-		AB9CD1BB2851675600589D07 /* tempExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1BA2851675600589D07 /* tempExtension.swift */; };
-		AB9CD1BD2851675E00589D07 /* tempResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1BC2851675E00589D07 /* tempResources.swift */; };
-		AB9CD1C02851676A00589D07 /* tempModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1BF2851676A00589D07 /* tempModel.swift */; };
-		AB9CD1C22851677000589D07 /* tempViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CD1C12851677000589D07 /* tempViewModel.swift */; };
-		DA774E4C2851C1CD009BA4EA /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E4B2851C1CD009BA4EA /* JSONManager.swift */; };
-		DA774E4F2851C21B009BA4EA /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E4E2851C21B009BA4EA /* Drink.swift */; };
-		DA774E512851C23C009BA4EA /* DrinkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E502851C23C009BA4EA /* DrinkData.swift */; };
-		DA774E572851C29D009BA4EA /* Franchise.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E562851C29D009BA4EA /* Franchise.swift */; };
-		DA774E5A2851C2FC009BA4EA /* SideEffectRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E592851C2FC009BA4EA /* SideEffectRecord.swift */; };
-		DA774E5C2851C3F3009BA4EA /* DrinkRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA774E5B2851C3F3009BA4EA /* DrinkRecord.swift */; };
+		2ABF49482856DCAD000E3387 /* BarChart in Frameworks */ = {isa = PBXBuildFile; productRef = 2ABF49472856DCAD000E3387 /* BarChart */; };
+		52AFC473285704AB000199DF /* AddSideEffectStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */; };
+		52AFC475285826B6000199DF /* Test_G.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC474285826B6000199DF /* Test_G.swift */; };
+		AB18CCED2856D8B300DD1C5A /* SideEffectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCC62856D8B300DD1C5A /* SideEffectRepository.swift */; };
+		AB18CCEE2856D8B300DD1C5A /* BeverageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCC72856D8B300DD1C5A /* BeverageRepository.swift */; };
+		AB18CCEF2856D8B300DD1C5A /* IntakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCC82856D8B300DD1C5A /* IntakeRepository.swift */; };
+		AB18CCF02856D8B300DD1C5A /* tempExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCCA2856D8B300DD1C5A /* tempExtension.swift */; };
+		AB18CCF12856D8B300DD1C5A /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCCB2856D8B300DD1C5A /* Color+.swift */; };
+		AB18CCF22856D8B300DD1C5A /* BeverageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCCD2856D8B300DD1C5A /* BeverageManager.swift */; };
+		AB18CCF32856D8B300DD1C5A /* SideEffectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCCE2856D8B300DD1C5A /* SideEffectManager.swift */; };
+		AB18CCF42856D8B300DD1C5A /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCCF2856D8B300DD1C5A /* JSONManager.swift */; };
+		AB18CCF52856D8B300DD1C5A /* IntakeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCD02856D8B300DD1C5A /* IntakeManager.swift */; };
+		AB18CCF62856D8B300DD1C5A /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCD12856D8B300DD1C5A /* Formatter.swift */; };
+		AB18CCF72856D8B300DD1C5A /* BeverageData.json in Resources */ = {isa = PBXBuildFile; fileRef = AB18CCD32856D8B300DD1C5A /* BeverageData.json */; };
+		AB18CCF82856D8B300DD1C5A /* tempResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCD42856D8B300DD1C5A /* tempResources.swift */; };
+		AB18CCF92856D8B300DD1C5A /* tempModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCD62856D8B300DD1C5A /* tempModel.swift */; };
+		AB18CCFA2856D8B300DD1C5A /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCD82856D8B300DD1C5A /* Beverage.swift */; };
+		AB18CCFB2856D8B300DD1C5A /* IntakeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCD92856D8B300DD1C5A /* IntakeRecord.swift */; };
+		AB18CCFC2856D8B300DD1C5A /* Franchise.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCDA2856D8B300DD1C5A /* Franchise.swift */; };
+		AB18CCFD2856D8B300DD1C5A /* SideEffectRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCDC2856D8B300DD1C5A /* SideEffectRecord.swift */; };
+		AB18CCFE2856D8B300DD1C5A /* TrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCDF2856D8B300DD1C5A /* TrendView.swift */; };
+		AB18CCFF2856D8B300DD1C5A /* HomeView_G.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCE12856D8B300DD1C5A /* HomeView_G.swift */; };
+		AB18CD002856D8B300DD1C5A /* AddSideEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCE22856D8B300DD1C5A /* AddSideEffectView.swift */; };
+		AB18CD012856D8B300DD1C5A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCE32856D8B300DD1C5A /* ContentView.swift */; };
+		AB18CD022856D8B300DD1C5A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCE52856D8B300DD1C5A /* HomeView.swift */; };
+		AB18CD032856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCE62856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift */; };
+		AB18CD042856D8B300DD1C5A /* SearchCaffeineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCE72856D8B300DD1C5A /* SearchCaffeineView.swift */; };
+		AB18CD052856D8B300DD1C5A /* TechomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCE82856D8B300DD1C5A /* TechomeApp.swift */; };
+		AB18CD062856D8B300DD1C5A /* tempViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCEA2856D8B300DD1C5A /* tempViewModel.swift */; };
+		AB18CD072856D8B300DD1C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB18CCEB2856D8B300DD1C5A /* Assets.xcassets */; };
+		AB1FBDFA2856B93400EB4F95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1FBDF92856B93400EB4F95 /* Preview Assets.xcassets */; };
+		ABC3E9572858122F0091CC8E /* TotalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC3E9562858122F0091CC8E /* TotalListView.swift */; };
+		DA11291028570EF20065BD33 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11290F28570EF20065BD33 /* DummyData.swift */; };
+		DA11291228570F4C0065BD33 /* TestView_P.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11291128570F4C0065BD33 /* TestView_P.swift */; };
+		DA8E714928581674009836DE /* IntakeRecord.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8E714728581674009836DE /* IntakeRecord.json */; };
+		DA8E714A28581674009836DE /* SideEffectRecord.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8E714828581674009836DE /* SideEffectRecord.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2A23FFB8285487A6004428FF /* AddCaffeineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCaffeineDetailView.swift; sourceTree = "<group>"; };
-		2A427E2E28586EAB00089AC0 /* AddCaffeineDetailCustomModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCaffeineDetailCustomModifier.swift; sourceTree = "<group>"; };
-		2A427E3028588E9C00089AC0 /* EspressoShotCountCustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EspressoShotCountCustomStepper.swift; sourceTree = "<group>"; };
-		2A427E332858904600089AC0 /* FranchiseDrinkSizeButtonsGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FranchiseDrinkSizeButtonsGroupView.swift; sourceTree = "<group>"; };
-		2A427E352858907B00089AC0 /* EffectSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectSectionView.swift; sourceTree = "<group>"; };
-		2AC7A36528517C9100D7CA60 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
-		AB9CD1A328515F4B00589D07 /* Techome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Techome.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB9CD1A628515F4B00589D07 /* TechomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechomeApp.swift; sourceTree = "<group>"; };
-		AB9CD1A828515F4B00589D07 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		AB9CD1AA28515F4D00589D07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AB9CD1AD28515F4D00589D07 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AB9CD1BA2851675600589D07 /* tempExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempExtension.swift; sourceTree = "<group>"; };
-		AB9CD1BC2851675E00589D07 /* tempResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempResources.swift; sourceTree = "<group>"; };
-		AB9CD1BF2851676A00589D07 /* tempModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempModel.swift; sourceTree = "<group>"; };
-		AB9CD1C12851677000589D07 /* tempViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempViewModel.swift; sourceTree = "<group>"; };
-		DA774E4B2851C1CD009BA4EA /* JSONManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
-		DA774E4E2851C21B009BA4EA /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
-		DA774E502851C23C009BA4EA /* DrinkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkData.swift; sourceTree = "<group>"; };
-		DA774E562851C29D009BA4EA /* Franchise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Franchise.swift; sourceTree = "<group>"; };
-		DA774E592851C2FC009BA4EA /* SideEffectRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideEffectRecord.swift; sourceTree = "<group>"; };
-		DA774E5B2851C3F3009BA4EA /* DrinkRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkRecord.swift; sourceTree = "<group>"; };
+		52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSideEffectStateHolder.swift; sourceTree = "<group>"; };
+		52AFC474285826B6000199DF /* Test_G.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_G.swift; sourceTree = "<group>"; };
+		AB18CCC62856D8B300DD1C5A /* SideEffectRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideEffectRepository.swift; sourceTree = "<group>"; };
+		AB18CCC72856D8B300DD1C5A /* BeverageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageRepository.swift; sourceTree = "<group>"; };
+		AB18CCC82856D8B300DD1C5A /* IntakeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntakeRepository.swift; sourceTree = "<group>"; };
+		AB18CCCA2856D8B300DD1C5A /* tempExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempExtension.swift; sourceTree = "<group>"; };
+		AB18CCCB2856D8B300DD1C5A /* Color+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		AB18CCCD2856D8B300DD1C5A /* BeverageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageManager.swift; sourceTree = "<group>"; };
+		AB18CCCE2856D8B300DD1C5A /* SideEffectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideEffectManager.swift; sourceTree = "<group>"; };
+		AB18CCCF2856D8B300DD1C5A /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
+		AB18CCD02856D8B300DD1C5A /* IntakeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntakeManager.swift; sourceTree = "<group>"; };
+		AB18CCD12856D8B300DD1C5A /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		AB18CCD32856D8B300DD1C5A /* BeverageData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BeverageData.json; sourceTree = "<group>"; };
+		AB18CCD42856D8B300DD1C5A /* tempResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempResources.swift; sourceTree = "<group>"; };
+		AB18CCD62856D8B300DD1C5A /* tempModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempModel.swift; sourceTree = "<group>"; };
+		AB18CCD82856D8B300DD1C5A /* Beverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
+		AB18CCD92856D8B300DD1C5A /* IntakeRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntakeRecord.swift; sourceTree = "<group>"; };
+		AB18CCDA2856D8B300DD1C5A /* Franchise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Franchise.swift; sourceTree = "<group>"; };
+		AB18CCDC2856D8B300DD1C5A /* SideEffectRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideEffectRecord.swift; sourceTree = "<group>"; };
+		AB18CCDF2856D8B300DD1C5A /* TrendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendView.swift; sourceTree = "<group>"; };
+		AB18CCE12856D8B300DD1C5A /* HomeView_G.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView_G.swift; sourceTree = "<group>"; };
+		AB18CCE22856D8B300DD1C5A /* AddSideEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSideEffectView.swift; sourceTree = "<group>"; };
+		AB18CCE32856D8B300DD1C5A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AB18CCE52856D8B300DD1C5A /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AB18CCE62856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCaffeineLayoutValue.swift; sourceTree = "<group>"; };
+		AB18CCE72856D8B300DD1C5A /* SearchCaffeineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCaffeineView.swift; sourceTree = "<group>"; };
+		AB18CCE82856D8B300DD1C5A /* TechomeApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechomeApp.swift; sourceTree = "<group>"; };
+		AB18CCEA2856D8B300DD1C5A /* tempViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempViewModel.swift; sourceTree = "<group>"; };
+		AB18CCEB2856D8B300DD1C5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AB1FBDEF2856B93300EB4F95 /* Techome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Techome.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB1FBDF92856B93400EB4F95 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ABC3E9562858122F0091CC8E /* TotalListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalListView.swift; sourceTree = "<group>"; };
+		DA11290F28570EF20065BD33 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		DA11291128570F4C0065BD33 /* TestView_P.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView_P.swift; sourceTree = "<group>"; };
+		DA8E714728581674009836DE /* IntakeRecord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = IntakeRecord.json; sourceTree = "<group>"; };
+		DA8E714828581674009836DE /* SideEffectRecord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SideEffectRecord.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AB9CD1A028515F4B00589D07 /* Frameworks */ = {
+		AB1FBDEC2856B93300EB4F95 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ABF49482856DCAD000E3387 /* BarChart in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A23FFB7285486F5004428FF /* AddCaffeineDetail */ = {
+		AB18CCC42856D8B300DD1C5A /* Global */ = {
 			isa = PBXGroup;
 			children = (
-				2A23FFB8285487A6004428FF /* AddCaffeineDetailView.swift */,
-				2A427E2E28586EAB00089AC0 /* AddCaffeineDetailCustomModifier.swift */,
-				2A427E3228588FCA00089AC0 /* Components */,
-			);
-			path = AddCaffeineDetail;
-			sourceTree = "<group>";
-		};
-		2A427E3228588FCA00089AC0 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				2A427E3028588E9C00089AC0 /* EspressoShotCountCustomStepper.swift */,
-				2A427E332858904600089AC0 /* FranchiseDrinkSizeButtonsGroupView.swift */,
-				2A427E352858907B00089AC0 /* EffectSectionView.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		AB9CD19A28515F4B00589D07 = {
-			isa = PBXGroup;
-			children = (
-				AB9CD1A528515F4B00589D07 /* Techome */,
-				AB9CD1A428515F4B00589D07 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		AB9CD1A428515F4B00589D07 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AB9CD1A328515F4B00589D07 /* Techome.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		AB9CD1A528515F4B00589D07 /* Techome */ = {
-			isa = PBXGroup;
-			children = (
-				AB9CD1A628515F4B00589D07 /* TechomeApp.swift */,
-				AB9CD1B92851672500589D07 /* Global */,
-				AB9CD1B7285166F000589D07 /* Resources */,
-				AB9CD1B5285166C700589D07 /* Model */,
-				AB9CD1B6285166CE00589D07 /* ViewModel */,
-				AB9CD1B4285166C100589D07 /* Views */,
-				AB9CD1AA28515F4D00589D07 /* Assets.xcassets */,
-				AB9CD1AC28515F4D00589D07 /* Preview Content */,
-			);
-			path = Techome;
-			sourceTree = "<group>";
-		};
-		AB9CD1AC28515F4D00589D07 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				AB9CD1AD28515F4D00589D07 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		AB9CD1B4285166C100589D07 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				2A23FFB7285486F5004428FF /* AddCaffeineDetail */,
-				AB9CD1A828515F4B00589D07 /* ContentView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		AB9CD1B5285166C700589D07 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				DA774E582851C2EF009BA4EA /* SideEffect */,
-				DA774E4D2851C1F2009BA4EA /* Drink */,
-				AB9CD1BF2851676A00589D07 /* tempModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		AB9CD1B6285166CE00589D07 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				AB9CD1C12851677000589D07 /* tempViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		AB9CD1B7285166F000589D07 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				AB9CD1BC2851675E00589D07 /* tempResources.swift */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		AB9CD1B82851670200589D07 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				AB9CD1BA2851675600589D07 /* tempExtension.swift */,
-				2AC7A36528517C9100D7CA60 /* Color+.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		AB9CD1B92851672500589D07 /* Global */ = {
-			isa = PBXGroup;
-			children = (
-				DA774E4A2851C1C6009BA4EA /* Manager */,
-				AB9CD1B82851670200589D07 /* Extension */,
+				AB18CCC52856D8B300DD1C5A /* Repository */,
+				AB18CCC92856D8B300DD1C5A /* Extension */,
+				AB18CCCC2856D8B300DD1C5A /* Manager */,
+				AB18CCD12856D8B300DD1C5A /* Formatter.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
 		};
-		DA774E4A2851C1C6009BA4EA /* Manager */ = {
+		AB18CCC52856D8B300DD1C5A /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				DA774E4B2851C1CD009BA4EA /* JSONManager.swift */,
+				AB18CCC62856D8B300DD1C5A /* SideEffectRepository.swift */,
+				AB18CCC72856D8B300DD1C5A /* BeverageRepository.swift */,
+				AB18CCC82856D8B300DD1C5A /* IntakeRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		AB18CCC92856D8B300DD1C5A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AB18CCCA2856D8B300DD1C5A /* tempExtension.swift */,
+				AB18CCCB2856D8B300DD1C5A /* Color+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		AB18CCCC2856D8B300DD1C5A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				AB18CCCD2856D8B300DD1C5A /* BeverageManager.swift */,
+				AB18CCCE2856D8B300DD1C5A /* SideEffectManager.swift */,
+				AB18CCCF2856D8B300DD1C5A /* JSONManager.swift */,
+				AB18CCD02856D8B300DD1C5A /* IntakeManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		DA774E4D2851C1F2009BA4EA /* Drink */ = {
+		AB18CCD22856D8B300DD1C5A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DA774E4E2851C21B009BA4EA /* Drink.swift */,
-				DA774E502851C23C009BA4EA /* DrinkData.swift */,
-				DA774E562851C29D009BA4EA /* Franchise.swift */,
-				DA774E5B2851C3F3009BA4EA /* DrinkRecord.swift */,
+				AB18CCD32856D8B300DD1C5A /* BeverageData.json */,
+				DA8E714728581674009836DE /* IntakeRecord.json */,
+				DA8E714828581674009836DE /* SideEffectRecord.json */,
+				DA11290F28570EF20065BD33 /* DummyData.swift */,
+				AB18CCD42856D8B300DD1C5A /* tempResources.swift */,
 			);
-			path = Drink;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		DA774E582851C2EF009BA4EA /* SideEffect */ = {
+		AB18CCD52856D8B300DD1C5A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DA774E592851C2FC009BA4EA /* SideEffectRecord.swift */,
+				AB18CCD62856D8B300DD1C5A /* tempModel.swift */,
+				AB18CCD72856D8B300DD1C5A /* Intake */,
+				AB18CCDB2856D8B300DD1C5A /* SideEffect */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AB18CCD72856D8B300DD1C5A /* Intake */ = {
+			isa = PBXGroup;
+			children = (
+				AB18CCD82856D8B300DD1C5A /* Beverage.swift */,
+				AB18CCD92856D8B300DD1C5A /* IntakeRecord.swift */,
+				AB18CCDA2856D8B300DD1C5A /* Franchise.swift */,
+			);
+			path = Intake;
+			sourceTree = "<group>";
+		};
+		AB18CCDB2856D8B300DD1C5A /* SideEffect */ = {
+			isa = PBXGroup;
+			children = (
+				AB18CCDC2856D8B300DD1C5A /* SideEffectRecord.swift */,
 			);
 			path = SideEffect;
 			sourceTree = "<group>";
 		};
+		AB18CCDD2856D8B300DD1C5A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AB18CCDE2856D8B300DD1C5A /* Trend */,
+				AB18CCE02856D8B300DD1C5A /* AddSideEffect */,
+				AB18CCE32856D8B300DD1C5A /* ContentView.swift */,
+				DA11291128570F4C0065BD33 /* TestView_P.swift */,
+				AB18CCE42856D8B300DD1C5A /* AddCaffeine */,
+				52AFC474285826B6000199DF /* Test_G.swift */,
+				ABC3E9552858122F0091CC8E /* TotalList */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AB18CCDE2856D8B300DD1C5A /* Trend */ = {
+			isa = PBXGroup;
+			children = (
+				AB18CCDF2856D8B300DD1C5A /* TrendView.swift */,
+			);
+			path = Trend;
+			sourceTree = "<group>";
+		};
+		AB18CCE02856D8B300DD1C5A /* AddSideEffect */ = {
+			isa = PBXGroup;
+			children = (
+				AB18CCE12856D8B300DD1C5A /* HomeView_G.swift */,
+				AB18CCE22856D8B300DD1C5A /* AddSideEffectView.swift */,
+			);
+			path = AddSideEffect;
+			sourceTree = "<group>";
+		};
+		AB18CCE42856D8B300DD1C5A /* AddCaffeine */ = {
+			isa = PBXGroup;
+			children = (
+				AB18CCE52856D8B300DD1C5A /* HomeView.swift */,
+				AB18CCE62856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift */,
+				AB18CCE72856D8B300DD1C5A /* SearchCaffeineView.swift */,
+			);
+			path = AddCaffeine;
+			sourceTree = "<group>";
+		};
+		AB18CCE92856D8B300DD1C5A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AB18CCEA2856D8B300DD1C5A /* tempViewModel.swift */,
+				52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AB1FBDE62856B93300EB4F95 = {
+			isa = PBXGroup;
+			children = (
+				AB1FBDF12856B93300EB4F95 /* Techome */,
+				AB1FBDF02856B93300EB4F95 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AB1FBDF02856B93300EB4F95 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AB1FBDEF2856B93300EB4F95 /* Techome.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AB1FBDF12856B93300EB4F95 /* Techome */ = {
+			isa = PBXGroup;
+			children = (
+				AB18CCEB2856D8B300DD1C5A /* Assets.xcassets */,
+				AB18CCD22856D8B300DD1C5A /* Resources */,
+				AB18CCC42856D8B300DD1C5A /* Global */,
+				AB18CCD52856D8B300DD1C5A /* Model */,
+				AB18CCE82856D8B300DD1C5A /* TechomeApp.swift */,
+				AB18CCE92856D8B300DD1C5A /* ViewModel */,
+				AB18CCDD2856D8B300DD1C5A /* Views */,
+				AB1FBDF82856B93400EB4F95 /* Preview Content */,
+			);
+			path = Techome;
+			sourceTree = "<group>";
+		};
+		AB1FBDF82856B93400EB4F95 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AB1FBDF92856B93400EB4F95 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ABC3E9552858122F0091CC8E /* TotalList */ = {
+			isa = PBXGroup;
+			children = (
+				ABC3E9562858122F0091CC8E /* TotalListView.swift */,
+			);
+			name = TotalList;
+			path = Techome/Views/TotalList;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AB9CD1A228515F4B00589D07 /* Techome */ = {
+		AB1FBDEE2856B93300EB4F95 /* Techome */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB9CD1B128515F4D00589D07 /* Build configuration list for PBXNativeTarget "Techome" */;
+			buildConfigurationList = AB1FBDFD2856B93400EB4F95 /* Build configuration list for PBXNativeTarget "Techome" */;
 			buildPhases = (
-				AB9CD19F28515F4B00589D07 /* Sources */,
-				AB9CD1A028515F4B00589D07 /* Frameworks */,
-				AB9CD1A128515F4B00589D07 /* Resources */,
+				AB1FBDEB2856B93300EB4F95 /* Sources */,
+				AB1FBDEC2856B93300EB4F95 /* Frameworks */,
+				AB1FBDED2856B93300EB4F95 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Techome;
+			packageProductDependencies = (
+				2ABF49472856DCAD000E3387 /* BarChart */,
+			);
 			productName = Techome;
-			productReference = AB9CD1A328515F4B00589D07 /* Techome.app */;
+			productReference = AB1FBDEF2856B93300EB4F95 /* Techome.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		AB9CD19B28515F4B00589D07 /* Project object */ = {
+		AB1FBDE72856B93300EB4F95 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
-					AB9CD1A228515F4B00589D07 = {
+					AB1FBDEE2856B93300EB4F95 = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
 					};
 				};
 			};
-			buildConfigurationList = AB9CD19E28515F4B00589D07 /* Build configuration list for PBXProject "Techome" */;
+			buildConfigurationList = AB1FBDEA2856B93300EB4F95 /* Build configuration list for PBXProject "Techome" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -246,58 +322,76 @@
 				en,
 				Base,
 			);
-			mainGroup = AB9CD19A28515F4B00589D07;
-			productRefGroup = AB9CD1A428515F4B00589D07 /* Products */;
+			mainGroup = AB1FBDE62856B93300EB4F95;
+			packageReferences = (
+				2ABF49462856DCAC000E3387 /* XCRemoteSwiftPackageReference "BarChart" */,
+			);
+			productRefGroup = AB1FBDF02856B93300EB4F95 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AB9CD1A228515F4B00589D07 /* Techome */,
+				AB1FBDEE2856B93300EB4F95 /* Techome */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AB9CD1A128515F4B00589D07 /* Resources */ = {
+		AB1FBDED2856B93300EB4F95 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB9CD1AE28515F4D00589D07 /* Preview Assets.xcassets in Resources */,
-				AB9CD1AB28515F4D00589D07 /* Assets.xcassets in Resources */,
+				DA8E714928581674009836DE /* IntakeRecord.json in Resources */,
+				DA8E714A28581674009836DE /* SideEffectRecord.json in Resources */,
+				AB18CCF72856D8B300DD1C5A /* BeverageData.json in Resources */,
+				AB18CD072856D8B300DD1C5A /* Assets.xcassets in Resources */,
+				AB1FBDFA2856B93400EB4F95 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AB9CD19F28515F4B00589D07 /* Sources */ = {
+		AB1FBDEB2856B93300EB4F95 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB9CD1A928515F4B00589D07 /* ContentView.swift in Sources */,
-				DA774E4F2851C21B009BA4EA /* Drink.swift in Sources */,
-				DA774E4C2851C1CD009BA4EA /* JSONManager.swift in Sources */,
-				AB9CD1A728515F4B00589D07 /* TechomeApp.swift in Sources */,
-				2A427E2F28586EAB00089AC0 /* AddCaffeineDetailCustomModifier.swift in Sources */,
-				2A427E342858904600089AC0 /* FranchiseDrinkSizeButtonsGroupView.swift in Sources */,
-				DA774E5C2851C3F3009BA4EA /* DrinkRecord.swift in Sources */,
-				AB9CD1BB2851675600589D07 /* tempExtension.swift in Sources */,
-				2A23FFB9285487A6004428FF /* AddCaffeineDetailView.swift in Sources */,
-				2A427E3128588E9C00089AC0 /* EspressoShotCountCustomStepper.swift in Sources */,
-				AB9CD1BD2851675E00589D07 /* tempResources.swift in Sources */,
-				DA774E512851C23C009BA4EA /* DrinkData.swift in Sources */,
-				AB9CD1C02851676A00589D07 /* tempModel.swift in Sources */,
-				DA774E5A2851C2FC009BA4EA /* SideEffectRecord.swift in Sources */,
-				AB9CD1C22851677000589D07 /* tempViewModel.swift in Sources */,
-				2A427E362858907B00089AC0 /* EffectSectionView.swift in Sources */,
-				DA774E572851C29D009BA4EA /* Franchise.swift in Sources */,
-				2AC7A36628517C9100D7CA60 /* Color+.swift in Sources */,
+				AB18CCF62856D8B300DD1C5A /* Formatter.swift in Sources */,
+				AB18CCFD2856D8B300DD1C5A /* SideEffectRecord.swift in Sources */,
+				AB18CD062856D8B300DD1C5A /* tempViewModel.swift in Sources */,
+				52AFC473285704AB000199DF /* AddSideEffectStateHolder.swift in Sources */,
+				AB18CD012856D8B300DD1C5A /* ContentView.swift in Sources */,
+				AB18CCF12856D8B300DD1C5A /* Color+.swift in Sources */,
+				AB18CD042856D8B300DD1C5A /* SearchCaffeineView.swift in Sources */,
+				AB18CD052856D8B300DD1C5A /* TechomeApp.swift in Sources */,
+				AB18CD022856D8B300DD1C5A /* HomeView.swift in Sources */,
+				DA11291228570F4C0065BD33 /* TestView_P.swift in Sources */,
+				AB18CD002856D8B300DD1C5A /* AddSideEffectView.swift in Sources */,
+				AB18CCF92856D8B300DD1C5A /* tempModel.swift in Sources */,
+				AB18CCEF2856D8B300DD1C5A /* IntakeRepository.swift in Sources */,
+				AB18CCF02856D8B300DD1C5A /* tempExtension.swift in Sources */,
+				ABC3E9572858122F0091CC8E /* TotalListView.swift in Sources */,
+				AB18CCFA2856D8B300DD1C5A /* Beverage.swift in Sources */,
+				AB18CCF22856D8B300DD1C5A /* BeverageManager.swift in Sources */,
+				AB18CCF52856D8B300DD1C5A /* IntakeManager.swift in Sources */,
+				AB18CCF82856D8B300DD1C5A /* tempResources.swift in Sources */,
+				AB18CCFB2856D8B300DD1C5A /* IntakeRecord.swift in Sources */,
+				AB18CCEE2856D8B300DD1C5A /* BeverageRepository.swift in Sources */,
+				AB18CCED2856D8B300DD1C5A /* SideEffectRepository.swift in Sources */,
+				52AFC475285826B6000199DF /* Test_G.swift in Sources */,
+				AB18CD032856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift in Sources */,
+				AB18CCFC2856D8B300DD1C5A /* Franchise.swift in Sources */,
+				AB18CCF42856D8B300DD1C5A /* JSONManager.swift in Sources */,
+				AB18CCFE2856D8B300DD1C5A /* TrendView.swift in Sources */,
+				AB18CCF32856D8B300DD1C5A /* SideEffectManager.swift in Sources */,
+				DA11291028570EF20065BD33 /* DummyData.swift in Sources */,
+				AB18CCFF2856D8B300DD1C5A /* HomeView_G.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		AB9CD1AF28515F4D00589D07 /* Debug */ = {
+		AB1FBDFB2856B93400EB4F95 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -347,7 +441,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -357,7 +451,7 @@
 			};
 			name = Debug;
 		};
-		AB9CD1B028515F4D00589D07 /* Release */ = {
+		AB1FBDFC2856B93400EB4F95 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -401,7 +495,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -411,11 +505,12 @@
 			};
 			name = Release;
 		};
-		AB9CD1B228515F4D00589D07 /* Debug */ = {
+		AB1FBDFE2856B93400EB4F95 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Techome/Preview Content\"";
@@ -432,19 +527,21 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mc2.Techome;
+				PRODUCT_BUNDLE_IDENTIFIER = ADA.MC2.Techome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		AB9CD1B328515F4D00589D07 /* Release */ = {
+		AB1FBDFF2856B93400EB4F95 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Techome/Preview Content\"";
@@ -461,7 +558,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mc2.Techome;
+				PRODUCT_BUNDLE_IDENTIFIER = ADA.MC2.Techome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -472,25 +569,44 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AB9CD19E28515F4B00589D07 /* Build configuration list for PBXProject "Techome" */ = {
+		AB1FBDEA2856B93300EB4F95 /* Build configuration list for PBXProject "Techome" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AB9CD1AF28515F4D00589D07 /* Debug */,
-				AB9CD1B028515F4D00589D07 /* Release */,
+				AB1FBDFB2856B93400EB4F95 /* Debug */,
+				AB1FBDFC2856B93400EB4F95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB9CD1B128515F4D00589D07 /* Build configuration list for PBXNativeTarget "Techome" */ = {
+		AB1FBDFD2856B93400EB4F95 /* Build configuration list for PBXNativeTarget "Techome" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AB9CD1B228515F4D00589D07 /* Debug */,
-				AB9CD1B328515F4D00589D07 /* Release */,
+				AB1FBDFE2856B93400EB4F95 /* Debug */,
+				AB1FBDFF2856B93400EB4F95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2ABF49462856DCAC000E3387 /* XCRemoteSwiftPackageReference "BarChart" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dawigr/BarChart.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2ABF49472856DCAD000E3387 /* BarChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2ABF49462856DCAC000E3387 /* XCRemoteSwiftPackageReference "BarChart" */;
+			productName = BarChart;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = AB9CD19B28515F4B00589D07 /* Project object */;
+	rootObject = AB1FBDE72856B93300EB4F95 /* Project object */;
 }
