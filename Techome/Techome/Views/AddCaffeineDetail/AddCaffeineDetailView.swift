@@ -53,15 +53,17 @@ struct AddCaffeineDetailViewLayoutValue {
 }
 
 struct AddCaffeineDetailView: View {
+    @EnvironmentObject var addCaffeineStates: AddCaffeineDetailStateHolder
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .center, spacing: .zero) {
                 HStack(alignment: .firstTextBaseline, spacing: .zero) {
-                    Text("아메리카노")
+                    Text(addCaffeineStates.bevergeRecord.name)
                         .font(.title)
                         .fontWeight(.bold)
                         .padding(.leading, AddCaffeineDetailViewLayoutValue.Paddings.cardVertical)
-                    Text("스타벅스")
+                    Text(addCaffeineStates.bevergeRecord.franchise.getFranchiseName())
                         .font(.title3)
                         .foregroundColor(.secondaryTextGray)
                         .padding(.leading, AddCaffeineDetailViewLayoutValue.Paddings.titleToBrand)
@@ -130,7 +132,10 @@ struct AddCaffeineButtonBackground: View {
 }
 
 struct AddCaffeineDetailView_Previews: PreviewProvider {
+    
     static var previews: some View {
+        let addCaffeineDetailState = AddCaffeineDetailStateHolder()
         AddCaffeineDetailView()
+            .environmentObject(addCaffeineDetailState)
     }
 }

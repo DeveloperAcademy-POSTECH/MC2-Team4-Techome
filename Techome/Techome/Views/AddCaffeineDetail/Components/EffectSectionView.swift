@@ -20,13 +20,15 @@ struct EffectSectionView: View {
 }
 
 struct EffectSectionAddCaffeineAmountProvider: View {
+    @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
+    
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
             HStack(alignment: .center, spacing: .zero) {
                 Image(systemName: "circle.hexagongrid")
                     .padding(.trailing, AddCaffeineDetailViewLayoutValue.Paddings.EffectCard.sectionIconToText)
                 //TODO: 임시 더미데이터 변경 필요
-                Text("추가되는 카페인은 150mg 입니다.")
+                Text("추가되는 카페인은 \(addCaffeineDetailStates.addCaffeineAmount) 입니다.")
                     .fontWeight(.semibold)
             }
             .headlineModifier()
@@ -43,6 +45,8 @@ struct EffectSectionAddCaffeineAmountProvider: View {
 }
 
 struct CurrentCaffeineAmount: View {
+    @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
+
     var body: some View {
         HStack(alignment: .center, spacing: .zero) {
             Text("현재")
@@ -50,7 +54,7 @@ struct CurrentCaffeineAmount: View {
             Spacer()
             HStack(alignment: .firstTextBaseline, spacing: .zero) {
                 //TODO: 임시 더미데이터 변경 필요
-                Text("130")
+                Text("\(addCaffeineDetailStates.currentCaffeineAmount)")
                     .font(.title2)
                     .fontWeight(.semibold)
                 //TODO: customBlack으로 변경 필요
@@ -65,6 +69,8 @@ struct CurrentCaffeineAmount: View {
 }
 
 struct AfterCaffeineAmount: View {
+    @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
+    
     var body: some View {
         HStack(alignment: .center, spacing: .zero) {
             Text("섭취 후")
@@ -72,7 +78,7 @@ struct AfterCaffeineAmount: View {
             Spacer()
             HStack(alignment: .firstTextBaseline, spacing: .zero) {
                 //TODO: 임시 더미데이터 변경 필요
-                Text("280")
+                Text("\(addCaffeineDetailStates.currentCaffeineAmount + addCaffeineDetailStates.addCaffeineAmount)")
                     .fontWeight(.semibold)
                     .sideEffectValueHighlight()
                     .padding(.trailing, AddCaffeineDetailViewLayoutValue.Paddings.addCaffeineAmountToUnit)
@@ -131,7 +137,10 @@ struct EffectSectionBackground: View {
 
 
 struct EffectSectionView_Previews: PreviewProvider {
+    
     static var previews: some View {
+        let addCaffeineDetailStates = AddCaffeineDetailStateHolder()
         EffectSectionView()
+            .environmentObject(addCaffeineDetailStates)
     }
 }
