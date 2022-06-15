@@ -34,7 +34,7 @@ struct SearchResultView: View {
                     } else {
                         LazyVStack (spacing: .zero) {
                             ForEach (searchCaffeineStateHolder.currentItems, id: \.self) { item in
-                                JustifiedCaffeineItem(justifiedCaffeineItem: item)
+                                SatisfiedCaffeineItem(satisfiedCaffeineItem: item)
                             }
                         }
                         .background(RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.card)
@@ -50,24 +50,24 @@ struct SearchResultView: View {
     }
 }
 
-struct JustifiedCaffeineItem: View {
+struct SatisfiedCaffeineItem: View {
     
-    var justifiedCaffeineItem: Beverage
+    var satisfiedCaffeineItem: Beverage
     
     var body: some View {
         VStack(spacing: .zero) {
             HStack(alignment: .center, spacing: .zero) {
                 VStack (alignment: .leading){
-                    Text(justifiedCaffeineItem.name)
+                    Text(satisfiedCaffeineItem.name)
                         .font(.title3)
                         .multilineTextAlignment(.leading)
-                    Text("\(justifiedCaffeineItem.franchise.rawValue)")
+                    Text("\(satisfiedCaffeineItem.franchise.rawValue)")
                         .font(.caption)
                         .foregroundColor(.secondaryTextGray)
                 }
                 Spacer()
                 HStack (alignment: .firstTextBaseline, spacing: .zero){
-                    Text("\(justifiedCaffeineItem.sizeInfo[0].caffeineAmount)")
+                    Text("\(satisfiedCaffeineItem.sizeInfo[0].caffeineAmount)")
                         .font(.title3)
                     Text(" mg")
                         .font(.subheadline)
