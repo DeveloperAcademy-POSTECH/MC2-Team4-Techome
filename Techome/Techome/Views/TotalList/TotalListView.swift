@@ -58,6 +58,12 @@ class datas: ObservableObject { //observable 객체 생성
         
     }
     
+    func resetOffsets() {
+        for key in self.tmpDataSortedByDate.keys {
+            self.tmpOffsets[key] = [CGFloat](repeating: .zero, count: tmpDataSortedByDate[key]!.count)
+        }
+    }
+    
     func countRows() -> Int {
         return tmpDataSortedByDate.count
     }
@@ -239,7 +245,7 @@ struct TotalRecordsByDayRow: View {
 //                            for index in 0 ..< fullData.count {
 //                                fullData[index].offset = .zero
 //                            }
-
+                            testData.resetOffsets()
                             testData.tmpOffsets[curDate]![rowIndex] = gesture.translation.width
                             if testData.tmpOffsets[curDate]![rowIndex] > 74 {
                                 testData.tmpOffsets[curDate]![rowIndex] = .zero
@@ -262,6 +268,7 @@ struct TotalRecordsByDayRow: View {
                 .gesture(
                     DragGesture()
                         .onChanged { gesture in
+                            testData.resetOffsets()
                             testData.tmpOffsets[curDate]![rowIndex] = gesture.translation.width
                             if testData.tmpOffsets[curDate]![rowIndex] > 74 {
                                 testData.tmpOffsets[curDate]![rowIndex] = .zero
