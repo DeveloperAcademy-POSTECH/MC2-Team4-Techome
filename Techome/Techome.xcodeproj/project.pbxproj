@@ -40,6 +40,11 @@
 		AB18CD072856D8B300DD1C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB18CCEB2856D8B300DD1C5A /* Assets.xcassets */; };
 		AB1FBDFA2856B93400EB4F95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1FBDF92856B93400EB4F95 /* Preview Assets.xcassets */; };
 		ABC3E9572858122F0091CC8E /* TotalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC3E9562858122F0091CC8E /* TotalListView.swift */; };
+		ABFE83F72859A876001461D4 /* EspressoShotCountCustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83F22859A876001461D4 /* EspressoShotCountCustomStepper.swift */; };
+		ABFE83F82859A876001461D4 /* EffectSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83F32859A876001461D4 /* EffectSectionView.swift */; };
+		ABFE83F92859A876001461D4 /* FranchiseDrinkSizeButtonsGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83F42859A876001461D4 /* FranchiseDrinkSizeButtonsGroupView.swift */; };
+		ABFE83FA2859A876001461D4 /* AddCaffeineDetailCustomModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83F52859A876001461D4 /* AddCaffeineDetailCustomModifier.swift */; };
+		ABFE83FB2859A876001461D4 /* AddCaffeineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83F62859A876001461D4 /* AddCaffeineDetailView.swift */; };
 		DA11291028570EF20065BD33 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11290F28570EF20065BD33 /* DummyData.swift */; };
 		DA11291228570F4C0065BD33 /* TestView_P.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11291128570F4C0065BD33 /* TestView_P.swift */; };
 		DA8E714928581674009836DE /* IntakeRecord.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8E714728581674009836DE /* IntakeRecord.json */; };
@@ -80,6 +85,11 @@
 		AB1FBDEF2856B93300EB4F95 /* Techome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Techome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB1FBDF92856B93400EB4F95 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ABC3E9562858122F0091CC8E /* TotalListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalListView.swift; sourceTree = "<group>"; };
+		ABFE83F22859A876001461D4 /* EspressoShotCountCustomStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EspressoShotCountCustomStepper.swift; sourceTree = "<group>"; };
+		ABFE83F32859A876001461D4 /* EffectSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EffectSectionView.swift; sourceTree = "<group>"; };
+		ABFE83F42859A876001461D4 /* FranchiseDrinkSizeButtonsGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FranchiseDrinkSizeButtonsGroupView.swift; sourceTree = "<group>"; };
+		ABFE83F52859A876001461D4 /* AddCaffeineDetailCustomModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCaffeineDetailCustomModifier.swift; sourceTree = "<group>"; };
+		ABFE83F62859A876001461D4 /* AddCaffeineDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCaffeineDetailView.swift; sourceTree = "<group>"; };
 		DA11290F28570EF20065BD33 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		DA11291128570F4C0065BD33 /* TestView_P.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView_P.swift; sourceTree = "<group>"; };
 		DA8E714728581674009836DE /* IntakeRecord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = IntakeRecord.json; sourceTree = "<group>"; };
@@ -198,6 +208,7 @@
 				AB18CCE42856D8B300DD1C5A /* AddCaffeine */,
 				52AFC474285826B6000199DF /* Test_G.swift */,
 				ABC3E9552858122F0091CC8E /* TotalList */,
+				ABFE83F02859A876001461D4 /* AddCaffeineDetail */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,6 +297,26 @@
 			path = Techome/Views/TotalList;
 			sourceTree = SOURCE_ROOT;
 		};
+		ABFE83F02859A876001461D4 /* AddCaffeineDetail */ = {
+			isa = PBXGroup;
+			children = (
+				ABFE83F12859A876001461D4 /* Components */,
+				ABFE83F52859A876001461D4 /* AddCaffeineDetailCustomModifier.swift */,
+				ABFE83F62859A876001461D4 /* AddCaffeineDetailView.swift */,
+			);
+			path = AddCaffeineDetail;
+			sourceTree = "<group>";
+		};
+		ABFE83F12859A876001461D4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				ABFE83F22859A876001461D4 /* EspressoShotCountCustomStepper.swift */,
+				ABFE83F32859A876001461D4 /* EffectSectionView.swift */,
+				ABFE83F42859A876001461D4 /* FranchiseDrinkSizeButtonsGroupView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -371,18 +402,23 @@
 				AB18CD062856D8B300DD1C5A /* tempViewModel.swift in Sources */,
 				52AFC473285704AB000199DF /* AddSideEffectStateHolder.swift in Sources */,
 				AB18CD012856D8B300DD1C5A /* ContentView.swift in Sources */,
+				ABFE83F72859A876001461D4 /* EspressoShotCountCustomStepper.swift in Sources */,
 				AB18CCF12856D8B300DD1C5A /* Color+.swift in Sources */,
 				AB18CD042856D8B300DD1C5A /* SearchCaffeineView.swift in Sources */,
 				AB18CD052856D8B300DD1C5A /* TechomeApp.swift in Sources */,
+				ABFE83FA2859A876001461D4 /* AddCaffeineDetailCustomModifier.swift in Sources */,
 				AB18CD022856D8B300DD1C5A /* HomeView.swift in Sources */,
 				DA11291228570F4C0065BD33 /* TestView_P.swift in Sources */,
 				AB18CD002856D8B300DD1C5A /* AddSideEffectView.swift in Sources */,
 				AB18CCF92856D8B300DD1C5A /* tempModel.swift in Sources */,
 				AB18CCEF2856D8B300DD1C5A /* IntakeRepository.swift in Sources */,
+				ABFE83F92859A876001461D4 /* FranchiseDrinkSizeButtonsGroupView.swift in Sources */,
 				AB18CCF02856D8B300DD1C5A /* tempExtension.swift in Sources */,
 				52AFC4782858614E000199DF /* CaffeineBookDetailView.swift in Sources */,
+				ABFE83F82859A876001461D4 /* EffectSectionView.swift in Sources */,
 				ABC3E9572858122F0091CC8E /* TotalListView.swift in Sources */,
 				AB18CCFA2856D8B300DD1C5A /* Beverage.swift in Sources */,
+				ABFE83FB2859A876001461D4 /* AddCaffeineDetailView.swift in Sources */,
 				AB18CCF22856D8B300DD1C5A /* BeverageManager.swift in Sources */,
 				AB18CCF52856D8B300DD1C5A /* IntakeManager.swift in Sources */,
 				AB18CCF82856D8B300DD1C5A /* tempResources.swift in Sources */,
@@ -526,7 +562,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Techome/Preview Content\"";
-				DEVELOPMENT_TEAM = 8QSTXVD8H9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -557,7 +593,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Techome/Preview Content\"";
-				DEVELOPMENT_TEAM = 8QSTXVD8H9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
