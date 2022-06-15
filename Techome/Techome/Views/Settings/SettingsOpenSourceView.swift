@@ -8,8 +8,30 @@
 import SwiftUI
 
 struct SettingsOpenSourceView: View {
+    
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            ZStack(alignment: .leading) {
+                Color.backgroundCream.edgesIgnoringSafeArea(.all)
+                
+                VStack(alignment: .leading, spacing: .zero) {
+                    Text("SettingsOpenSourceView")
+                }
+            }
+            .navigationTitle("오픈소스 라이브러리")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(
+                leading: Button(action: {
+                    self.mode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "chevron.left")
+                        .font(.headline)
+                        .foregroundColor(.primaryBrown)
+                }
+            )
+        }
     }
 }
 

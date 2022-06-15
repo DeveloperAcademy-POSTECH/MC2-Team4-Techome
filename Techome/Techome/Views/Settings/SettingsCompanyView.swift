@@ -8,8 +8,30 @@
 import SwiftUI
 
 struct SettingsCompanyView: View {
+    
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            ZStack(alignment: .leading) {
+                Color.backgroundCream.edgesIgnoringSafeArea(.all)
+                
+                VStack(alignment: .leading, spacing: .zero) {
+                    Text("SettingsCompanyView")
+                }
+            }
+            .navigationTitle("회사 소개")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(
+                leading: Button(action: {
+                    self.mode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "chevron.left")
+                        .font(.headline)
+                        .foregroundColor(.primaryBrown)
+                }
+            )
+        }
     }
 }
 
