@@ -270,12 +270,12 @@
 			children = (
 				ABC3E950285706910091CC8E /* TodayView.swift */,
 				ABFE83EE2859A5E0001461D4 /* TodayLayoutValue.swift */,
-				ABFE83E228598F3C001461D4 /* Modules */,
+				ABFE83E228598F3C001461D4 /* Components */,
 			);
 			path = Today;
 			sourceTree = "<group>";
 		};
-		ABFE83E228598F3C001461D4 /* Modules */ = {
+		ABFE83E228598F3C001461D4 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				ABFE83E428598F5C001461D4 /* BackgroundAnimationView.swift */,
@@ -284,7 +284,7 @@
 				ABFE83EA2859905C001461D4 /* ExhaustTimeStatement.swift */,
 				ABFE83EC28599078001461D4 /* AddCaffeineButton.swift */,
 			);
-			path = Modules;
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
