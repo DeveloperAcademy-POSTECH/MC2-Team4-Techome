@@ -49,7 +49,11 @@ final class BeverageRepository {
         return results
     }
     
-    func isContainingWord(beverage: Beverage, word: String) -> Bool {
+    private func isContainingWord(beverage: Beverage, word: String) -> Bool {
         return beverage.name.contains(word) || beverage.franchise.getFranchiseName().contains(word)
+    }
+    
+    func findByFranchise(franchise: Franchise) -> [Beverage] {
+        return beverages.filter{ $0.franchise == franchise }
     }
 }
