@@ -12,7 +12,7 @@ struct FranchiseCell: View {
     let isSelected: Bool
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: .zero) {
             Text(franchise.getFranchiseName())
                 .font(.system(size: 15, weight: .medium))
                 .foregroundColor(isSelected

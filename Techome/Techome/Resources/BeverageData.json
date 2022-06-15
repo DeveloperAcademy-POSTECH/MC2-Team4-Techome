@@ -450,5 +450,11 @@
         "defaultShotCount" : 0
       }
     ]
+  },
+  {
+    "id" : "DA077B1D-EAE9-46AE-B1EA-C3A9FBA5034C",
+    "name" : "가짜 커피",
+    "franchise" : "스타벅스",
+    "sizeInfo" : []
   }
 ]

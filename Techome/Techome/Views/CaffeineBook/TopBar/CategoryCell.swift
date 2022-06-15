@@ -12,7 +12,7 @@ struct CategoryCell: View {
     let isSelected: Bool
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: .zero) {
             Text(category.rawValue)
                 .font(.system(size: 17, weight: .semibold))
                 .foregroundColor(isSelected

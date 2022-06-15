@@ -12,7 +12,7 @@ struct FranchiseRow: View {
     
     var body: some View {
         ScrollView(.horizontal) {
-            HStack(spacing: 0) {
+            HStack(spacing: .zero) {
                 ForEach(stateHolder.franchises, id: \.self) { franchise in
                     FranchiseCell(franchise: franchise,
                                       isSelected: franchise == stateHolder.selectedFranchise)

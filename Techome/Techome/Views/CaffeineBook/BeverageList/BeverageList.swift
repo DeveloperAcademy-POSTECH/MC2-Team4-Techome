@@ -17,7 +17,7 @@ struct BeverageList: View {
                 RoundedRectangle(cornerRadius: CaffeineBookLayoutValue.Radius.beverageList.rawValue)
                     .foregroundColor(.white)
                 
-                LazyVStack(spacing: 0) {
+                LazyVStack(spacing: .zero) {
                     switch stateHolder.selectedCategory {
                     case .franchise:
                         let beverages = manager.getBeverages(franchise: stateHolder.selectedFranchise)

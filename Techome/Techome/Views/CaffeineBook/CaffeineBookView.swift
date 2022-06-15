@@ -12,7 +12,7 @@ struct CaffeineBookView: View {
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 0) {
+            VStack(spacing: .zero) {
                 CategoryRow()
                     .environmentObject(stateHolder)
                 

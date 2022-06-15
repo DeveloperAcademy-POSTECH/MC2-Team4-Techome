@@ -11,7 +11,7 @@ struct CategoryRow: View {
     @EnvironmentObject var stateHolder: CaffenineBookStateHolder
     
     var body: some View {
-        HStack(spacing: 0) {
+        HStack(spacing: .zero) {
             ForEach(stateHolder.categories, id: \.self) { category in
                 CategoryCell(category: category,
                              isSelected: category == stateHolder.selectedCategory)
