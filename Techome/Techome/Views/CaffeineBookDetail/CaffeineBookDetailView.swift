@@ -21,7 +21,7 @@ struct CaffeineBookDetailLayoutValue {
         static let infoRowBetweenSpaceExceptCaption: CGFloat = 21
         static let infoRowBetweenSpaceCaption: CGFloat = 19
         static let infoRowBottom: CGFloat = 38
-        static let infoGroupHorizontal: CGFloat = 19
+        static let infoGroupHorizontal: CGFloat = 25
         static let recommendedAmountTop: CGFloat = 5
     }
     
@@ -64,7 +64,7 @@ struct CaffeineBookDetailView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 leading: Button(action: {
-                    print("뒤로가기")
+                    //TODO: navigation goBack
                 }) {
                     Image(systemName: "chevron.left")
                         .font(.headline)
@@ -124,7 +124,7 @@ struct CaffeineSizeButton: View {
                 }
             )
             .onTapGesture {
-                print("\(size) 누름")
+                //TODO: Button Toggle Logic
             }
     }
 }
