@@ -22,13 +22,13 @@ struct RoundedCornersShape: Shape {
 
 struct EspressoShotCountCustomStepper: View {
     //TODO: 임시 더미 데이터
-    @EnvironmentObject var addCaffeineStates: AddCaffeineDetailStateHolder
+    @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
     var ShotCount = 0
     var body: some View {
         HStack(alignment: .center, spacing: .zero) {
             Button {
-                addCaffeineStates.shotCount -= addCaffeineStates.shotCount > 0 ? 1 : 0
-                addCaffeineStates.addCaffeineAmount -= addCaffeineStates.bevergeRecord.franchise.getCaffeinPerShot()
+                addCaffeineDetailStates.shotCount -= addCaffeineDetailStates.shotCount > 0 ? 1 : 0
+                addCaffeineDetailStates.addCaffeineAmount -= addCaffeineDetailStates.bevergeRecord.franchise.getCaffeinPerShot()
             } label: {
                 Image(systemName: "minus")
                     .foregroundColor(.black)
@@ -37,7 +37,7 @@ struct EspressoShotCountCustomStepper: View {
                         .foregroundColor(.white)
                         .shadow(color: .primaryShadowGray, radius: AddCaffeineDetailViewLayoutValue.CornerRadius.shadow, x: .zero, y: .zero))
             }
-            Text("\(addCaffeineStates.shotCount)")
+            Text("\(addCaffeineDetailStates.shotCount)")
                 .font(.body)
                 .fontWeight(.bold)
                 .foregroundColor(.primaryBrown)
@@ -46,8 +46,8 @@ struct EspressoShotCountCustomStepper: View {
                     .foregroundColor(.white)
                     .shadow(color: .primaryShadowGray, radius: AddCaffeineDetailViewLayoutValue.CornerRadius.shadow, x: .zero, y: .zero))
             Button {
-                addCaffeineStates.shotCount += 1
-                addCaffeineStates.addCaffeineAmount += addCaffeineStates.bevergeRecord.franchise.getCaffeinPerShot()
+                addCaffeineDetailStates.shotCount += 1
+                addCaffeineDetailStates.addCaffeineAmount += addCaffeineDetailStates.bevergeRecord.franchise.getCaffeinPerShot()
             } label: {
                 Image(systemName: "plus")
                     .foregroundColor(.black)

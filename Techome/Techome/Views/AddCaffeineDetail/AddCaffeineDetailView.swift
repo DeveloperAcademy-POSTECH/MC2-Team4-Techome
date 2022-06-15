@@ -109,9 +109,12 @@ struct AddCaffeineDetailView: View {
 }
 
 struct AddCaffeineButton: View {
+    @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
+    
     var body: some View {
         Button {
-            //TODO: 추가하기 시 동작
+            addCaffeineDetailStates.intakeManager.addRecord(beverage: addCaffeineDetailStates.bevergeRecord, sizeInfo: addCaffeineDetailStates.bevergeRecord.sizeInfo[addCaffeineDetailStates.isSelected], addedShotCount: addCaffeineDetailStates.shotCount)
+            print()
         } label: {
             Text("추가하기")
                 .font(.title2)
