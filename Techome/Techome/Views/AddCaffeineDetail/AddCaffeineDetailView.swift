@@ -15,22 +15,27 @@ struct AddCaffeineDetailViewLayoutValue {
         static let sectionTitleToComponent: CGFloat = 15
         static let cardVertical: CGFloat = 15
         static let titleToBrand: CGFloat = 5
-        static let drinkSizeButtonHorizontal: CGFloat = 3
-        static let drinkSizeButtonInsideHorizontal: CGFloat = 44
-        static let drinkSizeButtonInsideVertical: CGFloat = 13.5
+        static let addCaffeineAmountToUnit: CGFloat = 3
+        
+        enum DrinkSizeButton {
+            static let horizontal: CGFloat = 3
+            static let insideHorizontal: CGFloat = 44
+            static let insideVertical: CGFloat = 13.5
+        }
+        
         
         enum EffectCard {
-                    static let vertical: CGFloat = 15
-                    static let insideHorizontal: CGFloat = 18
-                    static let insideVertical: CGFloat = 14
-                    static let dividerHorizontal: CGFloat = 10
-                    static let sectionIconToText: CGFloat = 6
-                }
+            static let vertical: CGFloat = 15
+            static let insideHorizontal: CGFloat = 18
+            static let insideVertical: CGFloat = 14
+            static let dividerHorizontal: CGFloat = 10
+            static let sectionIconToText: CGFloat = 6
+        }
         
-        
-        static let addCaffeineAmountToUnit: CGFloat = 3
-        static let stepperInsideVertical: CGFloat = 14
-        static let stepperInsideHorizontal: CGFloat = 49
+        enum Stepper {
+            static let insideVertical: CGFloat = 14
+            static let insideHorizontal: CGFloat = 49
+        }
     }
     
     struct Sizes {

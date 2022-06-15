@@ -8,9 +8,10 @@
 import Foundation
 import SwiftUI
 
+//TODO: merge 할때 Extension 으로 옮길 예정
 extension View {
     func headlineModifier() -> some View {
-        modifier(EffectSectionTextModifier.HeadlineModifier())
+        modifier(HeadlineModifier())
     }
     func sectionTitleModifier() -> some View {
         modifier(SectionTitleModifier())
@@ -40,27 +41,23 @@ struct SectionTitleModifier: ViewModifier {
     }
 }
 
-struct EffectSectionTextModifier {
-    struct HeadlineModifier: ViewModifier {
-        func body(content: Content) -> some View {
-            content
-                .font(.subheadline)
-                .foregroundColor(.primaryBrown)
-                .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.EffectCard.insideVertical)
-        }
+struct HeadlineModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.subheadline)
+            .foregroundColor(.primaryBrown)
+            .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.EffectCard.insideVertical)
     }
 }
+
 
 struct ShotCountStepperModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .frame(width: AddCaffeineDetailViewLayoutValue.Sizes.stepperStepFixedWidth, height: AddCaffeineDetailViewLayoutValue.Sizes.stepperStepFixedHeight, alignment: .center)
-            //.foregroundColor(.black)
-            .padding(.vertical, AddCaffeineDetailViewLayoutValue.Paddings.stepperInsideVertical)
-            .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.stepperInsideHorizontal)
-            //.background(RoundedCornersShape(corners: [.topRight, .bottomRight], radius: AddCaffeineDetailViewLayoutValue.CornerRadius.card)
-               // .foregroundColor(.white)
-                //.shadow(color: .primaryShadowGray, radius: AddCaffeineDetailViewLayoutValue.CornerRadius.shadow, x: .zero, y: .zero))
+            .padding(.vertical, AddCaffeineDetailViewLayoutValue.Paddings.Stepper
+                .insideVertical)
+            .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.Stepper.insideHorizontal)
     }
 }
 

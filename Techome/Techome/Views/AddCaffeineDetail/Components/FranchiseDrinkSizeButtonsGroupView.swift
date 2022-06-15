@@ -23,7 +23,7 @@ struct FranchiseDrinkSizeButtonsGroupView: View {
                 FranchiseDrinkSizeButton()
                     
             }
-            .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.drinkSizeButtonHorizontal)
+            .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.DrinkSizeButton.horizontal)
         }
         .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.cardVertical)
     }
@@ -38,8 +38,8 @@ struct FranchiseDrinkSizeButton: View {
             Text("Tall")
                 .font(.body)
                 .foregroundColor(.secondaryTextGray)
-                .padding(.vertical, AddCaffeineDetailViewLayoutValue.Paddings.drinkSizeButtonInsideVertical)
-                .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.drinkSizeButtonInsideHorizontal)
+                .padding(.vertical, AddCaffeineDetailViewLayoutValue.Paddings.DrinkSizeButton.insideVertical)
+                .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.DrinkSizeButton.insideHorizontal)
                 .background(RoundedRectangle(cornerRadius: AddCaffeineDetailViewLayoutValue.CornerRadius.card)
                     .foregroundColor(.white)
                     .shadow(color: .primaryShadowGray, radius: AddCaffeineDetailViewLayoutValue.CornerRadius.shadow, x: .zero, y: .zero))
