@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2ABF49482856DCAD000E3387 /* BarChart in Frameworks */ = {isa = PBXBuildFile; productRef = 2ABF49472856DCAD000E3387 /* BarChart */; };
+		2AE417C2285A1A8300978C4B /* AddCaffeineDetailStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE417C1285A1A8300978C4B /* AddCaffeineDetailStateHolder.swift */; };
 		52AFC473285704AB000199DF /* AddSideEffectStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */; };
 		52AFC475285826B6000199DF /* Test_G.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC474285826B6000199DF /* Test_G.swift */; };
 		AB18CCED2856D8B300DD1C5A /* SideEffectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCC62856D8B300DD1C5A /* SideEffectRepository.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2AE417C1285A1A8300978C4B /* AddCaffeineDetailStateHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCaffeineDetailStateHolder.swift; sourceTree = "<group>"; };
 		52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSideEffectStateHolder.swift; sourceTree = "<group>"; };
 		52AFC474285826B6000199DF /* Test_G.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_G.swift; sourceTree = "<group>"; };
 		AB18CCC62856D8B300DD1C5A /* SideEffectRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideEffectRepository.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 		AB18CCE92856D8B300DD1C5A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2AE417C1285A1A8300978C4B /* AddCaffeineDetailStateHolder.swift */,
 				AB18CCEA2856D8B300DD1C5A /* tempViewModel.swift */,
 				52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */,
 			);
@@ -411,6 +414,7 @@
 				AB18CCF52856D8B300DD1C5A /* IntakeManager.swift in Sources */,
 				AB18CCF82856D8B300DD1C5A /* tempResources.swift in Sources */,
 				AB18CCFB2856D8B300DD1C5A /* IntakeRecord.swift in Sources */,
+				2AE417C2285A1A8300978C4B /* AddCaffeineDetailStateHolder.swift in Sources */,
 				AB18CCEE2856D8B300DD1C5A /* BeverageRepository.swift in Sources */,
 				AB18CCED2856D8B300DD1C5A /* SideEffectRepository.swift in Sources */,
 				52AFC475285826B6000199DF /* Test_G.swift in Sources */,
