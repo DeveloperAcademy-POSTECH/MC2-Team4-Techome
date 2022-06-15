@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2ABF49482856DCAD000E3387 /* BarChart in Frameworks */ = {isa = PBXBuildFile; productRef = 2ABF49472856DCAD000E3387 /* BarChart */; };
+		5220177F2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */; };
 		52AFC473285704AB000199DF /* AddSideEffectStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */; };
 		52AFC475285826B6000199DF /* Test_G.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC474285826B6000199DF /* Test_G.swift */; };
 		52AFC4782858614E000199DF /* CaffeineBookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC4772858614E000199DF /* CaffeineBookDetailView.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookDetailStateHolder.swift; sourceTree = "<group>"; };
 		52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSideEffectStateHolder.swift; sourceTree = "<group>"; };
 		52AFC474285826B6000199DF /* Test_G.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_G.swift; sourceTree = "<group>"; };
 		52AFC4772858614E000199DF /* CaffeineBookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookDetailView.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			children = (
 				AB18CCEA2856D8B300DD1C5A /* tempViewModel.swift */,
 				52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */,
+				5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				DA11291228570F4C0065BD33 /* TestView_P.swift in Sources */,
 				AB18CD002856D8B300DD1C5A /* AddSideEffectView.swift in Sources */,
 				AB18CCF92856D8B300DD1C5A /* tempModel.swift in Sources */,
+				5220177F2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift in Sources */,
 				AB18CCEF2856D8B300DD1C5A /* IntakeRepository.swift in Sources */,
 				AB18CCF02856D8B300DD1C5A /* tempExtension.swift in Sources */,
 				52AFC4782858614E000199DF /* CaffeineBookDetailView.swift in Sources */,
