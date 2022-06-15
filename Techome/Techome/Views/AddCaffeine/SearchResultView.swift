@@ -16,7 +16,7 @@ struct SearchResultView: View {
             VStack {
                 HStack {
                     Text("검색")
-                    Text("\(searchCaffeineStateHolder.onChangeString(searchString: searchCaffeineStateHolder.searchText).count)")
+                    Text("\(searchCaffeineStateHolder.currentItems.count)")
                         .fontWeight(.semibold)
                     Text("건")
                 }
@@ -26,14 +26,14 @@ struct SearchResultView: View {
                 .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardTitleHorizontalPadding)
                 
                 VStack (spacing: .zero) {
-                    if searchCaffeineStateHolder.onChangeString(searchString: searchCaffeineStateHolder.searchText).isEmpty {
+                    if searchCaffeineStateHolder.currentItems.isEmpty {
                         Text("검색 결과 없음")
                             .font(.title3)
                             .foregroundColor(.customBlack)
                             .padding(.top, SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding)
                     } else {
                         LazyVStack (spacing: .zero) {
-                            ForEach (searchCaffeineStateHolder.onChangeString(searchString: searchCaffeineStateHolder.searchText), id: \.self) { item in
+                            ForEach (searchCaffeineStateHolder.currentItems, id: \.self) { item in
                                 JustifiedCaffeineItem(justifiedCaffeineItem: item)
                             }
                         }

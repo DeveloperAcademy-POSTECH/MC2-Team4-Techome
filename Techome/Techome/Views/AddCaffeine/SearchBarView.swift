@@ -35,7 +35,7 @@ struct SearchBarView: View {
                     , alignment: .trailing
                 )
                 .onChange(of: searchCaffeineStateHolder.searchText) {
-                    searchCaffeineStateHolder.onChangeString(searchString: $0)
+                    searchCaffeineStateHolder.searchItems(searchString: $0)
                 }
         }
         .font(.headline)
