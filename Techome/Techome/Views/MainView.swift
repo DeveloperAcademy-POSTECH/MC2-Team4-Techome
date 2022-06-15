@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     
+    var todayStates = TodayStatesHolder()
+    
     init() {
         UITabBar.appearance().backgroundColor = .white
     }
@@ -21,6 +23,8 @@ struct MainView: View {
                     Image(systemName: "1.square.fill")
                     Text("투데이")
                 }
+                .environmentObject(todayStates)
+            
             Text("카페인북 view가 여기 들어와야 해요.")
                 .tabItem {
                     Image(systemName: "2.square.fill")

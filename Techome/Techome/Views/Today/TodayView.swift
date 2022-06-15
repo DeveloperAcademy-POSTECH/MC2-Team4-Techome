@@ -7,18 +7,37 @@
 
 import SwiftUI
 
-class TodayStatesHolder: ObservableObject {
+final class TodayStatesHolder: ObservableObject {
     
-    @Published var caffeinePercent: Double
+    @Published var remainingAmount: Double
+    
+    private let intakeManager = IntakeManager.shared
+    private let fullChargeAmount: Double = 1000 // TODO: 팀원 합의 필요
     
     init() {
-        caffeinePercent = 0.0
+        remainingAmount = intakeManager.getRemainCaffeineAmount()
     }
+    
+    func getRemainingPercentage() -> Double {
+        return (remainingAmount / fullChargeAmount)
+    }
+    
+    func getRemainingTimeString() -> String {
+        let seconds = intakeManager.getRemainTimeToDischarge()
+        let hour = seconds / 3600
+        let minutes = (seconds % 3600) / 60
+        
+        
+        return ""
+    }
+    
+    
 }
 
 
 struct TodayView: View {
     @State private var caffeinePercent: Double = 0.5
+    @EnvironmentObject private var todayStates: TodayStatesHolder
     
     var body: some View {
         GeometryReader { geometry in
