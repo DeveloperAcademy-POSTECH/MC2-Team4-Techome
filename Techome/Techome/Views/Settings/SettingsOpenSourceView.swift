@@ -17,10 +17,44 @@ struct SettingsOpenSourceView: View {
                 Color.backgroundCream.edgesIgnoringSafeArea(.all)
                 
                 VStack(alignment: .leading, spacing: .zero) {
-                    Text("SettingsOpenSourceView")
+                    VStack(alignment: .leading, spacing: .zero) {
+                        Text("This application is Copyright ©Techome. All rights reserved")
+                            .font(.caption)
+                            .foregroundColor(.secondaryTextGray)
+                            .padding(.horizontal, 17)
+                            .padding(.top, 27)
+                        
+                        Text("The following sets forth attribution notices for third party software that may be contained in this application")
+                            .font(.caption)
+                            .foregroundColor(.secondaryTextGray)
+                            .padding(.horizontal, 17)
+                            .padding(.top, 10)
+                        
+                        Divider()
+                            .foregroundColor(.primaryShadowGray)
+                            .padding(.horizontal, 17)
+                            .padding(.vertical, 20)
+                        
+                        OpenSourceGroup(name: "OpenSource Name", link: "https://github.com/DeveloperAcademy-POSTECH/MC2-Team4-Techome", copyright: "OpenSource Copyright", license: "OpenSource License")
+                        
+                        OpenSourceGroup(name: "OpenSource Name", link: "https://github.com/DeveloperAcademy-POSTECH/MC2-Team4-Techome", copyright: "OpenSource Copyright", license: "OpenSource License")
+                        
+                        OpenSourceGroup(name: "OpenSource Name", link: "https://github.com/DeveloperAcademy-POSTECH/MC2-Team4-Techome", copyright: "OpenSource Copyright", license: "OpenSource License")
+                        
+                    }
+                    .background(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 7))
+                    .padding(.horizontal, 15)
+                    .padding(.top, 8)
+                    .shadow(color: Color.primaryShadowGray, radius: 4, x: .zero, y: .zero)
+                    .font(.body)
+                    .foregroundColor(.customBlack)
+                    
+                    Spacer()
                 }
+                .padding(.top, 15)
             }
-            .navigationTitle("오픈소스 라이브러리")
+            .navigationTitle("오픈소스 라이선스")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 leading: Button(action: {
@@ -32,6 +66,39 @@ struct SettingsOpenSourceView: View {
                 }
             )
         }
+    }
+}
+
+struct OpenSourceGroup: View {
+    
+    var name: String
+    var link: String
+    var copyright: String
+    var license: String
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: .zero) {
+            Text(name)
+                .font(.headline)
+                .foregroundColor(.customBlack)
+
+            Text(link)
+                .foregroundColor(.blue)
+                .padding(.top, 5)
+                .font(.caption)
+            
+            Text(copyright)
+                .foregroundColor(.secondaryTextGray)
+                .padding(.top, 2)
+                .font(.caption)
+            
+            Text(license)
+                .foregroundColor(.customBlack)
+                .font(.caption)
+                .padding(.top, 2)
+        }
+        .padding(.horizontal, 17)
+        .padding(.bottom, 20)
     }
 }
 

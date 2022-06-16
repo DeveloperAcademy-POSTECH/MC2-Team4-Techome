@@ -29,7 +29,7 @@ struct SettingsView: View {
                 leading: Button(action: {
                     self.mode.wrappedValue.dismiss()
                 }) {
-                    Image(systemName: "multiply")
+                    Image(systemName: "chevron.left")
                         .font(.headline)
                         .foregroundColor(.primaryBrown)
                 }
@@ -86,7 +86,7 @@ struct InformationGroup: View {
                 SettingsOpenSourceView()
                     .navigationBarHidden(true)
             }){
-                InformationRowContent(informationText: "오픈소스 라이브러리")
+                InformationRowContent(informationText: "오픈소스 라이선스")
             }
             DividerCustom()
             
@@ -94,7 +94,7 @@ struct InformationGroup: View {
                 SettingsPersonalInformationView()
                     .navigationBarHidden(true)
             }){
-                InformationRowContent(informationText: "개인정보 및 보안 도움말")
+                InformationRowContent(informationText: "개인정보 처리방침")
             }
             DividerCustom()
             
@@ -122,7 +122,7 @@ struct GroupLabel: View {
     var body: some View {
         Text(labelText)
             .padding(.leading, 18)
-            .padding(.top, 38)
+            .padding(.top, 35)
             .font(.title3)
             .foregroundColor(.customBlack)
     }
@@ -150,7 +150,7 @@ struct InformationRowContent: View {
                 .font(.body)
                 .foregroundColor(.customBlack)
             Spacer()
-            Image(systemName: "greaterthan")
+            Image(systemName: "chevron.right")
                 .foregroundColor(.customBlack)
         }
         .padding(.horizontal, 17)
