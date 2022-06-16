@@ -81,7 +81,7 @@ final class NotificationManager {
                 }
             } else {
                 print("removeall!!")
-                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [request.identifier])
                 
             }
             

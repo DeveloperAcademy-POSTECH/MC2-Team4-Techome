@@ -23,7 +23,7 @@ final class NotificationStateHolder: ObservableObject {
 
     func delNotification(textType: NotificationText) -> Void {
         let manager = NotificationManager()
-        manager.addNotification(title: "택이네~", textType: textType)
+        manager.addNotification(title: "택이네 🏡", textType: textType)
         manager.scheduleNotifications(isOn: false)
         
     }

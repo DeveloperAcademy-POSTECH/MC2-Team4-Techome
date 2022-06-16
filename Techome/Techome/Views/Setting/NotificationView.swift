@@ -9,9 +9,7 @@ import SwiftUI
 
 struct NotificationView: View {
     
-    //    @State var showAlert = false
     @EnvironmentObject var notificationStateHolder: NotificationStateHolder
-    
     
     var body: some View {
         VStack {
@@ -30,9 +28,6 @@ struct NotificationView: View {
                             
                         }
                     }
-                //                .alert(isPresented: $notificationStateHolder.showAlert) {
-                //                    Alert(title: Text("경고"), message: Text("알림을 허용해주세요"), dismissButton: .default(Text("확인")))
-                //                }
                     .padding(12)
                     .padding(.horizontal, 10)
                 
@@ -49,13 +44,9 @@ struct NotificationView: View {
                             notificationStateHolder.setNotification(textType: NotificationText.warningNotification)
                             notificationStateHolder.showAlert = true
                         }else {
-                            notificationStateHolder.delNotification(textType:   NotificationText.warningNotification)
-                            
+                            notificationStateHolder.delNotification(textType: NotificationText.warningNotification)
                         }
                     }
-    //                .alert(isPresented: $notificationStateHolder.showAlert) {
-    //                    Alert(title: Text("경고"), message: Text("알림을 허용해주세요"), dismissButton: .default(Text("확인")))
-    //                }
                     .padding(12)
                     .padding(.horizontal, 10)
             }
@@ -75,9 +66,6 @@ struct NotificationView: View {
                             
                         }
                     }
-    //                .alert(isPresented: $notificationStateHolder.showAlert) {
-    //                    Alert(title: Text("경고"), message: Text("알림을 허용해주세요"), dismissButton: .default(Text("확인")))
-    //                }
                     .padding(12)
                     .padding(.horizontal, 10)
             }
