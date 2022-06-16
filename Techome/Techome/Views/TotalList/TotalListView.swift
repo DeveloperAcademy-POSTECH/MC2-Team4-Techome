@@ -123,7 +123,7 @@ struct TotalListByDay: View {
                     }
                     .padding(.leading, 100)
                     
-                    Cell()
+                    Cell(curCell : cell)
                         .offset(x: totalData.offsetsArr[curDate]![index])
                         .gesture(
                             DragGesture()
@@ -158,10 +158,25 @@ struct TotalListByDay: View {
 
 struct Cell: View {
     
-    @State var offsetCell : CGFloat = .zero
+//    @State var offsetCell : CGFloat = .zero
     
-    var body: some View {
-        Text("하나의 cell")
+    var curCell : TotalDataCell
+    
+    var body : some View {
+
+        switch curCell.dataType {
+        case "drink" :
+            VStack {
+                Text("카페인입니다")
+            }
+        case "sideEffect" :
+            VStack {
+                Text("부작용입니다")
+            }
+        default :
+            EmptyView()
+            
+        }
     }
 }
 
