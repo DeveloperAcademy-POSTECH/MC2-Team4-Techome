@@ -129,6 +129,9 @@ struct TotalListView: View {
 
 //날짜별 카페인 + 부작용 데이터
 //TODO: 날짜별로 스트레스 + 부작용 데이터 받아와서 뷰 만들기
+//버튼 구현 reference
+//https://www.youtube.com/watch?v=jXVQDmeNb8A
+//https://stackoverflow.com/questions/67238383/how-to-swipe-to-delete-in-swiftui-with-only-a-foreach-and-not-a-list
 struct TotalListByDate: View {
     
     @ObservedObject var totalData : datas
