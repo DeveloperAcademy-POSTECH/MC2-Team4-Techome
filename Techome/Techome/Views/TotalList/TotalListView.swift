@@ -128,18 +128,10 @@ struct TotalListByDay: View {
                         .gesture(
                             DragGesture()
                                 .onChanged { gesture in
-                                    totalData.offsetsArr[curDate]![index] = gesture.translation.width
-                                    if totalData.offsetsArr[curDate]![index] > 74 {
-                                        totalData.offsetsArr[curDate]![index] = .zero
-                                    }
+                                    onChanged(value: gesture, curDate: curDate, index: index)
                                 }
                                 .onEnded { _ in
-                                    if totalData.offsetsArr[curDate]![index] < -74 {
-                                        totalData.offsetsArr[curDate]![index] = -74
-                                    }
-                                    else if totalData.offsetsArr[curDate]![index] > -74 {
-                                        totalData.offsetsArr[curDate]![index] = .zero
-                                    }
+                                    onEnd(curDate: curDate, index: index)
                                 }
                             )
                 }
@@ -147,6 +139,21 @@ struct TotalListByDay: View {
         }
     }
     
+    func onChanged(value: DragGesture.Value, curDate: String, index: Int) {
+        totalData.offsetsArr[curDate]![index] = value.translation.width
+        if totalData.offsetsArr[curDate]![index] > 74 {
+            totalData.offsetsArr[curDate]![index] = .zero
+        }
+    }
+    
+    func onEnd(curDate: String, index: Int){
+        if totalData.offsetsArr[curDate]![index] < -74 {
+            totalData.offsetsArr[curDate]![index] = -74
+        }
+        else if totalData.offsetsArr[curDate]![index] > -74 {
+            totalData.offsetsArr[curDate]![index] = .zero
+        }
+    }
 }
 
 struct Cell: View {
