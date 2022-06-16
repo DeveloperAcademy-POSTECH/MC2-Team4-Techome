@@ -6,10 +6,15 @@
 //
 
 import SwiftUI
+import UIKit
+import MessageUI
 
 struct SettingsView: View {
     
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
+    @State private var showSheet = false
+    @State var result: Result<MFMailComposeResult, Error>? = nil
     
     var body: some View {
         
@@ -19,7 +24,7 @@ struct SettingsView: View {
                 
                 VStack(alignment: .leading, spacing: .zero) {
                     NoticeGroup()
-                    InformationGroup()
+                    InformationGroup(showSheet: $showSheet)
                     Spacer()
                 }
             }
@@ -34,6 +39,9 @@ struct SettingsView: View {
                         .foregroundColor(.primaryBrown)
                 }
             )
+            .sheet(isPresented: $showSheet) {
+                SettingsAddOpinionView(result: self.$result, title: "[앱이름]", body: "[제안 내용]")
+            }
         }
         
     }
@@ -68,6 +76,10 @@ struct NoticeGroup: View {
 }
 
 struct InformationGroup: View {
+    
+    @Binding var showSheet: Bool
+    @State var showAlert: Bool = false
+    
     var body: some View {
         
         GroupLabel(labelText: "정보")
@@ -98,12 +110,11 @@ struct InformationGroup: View {
             }
             DividerCustom()
             
-            NavigationLink(destination: {
-                SettingsAddOpinionView()
-                    .navigationBarHidden(true)
-            }){
-                InformationRowContent(informationText: "개발자에게 의견 남기기")
-            }
+            InformationRowContent(informationText: "개발자에게 의견 남기기")
+                .onTapGesture {
+                    suggestFeature()
+                }
+            
         }
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 7))
@@ -112,6 +123,18 @@ struct InformationGroup: View {
         .shadow(color: Color.primaryShadowGray, radius: 4, x: .zero, y: .zero)
         .font(.body)
         .foregroundColor(.customBlack)
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Error"), message: Text("메일을 보낼 수 없습니다."))
+        }
+    }
+    
+    func suggestFeature() {
+        
+        if MFMailComposeViewController.canSendMail() {
+            showSheet = true
+        } else {
+            showAlert = true
+        }
     }
 }
 

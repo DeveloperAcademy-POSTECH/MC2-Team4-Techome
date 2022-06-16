@@ -35,11 +35,11 @@ struct SettingsOpenSourceView: View {
                             .padding(.horizontal, 17)
                             .padding(.vertical, 20)
                         
-                        OpenSourceGroup(name: "OpenSource Name", link: "https://github.com/DeveloperAcademy-POSTECH/MC2-Team4-Techome", copyright: "OpenSource Copyright", license: "OpenSource License")
+                        OpenSourceGroup(name: "SwiftUI BarChart", link: "https://github.com/dawigr/BarChart/blob/master/LICENSE", copyright: "Copyright (c) 2020 Roman Baitaliuk", license: "MIT License")
                         
-                        OpenSourceGroup(name: "OpenSource Name", link: "https://github.com/DeveloperAcademy-POSTECH/MC2-Team4-Techome", copyright: "OpenSource Copyright", license: "OpenSource License")
+                        OpenSourceGroup(name: "SwiftUI BarChart", link: "https://github.com/dawigr/BarChart/blob/master/LICENSE", copyright: "Copyright (c) 2020 Roman Baitaliuk", license: "MIT License")
                         
-                        OpenSourceGroup(name: "OpenSource Name", link: "https://github.com/DeveloperAcademy-POSTECH/MC2-Team4-Techome", copyright: "OpenSource Copyright", license: "OpenSource License")
+                        OpenSourceGroup(name: "SwiftUI BarChart", link: "https://github.com/dawigr/BarChart/blob/master/LICENSE", copyright: "Copyright (c) 2020 Roman Baitaliuk", license: "MIT License")
                         
                     }
                     .background(.white)
@@ -81,11 +81,12 @@ struct OpenSourceGroup: View {
             Text(name)
                 .font(.headline)
                 .foregroundColor(.customBlack)
-
-            Text(link)
-                .foregroundColor(.blue)
-                .padding(.top, 5)
-                .font(.caption)
+            
+            Link(link,
+                 destination: URL(string: link)!)
+            .foregroundColor(.blue)
+            .padding(.top, 5)
+            .font(.caption)
             
             Text(copyright)
                 .foregroundColor(.secondaryTextGray)
