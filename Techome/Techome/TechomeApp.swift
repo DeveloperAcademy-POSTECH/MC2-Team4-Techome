@@ -11,7 +11,7 @@ import SwiftUI
 struct TechomeApp: App {
     var body: some Scene {
         WindowGroup {
-            Home()
+            CaffeineBookView()
         }
     }
 }

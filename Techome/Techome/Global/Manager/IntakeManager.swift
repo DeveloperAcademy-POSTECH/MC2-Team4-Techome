@@ -54,19 +54,16 @@ final class IntakeManager {
         return amount
     }
     
-    func getRemainTimeToDischarge() -> Int {
+    func getRemainTimeToDischarge(caffeine: Double) -> Int {
         //  카페인을 모두 배출된 시간을 위해 임의로 정한 값
-        let standard = 50.0
-        let days = 3
+        let standard = 30.0
         let halfLifeInSecond: Double = 4 * 60 * 60
         
-        guard isRecordExist(days: days) else {
+        if caffeine < standard {
             return 0
         }
         
-        let remainCaffeine = getRemainCaffeineAmount()
-        
-        return Int((-log2(standard / Double(remainCaffeine)) * halfLifeInSecond))
+        return Int((-log2(standard / caffeine) * halfLifeInSecond))
     }
     
     private func isRecordExist(days: Int) -> Bool {

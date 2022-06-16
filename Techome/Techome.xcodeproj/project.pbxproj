@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A427E292858548900089AC0 /* ChartSelectionIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A427E282858548900089AC0 /* ChartSelectionIndicatorView.swift */; };
+		2A427E2D285859D700089AC0 /* TrendChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A427E2C285859D700089AC0 /* TrendChartView.swift */; };
 		2ABF49482856DCAD000E3387 /* BarChart in Frameworks */ = {isa = PBXBuildFile; productRef = 2ABF49472856DCAD000E3387 /* BarChart */; };
+		5220177F2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */; };
+		52AFC473285704AB000199DF /* AddSideEffectStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */; };
+		52AFC4782858614E000199DF /* CaffeineBookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC4772858614E000199DF /* CaffeineBookDetailView.swift */; };
+		793214F6285702A500D7E4E1 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793214F5285702A500D7E4E1 /* UIApplication+.swift */; };
+		793214F8285702BB00D7E4E1 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793214F7285702BB00D7E4E1 /* SearchBarView.swift */; };
+		79421B9D285722B400DFD58A /* SearchCaffeineStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79421B9C285722B400DFD58A /* SearchCaffeineStateHolder.swift */; };
+		797B456728570C4200DB45FA /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797B456628570C4200DB45FA /* SearchResultView.swift */; };
 		AB18CCED2856D8B300DD1C5A /* SideEffectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCC62856D8B300DD1C5A /* SideEffectRepository.swift */; };
-		AB18CCEE2856D8B300DD1C5A /* BeverageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCC72856D8B300DD1C5A /* BeverageRepository.swift */; };
 		AB18CCEF2856D8B300DD1C5A /* IntakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCC82856D8B300DD1C5A /* IntakeRepository.swift */; };
 		AB18CCF02856D8B300DD1C5A /* tempExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCCA2856D8B300DD1C5A /* tempExtension.swift */; };
 		AB18CCF12856D8B300DD1C5A /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCCB2856D8B300DD1C5A /* Color+.swift */; };
@@ -18,12 +26,10 @@
 		AB18CCF42856D8B300DD1C5A /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCCF2856D8B300DD1C5A /* JSONManager.swift */; };
 		AB18CCF52856D8B300DD1C5A /* IntakeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCD02856D8B300DD1C5A /* IntakeManager.swift */; };
 		AB18CCF62856D8B300DD1C5A /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCD12856D8B300DD1C5A /* Formatter.swift */; };
-		AB18CCF72856D8B300DD1C5A /* BeverageData.json in Resources */ = {isa = PBXBuildFile; fileRef = AB18CCD32856D8B300DD1C5A /* BeverageData.json */; };
 		AB18CCF82856D8B300DD1C5A /* tempResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCD42856D8B300DD1C5A /* tempResources.swift */; };
 		AB18CCF92856D8B300DD1C5A /* tempModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCD62856D8B300DD1C5A /* tempModel.swift */; };
 		AB18CCFA2856D8B300DD1C5A /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCD82856D8B300DD1C5A /* Beverage.swift */; };
 		AB18CCFB2856D8B300DD1C5A /* IntakeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCD92856D8B300DD1C5A /* IntakeRecord.swift */; };
-		AB18CCFC2856D8B300DD1C5A /* Franchise.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCDA2856D8B300DD1C5A /* Franchise.swift */; };
 		AB18CCFD2856D8B300DD1C5A /* SideEffectRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCDC2856D8B300DD1C5A /* SideEffectRecord.swift */; };
 		AB18CCFE2856D8B300DD1C5A /* TrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCDF2856D8B300DD1C5A /* TrendView.swift */; };
 		AB18CCFF2856D8B300DD1C5A /* HomeView_G.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCE12856D8B300DD1C5A /* HomeView_G.swift */; };
@@ -36,7 +42,25 @@
 		AB18CD062856D8B300DD1C5A /* tempViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCEA2856D8B300DD1C5A /* tempViewModel.swift */; };
 		AB18CD072856D8B300DD1C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB18CCEB2856D8B300DD1C5A /* Assets.xcassets */; };
 		AB1FBDFA2856B93400EB4F95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1FBDF92856B93400EB4F95 /* Preview Assets.xcassets */; };
+		ABA3D6D42859DAFF00D60A6C /* Franchise.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA3D6D32859DAFF00D60A6C /* Franchise.swift */; };
+		ABC0E9452859CD0E0046C9C8 /* BeverageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0E9442859CD0E0046C9C8 /* BeverageRepository.swift */; };
+		ABC0E9492859CD780046C9C8 /* BeverageData.json in Resources */ = {isa = PBXBuildFile; fileRef = ABC0E9482859CD780046C9C8 /* BeverageData.json */; };
+		ABC0E94D2859CDC60046C9C8 /* CaffeineBookStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0E94C2859CDC60046C9C8 /* CaffeineBookStateHolder.swift */; };
+		ABC0E95A2859CDDE0046C9C8 /* CaffeineBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0E94F2859CDDE0046C9C8 /* CaffeineBookView.swift */; };
+		ABC0E95B2859CDDE0046C9C8 /* CaffeineBookLayoutValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0E9502859CDDE0046C9C8 /* CaffeineBookLayoutValue.swift */; };
+		ABC0E95C2859CDDE0046C9C8 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0E9522859CDDE0046C9C8 /* CategoryCell.swift */; };
+		ABC0E95D2859CDDE0046C9C8 /* FranchiseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0E9532859CDDE0046C9C8 /* FranchiseCell.swift */; };
+		ABC0E95E2859CDDE0046C9C8 /* FranchiseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0E9542859CDDE0046C9C8 /* FranchiseRow.swift */; };
+		ABC0E95F2859CDDE0046C9C8 /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0E9552859CDDE0046C9C8 /* CategoryRow.swift */; };
+		ABC0E9602859CDDE0046C9C8 /* BeverageListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0E9572859CDDE0046C9C8 /* BeverageListRow.swift */; };
+		ABC0E9612859CDDE0046C9C8 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0E9582859CDDE0046C9C8 /* EmptyListView.swift */; };
+		ABC0E9622859CDDE0046C9C8 /* BeverageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0E9592859CDDE0046C9C8 /* BeverageList.swift */; };
 		ABC3E9572858122F0091CC8E /* TotalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC3E9562858122F0091CC8E /* TotalListView.swift */; };
+		ABFE83F72859A876001461D4 /* EspressoShotCountCustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83F22859A876001461D4 /* EspressoShotCountCustomStepper.swift */; };
+		ABFE83F82859A876001461D4 /* EffectSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83F32859A876001461D4 /* EffectSectionView.swift */; };
+		ABFE83F92859A876001461D4 /* FranchiseDrinkSizeButtonsGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83F42859A876001461D4 /* FranchiseDrinkSizeButtonsGroupView.swift */; };
+		ABFE83FA2859A876001461D4 /* AddCaffeineDetailCustomModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83F52859A876001461D4 /* AddCaffeineDetailCustomModifier.swift */; };
+		ABFE83FB2859A876001461D4 /* AddCaffeineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83F62859A876001461D4 /* AddCaffeineDetailView.swift */; };
 		DA11291028570EF20065BD33 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11290F28570EF20065BD33 /* DummyData.swift */; };
 		DA11291228570F4C0065BD33 /* TestView_P.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11291128570F4C0065BD33 /* TestView_P.swift */; };
 		DA8E714928581674009836DE /* IntakeRecord.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8E714728581674009836DE /* IntakeRecord.json */; };
@@ -44,8 +68,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A427E282858548900089AC0 /* ChartSelectionIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartSelectionIndicatorView.swift; sourceTree = "<group>"; };
+		2A427E2C285859D700089AC0 /* TrendChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendChartView.swift; sourceTree = "<group>"; };
+		5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookDetailStateHolder.swift; sourceTree = "<group>"; };
+		52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSideEffectStateHolder.swift; sourceTree = "<group>"; };
+		52AFC4772858614E000199DF /* CaffeineBookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookDetailView.swift; sourceTree = "<group>"; };
+		793214F5285702A500D7E4E1 /* UIApplication+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
+		793214F7285702BB00D7E4E1 /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		79421B9C285722B400DFD58A /* SearchCaffeineStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCaffeineStateHolder.swift; sourceTree = "<group>"; };
+		797B456628570C4200DB45FA /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		AB18CCC62856D8B300DD1C5A /* SideEffectRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideEffectRepository.swift; sourceTree = "<group>"; };
-		AB18CCC72856D8B300DD1C5A /* BeverageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageRepository.swift; sourceTree = "<group>"; };
 		AB18CCC82856D8B300DD1C5A /* IntakeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntakeRepository.swift; sourceTree = "<group>"; };
 		AB18CCCA2856D8B300DD1C5A /* tempExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempExtension.swift; sourceTree = "<group>"; };
 		AB18CCCB2856D8B300DD1C5A /* Color+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
@@ -54,12 +86,10 @@
 		AB18CCCF2856D8B300DD1C5A /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
 		AB18CCD02856D8B300DD1C5A /* IntakeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntakeManager.swift; sourceTree = "<group>"; };
 		AB18CCD12856D8B300DD1C5A /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
-		AB18CCD32856D8B300DD1C5A /* BeverageData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BeverageData.json; sourceTree = "<group>"; };
 		AB18CCD42856D8B300DD1C5A /* tempResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempResources.swift; sourceTree = "<group>"; };
 		AB18CCD62856D8B300DD1C5A /* tempModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempModel.swift; sourceTree = "<group>"; };
 		AB18CCD82856D8B300DD1C5A /* Beverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		AB18CCD92856D8B300DD1C5A /* IntakeRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntakeRecord.swift; sourceTree = "<group>"; };
-		AB18CCDA2856D8B300DD1C5A /* Franchise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Franchise.swift; sourceTree = "<group>"; };
 		AB18CCDC2856D8B300DD1C5A /* SideEffectRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideEffectRecord.swift; sourceTree = "<group>"; };
 		AB18CCDF2856D8B300DD1C5A /* TrendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendView.swift; sourceTree = "<group>"; };
 		AB18CCE12856D8B300DD1C5A /* HomeView_G.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView_G.swift; sourceTree = "<group>"; };
@@ -73,7 +103,25 @@
 		AB18CCEB2856D8B300DD1C5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB1FBDEF2856B93300EB4F95 /* Techome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Techome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB1FBDF92856B93400EB4F95 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ABA3D6D32859DAFF00D60A6C /* Franchise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Franchise.swift; sourceTree = "<group>"; };
+		ABC0E9442859CD0E0046C9C8 /* BeverageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageRepository.swift; sourceTree = "<group>"; };
+		ABC0E9482859CD780046C9C8 /* BeverageData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BeverageData.json; sourceTree = "<group>"; };
+		ABC0E94C2859CDC60046C9C8 /* CaffeineBookStateHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaffeineBookStateHolder.swift; sourceTree = "<group>"; };
+		ABC0E94F2859CDDE0046C9C8 /* CaffeineBookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaffeineBookView.swift; sourceTree = "<group>"; };
+		ABC0E9502859CDDE0046C9C8 /* CaffeineBookLayoutValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaffeineBookLayoutValue.swift; sourceTree = "<group>"; };
+		ABC0E9522859CDDE0046C9C8 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		ABC0E9532859CDDE0046C9C8 /* FranchiseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FranchiseCell.swift; sourceTree = "<group>"; };
+		ABC0E9542859CDDE0046C9C8 /* FranchiseRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FranchiseRow.swift; sourceTree = "<group>"; };
+		ABC0E9552859CDDE0046C9C8 /* CategoryRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
+		ABC0E9572859CDDE0046C9C8 /* BeverageListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageListRow.swift; sourceTree = "<group>"; };
+		ABC0E9582859CDDE0046C9C8 /* EmptyListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
+		ABC0E9592859CDDE0046C9C8 /* BeverageList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageList.swift; sourceTree = "<group>"; };
 		ABC3E9562858122F0091CC8E /* TotalListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalListView.swift; sourceTree = "<group>"; };
+		ABFE83F22859A876001461D4 /* EspressoShotCountCustomStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EspressoShotCountCustomStepper.swift; sourceTree = "<group>"; };
+		ABFE83F32859A876001461D4 /* EffectSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EffectSectionView.swift; sourceTree = "<group>"; };
+		ABFE83F42859A876001461D4 /* FranchiseDrinkSizeButtonsGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FranchiseDrinkSizeButtonsGroupView.swift; sourceTree = "<group>"; };
+		ABFE83F52859A876001461D4 /* AddCaffeineDetailCustomModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCaffeineDetailCustomModifier.swift; sourceTree = "<group>"; };
+		ABFE83F62859A876001461D4 /* AddCaffeineDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCaffeineDetailView.swift; sourceTree = "<group>"; };
 		DA11290F28570EF20065BD33 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		DA11291128570F4C0065BD33 /* TestView_P.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView_P.swift; sourceTree = "<group>"; };
 		DA8E714728581674009836DE /* IntakeRecord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = IntakeRecord.json; sourceTree = "<group>"; };
@@ -92,6 +140,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52AFC4762858612D000199DF /* CaffeineBookDetail */ = {
+			isa = PBXGroup;
+			children = (
+				52AFC4772858614E000199DF /* CaffeineBookDetailView.swift */,
+			);
+			path = CaffeineBookDetail;
+			sourceTree = "<group>";
+		};
 		AB18CCC42856D8B300DD1C5A /* Global */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,7 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				AB18CCC62856D8B300DD1C5A /* SideEffectRepository.swift */,
-				AB18CCC72856D8B300DD1C5A /* BeverageRepository.swift */,
+				ABC0E9442859CD0E0046C9C8 /* BeverageRepository.swift */,
 				AB18CCC82856D8B300DD1C5A /* IntakeRepository.swift */,
 			);
 			path = Repository;
@@ -116,6 +172,7 @@
 		AB18CCC92856D8B300DD1C5A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				793214F5285702A500D7E4E1 /* UIApplication+.swift */,
 				AB18CCCA2856D8B300DD1C5A /* tempExtension.swift */,
 				AB18CCCB2856D8B300DD1C5A /* Color+.swift */,
 			);
@@ -136,7 +193,7 @@
 		AB18CCD22856D8B300DD1C5A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AB18CCD32856D8B300DD1C5A /* BeverageData.json */,
+				ABC0E9482859CD780046C9C8 /* BeverageData.json */,
 				DA8E714728581674009836DE /* IntakeRecord.json */,
 				DA8E714828581674009836DE /* SideEffectRecord.json */,
 				DA11290F28570EF20065BD33 /* DummyData.swift */,
@@ -158,9 +215,9 @@
 		AB18CCD72856D8B300DD1C5A /* Intake */ = {
 			isa = PBXGroup;
 			children = (
+				ABA3D6D32859DAFF00D60A6C /* Franchise.swift */,
 				AB18CCD82856D8B300DD1C5A /* Beverage.swift */,
 				AB18CCD92856D8B300DD1C5A /* IntakeRecord.swift */,
-				AB18CCDA2856D8B300DD1C5A /* Franchise.swift */,
 			);
 			path = Intake;
 			sourceTree = "<group>";
@@ -176,12 +233,15 @@
 		AB18CCDD2856D8B300DD1C5A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ABC0E94E2859CDDE0046C9C8 /* CaffeineBook */,
+				52AFC4762858612D000199DF /* CaffeineBookDetail */,
 				AB18CCDE2856D8B300DD1C5A /* Trend */,
 				AB18CCE02856D8B300DD1C5A /* AddSideEffect */,
 				AB18CCE32856D8B300DD1C5A /* ContentView.swift */,
 				DA11291128570F4C0065BD33 /* TestView_P.swift */,
 				AB18CCE42856D8B300DD1C5A /* AddCaffeine */,
 				ABC3E9552858122F0091CC8E /* TotalList */,
+				ABFE83F02859A876001461D4 /* AddCaffeineDetail */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				AB18CCDF2856D8B300DD1C5A /* TrendView.swift */,
+				2A427E2C285859D700089AC0 /* TrendChartView.swift */,
+				2A427E282858548900089AC0 /* ChartSelectionIndicatorView.swift */,
 			);
 			path = Trend;
 			sourceTree = "<group>";
@@ -206,9 +268,11 @@
 		AB18CCE42856D8B300DD1C5A /* AddCaffeine */ = {
 			isa = PBXGroup;
 			children = (
+				793214F7285702BB00D7E4E1 /* SearchBarView.swift */,
 				AB18CCE52856D8B300DD1C5A /* HomeView.swift */,
 				AB18CCE62856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift */,
 				AB18CCE72856D8B300DD1C5A /* SearchCaffeineView.swift */,
+				797B456628570C4200DB45FA /* SearchResultView.swift */,
 			);
 			path = AddCaffeine;
 			sourceTree = "<group>";
@@ -216,7 +280,11 @@
 		AB18CCE92856D8B300DD1C5A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				ABC0E94B2859CDC60046C9C8 /* CaffeineBook */,
 				AB18CCEA2856D8B300DD1C5A /* tempViewModel.swift */,
+				79421B9C285722B400DFD58A /* SearchCaffeineStateHolder.swift */,
+				52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */,
+				5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -260,6 +328,46 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		ABC0E94B2859CDC60046C9C8 /* CaffeineBook */ = {
+			isa = PBXGroup;
+			children = (
+				ABC0E94C2859CDC60046C9C8 /* CaffeineBookStateHolder.swift */,
+			);
+			path = CaffeineBook;
+			sourceTree = "<group>";
+		};
+		ABC0E94E2859CDDE0046C9C8 /* CaffeineBook */ = {
+			isa = PBXGroup;
+			children = (
+				ABC0E94F2859CDDE0046C9C8 /* CaffeineBookView.swift */,
+				ABC0E9502859CDDE0046C9C8 /* CaffeineBookLayoutValue.swift */,
+				ABC0E9512859CDDE0046C9C8 /* TopBar */,
+				ABC0E9562859CDDE0046C9C8 /* BeverageList */,
+			);
+			path = CaffeineBook;
+			sourceTree = "<group>";
+		};
+		ABC0E9512859CDDE0046C9C8 /* TopBar */ = {
+			isa = PBXGroup;
+			children = (
+				ABC0E9522859CDDE0046C9C8 /* CategoryCell.swift */,
+				ABC0E9532859CDDE0046C9C8 /* FranchiseCell.swift */,
+				ABC0E9542859CDDE0046C9C8 /* FranchiseRow.swift */,
+				ABC0E9552859CDDE0046C9C8 /* CategoryRow.swift */,
+			);
+			path = TopBar;
+			sourceTree = "<group>";
+		};
+		ABC0E9562859CDDE0046C9C8 /* BeverageList */ = {
+			isa = PBXGroup;
+			children = (
+				ABC0E9572859CDDE0046C9C8 /* BeverageListRow.swift */,
+				ABC0E9582859CDDE0046C9C8 /* EmptyListView.swift */,
+				ABC0E9592859CDDE0046C9C8 /* BeverageList.swift */,
+			);
+			path = BeverageList;
+			sourceTree = "<group>";
+		};
 		ABC3E9552858122F0091CC8E /* TotalList */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +376,26 @@
 			name = TotalList;
 			path = Techome/Views/TotalList;
 			sourceTree = SOURCE_ROOT;
+		};
+		ABFE83F02859A876001461D4 /* AddCaffeineDetail */ = {
+			isa = PBXGroup;
+			children = (
+				ABFE83F12859A876001461D4 /* Components */,
+				ABFE83F52859A876001461D4 /* AddCaffeineDetailCustomModifier.swift */,
+				ABFE83F62859A876001461D4 /* AddCaffeineDetailView.swift */,
+			);
+			path = AddCaffeineDetail;
+			sourceTree = "<group>";
+		};
+		ABFE83F12859A876001461D4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				ABFE83F22859A876001461D4 /* EspressoShotCountCustomStepper.swift */,
+				ABFE83F32859A876001461D4 /* EffectSectionView.swift */,
+				ABFE83F42859A876001461D4 /* FranchiseDrinkSizeButtonsGroupView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -334,9 +462,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABC0E9492859CD780046C9C8 /* BeverageData.json in Resources */,
 				DA8E714928581674009836DE /* IntakeRecord.json in Resources */,
 				DA8E714A28581674009836DE /* SideEffectRecord.json in Resources */,
-				AB18CCF72856D8B300DD1C5A /* BeverageData.json in Resources */,
 				AB18CD072856D8B300DD1C5A /* Assets.xcassets in Resources */,
 				AB1FBDFA2856B93400EB4F95 /* Preview Assets.xcassets in Resources */,
 			);
@@ -349,34 +477,58 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				793214F6285702A500D7E4E1 /* UIApplication+.swift in Sources */,
+				797B456728570C4200DB45FA /* SearchResultView.swift in Sources */,
 				AB18CCF62856D8B300DD1C5A /* Formatter.swift in Sources */,
+				ABC0E95E2859CDDE0046C9C8 /* FranchiseRow.swift in Sources */,
 				AB18CCFD2856D8B300DD1C5A /* SideEffectRecord.swift in Sources */,
 				AB18CD062856D8B300DD1C5A /* tempViewModel.swift in Sources */,
+				52AFC473285704AB000199DF /* AddSideEffectStateHolder.swift in Sources */,
+				ABC0E9622859CDDE0046C9C8 /* BeverageList.swift in Sources */,
 				AB18CD012856D8B300DD1C5A /* ContentView.swift in Sources */,
+				ABFE83F72859A876001461D4 /* EspressoShotCountCustomStepper.swift in Sources */,
 				AB18CCF12856D8B300DD1C5A /* Color+.swift in Sources */,
 				AB18CD042856D8B300DD1C5A /* SearchCaffeineView.swift in Sources */,
 				AB18CD052856D8B300DD1C5A /* TechomeApp.swift in Sources */,
+				ABFE83FA2859A876001461D4 /* AddCaffeineDetailCustomModifier.swift in Sources */,
 				AB18CD022856D8B300DD1C5A /* HomeView.swift in Sources */,
+				ABC0E95A2859CDDE0046C9C8 /* CaffeineBookView.swift in Sources */,
 				DA11291228570F4C0065BD33 /* TestView_P.swift in Sources */,
 				AB18CD002856D8B300DD1C5A /* AddSideEffectView.swift in Sources */,
 				AB18CCF92856D8B300DD1C5A /* tempModel.swift in Sources */,
+				2A427E2D285859D700089AC0 /* TrendChartView.swift in Sources */,
+				5220177F2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift in Sources */,
 				AB18CCEF2856D8B300DD1C5A /* IntakeRepository.swift in Sources */,
+				ABFE83F92859A876001461D4 /* FranchiseDrinkSizeButtonsGroupView.swift in Sources */,
+				ABC0E95D2859CDDE0046C9C8 /* FranchiseCell.swift in Sources */,
+				ABC0E95F2859CDDE0046C9C8 /* CategoryRow.swift in Sources */,
+				ABC0E9452859CD0E0046C9C8 /* BeverageRepository.swift in Sources */,
+				ABC0E95C2859CDDE0046C9C8 /* CategoryCell.swift in Sources */,
 				AB18CCF02856D8B300DD1C5A /* tempExtension.swift in Sources */,
+				52AFC4782858614E000199DF /* CaffeineBookDetailView.swift in Sources */,
+				ABFE83F82859A876001461D4 /* EffectSectionView.swift in Sources */,
 				ABC3E9572858122F0091CC8E /* TotalListView.swift in Sources */,
+				2A427E292858548900089AC0 /* ChartSelectionIndicatorView.swift in Sources */,
 				AB18CCFA2856D8B300DD1C5A /* Beverage.swift in Sources */,
+				ABFE83FB2859A876001461D4 /* AddCaffeineDetailView.swift in Sources */,
+				ABC0E9602859CDDE0046C9C8 /* BeverageListRow.swift in Sources */,
 				AB18CCF22856D8B300DD1C5A /* BeverageManager.swift in Sources */,
+				ABC0E94D2859CDC60046C9C8 /* CaffeineBookStateHolder.swift in Sources */,
 				AB18CCF52856D8B300DD1C5A /* IntakeManager.swift in Sources */,
+				ABA3D6D42859DAFF00D60A6C /* Franchise.swift in Sources */,
 				AB18CCF82856D8B300DD1C5A /* tempResources.swift in Sources */,
 				AB18CCFB2856D8B300DD1C5A /* IntakeRecord.swift in Sources */,
-				AB18CCEE2856D8B300DD1C5A /* BeverageRepository.swift in Sources */,
+				793214F8285702BB00D7E4E1 /* SearchBarView.swift in Sources */,
 				AB18CCED2856D8B300DD1C5A /* SideEffectRepository.swift in Sources */,
 				AB18CD032856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift in Sources */,
-				AB18CCFC2856D8B300DD1C5A /* Franchise.swift in Sources */,
+				ABC0E95B2859CDDE0046C9C8 /* CaffeineBookLayoutValue.swift in Sources */,
 				AB18CCF42856D8B300DD1C5A /* JSONManager.swift in Sources */,
 				AB18CCFE2856D8B300DD1C5A /* TrendView.swift in Sources */,
+				79421B9D285722B400DFD58A /* SearchCaffeineStateHolder.swift in Sources */,
 				AB18CCF32856D8B300DD1C5A /* SideEffectManager.swift in Sources */,
 				DA11291028570EF20065BD33 /* DummyData.swift in Sources */,
 				AB18CCFF2856D8B300DD1C5A /* HomeView_G.swift in Sources */,
+				ABC0E9612859CDDE0046C9C8 /* EmptyListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
