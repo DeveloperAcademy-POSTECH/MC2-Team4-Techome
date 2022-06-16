@@ -32,23 +32,6 @@ struct NotificationView: View {
             }
             
             HStack{
-                Text("경고 알림")
-                Spacer()
-                Toggle("notification", isOn: $notificationStateHolder.isWarningNotificationOn)
-                    .labelsHidden()
-                    .frame(height: 20)
-                    .onChange(of: notificationStateHolder.isWarningNotificationOn) { value in
-                        if value {
-                            notificationStateHolder.setNotification(textType: NotificationText.warningNotification)
-                        }else {
-                            notificationStateHolder.delNotification(textType: NotificationText.warningNotification)
-                        }
-                    }
-                    .padding(12)
-                    .padding(.horizontal, 10)
-            }
-            
-            HStack{
                 Text("추이 알림")
                 Spacer()
                 Toggle("notification", isOn: $notificationStateHolder.isTrendNotificationOn)

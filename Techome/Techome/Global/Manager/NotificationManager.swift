@@ -16,11 +16,10 @@ struct Notification {
 }
 
 final class NotificationManager {
-   
+    
     var notifications = [Notification]()
     
     func requestPermission() {
-        print("permission")
         UNUserNotificationCenter
             .current()
             .requestAuthorization(options: [.alert , .badge , .alert]) { granted, error in
@@ -33,13 +32,10 @@ final class NotificationManager {
     }
     
     func addNotification(title: String, textType: NotificationText) -> Void {
-        print("add")
         notifications.append(Notification(id: UUID().uuidString, title: title, textType: textType))
     }
-
     
     func schedule(textType: NotificationText) -> Void {
-        print("schedule!!")
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             switch settings.authorizationStatus {
             case .notDetermined :
@@ -53,7 +49,7 @@ final class NotificationManager {
     }
     
     func scheduleNotifications(isOn: Bool, textType: NotificationText) -> Void {
-       
+        
         for notification in notifications {
             let content = UNMutableNotificationContent()
             content.title = notification.title
@@ -63,19 +59,14 @@ final class NotificationManager {
             content.body = notification.textType.getNotificationBody()
             content.badge = 0
             
-//         Test용 4초뒤 알람
-//            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 4, repeats: false)
-            
             let trigger = notification.textType.getNotificationType(date: notification.textType.getNotificationTime())
             let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
             
             if isOn {
                 UNUserNotificationCenter.current().add(request) { error in
                     guard error == nil else { return}
-                    print("Scheduling notification with id : \(notification.id)")
                 }
             } else {
-                print("removed!!")
                 UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [request.identifier])
             }
         }
