@@ -35,8 +35,8 @@ struct TrendChartView: View {
     @State private var xAxisTicksIntervalValue: Double = 1
     @State private var isXAxisTicksHidden: Bool = false
     
-    
-    
+    var trendStates = TrendStateHolder()
+    @Binding var index: Int
     var body: some View {
         
         ZStack {
@@ -64,15 +64,23 @@ struct TrendChartView: View {
                     }
                     .onAppear() {
                         config.initChartView()
+                        config.data.color = trendStates.sideEffectManager.getDailyRecords(date: Date()).count == 0 ? .tertiaryBrown : .customRed
+                        //TODO: 차트 데이터 삽입 테스트
+                        config.data.entries[4] = SetEntries().inputEntry()
+                        config.data.entries[4].y += 3.0
                         config.initTicksColor()
                         config.initTicksStyle()
                         config.initLabelsColor()
                         config.setLabelFont()
                         config.yUnitFormatter()
+                        print("+\(index)")
                     }
                     .onDisappear() {
                         selectedBarTopCentreLocation = nil
+                        print("-\(index)")
+                        
                     }
+                    .animation(.easeInOut, value: index)
                     .onReceive([self.isXAxisTicksHidden].publisher.first()) { (value) in
                         self.config.xAxis.ticksColor = value ? Color.clear : .chartBackgroundLineGray
                     }
@@ -122,12 +130,14 @@ extension ChartConfiguration {
     }
     func initChartView() {
         self.data.entries = SetEntries().randomEntries()
-        self.data.color = .tertiaryBrown
+        
         self.yAxis.minTicksSpacing = ChartLayoutValue.yAxisSpacing
     }
 }
 
 struct SetEntries {
+    //@EnvironmentObject var trendStates: TrendStateHolder
+    let trendStates = TrendStateHolder()
     private let xAxisLabelCount = 7
 
     //TODO: 임시 formatter
@@ -138,12 +148,20 @@ struct SetEntries {
         let currentDateString: String = dateFormatter.string(from: today)
         return currentDateString
     }
+    func inputEntry() -> ChartDataEntry {
+        let entries = [ChartDataEntry]()
+        let today = Date()
+        let caffeineAmountX = 20 //trendStates.intakeManager.getTodayIntakeCaffeineAmount()
+        let todayOfWeek = getDayOfWeek(today)
+        let newEntry = ChartDataEntry(x: todayOfWeek, y: Double(caffeineAmountX))
+        return newEntry
+    }
     //TODO: 임시 랜덤 데이터 넣는 함수
     func randomEntries() -> [ChartDataEntry] {
         var entries = [ChartDataEntry]()
         let dayOfWeek: [String] = ["일", "월", "화", "수", "목", "금", "토"]
         for data in 0 ..< xAxisLabelCount {
-            let randomDouble = Double.random(in: 0..<600)
+            let randomDouble = 0.0 //Double.random(in: 0..<600)
             let newEntry = ChartDataEntry(x: dayOfWeek[data], y: randomDouble)
             entries.append(newEntry)
         }
