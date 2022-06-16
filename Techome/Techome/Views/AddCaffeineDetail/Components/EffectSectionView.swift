@@ -10,8 +10,8 @@ import SwiftUI
 struct EffectSectionView: View {
     var body: some View {
         Group {
-            EffectSectionAddCaffeineAmountProvider()
-            CaffeineResidualTimeProvider()
+            EffectSectionAddCaffeineAmountProviderView()
+            CaffeineResidualTimeProviderView()
         }
         .background(EffectSectionBackground())
         .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.cardVertical)
@@ -19,7 +19,7 @@ struct EffectSectionView: View {
     }
 }
 
-struct EffectSectionAddCaffeineAmountProvider: View {
+struct EffectSectionAddCaffeineAmountProviderView: View {
     @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
     
     var body: some View {
@@ -89,28 +89,8 @@ struct AfterCaffeineAmount: View {
         }
     }
 }
-struct CaffeineResidualTimeProvider: View {
+struct CaffeineResidualTimeProviderView: View {
     @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
-    
-    func calculateHour(caffenineAmount: Int) -> Int {
-        
-        let remainTimeToDischargeSecond: Int = addCaffeineDetailStates.intakeManager.getRemainTimeToDischarge(caffeine: Double(caffenineAmount))
-        
-        let remainTimeToDischargeHour: Int = remainTimeToDischargeSecond / 3600
-        
-        return remainTimeToDischargeHour
-        
-    }
-    
-    func calculateMinute(caffenineAmount: Int) -> Int {
-        
-        let remainTimeToDischargeSecond: Int = addCaffeineDetailStates.intakeManager.getRemainTimeToDischarge(caffeine: Double(caffenineAmount))
-        
-        let remainTimeToDischargeMinute: Int = (remainTimeToDischargeSecond % 3600) / 60
-        
-        return remainTimeToDischargeMinute
-        
-    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
@@ -118,7 +98,7 @@ struct CaffeineResidualTimeProvider: View {
                 Image(systemName: "timer")
                     .padding(.trailing, AddCaffeineDetailViewLayoutValue.Paddings.EffectCard.sectionIconToText)
                 //TODO: 임시 더미데이터 변경 필요
-                Text("카페인 배출에 \(calculateHour(caffenineAmount:addCaffeineDetailStates.addCaffeineAmount))시간 \(calculateMinute(caffenineAmount:addCaffeineDetailStates.addCaffeineAmount))분이 더 소요됩니다.")
+                Text("카페인 배출에 \(addCaffeineDetailStates.calculateHour(caffenineAmount:addCaffeineDetailStates.addCaffeineAmount))시간 \(addCaffeineDetailStates.calculateMinute(caffenineAmount:addCaffeineDetailStates.addCaffeineAmount))분이 더 소요됩니다.")
                     .fontWeight(.semibold)
             }
             .headlineModifier()
@@ -131,12 +111,12 @@ struct CaffeineResidualTimeProvider: View {
                 HStack(alignment: .firstTextBaseline, spacing: .zero) {
                     Text("오후")
                         .sideEffectSectionTimeUnit()
-                    Text("\(calculateHour(caffenineAmount:addCaffeineDetailStates.currentCaffeineAmount + addCaffeineDetailStates.addCaffeineAmount))")
+                    Text("\(addCaffeineDetailStates.calculateHour(caffenineAmount:addCaffeineDetailStates.currentCaffeineAmount + addCaffeineDetailStates.addCaffeineAmount))")
                         .fontWeight(.bold)
                         .sideEffectValueHighlight()
                     Text("시")
                         .sideEffectSectionTimeUnit()
-                    Text("\(calculateMinute(caffenineAmount:addCaffeineDetailStates.currentCaffeineAmount + addCaffeineDetailStates.addCaffeineAmount))")
+                    Text("\(addCaffeineDetailStates.calculateMinute(caffenineAmount:addCaffeineDetailStates.currentCaffeineAmount + addCaffeineDetailStates.addCaffeineAmount))")
                         .fontWeight(.bold)
                         .sideEffectValueHighlight()
                     Text("분")

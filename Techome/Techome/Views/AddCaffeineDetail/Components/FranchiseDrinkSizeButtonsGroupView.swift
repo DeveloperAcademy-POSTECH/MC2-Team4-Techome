@@ -32,8 +32,8 @@ struct FranchiseDrinkSizeButtonsGroupView: View {
 
 struct FranchiseDrinkSizeButton: View {
     @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
-    var size: String
-    var buttonIndex: Int
+    fileprivate var size: String
+    fileprivate var buttonIndex: Int
     private let buttonBackWidth: CGFloat = 116.65
     private let buttonBackHeight: CGFloat = 43
     var body: some View {
@@ -49,8 +49,8 @@ struct FranchiseDrinkSizeButton: View {
         }
         .onTapGesture {
             addCaffeineDetailStates.isSelected = buttonIndex
-            addCaffeineDetailStates.shotCount = addCaffeineDetailStates.updateDefaultShot()
-            addCaffeineDetailStates.addCaffeineAmount = addCaffeineDetailStates.updateAddCaffeineAmount()
+            addCaffeineDetailStates.shotCount = addCaffeineDetailStates.getDefaultShot()
+            addCaffeineDetailStates.addCaffeineAmount = addCaffeineDetailStates.getWillAddCaffeineAmount()
         }
     }
 }

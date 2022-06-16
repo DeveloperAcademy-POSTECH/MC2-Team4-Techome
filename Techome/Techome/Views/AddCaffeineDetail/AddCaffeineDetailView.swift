@@ -53,17 +53,17 @@ struct AddCaffeineDetailViewLayoutValue {
 }
 
 struct AddCaffeineDetailView: View {
-    @EnvironmentObject var addCaffeineStates: AddCaffeineDetailStateHolder
+    @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
     
     var body: some View {
         NavigationView {
             VStack(alignment: .center, spacing: .zero) {
                 HStack(alignment: .firstTextBaseline, spacing: .zero) {
-                    Text(addCaffeineStates.bevergeRecord.name)
+                    Text(addCaffeineDetailStates.bevergeRecord.name)
                         .font(.title)
                         .fontWeight(.bold)
                         .padding(.leading, AddCaffeineDetailViewLayoutValue.Paddings.cardVertical)
-                    Text(addCaffeineStates.bevergeRecord.franchise.getFranchiseName())
+                    Text(addCaffeineDetailStates.bevergeRecord.franchise.getFranchiseName())
                         .font(.title3)
                         .foregroundColor(.secondaryTextGray)
                         .padding(.leading, AddCaffeineDetailViewLayoutValue.Paddings.titleToBrand)
