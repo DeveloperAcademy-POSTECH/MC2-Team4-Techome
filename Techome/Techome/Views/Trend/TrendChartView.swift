@@ -64,7 +64,8 @@ struct TrendChartView: View {
                     }
                     .onAppear() {
                         config.initChartView()
-                        config.data.color = trendStates.sideEffectManager.getDailyRecords(date: Date()).count == 0 ? .tertiaryBrown : .customRed
+                        config.data.color = trendStates.sideEffectManager.getDailyRecords(date: Date.now).count == 0 ? .tertiaryBrown : .customRed
+                        print(trendStates.sideEffectManager.getDailyRecords(date: Date.now).count)
                         //TODO: 차트 데이터 삽입 테스트
                         config.data.entries[4] = SetEntries().inputEntry()
                         config.data.entries[4].y += 3.0

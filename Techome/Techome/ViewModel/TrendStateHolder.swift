@@ -11,9 +11,10 @@ class TrendStateHolder: ObservableObject {
     let intakeManager: IntakeManager = IntakeManager.shared
     let sideEffectManager: SideEffectManager = SideEffectManager.shared
     
-    let records: [IntakeRecord]
+    let intakeRecords: [IntakeRecord]
+    //let sideEffectRecords: [SideEffect]
     
     init() {
-        records = intakeManager.getAllRecords()
+        intakeRecords = intakeManager.getDailyRecords(date: Date.now)
     }
 }

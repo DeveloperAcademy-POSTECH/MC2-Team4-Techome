@@ -83,7 +83,7 @@ struct TrendView: View {
 }
 
 struct TrendChart: View {
-    @State private var index = 1
+    @State private var index = 0
     var body: some View {
         //HStack() {
             TabView(selection: $index) {
@@ -144,27 +144,36 @@ struct AverageCaffeineAmountForWeek: View {
 }
 
 struct SideEffectRecordsByDay: View {
+    let trendStates = TrendStateHolder()
+    let dailySideEffects: [SideEffect]
+    init() {
+        dailySideEffects = trendStates.sideEffectManager.getDailyRecords(date: Date.now)
+    }
     var body: some View {
-        VStack(alignment: .center, spacing: TrendViewLayoutValue.Paddings.sideEffectRecordCellVerticalPadding) {
-            ForEach(0..<2) { sideEffectRowIndex in
+        VStack(alignment: .leading, spacing: TrendViewLayoutValue.Paddings.sideEffectRecordCellVerticalPadding) {
+            ForEach(0 ..< 1) { sideEffectRowIndex in
                 HStack(alignment: .center, spacing: TrendViewLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding) {
                     //TODO: 임시 데이터 수
-                    ForEach(0..<5) { sideEffectItemIndex in
-                        SideEffectRecordItem()
+                    ForEach(dailySideEffects, id: \.self) { sideEffectItemIndex in
+                        SideEffectRecordItem(sideEffectRecord: sideEffectItemIndex)
                     }
                 }
             }
         }
         .padding(.vertical, TrendViewLayoutValue.Paddings.sideEffectRecordCellVerticalPadding)
-        .frame(width: TrendViewLayoutValue.Sizes.cardWidth)
+        .padding(.horizontal, TrendViewLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding)
+        .frame(width: TrendViewLayoutValue.Sizes.cardWidth, alignment: .leading)
     }
 }
 
 struct SideEffectRecordItem: View {
+    let trendStates = TrendStateHolder()
+    let sideEffectRecord: SideEffect
+    
     var body: some View {
         VStack(spacing: .zero) {
-            Image("esophagitis")
-            Text("식도염")
+            Image(sideEffectRecord.getImageName())
+            Text(sideEffectRecord.getSideEffectName())
                 .font(.caption)
         }
         .frame(width: TrendViewLayoutValue.Sizes.sideEffectRecordCellFixedWidth)
@@ -177,7 +186,7 @@ struct CaffeineRecordsByDay: View {
     var body: some View {
         LazyVStack(spacing: .zero) {
             //TODO: 임시 데이터 수
-            ForEach(trendStates.records) { CaffeineRecordCellIndex in
+            ForEach(trendStates.intakeRecords) { CaffeineRecordCellIndex in
                 CaffeineRecordCell(record: CaffeineRecordCellIndex)
             }
         }
