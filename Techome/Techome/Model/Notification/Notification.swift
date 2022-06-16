@@ -50,7 +50,7 @@ enum NotificationText: String, CaseIterable, Hashable, Codable {
         var date = DateComponents()
         switch self {
         case .recordNotification:
-            date.hour = 21
+            date.hour = 22
             date.minute = 00
             return date
         case .warningNotification:
