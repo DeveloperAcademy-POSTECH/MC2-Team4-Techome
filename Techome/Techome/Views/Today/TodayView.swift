@@ -11,7 +11,8 @@ import Combine
 struct TodayView: View {
     @ObservedObject private var todayStates: TodayStatesHolder = TodayStatesHolder()
     private let refreshInterval: TimeInterval = 60
-    private var timer: Publishers.Autoconnect<Timer.TimerPublisher> { Timer.publish(every: 60, tolerance: 3, on: .main, in: .common).autoconnect()
+    private let refreshTolerance: TimeInterval = 3
+    private var refreshTimer: Publishers.Autoconnect<Timer.TimerPublisher> { Timer.publish(every: refreshInterval, tolerance: refreshTolerance, on: .main, in: .common).autoconnect()
     }
     
     var body: some View {
@@ -38,7 +39,7 @@ struct TodayView: View {
                 }
             }
             .ignoresSafeArea()
-            .onReceive(timer) { _ in
+            .onReceive(refreshTimer) { _ in
                 todayStates.setRemainingAmount()
             }
             

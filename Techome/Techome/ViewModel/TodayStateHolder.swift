@@ -27,7 +27,10 @@ final class TodayStatesHolder: ObservableObject {
     }
     
     func getRemainingPercentage() -> Double {
-        return (remainingAmount / fullChargeAmount)
+        var returnChargeAmount: Double {
+            remainingAmount > fullChargeAmount ? fullChargeAmount : remainingAmount
+        }
+        return (returnChargeAmount / fullChargeAmount)
     }
     
     func getRemainingTimeString() -> String {
