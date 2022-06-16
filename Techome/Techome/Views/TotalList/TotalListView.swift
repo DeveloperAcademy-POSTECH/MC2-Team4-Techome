@@ -94,16 +94,18 @@ struct TotalListView: View {
     
     var body: some View {
         
-        VStack {
-            ForEach(totalData.datesArr, id: \.self) { curDate in
-                TotalListByDay(totalData: totalData, curDate: curDate)
+            VStack {
+                ForEach(totalData.datesArr, id: \.self) { curDate in
+                    TotalListByDay(totalData: totalData, curDate: curDate)
+                }
             }
-        }
+        
     }
 }
 
 
-//날짜별 카페인 + 부작용 데이터 : 날짜별로 스트레스 + 부작용 데이터 받아와서 뷰 만들기
+//날짜별 카페인 + 부작용 데이터
+//TODO: 날짜별로 스트레스 + 부작용 데이터 받아와서 뷰 만들기
 struct TotalListByDay: View {
     @ObservedObject var totalData : datas
     var curDate : String
@@ -114,14 +116,16 @@ struct TotalListByDay: View {
         VStack {
             ForEach(Array(totalData.dataSortedByDate[curDate]!.enumerated()), id: \.element) { index, cell in
                 ZStack{
+                    HStack(spacing: 0){
+                        Color.white
+                        Color.customRed
+                    }
+                    
                     Button(action: {
                         totalData.deleteData(curDate : curDate, index : index)
-//                        totalData.dataSortedByDate[curDate]!.remove(at: index)
-//                        totalData.offsetsArr[curDate]!.remove(at:index)
                     }) {
-                        Text("삭제")
+                        deleteButton()
                     }
-                    .padding(.leading, 100)
                     
                     Cell(curCell : cell)
                         .offset(x: totalData.offsetsArr[curDate]![index])
@@ -139,13 +143,17 @@ struct TotalListByDay: View {
         }
     }
     
+    //제스쳐 함수
+    //onChanged : 제스쳐 움직임을 cell에 실시간으로 반영
+    //오른쪽 방향으로 움직일 경우 cell 위치 원상복귀
     func onChanged(value: DragGesture.Value, curDate: String, index: Int) {
         totalData.offsetsArr[curDate]![index] = value.translation.width
         if totalData.offsetsArr[curDate]![index] > 74 {
             totalData.offsetsArr[curDate]![index] = .zero
         }
     }
-    
+    //onEnd : 제스쳐가 끝나는 시점 체크
+    //왼쪽으로 74 이상 움직였을 경우 cell이 74만큼 왼쪽으로 이동된 상태 유지, 왼쪽으로 74 이상 움직이지 않았을 경우 cell 위치 원상복귀
     func onEnd(curDate: String, index: Int){
         if totalData.offsetsArr[curDate]![index] < -74 {
             totalData.offsetsArr[curDate]![index] = -74
@@ -156,27 +164,39 @@ struct TotalListByDay: View {
     }
 }
 
-struct Cell: View {
+//cell 뒤에 배치되는 버튼 뷰
+struct deleteButton: View {
     
-//    @State var offsetCell : CGFloat = .zero
+    var body: some View {
+
+        Text("삭제")
+            .font(.body)
+            .foregroundColor(Color.white)
+            .padding(.leading, TotalListLayoutValue.Sizes.cardWidth - 74)
+    }
+    
+}
+
+struct Cell: View {
     
     var curCell : TotalDataCell
     
     var body : some View {
-
-        switch curCell.dataType {
-        case "drink" :
-            VStack {
-                Text("카페인입니다")
+        Group{
+            switch curCell.dataType {
+                
+            case "drink" :
+                CaffeineRecordCellList()
+                
+            case "sideEffect" :
+                SideEffectRecordRow()
+                
+            default :
+                EmptyView()
+                
             }
-        case "sideEffect" :
-            VStack {
-                Text("부작용입니다")
-            }
-        default :
-            EmptyView()
-            
         }
+        .background(Color.white)
     }
 }
 
