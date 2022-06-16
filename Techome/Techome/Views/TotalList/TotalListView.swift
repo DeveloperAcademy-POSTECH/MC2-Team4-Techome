@@ -107,6 +107,20 @@ struct TotalListView: View {
             .padding(.top, TotalListLayoutValue.Paddings.fullViewVerticalPadding) //navigation bar와 간격
         }
         .background(Color.backgroundCream)
+        .navigationTitle(Text("전체 리스트")) //TODO : navigation bar title toolbar custom으로 넣기
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {
+                            presentationMode.wrappedValue.dismiss()
+                        }) {
+                            Image(systemName: "chevron.left")
+                                .font(.headline)
+                                .foregroundColor(.primaryBrown)
+                        }
+            }
+        }
     }
 }
 
