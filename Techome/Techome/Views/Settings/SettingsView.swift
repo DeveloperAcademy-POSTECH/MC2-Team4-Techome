@@ -78,7 +78,7 @@ struct InformationGroup: View {
                 SettingsCompanyView()
                     .navigationBarHidden(true)
             }){
-                InformationRowContent(informationText: "회사 소개")
+                InformationRowContent(informationText: "팀 소개")
             }
             DividerCustom()
             
