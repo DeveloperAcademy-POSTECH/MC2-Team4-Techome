@@ -61,7 +61,7 @@ final class datas: ObservableObject { //observable 객체 생성
     //offset 추가하기
     @Published var offsetsArr = [ String : [CGFloat] ]()
     @Published var datesArr = [String]()
-    
+        
     init(dataSortedByDate : [ String : [TotalDataCell]] ) {
         
         self.dataSortedByDate = dataSortedByDate
@@ -70,6 +70,8 @@ final class datas: ObservableObject { //observable 객체 생성
             self.offsetsArr[key] = [CGFloat](repeating: .zero, count: self.dataSortedByDate[key]!.count)
             self.datesArr.append(key)
         }
+        
+        self.datesArr = datesArr.sorted(by: >)
     }
     
     func deleteData(curDate : String, index : Int) {
@@ -78,6 +80,12 @@ final class datas: ObservableObject { //observable 객체 생성
         
         if (self.dataSortedByDate[curDate]!.count <= 0) {
             self.datesArr.remove(at: self.datesArr.firstIndex(of: curDate)!)
+        }
+    }
+    
+    func resetOffsets() {
+        for date in self.datesArr {
+            self.offsetsArr[date] = [CGFloat](repeating: .zero, count: dataSortedByDate[date]!.count)
         }
     }
 }
@@ -150,6 +158,7 @@ struct TotalListByDay: View {
     //onChanged : 제스쳐 움직임을 cell에 실시간으로 반영
     //오른쪽 방향으로 움직일 경우 cell 위치 원상복귀
     func onChanged(value: DragGesture.Value, curDate: String, index: Int) {
+        totalData.resetOffsets()
         totalData.offsetsArr[curDate]![index] = value.translation.width
         if totalData.offsetsArr[curDate]![index] > 74 {
             totalData.offsetsArr[curDate]![index] = .zero
