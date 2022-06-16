@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import Combine
 
 struct TodayView: View {
     @ObservedObject private var todayStates: TodayStatesHolder = TodayStatesHolder()
-    private let timer = Timer.publish(every: 60, tolerance: 3, on: .main, in: .common).autoconnect()
+    private let refreshInterval: TimeInterval = 60
+    private var timer: Publishers.Autoconnect<Timer.TimerPublisher> { Timer.publish(every: 60, tolerance: 3, on: .main, in: .common).autoconnect()
+    }
     
     var body: some View {
         GeometryReader { geometry in
