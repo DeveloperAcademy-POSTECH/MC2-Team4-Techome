@@ -7,6 +7,22 @@
 
 import SwiftUI
 
+var dataResult : [String : [TotalDataCell]] =
+    [ "2022.06.03" : [ TotalDataCell(dataType: "drink", dataIndex: 1),
+                       TotalDataCell(dataType: "drink", dataIndex: 2),
+                      TotalDataCell(dataType: "sideEffect", dataIndex: 1),
+                       TotalDataCell(dataType: "sideEffect", dataIndex: 2) ],
+      "2022.06.02" : [ TotalDataCell(dataType: "drink", dataIndex: 3),
+                       TotalDataCell(dataType: "sideEffect", dataIndex: 3),
+                      TotalDataCell(dataType: "drink", dataIndex: 4),
+                       TotalDataCell(dataType: "sideEffect", dataIndex: 4) ],
+      "2022.06.01" : [ TotalDataCell(dataType: "drink", dataIndex: 5),
+                       TotalDataCell(dataType: "sideEffect", dataIndex: 5),
+                      TotalDataCell(dataType: "drink", dataIndex: 6) ],
+      "2022.05.31" : [ TotalDataCell(dataType: "drink", dataIndex: 7),
+                       TotalDataCell(dataType: "sideEffect", dataIndex: 6),
+                      TotalDataCell(dataType: "drink", dataIndex: 8) ]
+    ]
 
 struct TotalListLayoutValue {
     
@@ -34,69 +50,35 @@ struct TotalListLayoutValue {
 
 
 //카페인 + 부작용 리스트 병합에 사용
-struct DataListByDay : Hashable {
+struct TotalDataCell : Hashable {
     var dataType: String
     var dataIndex: Int
 }
 
 final class datas: ObservableObject { //observable 객체 생성
-    var tmpDataSortedByDate : [ String : [DataListByDay] ]
+    @Published var dataSortedByDate = [ String : [TotalDataCell] ]()
 
     //offset 추가하기
-    @Published var tmpOffsets = [ String : [CGFloat] ]()
-    @Published var dateArr : [String] = []
+    @Published var offsetsArr = [ String : [CGFloat] ]()
+    @Published var datesArr = [String]()
     
-//    init(tmpDataSortedByDate: [String : [DataListByDay]]) {
-//        self.tmpDataSortedByDate = tmpDataSortedByDate
-//
-//        for key in self.tmpDataSortedByDate.keys {
-//            self.tmpOffsets[key] = [CGFloat](repeating: .zero, count: tmpDataSortedByDate[key]!.count)
-//        }
-//    }
-    
-    init() {
-        self.tmpDataSortedByDate =
-            [ "2022.06.03" : [ DataListByDay(dataType: "drink", dataIndex: 1),
-                               DataListByDay(dataType: "drink", dataIndex: 2),
-                              DataListByDay(dataType: "sideEffect", dataIndex: 1),
-                               DataListByDay(dataType: "sideEffect", dataIndex: 2) ],
-              "2022.06.02" : [ DataListByDay(dataType: "drink", dataIndex: 3),
-                               DataListByDay(dataType: "sideEffect", dataIndex: 3),
-                              DataListByDay(dataType: "drink", dataIndex: 4),
-                               DataListByDay(dataType: "sideEffect", dataIndex: 4) ],
-              "2022.06.01" : [ DataListByDay(dataType: "drink", dataIndex: 5),
-                               DataListByDay(dataType: "sideEffect", dataIndex: 5),
-                              DataListByDay(dataType: "drink", dataIndex: 6) ],
-              "2022.05.31" : [ DataListByDay(dataType: "drink", dataIndex: 7),
-                               DataListByDay(dataType: "sideEffect", dataIndex: 6),
-                              DataListByDay(dataType: "drink", dataIndex: 8) ]
-            ]
-                        
-        for key in self.tmpDataSortedByDate.keys {
-            self.tmpOffsets[key] = [CGFloat](repeating: .zero, count: tmpDataSortedByDate[key]!.count)
-            self.dateArr.append(key)
-        }
-    }
-    
-    func resetOffsets() {
-        for key in self.tmpDataSortedByDate.keys {
-            self.tmpOffsets[key] = [CGFloat](repeating: .zero, count: tmpDataSortedByDate[key]!.count)
-        }
-    }
-    
-    func deleteData(date : String, index : Int){
-        self.tmpDataSortedByDate[date]!.remove(at: index)
-        self.tmpOffsets[date]!.remove(at: index)
+    init(dataSortedByDate : [ String : [TotalDataCell]] ) {
         
-        if (countDatasByDate(date: date) == 0){
-            self.tmpDataSortedByDate.removeValue(forKey: date)
-            self.tmpOffsets.removeValue(forKey: date)
+        self.dataSortedByDate = dataSortedByDate
+        
+        for key in self.dataSortedByDate.keys {
+            self.offsetsArr[key] = [CGFloat](repeating: .zero, count: self.dataSortedByDate[key]!.count)
+            self.datesArr.append(key)
         }
     }
     
-    func countDatasByDate(date : String) -> Int {
-        return tmpDataSortedByDate[date]!.count
-
+    func deleteData(curDate : String, index : Int) {
+        self.dataSortedByDate[curDate]!.remove(at: index)
+        self.offsetsArr[curDate]!.remove(at:index)
+        
+        if (self.dataSortedByDate[curDate]!.count <= 0) {
+            self.datesArr.remove(at: self.datesArr.firstIndex(of: curDate)!)
+        }
     }
 }
 
@@ -106,35 +88,15 @@ struct TotalListView: View {
     @Environment(\.presentationMode) var presentationMode
 
     //TODO: 전체 데이터 받아오고 데이터 합쳐서 날짜로 정렬 및 그룹화하기
-
     
-    @ObservedObject var testData = datas()
+    
+    @ObservedObject var totalData = datas(dataSortedByDate: dataResult)
     
     var body: some View {
         
-        ScrollView() {
-            LazyVStack(spacing: 23) {
-                
-                ForEach(Array(testData.tmpDataSortedByDate.keys).sorted(by: >), id: \.self) { curDate in
-                    TotalRecordsByDay(testDataByDay: testData, curDateByDay: curDate, dataCountByDay: testData.countDatasByDate(date: curDate))
-                }
-            }
-            .padding(.horizontal, TotalListLayoutValue.Paddings.fullViewHorizontalPadding)
-            .padding(.top, TotalListLayoutValue.Paddings.fullViewVerticalPadding) //navigation bar와 간격
-        }
-        .background(Color.backgroundCream)
-        .navigationTitle(Text("전체 리스트").font(.caption)) //TODO : navigation bar title toolbar custom으로 넣기
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                        Button(action: {
-                            presentationMode.wrappedValue.dismiss()
-                        }) {
-                            Image(systemName: "chevron.left")
-                                .font(.headline)
-                                .foregroundColor(.primaryBrown)
-                        }
+        VStack {
+            ForEach(totalData.datesArr, id: \.self) { curDate in
+                TotalListByDay(totalData: totalData, curDate: curDate)
             }
         }
     }
@@ -142,176 +104,59 @@ struct TotalListView: View {
 
 
 //날짜별 카페인 + 부작용 데이터 : 날짜별로 스트레스 + 부작용 데이터 받아와서 뷰 만들기
-struct TotalRecordsByDay: View {
-    //카페인 + 부작용 리스트 병합 결과
-    //TODO: datatype과 idx 활용해 리스트에 넣을 알맞은 데이터 찾기
-    
-    @ObservedObject var testDataByDay : datas
-    var curDateByDay : String
-    var dataCountByDay : Int
-    
+struct TotalListByDay: View {
+    @ObservedObject var totalData : datas
+    var curDate : String
     
     var body: some View {
-                
-        VStack(alignment: .leading, spacing: 0) {
-            Text(curDateByDay)
-                .font(.title3)
-                .fontWeight(.semibold)
-                .padding(.bottom, TotalListLayoutValue.Paddings.dateVerticalPadding)
+        Text("\(curDate)")
         
-            VStack(spacing: 0) {
-                ForEach(Array(testDataByDay.tmpDataSortedByDate[curDateByDay]!.enumerated()), id: \.element) { index, element in
-                    ZStack {
-                        //TODO: 삭제 배경 + 버튼 뷰 분리하기
-                        //삭제 버튼 배경
-                        HStack(spacing: 0) {
-                            Color.white
-                            Color.customRed
-                        }
-                        
-                        //삭제 버튼
-                        VStack{
-                            Spacer()
-                            HStack {
-                                Spacer()
-                                
-                                Button(action: {
-                                    print(dataCountByDay)
-                                    print("삭제하기 : \(curDateByDay), \(index)")
-                                    print(testDataByDay.tmpDataSortedByDate)
-                                    print("삭제 작업 수행하기")
-                                    
-                                    testDataByDay.deleteData(date: curDateByDay, index: index)
-                                    
-                                    print("삭제 작업 수행 완료")
-                                    print(testDataByDay.tmpDataSortedByDate)
-                                    
-                                    print("모든 작업 완료")
-                                    
-                                }) {
-                                    Text("삭제")
-                                        .font(.body)
-                                        .foregroundColor(Color.white)
-                                }
-                                .padding(.leading, TotalListLayoutValue.Sizes.cardWidth - 74)
-                                
-                                Spacer()
-                            }
-                            Spacer()
-                        }
-
-                        //row
-                        //TODO: component 만들기
-                        VStack (spacing : 0) {
-                            
-//                            Text("데이터입니다")
-                            
-                            TotalRecordsByDayRow(testDataByDayRow: testDataByDay, curDateByDayRow: curDateByDay, rowIndexByDayRow: index, dataCountByDayRow : dataCountByDay)
-                            
-                            //마지막 데이터 다음 divider 없애기
-                            if (index != dataCountByDay - 1) {
-                                Divider()
-                                    .padding(.horizontal, TotalListLayoutValue.Paddings.dividerHorizontalPadding)
-                                    .background(Color.white)
-                            }
-                            
-                        }
+        VStack {
+            ForEach(Array(totalData.dataSortedByDate[curDate]!.enumerated()), id: \.element) { index, cell in
+                ZStack{
+                    Button(action: {
+                        totalData.deleteData(curDate : curDate, index : index)
+//                        totalData.dataSortedByDate[curDate]!.remove(at: index)
+//                        totalData.offsetsArr[curDate]!.remove(at:index)
+                    }) {
+                        Text("삭제")
                     }
+                    .padding(.leading, 100)
+                    
+                    Cell()
+                        .offset(x: totalData.offsetsArr[curDate]![index])
+                        .gesture(
+                            DragGesture()
+                                .onChanged { gesture in
+                                    totalData.offsetsArr[curDate]![index] = gesture.translation.width
+                                    if totalData.offsetsArr[curDate]![index] > 74 {
+                                        totalData.offsetsArr[curDate]![index] = .zero
+                                    }
+                                }
+                                .onEnded { _ in
+                                    if totalData.offsetsArr[curDate]![index] < -74 {
+                                        totalData.offsetsArr[curDate]![index] = -74
+                                    }
+                                    else if totalData.offsetsArr[curDate]![index] > -74 {
+                                        totalData.offsetsArr[curDate]![index] = .zero
+                                    }
+                                }
+                            )
                 }
             }
-            .padding(.vertical, 3)
-            .clipShape(RoundedRectangle(cornerRadius: 7))
-            .shadow(color: Color.primaryShadowGray, radius: 7, x: 0, y: 0)
         }
     }
+    
 }
 
-
-struct TotalRecordsByDayRow: View {
-    @ObservedObject var testDataByDayRow : datas
-    var curDateByDayRow : String
-    var rowIndexByDayRow : Int
-    var dataCountByDayRow : Int
-//    @State public var element : DataListByDay
+struct Cell: View {
+    
+    @State var offsetCell : CGFloat = .zero
     
     var body: some View {
-        
-        var row = testDataByDayRow.tmpDataSortedByDate[curDateByDayRow]![rowIndexByDayRow]
-        
-        switch row.dataType {
-        case "drink":
-            //TODO: 데이터 넘겨주기
-            CaffeineRecordCellList()
-                .padding(.horizontal, TotalListLayoutValue.Paddings.caffeineRecordRowHorizontalPadding)
-                .background(Color.white)
-                .offset(x: testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow])
-                .gesture(
-                    DragGesture()
-                        .onChanged { gesture in
-                            testDataByDayRow.resetOffsets()
-                            testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] = gesture.translation.width
-                            if testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] > 74 {
-                                testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] = .zero
-                            }
-                        }
-                        .onEnded { _ in
-                            if testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] < -74 {
-                                testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] = -74
-                            }
-                            else if testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] > -74 {
-                                testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] = .zero
-                            }
-                        }
-                    )
-        case "sideEffect":
-            SideEffectRecordRow()
-                .background(Color.white)
-                .offset(x: testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow])
-                .gesture(
-                    DragGesture()
-                        .onChanged { gesture in
-                            testDataByDayRow.resetOffsets()
-                            testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] = gesture.translation.width
-                            if testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] > 74 {
-                                testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] = .zero
-                            }
-                        }
-                        .onEnded { _ in
-
-                            if testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] <= -74 {
-                                testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] = -74
-                            }
-                            else if testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] > -74 {
-                                testDataByDayRow.tmpOffsets[curDateByDayRow]![rowIndexByDayRow] = .zero
-                            }
-                        }
-                    )
-
-        default :
-            EmptyView()
-        }
-        
-        
+        Text("하나의 cell")
     }
-
-//    func onChanged(value: DragGesture.Value) {
-//        element.offset = value.translation.width
-//        if element.offset > 74 {
-//            element.offset = .zero
-//        }
-//    }
-//
-//    func onEnd() {
-//        if element.offset <= -74 {
-//            element.offset = -74
-//        }
-//        else if element.offset > -74 {
-//            element.offset = .zero
-//        }
-//    }
-    
 }
-
 
 //부작용 데이터 컴포넌트 : 부작용 시간 + 부작용 정보
 struct SideEffectRecordRow: View {
