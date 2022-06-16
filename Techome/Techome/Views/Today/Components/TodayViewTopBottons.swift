@@ -45,5 +45,6 @@ struct TodayViewTopBottons_Previews: PreviewProvider {
         GeometryReader { geometry in
             TodayViewTopBottons(caffeinePercent: .constant(0.5), geometry: geometry)
         }
+        .previewLayout(.sizeThatFits)
     }
 }

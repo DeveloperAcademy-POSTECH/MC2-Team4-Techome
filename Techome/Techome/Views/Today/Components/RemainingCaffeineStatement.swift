@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RemainingCaffeineStatement: View {
-    @EnvironmentObject private var todayStates: TodayStatesHolder
+    @ObservedObject var todayStates: TodayStatesHolder
     
     var body: some View {
         VStack(spacing: .zero) {
@@ -32,6 +32,8 @@ struct RemainingCaffeineStatement: View {
 
 struct RemainingCaffeineStatement_Previews: PreviewProvider {
     static var previews: some View {
-        RemainingCaffeineStatement()
+        let todayStates: TodayStatesHolder = TodayStatesHolder()
+        RemainingCaffeineStatement(todayStates: todayStates)
+            .previewLayout(.sizeThatFits)
     }
 }

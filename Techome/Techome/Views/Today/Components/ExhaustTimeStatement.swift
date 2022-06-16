@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExhaustTimeStatement: View {
-    @EnvironmentObject private var todayStates: TodayStatesHolder
+    @ObservedObject var todayStates: TodayStatesHolder
     
     var body: some View {
         VStack(spacing: .zero) {
@@ -29,6 +29,8 @@ struct ExhaustTimeStatement: View {
 
 struct ExhaustTimeStatement_Previews: PreviewProvider {
     static var previews: some View {
-        ExhaustTimeStatement()
+        let todayStates: TodayStatesHolder = TodayStatesHolder()
+        ExhaustTimeStatement(todayStates: todayStates)
+            .previewLayout(.sizeThatFits)
     }
 }

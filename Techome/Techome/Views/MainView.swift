@@ -9,8 +9,6 @@ import SwiftUI
 
 struct MainView: View {
     
-    var todayStates = TodayStatesHolder()
-    
     init() {
         UITabBar.appearance().backgroundColor = .white
     }
@@ -18,7 +16,6 @@ struct MainView: View {
     var body: some View {
         TabView {
             TodayView()
-                .environmentObject(todayStates)
                 .navigationBarHidden(true)
                 .tabItem {
                     Image(systemName: "1.square.fill")

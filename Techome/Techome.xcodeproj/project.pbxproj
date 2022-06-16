@@ -36,6 +36,7 @@
 		AB18CD062856D8B300DD1C5A /* tempViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCEA2856D8B300DD1C5A /* tempViewModel.swift */; };
 		AB18CD072856D8B300DD1C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB18CCEB2856D8B300DD1C5A /* Assets.xcassets */; };
 		AB1FBDFA2856B93400EB4F95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1FBDF92856B93400EB4F95 /* Preview Assets.xcassets */; };
+		ABB2983E285AF61B006B21F6 /* TodayStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB2983D285AF61B006B21F6 /* TodayStateHolder.swift */; };
 		ABC3E951285706910091CC8E /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC3E950285706910091CC8E /* TodayView.swift */; };
 		ABC3E9542857383B0091CC8E /* SineWaveShape in Frameworks */ = {isa = PBXBuildFile; productRef = ABC3E9532857383B0091CC8E /* SineWaveShape */; };
 		ABFE83E128598EF9001461D4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE83E028598EF9001461D4 /* MainView.swift */; };
@@ -77,6 +78,7 @@
 		AB18CCEB2856D8B300DD1C5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB1FBDEF2856B93300EB4F95 /* Techome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Techome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB1FBDF92856B93400EB4F95 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ABB2983D285AF61B006B21F6 /* TodayStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStateHolder.swift; sourceTree = "<group>"; };
 		ABC3E950285706910091CC8E /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		ABFE83E028598EF9001461D4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		ABFE83E428598F5C001461D4 /* BackgroundAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundAnimationView.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				AB18CCEA2856D8B300DD1C5A /* tempViewModel.swift */,
+				ABB2983D285AF61B006B21F6 /* TodayStateHolder.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				ABFE83E728598FF8001461D4 /* TodayViewTopBottons.swift in Sources */,
 				AB18CCF12856D8B300DD1C5A /* Color+.swift in Sources */,
 				ABFE83ED28599078001461D4 /* AddCaffeineButton.swift in Sources */,
+				ABB2983E285AF61B006B21F6 /* TodayStateHolder.swift in Sources */,
 				AB18CD042856D8B300DD1C5A /* SearchCaffeineView.swift in Sources */,
 				ABC3E951285706910091CC8E /* TodayView.swift in Sources */,
 				AB18CD052856D8B300DD1C5A /* TechomeApp.swift in Sources */,
