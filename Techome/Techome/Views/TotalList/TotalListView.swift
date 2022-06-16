@@ -72,6 +72,7 @@ final class datas: ObservableObject { //observable 객체 생성
         self.datesArr = datesArr.sorted(by: >)
     }
     
+    //선택된 cell 삭제
     func deleteData(curDate : String, index : Int) {
         self.dataSortedByDate[curDate]!.remove(at: index)
         self.offsetsArr[curDate]!.remove(at:index)
@@ -81,6 +82,7 @@ final class datas: ObservableObject { //observable 객체 생성
         }
     }
     
+    //모든 cell 원위치
     func resetOffsets() {
         for date in self.datesArr {
             self.offsetsArr[date] = [CGFloat](repeating: .zero, count: dataSortedByDate[date]!.count)
@@ -107,7 +109,7 @@ struct TotalListView: View {
             .padding(.top, TotalListLayoutValue.Paddings.fullViewVerticalPadding) //navigation bar와 간격
         }
         .background(Color.backgroundCream)
-        .navigationTitle(Text("전체 리스트")) //TODO : navigation bar title toolbar custom으로 넣기
+        .navigationTitle(Text("전체 리스트"))
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -139,20 +141,16 @@ struct TotalListByDate: View {
                 .fontWeight(.semibold)
                 .padding(.bottom, TotalListLayoutValue.Paddings.dateVerticalPadding)
             
+            //curDate에 발생한 카페인과 부작용 정보 보여주기
             VStack(spacing: 0) {
                 ForEach(Array(totalData.dataSortedByDate[curDate]!.enumerated()), id: \.element) { index, cell in
                     ZStack{
-                        //삭제 버튼 배경
-                        HStack(spacing: 0){
-                            Color.white
-                            Color.customRed
-                        }
                         //삭제 버튼
-                        Button(action: {
-                            totalData.deleteData(curDate : curDate, index : index)
-                        }) {
-                            deleteButton()
-                        }
+                        deleteButton()
+                            .onTapGesture{
+                                totalData.deleteData(curDate : curDate, index : index)
+                            }
+                        
                         //데이터 표시
                         Cell(curCell : cell)
                             .offset(x: totalData.offsetsArr[curDate]![index])
@@ -203,17 +201,25 @@ struct TotalListByDate: View {
     }
 }
 
-//cell 뒤에 배치되는 버튼 뷰
+//버튼 컴포넌트
 struct deleteButton: View {
     
     var body: some View {
-        Text("삭제")
-            .font(.body)
-            .foregroundColor(Color.white)
-            .padding(.leading, TotalListLayoutValue.Sizes.cardWidth - 74)
+        ZStack{
+            HStack(spacing: 0){
+                Color.white
+                Color.customRed
+            }
+            
+            Text("삭제")
+                .font(.body)
+                .foregroundColor(Color.white)
+                .padding(.leading, TotalListLayoutValue.Sizes.cardWidth - 74)
+        }
     }
 }
 
+//데이터 컴포넌트 (하나의 row) : 데이터 타입(카페인, 부작용)에 따라 맞는 컴포넌트 보여줌
 struct Cell: View {
     
     var curCell : TotalDataCell
@@ -294,7 +300,7 @@ struct SideEffectItem: View {
 
 
 //trend 의 CaffeineRecordCell 에 padding (.vertical)로 제한하는 코드 추가 & Divider 삭제, 이외 동일
-//카페인 데이터
+//카페인 데이터 컴포넌트 : 카페인 시간 + 카페인 정보
 struct CaffeineCell: View {
     var body: some View {
         VStack(spacing: 0) {
@@ -337,10 +343,10 @@ struct TotalListView_Previews: PreviewProvider {
         
         TotalListView()
         
-//        NavigationView {
-//            NavigationLink("to total list") {
-//                TotalListView()
-//            }
-//        }
+        NavigationView {
+            NavigationLink("to total list") {
+                TotalListView()
+            }
+        }
     }
 }
