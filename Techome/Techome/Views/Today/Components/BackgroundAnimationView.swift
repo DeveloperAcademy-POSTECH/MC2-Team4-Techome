@@ -9,11 +9,11 @@ import SwiftUI
 import SineWaveShape
 
 struct BackgroundAnimationView: View {
+    @ObservedObject var todayStates: TodayStatesHolder
     @State var phase: Double = 0
-    @Binding var caffeinePercent: Double
     private let screenSize: CGRect = UIScreen.main.bounds
-    private let strength: Double = 30.0 // 물결 강도입니다.
-    private let frequency: Double = 7.0 // 물결 횟수입니다.
+    private let waveStrength: Double = 30.0 // 물결 강도
+    private let waveFrequency: Double = 7.0 // 물결 빈도
     let geometry: GeometryProxy
     
     
@@ -21,7 +21,7 @@ struct BackgroundAnimationView: View {
     var body: some View {
         ZStack {
             Color.gaugeBackgroundGray
-            SineWaveShape(percent: caffeinePercent, strength: strength, frequency: frequency, phase: self.phase)
+            SineWaveShape(percent: 1 - todayStates.getRemainingPercentage(), strength: waveStrength, frequency: waveFrequency, phase: self.phase)
                 .fill(Color.gaugeBrown)
                 .animation(.linear(duration: 3).repeatForever(autoreverses: false), value: phase)
             Image("TodayGauge")
@@ -37,8 +37,9 @@ struct BackgroundAnimationView: View {
 
 struct BackgroundAnimationView_Previews: PreviewProvider {
     static var previews: some View {
+        let todayStates: TodayStatesHolder = TodayStatesHolder()
         GeometryReader { geometry in
-            BackgroundAnimationView(caffeinePercent: .constant(0.5), geometry: geometry)
+            BackgroundAnimationView(todayStates: todayStates, geometry: geometry)
                 .previewLayout(.sizeThatFits)
         }
     }

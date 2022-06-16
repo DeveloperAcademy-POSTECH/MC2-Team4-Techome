@@ -8,16 +8,15 @@
 import SwiftUI
 
 struct TodayView: View {
-    @State private var caffeinePercent: Double = 0.5
     @ObservedObject private var todayStates: TodayStatesHolder = TodayStatesHolder()
     private let timer = Timer.publish(every: 60, tolerance: 3, on: .main, in: .common).autoconnect()
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                BackgroundAnimationView(caffeinePercent: $caffeinePercent, geometry: geometry)
+                BackgroundAnimationView(todayStates: todayStates, geometry: geometry)
                 VStack(spacing: .zero) {
-                    TodayViewTopBottons(caffeinePercent: $caffeinePercent, geometry: geometry)
+                    TodayViewTopBottons(geometry: geometry)
                         .padding(.top, TodayLayoutValue.Padding.Content.top)
                         .padding(.trailing, TodayLayoutValue.Padding.Content.trailing)
                         .padding(.bottom, TodayLayoutValue.Padding.Content.buttonsToRemainingState)
