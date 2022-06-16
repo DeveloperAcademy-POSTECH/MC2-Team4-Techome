@@ -93,12 +93,15 @@ struct TotalListView: View {
     @ObservedObject var totalData = datas(dataSortedByDate: dataResult)
     
     var body: some View {
+        ScrollView {
         
-            VStack {
+            LazyVStack {
                 ForEach(totalData.datesArr, id: \.self) { curDate in
                     TotalListByDay(totalData: totalData, curDate: curDate)
                 }
             }
+            
+        }
         
     }
 }
