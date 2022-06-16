@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SettingsPersonalInformationView: View {
+struct SettingsPolicyView: View {
     
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
@@ -71,8 +71,8 @@ struct PolicyGroup: View {
     }
 }
 
-struct SettingsPersonalInformationView_Previews: PreviewProvider {
+struct SettingsPolicyView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsPersonalInformationView()
+        SettingsPolicyView()
     }
 }

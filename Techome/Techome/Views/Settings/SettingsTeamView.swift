@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SettingsCompanyView: View {
+struct SettingsTeamView: View {
     
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
@@ -110,8 +110,8 @@ struct MissionGroup: View {
     }
 }
 
-struct SettingsCompanyView_Previews: PreviewProvider {
+struct SettingsTeamView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsCompanyView()
+        SettingsTeamView()
     }
 }

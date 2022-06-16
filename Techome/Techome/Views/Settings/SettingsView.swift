@@ -75,7 +75,7 @@ struct InformationGroup: View {
         VStack(spacing: .zero) {
             
             NavigationLink(destination: {
-                SettingsCompanyView()
+                SettingsTeamView()
                     .navigationBarHidden(true)
             }){
                 InformationRowContent(informationText: "팀 소개")
@@ -91,7 +91,7 @@ struct InformationGroup: View {
             DividerCustom()
             
             NavigationLink(destination: {
-                SettingsPersonalInformationView()
+                SettingsPolicyView()
                     .navigationBarHidden(true)
             }){
                 InformationRowContent(informationText: "개인정보 처리방침")

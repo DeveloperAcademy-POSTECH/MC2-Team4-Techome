@@ -10,9 +10,9 @@
 		2ABF49482856DCAD000E3387 /* BarChart in Frameworks */ = {isa = PBXBuildFile; productRef = 2ABF49472856DCAD000E3387 /* BarChart */; };
 		5220177F2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */; };
 		52201783285A16C9005A5BEC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52201782285A16C9005A5BEC /* SettingsView.swift */; };
-		52201785285A16E4005A5BEC /* SettingsCompanyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52201784285A16E4005A5BEC /* SettingsCompanyView.swift */; };
+		52201785285A16E4005A5BEC /* SettingsTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52201784285A16E4005A5BEC /* SettingsTeamView.swift */; };
 		52201787285A16F6005A5BEC /* SettingsOpenSourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52201786285A16F6005A5BEC /* SettingsOpenSourceView.swift */; };
-		52201789285A1706005A5BEC /* SettingsPersonalInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52201788285A1706005A5BEC /* SettingsPersonalInformationView.swift */; };
+		52201789285A1706005A5BEC /* SettingsPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52201788285A1706005A5BEC /* SettingsPolicyView.swift */; };
 		5220178B285A1714005A5BEC /* SettingsAddOpinionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220178A285A1714005A5BEC /* SettingsAddOpinionView.swift */; };
 		52AFC473285704AB000199DF /* AddSideEffectStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */; };
 		52AFC4782858614E000199DF /* CaffeineBookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC4772858614E000199DF /* CaffeineBookDetailView.swift */; };
@@ -73,9 +73,9 @@
 /* Begin PBXFileReference section */
 		5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookDetailStateHolder.swift; sourceTree = "<group>"; };
 		52201782285A16C9005A5BEC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		52201784285A16E4005A5BEC /* SettingsCompanyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCompanyView.swift; sourceTree = "<group>"; };
+		52201784285A16E4005A5BEC /* SettingsTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTeamView.swift; sourceTree = "<group>"; };
 		52201786285A16F6005A5BEC /* SettingsOpenSourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOpenSourceView.swift; sourceTree = "<group>"; };
-		52201788285A1706005A5BEC /* SettingsPersonalInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPersonalInformationView.swift; sourceTree = "<group>"; };
+		52201788285A1706005A5BEC /* SettingsPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPolicyView.swift; sourceTree = "<group>"; };
 		5220178A285A1714005A5BEC /* SettingsAddOpinionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAddOpinionView.swift; sourceTree = "<group>"; };
 		52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSideEffectStateHolder.swift; sourceTree = "<group>"; };
 		52AFC4772858614E000199DF /* CaffeineBookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookDetailView.swift; sourceTree = "<group>"; };
@@ -150,9 +150,9 @@
 			isa = PBXGroup;
 			children = (
 				52201782285A16C9005A5BEC /* SettingsView.swift */,
-				52201784285A16E4005A5BEC /* SettingsCompanyView.swift */,
+				52201784285A16E4005A5BEC /* SettingsTeamView.swift */,
 				52201786285A16F6005A5BEC /* SettingsOpenSourceView.swift */,
-				52201788285A1706005A5BEC /* SettingsPersonalInformationView.swift */,
+				52201788285A1706005A5BEC /* SettingsPolicyView.swift */,
 				5220178A285A1714005A5BEC /* SettingsAddOpinionView.swift */,
 			);
 			path = Settings;
@@ -501,7 +501,7 @@
 				AB18CCFD2856D8B300DD1C5A /* SideEffectRecord.swift in Sources */,
 				AB18CD062856D8B300DD1C5A /* tempViewModel.swift in Sources */,
 				52AFC473285704AB000199DF /* AddSideEffectStateHolder.swift in Sources */,
-				52201785285A16E4005A5BEC /* SettingsCompanyView.swift in Sources */,
+				52201785285A16E4005A5BEC /* SettingsTeamView.swift in Sources */,
 				ABC0E9622859CDDE0046C9C8 /* BeverageList.swift in Sources */,
 				AB18CD012856D8B300DD1C5A /* ContentView.swift in Sources */,
 				ABFE83F72859A876001461D4 /* EspressoShotCountCustomStepper.swift in Sources */,
@@ -539,7 +539,7 @@
 				793214F8285702BB00D7E4E1 /* SearchBarView.swift in Sources */,
 				52201787285A16F6005A5BEC /* SettingsOpenSourceView.swift in Sources */,
 				AB18CCED2856D8B300DD1C5A /* SideEffectRepository.swift in Sources */,
-				52201789285A1706005A5BEC /* SettingsPersonalInformationView.swift in Sources */,
+				52201789285A1706005A5BEC /* SettingsPolicyView.swift in Sources */,
 				AB18CD032856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift in Sources */,
 				ABC0E95B2859CDDE0046C9C8 /* CaffeineBookLayoutValue.swift in Sources */,
 				AB18CCF42856D8B300DD1C5A /* JSONManager.swift in Sources */,
