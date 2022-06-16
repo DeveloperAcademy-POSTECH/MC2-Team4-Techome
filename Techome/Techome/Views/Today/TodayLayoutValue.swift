@@ -17,11 +17,14 @@ struct TodayLayoutValue {
             static let buttonsToRemainingState: CGFloat = 25.0
             static let exhaustTimeToAddCaffeine: CGFloat = 40.0
         }
-        enum topButtons {
-            static let interval: CGFloat = 18.0
+        enum TopButtons {
+            static let vInterval: CGFloat = 18.0
         }
         enum RemainingStatement {
             static let textVInterval: CGFloat = 8.0
+        }
+        enum BottomButton {
+            static let hInterval: CGFloat = 10.0
         }
     }
     

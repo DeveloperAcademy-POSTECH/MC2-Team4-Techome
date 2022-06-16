@@ -26,7 +26,7 @@ struct AddCaffeineButton: View {
                 }
                 
             }
-            .padding(.bottom, 10)
+            .padding(.bottom, TodayLayoutValue.Padding.BottomButton.hInterval)
             Text("오늘 총 \(todayStates.getTodyIntakeAmount())mg 섭취")
                 .font(.caption)
         }

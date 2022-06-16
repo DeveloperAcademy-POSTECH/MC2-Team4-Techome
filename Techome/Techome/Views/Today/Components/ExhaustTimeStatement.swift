@@ -20,7 +20,7 @@ struct ExhaustTimeStatement: View {
                     .font(.title3)
             }
             .frame(maxWidth: .infinity, alignment: .trailing)
-            Text("모두 배출되요")
+            Text("모두 배출돼요")
                 .font(.title3)
                 .frame(maxWidth: .infinity, alignment: .trailing)
         }

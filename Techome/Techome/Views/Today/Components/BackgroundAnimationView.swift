@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SineWaveShape
+// REFERENCE: https://github.com/MrChens/SineWaveShape?ref=iosexample.com
 
 struct BackgroundAnimationView: View {
     @ObservedObject var todayStates: TodayStatesHolder

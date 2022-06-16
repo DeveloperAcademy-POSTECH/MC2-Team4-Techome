@@ -22,7 +22,7 @@ struct TodayViewTopBottons: View {
                     .frame(width: TodayLayoutValue.Size.addSideEffectButtonWidth)
                     .padding(.top, geometry.safeAreaInsets.top)
             }
-            .padding(.trailing, TodayLayoutValue.Padding.topButtons.interval)
+            .padding(.trailing, TodayLayoutValue.Padding.TopButtons.vInterval)
             Button {
                 // TODO: add setting button pressed
             } label: {
