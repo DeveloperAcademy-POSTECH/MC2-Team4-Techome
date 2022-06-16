@@ -38,22 +38,21 @@ final class NotificationManager {
     }
 
     
-    func schedule() -> Void {
+    func schedule(textType: NotificationText) -> Void {
         print("schedule!!")
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             switch settings.authorizationStatus {
             case .notDetermined :
                 self.requestPermission()
             case .authorized, .provisional :
-                self.scheduleNotifications(isOn: true)
-         
+                self.scheduleNotifications(isOn: true, textType: textType)
             default :
                 break
             }
         }
     }
     
-    func scheduleNotifications(isOn: Bool) -> Void {
+    func scheduleNotifications(isOn: Bool, textType: NotificationText) -> Void {
        
         for notification in notifications {
             let content = UNMutableNotificationContent()
@@ -64,14 +63,15 @@ final class NotificationManager {
             content.body = notification.textType.getNotificationBody()
             content.badge = 0
 
-            
-            var date = DateComponents()
-            date.hour = 18
-            date.minute = 00
+//            var date = DateComponents()
+//            date.hour = 18
+//            date.minute = 00
 //            let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
             
-//         Test용 3초뒤 알람
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
+//         Test용 4초뒤 알람
+//            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 4, repeats: false)
+            
+            let trigger = notification.textType.getNotificationType(date: notification.textType.getNotificationTime())
             let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
             
             if isOn {
@@ -80,7 +80,7 @@ final class NotificationManager {
                     print("Scheduling notification with id : \(notification.id)")
                 }
             } else {
-                print("removeall!!")
+                print("removed!!")
                 UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [request.identifier])
                 
             }

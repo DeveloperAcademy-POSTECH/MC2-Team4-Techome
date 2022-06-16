@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 enum NotificationText: String, CaseIterable, Hashable, Codable {
     case recordNotification = "record"
@@ -31,6 +32,35 @@ enum NotificationText: String, CaseIterable, Hashable, Codable {
             return "체내 많은 카페인 함유는 부가적인 증상을 나타낼 수 있습니다. 🤕"
         case .trendNotification:
             return "원활한 수면을 위해 카페인 섭취를 자제해주세요. 🛏"
+        }
+    }
+    
+    func getNotificationType(date: DateComponents) -> UNNotificationTrigger {
+        switch self {
+        case .recordNotification:
+            return UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+        case .warningNotification:
+            return UNTimeIntervalNotificationTrigger(timeInterval: 1800, repeats: false)
+        case .trendNotification:
+            return UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+        }
+    }
+    
+    func getNotificationTime() -> DateComponents {
+        var date = DateComponents()
+        switch self {
+        case .recordNotification:
+            date.hour = 21
+            date.minute = 00
+            return date
+        case .warningNotification:
+            date.hour = 00
+            date.minute = 00
+            return date
+        case .trendNotification:
+            date.hour = 18
+            date.minute = 00
+            return date
         }
     }
 }
