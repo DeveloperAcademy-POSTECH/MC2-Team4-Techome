@@ -22,10 +22,8 @@ struct NotificationView: View {
                     .onChange(of: notificationStateHolder.isRecordNotificationOn) { value in
                         if value {
                             notificationStateHolder.setNotification(textType: NotificationText.recordNotification)
-                            notificationStateHolder.showAlert = true
                         }else {
                             notificationStateHolder.delNotification(textType: NotificationText.recordNotification)
-                            
                         }
                     }
                     .padding(12)
@@ -42,7 +40,6 @@ struct NotificationView: View {
                     .onChange(of: notificationStateHolder.isWarningNotificationOn) { value in
                         if value {
                             notificationStateHolder.setNotification(textType: NotificationText.warningNotification)
-                            notificationStateHolder.showAlert = true
                         }else {
                             notificationStateHolder.delNotification(textType: NotificationText.warningNotification)
                         }
@@ -60,10 +57,8 @@ struct NotificationView: View {
                     .onChange(of: notificationStateHolder.isTrendNotificationOn) { value in
                         if value {
                             notificationStateHolder.setNotification(textType: NotificationText.trendNotification)
-                            notificationStateHolder.showAlert = true
                         }else {
                             notificationStateHolder.delNotification(textType: NotificationText.trendNotification)
-                            
                         }
                     }
                     .padding(12)

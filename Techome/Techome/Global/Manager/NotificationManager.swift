@@ -62,11 +62,6 @@ final class NotificationManager {
             content.subtitle = notification.textType.getNotificationSubtitle()
             content.body = notification.textType.getNotificationBody()
             content.badge = 0
-
-//            var date = DateComponents()
-//            date.hour = 18
-//            date.minute = 00
-//            let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
             
 //         Test용 4초뒤 알람
 //            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 4, repeats: false)
@@ -82,10 +77,7 @@ final class NotificationManager {
             } else {
                 print("removed!!")
                 UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [request.identifier])
-                
             }
-            
-            
         }
     }
 }
