@@ -27,13 +27,18 @@ final class Datas: ObservableObject { //observable 객체 생성
         self.datesArr = datesArr.sorted(by: >)
         
         print(self.dataSortedByDate)
-//        let hihi = totalListSourceData()
-//        print(hihi.intakes)
-//        print(hihi.sideEffects)
     }
     
     //선택된 cell 삭제
-    func deleteData(curDate : String, index : Int) {
+    func deleteData(curCell : TotalDataCell, curDate : String, index : Int) {
+        //실제 데이터에서 삭제
+        
+        if curCell.dataType == "intake"{
+            sourceData.intakeManager.deleteRecord(intakeRecord: sourceData.intakes[curCell.dataIndex])
+        } else if curCell.dataType == "sideEffect" {
+            sourceData.sideEffectManager.deleteRecord(sideEffectRecord: sourceData.sideEffects[curCell.dataIndex])
+        }
+        
         guard self.dataSortedByDate[curDate] != nil else {
             return
         }
@@ -111,24 +116,14 @@ class totalListCollectData {
         }
         print("date 기준으로 정렬 완료")
         
-        //딕셔너리 형태로 최종 데이터 만들기 (날짜 : [data배열])
-//        for dataCell in sourceDataMerged {
-//            sourceDataGrouped.append(TotalDataCell(date: dateToString(dateInfo : dataCell.date), dataType: dataCell.dataType, dataIndex: dataCell.dataIndex))
-//        }
-        
-//        self.finalData = Dictionary(grouping: sourceDataGrouped, by: { $0.(dateToString(dateInfo : dataCell.date)) })
-//        self.finalData = Dictionary(grouping: sourceDataMerged, by: { $0.(dateToString(dateInfo : dataCell.date)) })
-        
         self.finalData = Dictionary(grouping: sourceDataMerged) { (oneData) -> String in
             let dateString = dateToString(dateInfo: oneData.date)
             return dateString
         }
         
         //그룹 내에서 시간 기준 정렬
-//        self.finalData =
         for (dateKey, dataValue) in finalData {
             self.finalData[dateKey] = dataValue.sorted(by: {$0.date < $1.date})
-
         }
 
         print(finalData)

@@ -103,7 +103,7 @@ struct TotalListByDate: View {
                         //삭제 버튼
                         deleteButton()
                             .onTapGesture{
-                                totalData.deleteData(curDate : curDate, index : index)
+                                totalData.deleteData(curCell : cell, curDate : curDate, index : index)
                             }
                         
                         //데이터 표시
