@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1489907C285B98BC001315F3 /* TotalListStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1489907B285B98BC001315F3 /* TotalListStateHolder.swift */; };
 		2A427E292858548900089AC0 /* ChartSelectionIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A427E282858548900089AC0 /* ChartSelectionIndicatorView.swift */; };
 		2A427E2D285859D700089AC0 /* TrendChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A427E2C285859D700089AC0 /* TrendChartView.swift */; };
 		2ABF49482856DCAD000E3387 /* BarChart in Frameworks */ = {isa = PBXBuildFile; productRef = 2ABF49472856DCAD000E3387 /* BarChart */; };
@@ -83,6 +84,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1489907B285B98BC001315F3 /* TotalListStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalListStateHolder.swift; sourceTree = "<group>"; };
 		2A427E282858548900089AC0 /* ChartSelectionIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartSelectionIndicatorView.swift; sourceTree = "<group>"; };
 		2A427E2C285859D700089AC0 /* TrendChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendChartView.swift; sourceTree = "<group>"; };
 		5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookDetailStateHolder.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				79421B9C285722B400DFD58A /* SearchCaffeineStateHolder.swift */,
 				52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */,
 				5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */,
+				1489907B285B98BC001315F3 /* TotalListStateHolder.swift */,
 				791F5460285A1C3B0066F5B1 /* NotificationStateHolder.swift */,
 			);
 			path = ViewModel;
@@ -613,6 +616,7 @@
 				AB18CCF42856D8B300DD1C5A /* JSONManager.swift in Sources */,
 				AB18CCFE2856D8B300DD1C5A /* TrendView.swift in Sources */,
 				79421B9D285722B400DFD58A /* SearchCaffeineStateHolder.swift in Sources */,
+				1489907C285B98BC001315F3 /* TotalListStateHolder.swift in Sources */,
 				AB528BBB285C46C900C213C6 /* TodayStateHolder.swift in Sources */,
 				AB18CCF32856D8B300DD1C5A /* SideEffectManager.swift in Sources */,
 				791F5468285ABD2C0066F5B1 /* Notification.swift in Sources */,
