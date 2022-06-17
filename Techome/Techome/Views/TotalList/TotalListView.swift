@@ -288,9 +288,13 @@ struct CaffeineCell: View {
                         Text(cellData.beverage.name)
                             .font(.title3)
                             .padding(.trailing, TotalListLayoutValue.Paddings.textVerticalPadding)
-                        Text(cellData.beverage.franchise.getFranchiseName())
-                            .font(.caption)
-                            .foregroundColor(.secondaryTextGray)
+                        Group {
+                            Text(cellData.beverage.franchise.getFranchiseName())
+                            Text("/")
+                            Text(cellData.size.name)
+                        }
+                        .font(.caption)
+                        .foregroundColor(.secondaryTextGray)
                     }
                 }
                 Spacer()
