@@ -16,23 +16,24 @@ final class JSONManager {
         let fileManager = FileManager.default
         let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
         
-        guard let url = urls.first else{
+        guard let url = urls.first else {
             fatalError("Invalid URL")
         }
+        
         let fileURL = url.appendingPathComponent(filename)
         
         var data = Data()
         do {
             data = try Data(contentsOf: fileURL)
         } catch {
-            print("No File at \(fileURL)")
+            print("No File at \(url)")
             return []
         }
         
         do {
             return try JSONDecoder().decode([T].self, from: data)
         } catch {
-            fatalError("Decode Error")
+            fatalError("Decode Error at \(url)")
         }
     }
     
@@ -41,7 +42,7 @@ final class JSONManager {
         let fileManager = FileManager.default
         let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
         
-        guard let url = urls.first else{
+        guard let url = urls.first else {
             fatalError("Invalid URL")
         }
         
@@ -52,14 +53,14 @@ final class JSONManager {
         do {
             jsonData = try encoder.encode(data)
         } catch {
-            fatalError("Encode Error")
+            fatalError("Encode Error at \(url)")
         }
         
         let fileURL = url.appendingPathComponent(filename)
         do {
             try jsonData.write(to: fileURL, options: [.atomicWrite])
         } catch {
-            fatalError("File Write Error")
+            fatalError("File Write Error at \(fileURL)")
         }
         
     }

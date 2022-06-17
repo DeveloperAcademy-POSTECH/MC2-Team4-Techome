@@ -13,24 +13,31 @@ final class IntakeManager {
     
     let repository = IntakeRepository()
     
-    func addRecord(beverage: Beverage, addedShotCount: Int) {
-        repository.addRecord(record: IntakeRecord(date: Date.now, beverage: beverage, addedShotCount: addedShotCount))
+    func addRecord(beverage: Beverage, sizeInfo: SizeInfo,addedShotCount: Int) {
+        repository.save(record: IntakeRecord(date: Date.now,
+                                                  beverage: beverage,
+                                                  size: sizeInfo,
+                                                  addedShotCount: addedShotCount))
     }
     
     func getDailyRecords(date: Date) -> [IntakeRecord] {
-        return repository.getDailyRecords(date: date)
+        return repository.findByDate(date: date)
+    }
+    
+    func getRecentRecords(count: Int) -> [IntakeRecord] {
+        return repository.findRecent(count: count)
     }
     
     func getAllRecords() -> [IntakeRecord] {
-        return repository.getAllRecords()
+        return repository.findAll()
     }
     
     func deleteRecord(intakeRecord: IntakeRecord) {
-        repository.deleteRecord(intakeRecord: intakeRecord)
+        repository.remove(intakeRecord: intakeRecord)
     }
     
     func getCaffeineAmount(record: IntakeRecord) -> Int {
-        var caffenine = record.beverage.caffeineAmount
+        var caffenine = record.size.caffeineAmount
         caffenine += (record.beverage.franchise.getCaffeinPerShot() * record.addedShotCount)
         
         return caffenine
@@ -47,29 +54,37 @@ final class IntakeManager {
         return amount
     }
     
-    func getRemainTimeToDischarge() -> Int {
-        let standard = 50.0
-        let remainCaffeine = self.getRemainCaffeineAmount() + 0.1
+    func getRemainTimeToDischarge(caffeine: Double) -> Int {
+        //  카페인을 모두 배출된 시간을 위해 임의로 정한 값
+        let standard = 30.0
         let halfLifeInSecond: Double = 4 * 60 * 60
         
-        return Int((-log2(standard / Double(remainCaffeine)) * halfLifeInSecond))
+        if caffeine < standard {
+            return 0
+        }
+        
+        return Int((-log2(standard / caffeine) * halfLifeInSecond))
+    }
+    
+    private func isRecordExist(days: Int) -> Bool {
+        return getRecentRecords(days: days).count == 0 ? false : true
     }
     
     func getRemainCaffeineAmount() -> Double {
-        let day: Double = 24 * 60 * 60
+        //  마시자 마자 잔존량이 줄어드는 것을 방지하기 위해서 생성
+        let offset = 0.1
         
-        let records = getDailyRecords(date: Date.now)
-                    + getDailyRecords(date: Date(timeIntervalSinceNow: -day))
-                    + getDailyRecords(date: Date(timeIntervalSinceNow: -day * 2))
+        //  3일치 기록을 가져옴, 3일은 임의로 정한 기간, 수정할 수 있음
+        let records = getRecentRecords(days: 3)
         
         var amount = 0.0
         for record in records {
             let remainCaffeine = self.calculateRemainCaffeine(date: record.date,
-                                                              caffeine: IntakeManager.shared.getCaffeineAmount(record: record))
+                                                              caffeine: getCaffeineAmount(record: record))
             amount += remainCaffeine
         }
         
-        return amount
+        return amount + offset
     }
     
     private func calculateRemainCaffeine(date: Date, caffeine: Int) -> Double {
@@ -78,4 +93,15 @@ final class IntakeManager {
         
         return Double(caffeine) * pow(1 / 2, timeInterval / halfLifeInSecond)
     }
+    
+    private func getRecentRecords(days: Int) -> [IntakeRecord] {
+        let hoursInDay: Double = 24 * 60 * 60
+        var records: [IntakeRecord] = []
+        
+        for day in 0 ..< days {
+            records += getDailyRecords(date: Date(timeIntervalSinceNow: -hoursInDay * Double(day)))
+        }
+        return records
+    }
+
 }

@@ -14,16 +14,19 @@ final class BeverageManager {
     private let repository = BeverageRepository()
     
     func getAllBeverages() -> [Beverage] {
-        return repository.getAllBeverages()
+        return repository.findAll()
     }
     
-    func getBeverage(name: String, franchise: Franchise) -> [Beverage]? {
-        let beverage = repository.getBeverageBySize(name: name, franchise: franchise)
-        
-        if beverage.isEmpty {
-            return nil
-        } else {
-            return beverage
-        }
+    func getBeverage(name: String, franchise: Franchise) -> Beverage? {
+        return repository.findByNameAndFranchise(name: name, franchise: franchise)
     }
+    
+    func getSatisfiedBeveragesByString(searchString: String) -> [Beverage] {
+        let searchWords = searchString.components(separatedBy: " ")
+        return repository.findBySearchWords(searchWords: searchWords)
+    }
+    
+    func getBeverages(franchise: Franchise) -> [Beverage] {
+            return repository.findByFranchise(franchise: franchise)
+        }
 }

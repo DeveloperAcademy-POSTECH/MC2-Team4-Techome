@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Franchise: String, Hashable, Codable {
+enum Franchise: String, CaseIterable, Hashable, Codable {
     case starbucks = "스타벅스"
     case twosomePlace = "투썸플레이스"
     
@@ -20,7 +20,7 @@ enum Franchise: String, Hashable, Codable {
         case .starbucks:
             return 75
         case .twosomePlace:
-            return 50
+            return 88
         }
     }
     
