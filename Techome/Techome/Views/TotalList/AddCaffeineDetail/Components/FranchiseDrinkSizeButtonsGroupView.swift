@@ -21,8 +21,8 @@ struct FranchiseDrinkSizeButtonsGroupView: View {
     var body: some View {
         HStack(alignment: .center, spacing: .zero) {
             //TODO: 임시 버튼 갯수 로직 구현 필요
-            ForEach(0 ..< addCaffeineDetailStates.bevergeRecord.sizeInfo.count, id: \.self) { drinkSizeButtonIndex in
-                FranchiseDrinkSizeButton(size: addCaffeineDetailStates.bevergeRecord.sizeInfo[drinkSizeButtonIndex].name, buttonIndex: drinkSizeButtonIndex)
+            ForEach(0 ..< addCaffeineDetailStates.beverge.sizeInfo.count, id: \.self) { drinkSizeButtonIndex in
+                FranchiseDrinkSizeButton(size: addCaffeineDetailStates.beverge.sizeInfo[drinkSizeButtonIndex].name, buttonIndex: drinkSizeButtonIndex)
             }
             .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.DrinkSizeButton.horizontal)
         }
@@ -49,8 +49,9 @@ struct FranchiseDrinkSizeButton: View {
         }
         .onTapGesture {
             addCaffeineDetailStates.isSelected = buttonIndex
-            addCaffeineDetailStates.shotCount = addCaffeineDetailStates.getDefaultShot()
-            addCaffeineDetailStates.addCaffeineAmount = addCaffeineDetailStates.getWillAddCaffeineAmount()
+//            addCaffeineDetailStates.shotCount = addCaffeineDetailStates.getDefaultShot()
+//            addCaffeineDetailStates.defaultCaffeineAmount = addCaffeineDetailStates.beverage.sizeInfo[addCaffeineDetailStates.isSelected].caffeineAmount
+//            addCaffeineDetailStates.addedShotCount = addCaffeineDetailStates.getWillAddCaffeineAmount()
         }
     }
 }

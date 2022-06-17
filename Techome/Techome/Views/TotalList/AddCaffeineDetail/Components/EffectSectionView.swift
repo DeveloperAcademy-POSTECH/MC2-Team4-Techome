@@ -28,7 +28,7 @@ struct EffectSectionAddCaffeineAmountProviderView: View {
                 Image(systemName: "circle.hexagongrid")
                     .padding(.trailing, AddCaffeineDetailViewLayoutValue.Paddings.EffectCard.sectionIconToText)
                 //TODO: 임시 더미데이터 변경 필요
-                Text("추가되는 카페인은 \(addCaffeineDetailStates.addCaffeineAmount) 입니다.")
+                Text("추가되는 카페인은 \( addCaffeineDetailStates.addedShotCount * addCaffeineDetailStates.beverge.franchise.getCaffeinPerShot()) 입니다.")
                     .fontWeight(.semibold)
             }
             .headlineModifier()
@@ -54,7 +54,7 @@ struct CurrentCaffeineAmount: View {
             Spacer()
             HStack(alignment: .firstTextBaseline, spacing: .zero) {
                 //TODO: 임시 더미데이터 변경 필요
-                Text("\(addCaffeineDetailStates.currentCaffeineAmount)")
+                Text("\(Int(IntakeManager.shared.getRemainCaffeineAmount()))")
                     .font(.title2)
                     .fontWeight(.semibold)
                 //TODO: customBlack으로 변경 필요
@@ -78,7 +78,7 @@ struct AfterCaffeineAmount: View {
             Spacer()
             HStack(alignment: .firstTextBaseline, spacing: .zero) {
                 //TODO: 임시 더미데이터 변경 필요
-                Text("\(addCaffeineDetailStates.currentCaffeineAmount + addCaffeineDetailStates.addCaffeineAmount)")
+                Text("\(Int(IntakeManager.shared.getRemainCaffeineAmount()) + addCaffeineDetailStates.addedShotCount * addCaffeineDetailStates.beverge.franchise.getCaffeinPerShot())")
                     .fontWeight(.semibold)
                     .sideEffectValueHighlight()
                     .padding(.trailing, AddCaffeineDetailViewLayoutValue.Paddings.addCaffeineAmountToUnit)
@@ -98,7 +98,7 @@ struct CaffeineResidualTimeProviderView: View {
                 Image(systemName: "timer")
                     .padding(.trailing, AddCaffeineDetailViewLayoutValue.Paddings.EffectCard.sectionIconToText)
                 //TODO: 임시 더미데이터 변경 필요
-                Text("카페인 배출에 \(addCaffeineDetailStates.calculatedHour(caffenineAmount:addCaffeineDetailStates.addCaffeineAmount))시간 \(addCaffeineDetailStates.calculatedMinute(caffenineAmount:addCaffeineDetailStates.addCaffeineAmount))분이 더 소요됩니다.")
+                Text("카페인 배출에 \(addCaffeineDetailStates.calculatedHour(caffenineAmount:addCaffeineDetailStates.addedShotCount))시간 \(addCaffeineDetailStates.calculatedMinute(caffenineAmount:addCaffeineDetailStates.addedShotCount))분이 더 소요됩니다.")
                     .fontWeight(.semibold)
             }
             .headlineModifier()
@@ -111,12 +111,12 @@ struct CaffeineResidualTimeProviderView: View {
                 HStack(alignment: .firstTextBaseline, spacing: .zero) {
                     Text("오후")
                         .sideEffectSectionTimeUnit()
-                    Text("\(addCaffeineDetailStates.calculatedHour(caffenineAmount:addCaffeineDetailStates.currentCaffeineAmount + addCaffeineDetailStates.addCaffeineAmount))")
+                    Text("\(addCaffeineDetailStates.calculatedHour(caffenineAmount:addCaffeineDetailStates.currentCaffeineAmount + addCaffeineDetailStates.addedShotCount))")
                         .fontWeight(.bold)
                         .sideEffectValueHighlight()
                     Text("시")
                         .sideEffectSectionTimeUnit()
-                    Text("\(addCaffeineDetailStates.calculatedMinute(caffenineAmount:addCaffeineDetailStates.currentCaffeineAmount + addCaffeineDetailStates.addCaffeineAmount))")
+                    Text("\(addCaffeineDetailStates.calculatedMinute(caffenineAmount:addCaffeineDetailStates.currentCaffeineAmount + addCaffeineDetailStates.addedShotCount))")
                         .fontWeight(.bold)
                         .sideEffectValueHighlight()
                     Text("분")
@@ -141,7 +141,7 @@ struct EffectSectionBackground: View {
 struct EffectSectionView_Previews: PreviewProvider {
     
     static var previews: some View {
-        let addCaffeineDetailStates = AddCaffeineDetailStateHolder()
+        let addCaffeineDetailStates = AddCaffeineDetailStateHolder(beverage: dummyBeverages[0])
         EffectSectionView()
             .environmentObject(addCaffeineDetailStates)
     }

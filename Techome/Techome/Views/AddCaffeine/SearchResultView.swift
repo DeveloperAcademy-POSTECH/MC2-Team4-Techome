@@ -55,34 +55,39 @@ struct SatisfiedCaffeineItem: View {
     var satisfiedCaffeineItem: Beverage
     
     var body: some View {
-        VStack(spacing: .zero) {
-            HStack(alignment: .center, spacing: .zero) {
-                VStack (alignment: .leading){
-                    Text(satisfiedCaffeineItem.name)
-                        .multilineTextAlignment(.leading)
-                    Text("\(satisfiedCaffeineItem.franchise.rawValue)")
-                        .font(.caption)
-                        .foregroundColor(.secondaryTextGray)
+        NavigationLink(destination: {
+            AddCaffeineDetailView(beverage: satisfiedCaffeineItem)
+        }) {
+            VStack(spacing: .zero) {
+                HStack(alignment: .center, spacing: .zero) {
+                    VStack (alignment: .leading){
+                        Text(satisfiedCaffeineItem.name)
+                            .multilineTextAlignment(.leading)
+                        Text("\(satisfiedCaffeineItem.franchise.rawValue)")
+                            .font(.caption)
+                            .foregroundColor(.secondaryTextGray)
+                    }
+                    Spacer()
+                    HStack (alignment: .firstTextBaseline, spacing: .zero){
+                        Text("Tall 기준")
+                            .font(.caption2)
+                            .foregroundColor(.secondaryTextGray)
+                            .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.sizeCriterion)
+                        Text("\(satisfiedCaffeineItem.sizeInfo[0].caffeineAmount)")
+                            .font(.title3)
+                            .frame(width: SearchCaffeineViewLayoutValue.Size.caffeineAmountText, alignment: .trailing)
+                        Text(" mg")
+                            .font(.caption2)
+                            .foregroundColor(.secondaryTextGray)
+                    }
                 }
-                Spacer()
-                HStack (alignment: .firstTextBaseline, spacing: .zero){
-                    Text("Tall 기준")
-                        .font(.caption2)
-                        .foregroundColor(.secondaryTextGray)
-                        .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.sizeCriterion)
-                    Text("\(satisfiedCaffeineItem.sizeInfo[0].caffeineAmount)")
-                        .font(.title3)
-                        .frame(width: SearchCaffeineViewLayoutValue.Size.caffeineAmountText, alignment: .trailing)
-                    Text(" mg")
-                        .font(.caption2)
-                        .foregroundColor(.secondaryTextGray)
-                }
+                .foregroundColor(.customBlack)
+                .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardItemHorizontalPadding)
+                .padding(.vertical, SearchCaffeineViewLayoutValue.Padding.cardItemVerticalPadding)
+                Divider()
             }
-            .foregroundColor(.customBlack)
-            .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardItemHorizontalPadding)
-            .padding(.vertical, SearchCaffeineViewLayoutValue.Padding.cardItemVerticalPadding)
-            Divider()
         }
+        
     }
 }
 

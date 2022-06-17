@@ -36,13 +36,13 @@ struct TodayView: View {
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.trailing, TodayLayoutValue.Padding.Content.trailing)
                         .padding(.bottom, TodayLayoutValue.Padding.Content.bottom)
+                        .environmentObject(todayStates)
                 }
             }
             .ignoresSafeArea()
             .onReceive(refreshTimer) { _ in
                 todayStates.setRemainingAmount()
             }
-            
         }
     }
 }

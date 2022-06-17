@@ -21,12 +21,12 @@ struct MainView: View {
                     Image(systemName: "1.square.fill")
                     Text("투데이")
                 }
-            Text("카페인북 view가 여기 들어와야 해요.")
+            CaffeineBookView()
                 .tabItem {
                     Image(systemName: "2.square.fill")
                     Text("카페인북")
                 }
-            Text("리포트 view가 여기 들어와야 해요.")
+            TrendView()
                 .tabItem {
                     Image(systemName: "3.square.fill")
                     Text("리포트")

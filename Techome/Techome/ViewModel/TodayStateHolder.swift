@@ -10,6 +10,7 @@ import Foundation
 final class TodayStatesHolder: ObservableObject {
     
     @Published var remainingAmount: Double
+    @Published var isSearchCaffeineView = false
     
     private let intakeManager = IntakeManager.shared
     private let fullChargeAmount: Double = 1000 // TODO: 팀원 합의 필요

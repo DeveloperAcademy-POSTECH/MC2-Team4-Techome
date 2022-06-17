@@ -11,29 +11,32 @@ final class AddCaffeineDetailStateHolder: ObservableObject {
 
     let intakeManager = IntakeManager.shared
     
-    @Published var bevergeRecord: Beverage = dummyBeverages[0]
+    @Published var beverge: Beverage
     @Published var isSelected: Int = 0
     @Published var shotCount: Int = 0
-    @Published var addCaffeineAmount: Int = 0
+    @Published var defaultCaffeineAmount: Int = 0
+    @Published var addedShotCount: Int = 0
     var currentCaffeineAmount: Int
     
-    init() {
+    init(beverage: Beverage) {
+        self.beverge = beverage
         self.currentCaffeineAmount = intakeManager.getTodayIntakeCaffeineAmount()
-        self.shotCount = bevergeRecord.sizeInfo[isSelected].defaultShotCount
-        self.addCaffeineAmount = bevergeRecord.sizeInfo[isSelected].caffeineAmount
+        self.shotCount = beverge.sizeInfo[isSelected].defaultShotCount
+        self.defaultCaffeineAmount = beverage.sizeInfo[isSelected].caffeineAmount
     }
     
+    
     func getDefaultShot() -> Int {
-        guard isSelected >= bevergeRecord.sizeInfo.count else {
+        guard isSelected < beverge.sizeInfo.count else {
             return 0
         }
-        return bevergeRecord.sizeInfo[isSelected].defaultShotCount
+        return beverge.sizeInfo[isSelected].defaultShotCount
     }
     func getWillAddCaffeineAmount() -> Int {
-        guard isSelected >= bevergeRecord.sizeInfo.count else {
+        guard isSelected < beverge.sizeInfo.count else {
             return 0
         }
-        return bevergeRecord.sizeInfo[isSelected].caffeineAmount
+        return beverge.sizeInfo[isSelected].caffeineAmount
     }
     func calculatedHour(caffenineAmount: Int) -> Int {
         let remainTimeToDischargeSecond: Int = intakeManager.getRemainTimeToDischarge(caffeine: Double(caffenineAmount))
