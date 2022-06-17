@@ -12,9 +12,8 @@ struct SettingsTeamLayoutValue {
     struct Padding {
         static let cardTop: CGFloat = 23
         static let overallHorizontal: CGFloat = 15
-        static let teamNameHorizontal: CGFloat = 17
+        static let cardContentHorizontal: CGFloat = 17
         static let teamNameVertical: CGFloat = 25
-        static let memberGroupHorizontal: CGFloat = 17
         static let memberGroupBottom: CGFloat = 9
         static let memberRoleBetween: CGFloat = 5
         static let roleTop: CGFloat = 2
@@ -38,7 +37,7 @@ struct SettingsTeamView: View {
                 Color.backgroundCream.edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: .zero) {
-                    Card()
+                    TeamCard()
                     Spacer()
                 }
                 .padding(.top, SettingsTeamLayoutValue.Padding.cardTop)
@@ -58,7 +57,7 @@ struct SettingsTeamView: View {
     }
 }
 
-struct Card: View {
+struct TeamCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
             TeamNameRow()
@@ -80,7 +79,7 @@ struct TeamNameRow: View {
             Spacer()
             Image("TeamLogo")
         }
-        .padding(.horizontal, SettingsTeamLayoutValue.Padding.teamNameHorizontal)
+        .padding(.horizontal, SettingsTeamLayoutValue.Padding.cardContentHorizontal)
         .padding(.vertical, SettingsTeamLayoutValue.Padding.teamNameVertical)
     }
 }
@@ -114,7 +113,7 @@ struct MemberGroup: View {
                     .padding(.bottom, SettingsTeamLayoutValue.Padding.mottoBottom)
             }
         }
-        .padding(.horizontal, SettingsTeamLayoutValue.Padding.memberGroupHorizontal)
+        .padding(.horizontal, SettingsTeamLayoutValue.Padding.cardContentHorizontal)
         .padding(.bottom, SettingsTeamLayoutValue.Padding.memberGroupBottom)
     }
 }

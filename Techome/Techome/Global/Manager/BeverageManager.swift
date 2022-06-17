@@ -22,7 +22,7 @@ final class BeverageManager {
     }
     
     func getSatisfiedBeveragesByString(searchString: String) -> [Beverage] {
-        let searchWords = searchString.components(separatedBy: " ")
+        let searchWords = searchString.components(separatedBy: " ").filter { $0.count > 0 }
         return repository.findBySearchWords(searchWords: searchWords)
     }
     

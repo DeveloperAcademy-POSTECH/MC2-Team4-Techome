@@ -7,41 +7,42 @@
 
 import SwiftUI
 
+struct SettingsPolicyLayoutValue {
+    struct Padding {
+        static let cardTop: CGFloat = 23
+        static let overallHorizontal: CGFloat = 15
+        static let dividerHorizontal: CGFloat = 17
+        static let dividerVertical: CGFloat = 20
+        static let introTop: CGFloat = 20
+        static let policyLabelBottom: CGFloat = 5
+        static let policyContentBottom: CGFloat = 20
+        static let cardContentHorizantal: CGFloat = 17
+    }
+    
+    struct Radius {
+        static let card: CGFloat = 7
+        static let cardShadow: CGFloat = 4
+    }
+}
+
 struct SettingsPolicyView: View {
     
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @Environment(\.presentationMode) var presentation: Binding<PresentationMode>
     
     var body: some View {
         NavigationView {
             ZStack(alignment: .leading) {
                 Color.backgroundCream.edgesIgnoringSafeArea(.all)
+                
                 ScrollView {
-                    VStack(alignment: .center, spacing: .zero) {
-                        VStack(alignment: .leading, spacing: .zero) {
-                            PolicyGroup()
-                            PolicyGroup()
-                        }
-                        .padding(.bottom, 27)
-                        .padding(.top, 12)
-                        .padding(.horizontal, 17)
-                        .foregroundColor(.customBlack)
-                        .font(.subheadline)
-                    }
-                    .background(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 7))
-                    .padding(.horizontal, 15)
-                    .padding(.top, 8)
-                    .shadow(color: Color.primaryShadowGray, radius: 4, x: .zero, y: .zero)
-                    .font(.body)
-                    .foregroundColor(.customBlack)
+                    PolicyCard()
                 }
-                .padding(.top, 15)
             }
             .navigationTitle("개인정보 처리방침")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 leading: Button(action: {
-                    self.mode.wrappedValue.dismiss()
+                    self.presentation.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "chevron.left")
                         .font(.headline)
@@ -52,6 +53,26 @@ struct SettingsPolicyView: View {
     }
 }
 
+struct PolicyCard: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: .zero) {
+            PolicyIntro()
+            
+            Divider()
+                .foregroundColor(.primaryShadowGray)
+                .padding(.horizontal, SettingsPolicyLayoutValue.Padding.dividerHorizontal)
+                .padding(.vertical, SettingsPolicyLayoutValue.Padding.dividerVertical)
+                
+            PolicyContents()
+        }
+        .background(.white)
+        .clipShape(RoundedRectangle(cornerRadius: SettingsPolicyLayoutValue.Radius.card))
+        .shadow(color: Color.primaryShadowGray, radius: SettingsPolicyLayoutValue.Radius.cardShadow, x: .zero, y: .zero)
+        .padding(.horizontal, SettingsPolicyLayoutValue.Padding.overallHorizontal)
+        .padding(.top, SettingsPolicyLayoutValue.Padding.cardTop)
+    }
+}
+
 struct PolicyIntro: View {
     
     private let intro: String = "TECHOME의 어플리케이션은 개인정보보호법에 따라 이용자들의 개인정보 보호 및 권익을 보호하고자 다음과 같은 처리방침을 두고 있습니다. 당사는 개인정보처리방침을 개정하는 경우 앱 화면을 통하여 공지할 것입니다."
@@ -59,10 +80,13 @@ struct PolicyIntro: View {
     var body: some View {
         Text(intro)
             .font(.caption)
+            .foregroundColor(.secondaryTextGray)
+            .padding(.horizontal, SettingsPolicyLayoutValue.Padding.cardContentHorizantal)
+            .padding(.top, SettingsPolicyLayoutValue.Padding.introTop)
     }
 }
 
-struct PolicyGroup: View {
+struct PolicyContents: View {
     
     private let policyLabel: [String] = ["1. 개인정보의 처리 목적", "2. 개인정보 파일 현황", "3. 개인정보의 처리 및 보유기간", "4. 개인정보의 제3자 제공에 관한 사항", "5. 개인정보처리 위탁", "6. 정보주체의 권리, 의무 및 그 행사방법", "7. 개인정보의 파기", "8. 타사 모듈 사용에 대한 안내", "9. 개인정보 보호책임자 작성"]
     
@@ -72,11 +96,14 @@ struct PolicyGroup: View {
         ForEach(0..<policyLabel.count, id: \.self) { labelIndex in
             VStack(alignment: .leading, spacing: .zero) {
                 Text(policyLabel[labelIndex])
+                    .padding(.bottom, SettingsPolicyLayoutValue.Padding.policyLabelBottom)
                 Text(policyContent[labelIndex])
-                    .padding(.top, 5)
                     .font(.caption)
+                    .padding(.bottom, SettingsPolicyLayoutValue.Padding.policyContentBottom)
             }
-            .padding(.top, 15)
+            .font(.subheadline)
+            .foregroundColor(.customBlack)
+            .padding(.horizontal, SettingsPolicyLayoutValue.Padding.cardContentHorizantal)
         }
     }
 }
@@ -86,3 +113,4 @@ struct SettingsPolicyView_Previews: PreviewProvider {
         SettingsPolicyView()
     }
 }
+
