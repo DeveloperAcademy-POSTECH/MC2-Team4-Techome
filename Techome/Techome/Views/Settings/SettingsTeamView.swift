@@ -55,7 +55,7 @@ struct TeamNameLogoRow: View {
                 .font(.title3)
                 .foregroundColor(.customBlack)
             Spacer()
-            Image("CaffeineBookIcon")
+            Image("TeamLogo")
         }
         .padding(.top, 25)
         .padding(.horizontal, 17)
