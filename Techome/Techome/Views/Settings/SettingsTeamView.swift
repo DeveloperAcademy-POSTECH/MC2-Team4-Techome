@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsTeamView: View {
     
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @Environment(\.presentationMode) var presentation: Binding<PresentationMode>
     
     var body: some View {
         NavigationView {
@@ -20,7 +20,6 @@ struct SettingsTeamView: View {
                     VStack(alignment: .center, spacing: .zero) {
                         TeamNameLogoRow()
                         MemberGroup()
-                        MissionGroup()
                     }
                     .background(.white)
                     .clipShape(RoundedRectangle(cornerRadius: 7))
@@ -38,7 +37,7 @@ struct SettingsTeamView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 leading: Button(action: {
-                    self.mode.wrappedValue.dismiss()
+                    self.presentation.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "chevron.left")
                         .font(.headline)
@@ -57,56 +56,42 @@ struct TeamNameLogoRow: View {
                 .foregroundColor(.customBlack)
             Spacer()
             Image("CaffeineBookIcon")
-            
         }
-        .padding(.vertical, 25)
+        .padding(.top, 25)
         .padding(.horizontal, 17)
     }
 }
 
 struct MemberGroup: View {
     
-    private let teamMember: String = "놔스닥(박준홍), 닉(김승윤), 메리(김휘원), 진저(김유나), 택(한택환), 포딩(김영우)"
-    
+    private let members: [String] = ["Ginger", "Mary", "Nick", "Noasdaq", "Poding", "Taek"]
+    private let roles: [String] = ["택이네 폭주족", "택이네 평화지킴이", "택이네 활력소", "택이네 버팀목", "택이네 과속측정기", "택이네 길잡이"]
+    private let motto: [String] = ["뭐든 미친듯이! 한 번 시작하면 끝까지 물고 늘어집니다.", "다양한 것에서 다양한 재미를 느끼며, 나에게 온 모든 일을 즐깁니다.", "현재를 만끽하자! 매 순간을 진심으로 대하고 열심히 나아갑니다.", "오늘은 어제보다 행복하기 위해 노력합니다.", "대체 불가능한 디벨로퍼가 되자!", "WWDC 2022 Winner"]
+                                              
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
-            HStack(spacing: 0) {
-                Text("구성원")
-                    .font(.body)
+            ForEach(0..<members.count, id: \.self) { member in
+                HStack(spacing: .zero) {
+                    Text(members[member])
+                        .font(.subheadline)
+                        .foregroundColor(.customBlack)
+                    Text(roles[member])
+                        .font(.caption)
+                        .foregroundColor(.secondaryTextGray)
+                        .padding(.leading, 5)
+                        .padding(.top, 2)
+                    Spacer()
+                }
+                .padding(.top, 16)
+                
+                Text(motto[member])
+                    .font(.caption)
                     .foregroundColor(.primaryBrown)
-                Spacer()
+                    .padding(.top, 3)
             }
-            
-            Text(teamMember)
-                .padding(.top, 7)
         }
         .padding(.horizontal, 17)
-    }
-}
-
-struct MissionGroup: View {
-    
-    private let teamGather: String = "'택이네'는 '커피'라는 공통 관심사를 가지고 모인 디벨로퍼들로 구성된 팀입니다."
-    private let teamMission: String = "사람들이 커피를 포함한 카페인 음료/음식으로 보다 더 활기찬 일상을 만들 수 있도록 함께 머리 모아 고민하는 여정을 함께 해왔습니다."
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: .zero) {
-            HStack(spacing: 0) {
-                Text("팀 미션")
-                    .font(.body)
-                    .foregroundColor(.primaryBrown)
-                Spacer()
-            }
-            .padding(.top, 18)
-            
-            Text(teamGather)
-                .padding(.top, 7)
-            
-            Text(teamMission)
-                .padding(.top, 5)
-        }
-        .padding(.horizontal, 17)
-        .padding(.bottom, 32)
+        .padding(.bottom, 25)
     }
 }
 

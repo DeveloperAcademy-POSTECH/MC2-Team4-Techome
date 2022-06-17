@@ -78,7 +78,7 @@ struct NoticeGroup: View {
 struct InformationGroup: View {
     
     @Binding var showSheet: Bool
-    @State var showAlert: Bool = false
+    @State private var showAlert: Bool = false
     
     var body: some View {
         

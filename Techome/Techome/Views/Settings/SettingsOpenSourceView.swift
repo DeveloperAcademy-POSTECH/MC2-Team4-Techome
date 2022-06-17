@@ -35,11 +35,15 @@ struct SettingsOpenSourceView: View {
                             .padding(.horizontal, 17)
                             .padding(.vertical, 20)
                         
-                        OpenSourceGroup(name: "SwiftUI BarChart", link: "https://github.com/dawigr/BarChart/blob/master/LICENSE", copyright: "Copyright (c) 2020 Roman Baitaliuk", license: "MIT License")
+                        OpenSourceGroup(name: "SwiftUI BarChart", link: "https://github.com/dawigr/BarChart", copyright: "Copyright © 2020 Roman Baitaliuk / MIT license")
                         
-                        OpenSourceGroup(name: "SwiftUI BarChart", link: "https://github.com/dawigr/BarChart/blob/master/LICENSE", copyright: "Copyright (c) 2020 Roman Baitaliuk", license: "MIT License")
+                        OpenSourceGroup(name: "JSONSaveLoad", link: "https://gist.github.com/norsez/aa3f11c0e875526e5270e7791f3891fb", copyright: "Copyright © 2018 norsez")
                         
-                        OpenSourceGroup(name: "SwiftUI BarChart", link: "https://github.com/dawigr/BarChart/blob/master/LICENSE", copyright: "Copyright (c) 2020 Roman Baitaliuk", license: "MIT License")
+                        OpenSourceGroup(name: "Rounding Specific Corners", link: "https://serialcoder.dev/text-tutorials/swiftui/rounding-specific-corners-in-swiftui-views/", copyright: "Copyright © 2020 SerialCoder.dev / MIT license")
+                        
+                        OpenSourceGroup(name: "Sine Wave Shape", link: "https://github.com/MrChens/SineWaveShape?ref=iosexample.com", copyright: "Copyright © 2021 IFunny / MIT license")
+                        
+                        OpenSourceGroup(name: "SwiftUI Mail Sheet", link: "https://www.youtube.com/watch?v=S1qM9oNEwLE", copyright: "Copyright © 2020 Coding Potter")
                         
                     }
                     .background(.white)
@@ -74,29 +78,24 @@ struct OpenSourceGroup: View {
     var name: String
     var link: String
     var copyright: String
-    var license: String
     
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
-            Text(name)
+            
+            Link(name, destination: URL(string: link)!)
                 .font(.headline)
                 .foregroundColor(.customBlack)
             
-            Link(link,
-                 destination: URL(string: link)!)
-            .foregroundColor(.blue)
-            .padding(.top, 5)
-            .font(.caption)
+//            Link(link, destination: URL(string: link)!)
+//                .foregroundColor(.blue)
+//                .padding(.top, 5)
+//                .font(.caption)
             
             Text(copyright)
                 .foregroundColor(.secondaryTextGray)
                 .padding(.top, 2)
                 .font(.caption)
-            
-            Text(license)
-                .foregroundColor(.customBlack)
-                .font(.caption)
-                .padding(.top, 2)
+
         }
         .padding(.horizontal, 17)
         .padding(.bottom, 20)
