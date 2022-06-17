@@ -216,8 +216,7 @@ struct SideEffectCell: View {
                     .foregroundColor(.customRed)
                     .padding(.leading, 5)
             }
-            .padding(.leading, TotalListLayoutValue.Paddings.sideEffectRecordRowHorizontalPadding)
-//            sideEffects
+            .padding(.horizontal, TotalListLayoutValue.Paddings.sideEffectRecordRowHorizontalPadding)
             SideEffectsInCell(sideEffectsArr : cellData.sideEffects)
         }
         .padding(.top, TotalListLayoutValue.Paddings.sideEffectRecordRowVerticalPadding)
@@ -228,22 +227,25 @@ struct SideEffectCell: View {
 //trend에서 사용하는 컴포넌트 공유 예정
 
 
-//trend 의 sideEffectRecordsByDay 와 동일
+//trend 의 sideEffectRecordsByDay
 //부작용 데이터 컴포넌트 : 부작용 정보
 struct SideEffectsInCell: View {
     
     var sideEffectsArr : [SideEffect]
     
+    let columns: [GridItem] = [
+        GridItem(.fixed(TotalListLayoutValue.Sizes.sideEffectRecordCellFixedWidth), spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding),
+        GridItem(.fixed(TotalListLayoutValue.Sizes.sideEffectRecordCellFixedWidth), spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding),
+        GridItem(.fixed(TotalListLayoutValue.Sizes.sideEffectRecordCellFixedWidth), spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding),
+        GridItem(.fixed(TotalListLayoutValue.Sizes.sideEffectRecordCellFixedWidth), spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding),
+        GridItem(.fixed(TotalListLayoutValue.Sizes.sideEffectRecordCellFixedWidth), spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding)
+        
+    ]
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellVerticalPadding) {
-            ForEach(0 ..< 1) { sideEffectRowIndex in
-                HStack(alignment: .center, spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding) {
-                    //TODO: 임시 데이터 수
-                    ForEach(sideEffectsArr, id: \.self) { sideEffect in
-                        SideEffectItem(curSideEffect : sideEffect)
-                    }
-                    Spacer()
-                }
+        LazyVGrid(columns: columns, spacing : TotalListLayoutValue.Paddings.sideEffectRecordCellVerticalPadding) {
+            ForEach(sideEffectsArr, id: \.self) { sideEffect in
+                SideEffectItem(curSideEffect : sideEffect)
             }
         }
         .padding(.vertical, TotalListLayoutValue.Paddings.sideEffectRecordCellVerticalPadding)
@@ -253,7 +255,7 @@ struct SideEffectsInCell: View {
 }
 
 
-//trend 의 SideEffectRecordItem 과 동일
+//trend 의 SideEffectRecordItem
 //부작용 데이터 컴포넌트 : 부작용 이미지 + 이름
 struct SideEffectItem: View {
     var curSideEffect : SideEffect
@@ -264,7 +266,6 @@ struct SideEffectItem: View {
             Text(curSideEffect.getSideEffectName())
                 .font(.caption)
         }
-        .frame(width: TotalListLayoutValue.Sizes.sideEffectRecordCellFixedWidth)
     }
 }
 
@@ -309,8 +310,6 @@ struct CaffeineCell: View {
             }
             .padding(.vertical, TotalListLayoutValue.Paddings.caffeineRecordRowVerticalPadding)
             .padding(.horizontal, TotalListLayoutValue.Paddings.caffeineRecordRowHorizontalPadding)
-//            Divider()
-            
         }
     }
 }
@@ -321,10 +320,10 @@ struct TotalListView_Previews: PreviewProvider {
         
         TotalListView()
         
-        NavigationView {
-            NavigationLink("to total list") {
-                TotalListView()
-            }
-        }
+//        NavigationView {
+//            NavigationLink("to total list") {
+//                TotalListView()
+//            }
+//        }
     }
 }
