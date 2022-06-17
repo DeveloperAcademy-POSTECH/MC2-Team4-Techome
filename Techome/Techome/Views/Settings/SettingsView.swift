@@ -40,7 +40,7 @@ struct SettingsView: View {
                 }
             )
             .sheet(isPresented: $showSheet) {
-                SettingsAddOpinionView(result: self.$result, title: "[앱이름]", body: "[제안 내용]")
+                SettingsMailView(result: self.$result, title: "[앱이름]", body: "[제안 내용]")
             }
         }
         

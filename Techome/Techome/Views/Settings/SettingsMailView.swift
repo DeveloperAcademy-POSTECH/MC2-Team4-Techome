@@ -10,7 +10,7 @@ import MessageUI
 import UIKit
 import Foundation
 
-struct SettingsAddOpinionView: UIViewControllerRepresentable {
+struct SettingsMailView: UIViewControllerRepresentable {
     
     @Environment(\.presentationMode) var presentation
     @Binding var result: Result<MFMailComposeResult, Error>?
@@ -47,7 +47,7 @@ struct SettingsAddOpinionView: UIViewControllerRepresentable {
         return Coordinator(presentation: presentation, result: $result)
     }
     
-    func makeUIViewController(context: UIViewControllerRepresentableContext<SettingsAddOpinionView>) -> MFMailComposeViewController {
+    func makeUIViewController(context: UIViewControllerRepresentableContext<SettingsMailView>) -> MFMailComposeViewController {
         let vc = MFMailComposeViewController()
         vc.mailComposeDelegate = context.coordinator
         vc.setToRecipients(["techomeada@gmail.com"])
@@ -56,7 +56,7 @@ struct SettingsAddOpinionView: UIViewControllerRepresentable {
         return vc
     }
     
-    func updateUIViewController(_ uiViewController: MFMailComposeViewController, context: UIViewControllerRepresentableContext<SettingsAddOpinionView>) {
+    func updateUIViewController(_ uiViewController: MFMailComposeViewController, context: UIViewControllerRepresentableContext<SettingsMailView>) {
         
     }
 }
