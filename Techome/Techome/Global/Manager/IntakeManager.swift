@@ -56,8 +56,12 @@ final class IntakeManager {
     
     func getRemainTimeToDischarge(caffeine: Double) -> Int {
         //  카페인을 모두 배출된 시간을 위해 임의로 정한 값
-        let standard = 50.0
+        let standard = 30.0
         let halfLifeInSecond: Double = 4 * 60 * 60
+        
+        if caffeine < standard {
+            return 0
+        }
         
         return Int((-log2(standard / caffeine) * halfLifeInSecond))
     }
