@@ -21,7 +21,8 @@ struct SettingsPolicyView: View {
                             PolicyGroup()
                             PolicyGroup()
                         }
-                        .padding(.vertical, 27)
+                        .padding(.bottom, 27)
+                        .padding(.top, 12)
                         .padding(.horizontal, 17)
                         .foregroundColor(.customBlack)
                         .font(.subheadline)
@@ -75,7 +76,7 @@ struct PolicyGroup: View {
                     .padding(.top, 5)
                     .font(.caption)
             }
-            .padding(.top, 14)
+            .padding(.top, 15)
         }
     }
 }

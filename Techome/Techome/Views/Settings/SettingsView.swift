@@ -50,7 +50,6 @@ struct SettingsView: View {
 struct NoticeGroup: View {
     
     @State private var recordNotice: Bool = true
-    @State private var warningNotice: Bool = true
     @State private var trendNotice: Bool = true
     
     var body: some View {
@@ -59,8 +58,6 @@ struct NoticeGroup: View {
         
         VStack(spacing: .zero) {
             NoticeRow(toggleText: "기록 알림", isOnState: $recordNotice)
-            DividerCustom()
-            NoticeRow(toggleText: "경고 알림", isOnState: $warningNotice)
             DividerCustom()
             NoticeRow(toggleText: "추이 알림", isOnState: $trendNotice)
         }
