@@ -24,10 +24,16 @@ final class AddCaffeineDetailStateHolder: ObservableObject {
     }
     
     func getDefaultShot() -> Int {
-        bevergeRecord.sizeInfo[isSelected].defaultShotCount
+        guard isSelected >= bevergeRecord.sizeInfo.count else {
+            return 0
+        }
+        return bevergeRecord.sizeInfo[isSelected].defaultShotCount
     }
     func getWillAddCaffeineAmount() -> Int {
-        bevergeRecord.sizeInfo[isSelected].caffeineAmount
+        guard isSelected >= bevergeRecord.sizeInfo.count else {
+            return 0
+        }
+        return bevergeRecord.sizeInfo[isSelected].caffeineAmount
     }
     func calculateHour(caffenineAmount: Int) -> Int {
         let remainTimeToDischargeSecond: Int = intakeManager.getRemainTimeToDischarge(caffeine: Double(caffenineAmount))
