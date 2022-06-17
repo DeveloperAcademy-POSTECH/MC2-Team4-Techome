@@ -9,11 +9,28 @@ import SwiftUI
 import UIKit
 import MessageUI
 
+struct SettingsLayoutValue {
+    
+    struct Padding {
+
+    }
+    
+    struct Size {
+        
+    }
+    
+    struct Radius {
+        static let list : CGFloat = 7
+        static let listShadow : CGFloat = 4
+    }
+    
+}
+
 struct SettingsView: View {
     
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @Environment(\.presentationMode) var presentation: Binding<PresentationMode>
     
-    @State private var showSheet = false
+    @State private var showMailSheet = false
     @State var result: Result<MFMailComposeResult, Error>? = nil
     
     var body: some View {
@@ -24,22 +41,24 @@ struct SettingsView: View {
                 
                 VStack(alignment: .leading, spacing: .zero) {
                     NoticeGroup()
-                    InformationGroup(showSheet: $showSheet)
+                    InformationGroup(showMailSheet: $showMailSheet)
                     Spacer()
                 }
+                .padding(.horizontal, 15)
+                .foregroundColor(.customBlack)
             }
             .navigationTitle("설정")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 leading: Button(action: {
-                    self.mode.wrappedValue.dismiss()
+                    self.presentation.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "chevron.left")
                         .font(.headline)
                         .foregroundColor(.primaryBrown)
                 }
             )
-            .sheet(isPresented: $showSheet) {
+            .sheet(isPresented: $showMailSheet) {
                 SettingsMailView(result: self.$result, title: "[앱이름]", body: "[제안 내용]")
             }
         }
@@ -58,77 +77,78 @@ struct NoticeGroup: View {
         
         VStack(spacing: .zero) {
             NoticeRow(toggleText: "기록 알림", isOnState: $recordNotice)
-            DividerCustom()
+            Divider()
+                .foregroundColor(.primaryShadowGray)
+                .padding(.horizontal, 8)
             NoticeRow(toggleText: "추이 알림", isOnState: $trendNotice)
         }
         .background(.white)
-        .clipShape(RoundedRectangle(cornerRadius: 7))
-        .padding(.horizontal, 15)
+        .clipShape(RoundedRectangle(cornerRadius: SettingsLayoutValue.Radius.list))
         .padding(.top, 8)
-        .shadow(color: Color.primaryShadowGray, radius: 4, x: .zero, y: .zero)
-        .font(.body)
-        .foregroundColor(.customBlack)
+        .shadow(color: Color.primaryShadowGray, radius: SettingsLayoutValue.Radius.listShadow, x: .zero, y: .zero)
         .tint(.primaryBrown)
     }
 }
 
 struct InformationGroup: View {
     
-    @Binding var showSheet: Bool
+    @Binding var showMailSheet: Bool
     @State private var showAlert: Bool = false
     
     var body: some View {
         
         GroupLabel(labelText: "정보")
-        
         VStack(spacing: .zero) {
-            
             NavigationLink(destination: {
                 SettingsTeamView()
                     .navigationBarHidden(true)
             }){
-                InformationRowContent(informationText: "팀 소개")
+                InformationRow(informationText: "팀 소개")
             }
-            DividerCustom()
+            
+            Divider()
+                .foregroundColor(.primaryShadowGray)
+                .padding(.horizontal, 8)
             
             NavigationLink(destination: {
                 SettingsOpenSourceView()
                     .navigationBarHidden(true)
             }){
-                InformationRowContent(informationText: "오픈소스 라이선스")
+                InformationRow(informationText: "오픈소스 라이선스")
             }
-            DividerCustom()
+            
+            Divider()
+                .foregroundColor(.primaryShadowGray)
+                .padding(.horizontal, 8)
             
             NavigationLink(destination: {
                 SettingsPolicyView()
                     .navigationBarHidden(true)
             }){
-                InformationRowContent(informationText: "개인정보 처리방침")
+                InformationRow(informationText: "개인정보 처리방침")
             }
-            DividerCustom()
             
-            InformationRowContent(informationText: "개발자에게 의견 남기기")
+            Divider()
+                .foregroundColor(.primaryShadowGray)
+                .padding(.horizontal, 8)
+            
+            InformationRow(informationText: "개발자에게 의견 남기기")
                 .onTapGesture {
-                    suggestFeature()
+                    mailConnectionFeature()
                 }
-            
         }
         .background(.white)
-        .clipShape(RoundedRectangle(cornerRadius: 7))
-        .padding(.horizontal, 15)
+        .clipShape(RoundedRectangle(cornerRadius: SettingsLayoutValue.Radius.list))
         .padding(.top, 8)
-        .shadow(color: Color.primaryShadowGray, radius: 4, x: .zero, y: .zero)
-        .font(.body)
-        .foregroundColor(.customBlack)
+        .shadow(color: Color.primaryShadowGray, radius: SettingsLayoutValue.Radius.listShadow, x: .zero, y: .zero)
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Error"), message: Text("메일을 보낼 수 없습니다."))
         }
     }
     
-    func suggestFeature() {
-        
+    func mailConnectionFeature() {
         if MFMailComposeViewController.canSendMail() {
-            showSheet = true
+            showMailSheet = true
         } else {
             showAlert = true
         }
@@ -141,10 +161,9 @@ struct GroupLabel: View {
     
     var body: some View {
         Text(labelText)
-            .padding(.leading, 18)
+            .padding(.leading, 3)
             .padding(.top, 35)
             .font(.title3)
-            .foregroundColor(.customBlack)
     }
 }
 
@@ -160,7 +179,7 @@ struct NoticeRow: View {
     }
 }
 
-struct InformationRowContent: View {
+struct InformationRow: View {
     
     var informationText: String
     
@@ -168,21 +187,11 @@ struct InformationRowContent: View {
         HStack {
             Text(informationText)
                 .font(.body)
-                .foregroundColor(.customBlack)
             Spacer()
             Image(systemName: "chevron.right")
-                .foregroundColor(.customBlack)
         }
         .padding(.horizontal, 17)
         .padding(.vertical, 16)
-    }
-}
-
-struct DividerCustom: View {
-    var body: some View {
-        Divider()
-            .foregroundColor(.primaryShadowGray)
-            .padding(.horizontal, 8)
     }
 }
 
