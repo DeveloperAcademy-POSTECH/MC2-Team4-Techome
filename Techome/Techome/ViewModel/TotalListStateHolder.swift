@@ -12,8 +12,8 @@ final class Datas: ObservableObject { //observable 객체 생성
     @Published var dataSortedByDate = [ String : [TotalDataCell] ]() //뷰를 만들 때 최종으로 사용하는 데이터
     @Published var offsetsArr = [ String : [CGFloat] ]()
     @Published var datesArr = [String]()
-    let sourceData = totalListSourceData()
-    let collectData = totalListCollectData()
+    let sourceData = totalListSourceData() //카페인, 부작용 접근 sourceData 통해서 접근하기
+    let collectData = totalListCollectData() //데이터 합치는 함수를 불러오기 위함
         
     init() {
         //데이터 만들기
@@ -26,6 +26,7 @@ final class Datas: ObservableObject { //observable 객체 생성
         
         self.datesArr = datesArr.sorted(by: >)
         
+        print(self.dataSortedByDate)
 //        let hihi = totalListSourceData()
 //        print(hihi.intakes)
 //        print(hihi.sideEffects)
@@ -75,7 +76,8 @@ struct totalListSourceData {
     init() {
         intakes = intakeManager.getAllRecords()
         sideEffects = sideEffectManager.getAllRecords()
-        
+        print(intakes)
+        print(sideEffects)
     }
 }
 
@@ -86,12 +88,6 @@ class totalListCollectData {
         var dataType : String
         var dataIndex : Int
     }
-    
-//    struct TotalDataCell : Hashable {
-//        var date : String
-//        var dataType : String
-//        var dataIndex : Int
-//    }
     
     var finalData = [ String : [TotalDataCell] ]()
     var sourceDataMerged = [sourceDataCell]() //카페인, 부작용 데이터 합친 결과 (date, datatype, dataindex) -> 완성 후 date 기준으로 정렬

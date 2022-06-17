@@ -7,22 +7,22 @@
 
 import SwiftUI
 
-var dataResult : [String : [TotalDataCell]] =
-    [ "2022.06.03" : [ TotalDataCell(dataType: "drink", dataIndex: 1),
-                       TotalDataCell(dataType: "drink", dataIndex: 2),
-                      TotalDataCell(dataType: "sideEffect", dataIndex: 1),
-                       TotalDataCell(dataType: "sideEffect", dataIndex: 2) ],
-      "2022.06.02" : [ TotalDataCell(dataType: "drink", dataIndex: 3),
-                       TotalDataCell(dataType: "sideEffect", dataIndex: 3),
-                      TotalDataCell(dataType: "drink", dataIndex: 4),
-                       TotalDataCell(dataType: "sideEffect", dataIndex: 4) ],
-      "2022.06.01" : [ TotalDataCell(dataType: "drink", dataIndex: 5),
-                       TotalDataCell(dataType: "sideEffect", dataIndex: 5),
-                      TotalDataCell(dataType: "drink", dataIndex: 6) ],
-      "2022.05.31" : [ TotalDataCell(dataType: "drink", dataIndex: 7),
-                       TotalDataCell(dataType: "sideEffect", dataIndex: 6),
-                      TotalDataCell(dataType: "drink", dataIndex: 8) ]
-    ]
+//var dataResult : [String : [TotalDataCell]] =
+//    [ "2022.06.03" : [ TotalDataCell(dataType: "drink", dataIndex: 1),
+//                       TotalDataCell(dataType: "drink", dataIndex: 2),
+//                      TotalDataCell(dataType: "sideEffect", dataIndex: 1),
+//                       TotalDataCell(dataType: "sideEffect", dataIndex: 2) ],
+//      "2022.06.02" : [ TotalDataCell(dataType: "drink", dataIndex: 3),
+//                       TotalDataCell(dataType: "sideEffect", dataIndex: 3),
+//                      TotalDataCell(dataType: "drink", dataIndex: 4),
+//                       TotalDataCell(dataType: "sideEffect", dataIndex: 4) ],
+//      "2022.06.01" : [ TotalDataCell(dataType: "drink", dataIndex: 5),
+//                       TotalDataCell(dataType: "sideEffect", dataIndex: 5),
+//                      TotalDataCell(dataType: "drink", dataIndex: 6) ],
+//      "2022.05.31" : [ TotalDataCell(dataType: "drink", dataIndex: 7),
+//                       TotalDataCell(dataType: "sideEffect", dataIndex: 6),
+//                      TotalDataCell(dataType: "drink", dataIndex: 8) ]
+//    ]
 
 struct TotalListLayoutValue {
     
@@ -124,7 +124,7 @@ struct TotalListByDate: View {
                             }
                         
                         //데이터 표시
-                        Cell(curCell : cell)
+                        Cell(totalData : totalData, curCell : cell)
                             .offset(x: totalData.offsetsArr[curDate]![index])
                             .gesture(
                                 DragGesture()
@@ -199,16 +199,17 @@ struct deleteButton: View {
 
 //데이터 컴포넌트 (하나의 row) : 데이터 타입(카페인, 부작용)에 따라 맞는 컴포넌트 보여줌
 struct Cell: View {
+    @ObservedObject var totalData : Datas
     
     var curCell : TotalDataCell
     
     var body : some View {
         Group{
             switch curCell.dataType {
-            case "drink" :
-                CaffeineCell()
+            case "intake" :
+                CaffeineCell(cellData: totalData.sourceData.intakes[curCell.dataIndex])
             case "sideEffect" :
-                SideEffectCell()
+                SideEffectCell(cellData: totalData.sourceData.sideEffects[curCell.dataIndex])
             default :
                 EmptyView()
             }
@@ -219,6 +220,7 @@ struct Cell: View {
 
 //부작용 데이터 컴포넌트 : 부작용 시간 + 부작용 정보
 struct SideEffectCell: View {
+    var cellData: SideEffectRecord
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: 0) {
@@ -280,6 +282,9 @@ struct SideEffectItem: View {
 //trend 의 CaffeineRecordCell 에 padding (.vertical)로 제한하는 코드 추가 & Divider 삭제, 이외 동일
 //카페인 데이터 컴포넌트 : 카페인 시간 + 카페인 정보
 struct CaffeineCell: View {
+    
+    var cellData : IntakeRecord
+    
     var body: some View {
         VStack(spacing: 0) {
             HStack(alignment: .center, spacing: 0) {
