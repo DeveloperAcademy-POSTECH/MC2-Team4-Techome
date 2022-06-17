@@ -22,12 +22,13 @@ struct RoundedCornersShape: Shape {
 
 struct EspressoShotCountCustomStepper: View {
     //TODO: 임시 더미 데이터
-    @State var shotCount: Int = 2
-    
+    @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
+    var ShotCount = 0
     var body: some View {
         HStack(alignment: .center, spacing: .zero) {
             Button {
-                shotCount -= shotCount > 0 ? 1 : 0
+                addCaffeineDetailStates.shotCount -= addCaffeineDetailStates.shotCount > 0 ? 1 : 0
+                addCaffeineDetailStates.addCaffeineAmount -= addCaffeineDetailStates.bevergeRecord.franchise.getCaffeinPerShot()
             } label: {
                 Image(systemName: "minus")
                     .foregroundColor(.black)
@@ -36,7 +37,7 @@ struct EspressoShotCountCustomStepper: View {
                         .foregroundColor(.white)
                         .shadow(color: .primaryShadowGray, radius: AddCaffeineDetailViewLayoutValue.CornerRadius.shadow, x: .zero, y: .zero))
             }
-            Text("\(shotCount)")
+            Text("\(addCaffeineDetailStates.shotCount)")
                 .font(.body)
                 .fontWeight(.bold)
                 .foregroundColor(.primaryBrown)
@@ -45,7 +46,8 @@ struct EspressoShotCountCustomStepper: View {
                     .foregroundColor(.white)
                     .shadow(color: .primaryShadowGray, radius: AddCaffeineDetailViewLayoutValue.CornerRadius.shadow, x: .zero, y: .zero))
             Button {
-                shotCount += 1
+                addCaffeineDetailStates.shotCount += 1
+                addCaffeineDetailStates.addCaffeineAmount += addCaffeineDetailStates.bevergeRecord.franchise.getCaffeinPerShot()
             } label: {
                 Image(systemName: "plus")
                     .foregroundColor(.black)

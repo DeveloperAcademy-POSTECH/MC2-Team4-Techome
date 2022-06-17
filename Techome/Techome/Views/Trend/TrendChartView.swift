@@ -163,7 +163,6 @@ struct SetEntries {
         return currentDateString
     }
     func inputEntry() -> ChartDataEntry {
-        let entries = [ChartDataEntry]()
         let today = Date()
         let caffeineAmountX = 20 //trendStates.intakeManager.getTodayIntakeCaffeineAmount()
         let todayOfWeek = getDayOfWeek(today)

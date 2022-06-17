@@ -53,15 +53,17 @@ struct AddCaffeineDetailViewLayoutValue {
 }
 
 struct AddCaffeineDetailView: View {
+    @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .center, spacing: .zero) {
                 HStack(alignment: .firstTextBaseline, spacing: .zero) {
-                    Text("아메리카노")
+                    Text(addCaffeineDetailStates.bevergeRecord.name)
                         .font(.title)
                         .fontWeight(.bold)
                         .padding(.leading, AddCaffeineDetailViewLayoutValue.Paddings.cardVertical)
-                    Text("스타벅스")
+                    Text(addCaffeineDetailStates.bevergeRecord.franchise.getFranchiseName())
                         .font(.title3)
                         .foregroundColor(.secondaryTextGray)
                         .padding(.leading, AddCaffeineDetailViewLayoutValue.Paddings.titleToBrand)
@@ -93,7 +95,7 @@ struct AddCaffeineDetailView: View {
                 .sectionTitleModifier()
                 EffectSectionView()
                 Spacer()
-                AddCaffeineButton_q()
+                AddCaffeineButton()
             }
             .navigationTitle("카페인 추가하기")
             .navigationBarTitleDisplayMode(.inline)
@@ -106,10 +108,13 @@ struct AddCaffeineDetailView: View {
     }
 }
 
-struct AddCaffeineButton_q: View {
+struct AddCaffeineButton: View {
+    @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
+    
     var body: some View {
         Button {
-            //TODO: 추가하기 시 동작
+            addCaffeineDetailStates.intakeManager.addRecord(beverage: addCaffeineDetailStates.bevergeRecord, sizeInfo: addCaffeineDetailStates.bevergeRecord.sizeInfo[addCaffeineDetailStates.isSelected], addedShotCount: addCaffeineDetailStates.shotCount)
+            print()
         } label: {
             Text("추가하기")
                 .font(.title2)
@@ -130,7 +135,10 @@ struct AddCaffeineButtonBackground: View {
 }
 
 struct AddCaffeineDetailView_Previews: PreviewProvider {
+    
     static var previews: some View {
+        let addCaffeineDetailState = AddCaffeineDetailStateHolder()
         AddCaffeineDetailView()
+            .environmentObject(addCaffeineDetailState)
     }
 }
