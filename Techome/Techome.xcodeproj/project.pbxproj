@@ -42,6 +42,16 @@
 		AB18CD062856D8B300DD1C5A /* tempViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCEA2856D8B300DD1C5A /* tempViewModel.swift */; };
 		AB18CD072856D8B300DD1C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB18CCEB2856D8B300DD1C5A /* Assets.xcassets */; };
 		AB1FBDFA2856B93400EB4F95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1FBDF92856B93400EB4F95 /* Preview Assets.xcassets */; };
+		AB528BBB285C46C900C213C6 /* TodayStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB528BBA285C46C900C213C6 /* TodayStateHolder.swift */; };
+		AB528BC5285C485000C213C6 /* TodayLayoutValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB528BBD285C485000C213C6 /* TodayLayoutValue.swift */; };
+		AB528BC6285C485000C213C6 /* TodayViewTopBottons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB528BBF285C485000C213C6 /* TodayViewTopBottons.swift */; };
+		AB528BC7285C485000C213C6 /* ExhaustTimeStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB528BC0285C485000C213C6 /* ExhaustTimeStatement.swift */; };
+		AB528BC8285C485000C213C6 /* AddCaffeineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB528BC1285C485000C213C6 /* AddCaffeineButton.swift */; };
+		AB528BC9285C485000C213C6 /* BackgroundAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB528BC2285C485000C213C6 /* BackgroundAnimationView.swift */; };
+		AB528BCA285C485000C213C6 /* RemainingCaffeineStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB528BC3285C485000C213C6 /* RemainingCaffeineStatement.swift */; };
+		AB528BCB285C485000C213C6 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB528BC4285C485000C213C6 /* TodayView.swift */; };
+		AB528BCD285C485B00C213C6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB528BCC285C485B00C213C6 /* MainView.swift */; };
+		AB528BD0285C4C1E00C213C6 /* SineWaveShape in Frameworks */ = {isa = PBXBuildFile; productRef = AB528BCF285C4C1E00C213C6 /* SineWaveShape */; };
 		ABA3D6D42859DAFF00D60A6C /* Franchise.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA3D6D32859DAFF00D60A6C /* Franchise.swift */; };
 		ABC0E9452859CD0E0046C9C8 /* BeverageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0E9442859CD0E0046C9C8 /* BeverageRepository.swift */; };
 		ABC0E9492859CD780046C9C8 /* BeverageData.json in Resources */ = {isa = PBXBuildFile; fileRef = ABC0E9482859CD780046C9C8 /* BeverageData.json */; };
@@ -103,6 +113,15 @@
 		AB18CCEB2856D8B300DD1C5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB1FBDEF2856B93300EB4F95 /* Techome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Techome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB1FBDF92856B93400EB4F95 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AB528BBA285C46C900C213C6 /* TodayStateHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayStateHolder.swift; sourceTree = "<group>"; };
+		AB528BBD285C485000C213C6 /* TodayLayoutValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayLayoutValue.swift; sourceTree = "<group>"; };
+		AB528BBF285C485000C213C6 /* TodayViewTopBottons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewTopBottons.swift; sourceTree = "<group>"; };
+		AB528BC0285C485000C213C6 /* ExhaustTimeStatement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExhaustTimeStatement.swift; sourceTree = "<group>"; };
+		AB528BC1285C485000C213C6 /* AddCaffeineButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCaffeineButton.swift; sourceTree = "<group>"; };
+		AB528BC2285C485000C213C6 /* BackgroundAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundAnimationView.swift; sourceTree = "<group>"; };
+		AB528BC3285C485000C213C6 /* RemainingCaffeineStatement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemainingCaffeineStatement.swift; sourceTree = "<group>"; };
+		AB528BC4285C485000C213C6 /* TodayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		AB528BCC285C485B00C213C6 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		ABA3D6D32859DAFF00D60A6C /* Franchise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Franchise.swift; sourceTree = "<group>"; };
 		ABC0E9442859CD0E0046C9C8 /* BeverageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageRepository.swift; sourceTree = "<group>"; };
 		ABC0E9482859CD780046C9C8 /* BeverageData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BeverageData.json; sourceTree = "<group>"; };
@@ -133,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB528BD0285C4C1E00C213C6 /* SineWaveShape in Frameworks */,
 				2ABF49482856DCAD000E3387 /* BarChart in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,6 +253,8 @@
 		AB18CCDD2856D8B300DD1C5A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AB528BCC285C485B00C213C6 /* MainView.swift */,
+				AB528BBC285C485000C213C6 /* Today */,
 				ABC0E94E2859CDDE0046C9C8 /* CaffeineBook */,
 				52AFC4762858612D000199DF /* CaffeineBookDetail */,
 				AB18CCDE2856D8B300DD1C5A /* Trend */,
@@ -280,6 +302,7 @@
 		AB18CCE92856D8B300DD1C5A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				AB528BBA285C46C900C213C6 /* TodayStateHolder.swift */,
 				ABC0E94B2859CDC60046C9C8 /* CaffeineBook */,
 				AB18CCEA2856D8B300DD1C5A /* tempViewModel.swift */,
 				79421B9C285722B400DFD58A /* SearchCaffeineStateHolder.swift */,
@@ -326,6 +349,28 @@
 				AB1FBDF92856B93400EB4F95 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AB528BBC285C485000C213C6 /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				AB528BBD285C485000C213C6 /* TodayLayoutValue.swift */,
+				AB528BBE285C485000C213C6 /* Components */,
+				AB528BC4285C485000C213C6 /* TodayView.swift */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		AB528BBE285C485000C213C6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				AB528BBF285C485000C213C6 /* TodayViewTopBottons.swift */,
+				AB528BC0285C485000C213C6 /* ExhaustTimeStatement.swift */,
+				AB528BC1285C485000C213C6 /* AddCaffeineButton.swift */,
+				AB528BC2285C485000C213C6 /* BackgroundAnimationView.swift */,
+				AB528BC3285C485000C213C6 /* RemainingCaffeineStatement.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		ABC0E94B2859CDC60046C9C8 /* CaffeineBook */ = {
@@ -415,6 +460,7 @@
 			name = Techome;
 			packageProductDependencies = (
 				2ABF49472856DCAD000E3387 /* BarChart */,
+				AB528BCF285C4C1E00C213C6 /* SineWaveShape */,
 			);
 			productName = Techome;
 			productReference = AB1FBDEF2856B93300EB4F95 /* Techome.app */;
@@ -447,6 +493,7 @@
 			mainGroup = AB1FBDE62856B93300EB4F95;
 			packageReferences = (
 				2ABF49462856DCAC000E3387 /* XCRemoteSwiftPackageReference "BarChart" */,
+				AB528BCE285C4C1E00C213C6 /* XCRemoteSwiftPackageReference "SineWaveShape" */,
 			);
 			productRefGroup = AB1FBDF02856B93300EB4F95 /* Products */;
 			projectDirPath = "";
@@ -480,6 +527,7 @@
 				793214F6285702A500D7E4E1 /* UIApplication+.swift in Sources */,
 				797B456728570C4200DB45FA /* SearchResultView.swift in Sources */,
 				AB18CCF62856D8B300DD1C5A /* Formatter.swift in Sources */,
+				AB528BC6285C485000C213C6 /* TodayViewTopBottons.swift in Sources */,
 				ABC0E95E2859CDDE0046C9C8 /* FranchiseRow.swift in Sources */,
 				AB18CCFD2856D8B300DD1C5A /* SideEffectRecord.swift in Sources */,
 				AB18CD062856D8B300DD1C5A /* tempViewModel.swift in Sources */,
@@ -508,11 +556,16 @@
 				52AFC4782858614E000199DF /* CaffeineBookDetailView.swift in Sources */,
 				ABFE83F82859A876001461D4 /* EffectSectionView.swift in Sources */,
 				ABC3E9572858122F0091CC8E /* TotalListView.swift in Sources */,
+				AB528BC5285C485000C213C6 /* TodayLayoutValue.swift in Sources */,
 				2A427E292858548900089AC0 /* ChartSelectionIndicatorView.swift in Sources */,
+				AB528BCA285C485000C213C6 /* RemainingCaffeineStatement.swift in Sources */,
+				AB528BCD285C485B00C213C6 /* MainView.swift in Sources */,
 				AB18CCFA2856D8B300DD1C5A /* Beverage.swift in Sources */,
+				AB528BC7285C485000C213C6 /* ExhaustTimeStatement.swift in Sources */,
 				ABFE83FB2859A876001461D4 /* AddCaffeineDetailView.swift in Sources */,
 				ABC0E9602859CDDE0046C9C8 /* BeverageListRow.swift in Sources */,
 				AB18CCF22856D8B300DD1C5A /* BeverageManager.swift in Sources */,
+				AB528BC8285C485000C213C6 /* AddCaffeineButton.swift in Sources */,
 				ABC0E94D2859CDC60046C9C8 /* CaffeineBookStateHolder.swift in Sources */,
 				AB18CCF52856D8B300DD1C5A /* IntakeManager.swift in Sources */,
 				ABA3D6D42859DAFF00D60A6C /* Franchise.swift in Sources */,
@@ -525,9 +578,12 @@
 				AB18CCF42856D8B300DD1C5A /* JSONManager.swift in Sources */,
 				AB18CCFE2856D8B300DD1C5A /* TrendView.swift in Sources */,
 				79421B9D285722B400DFD58A /* SearchCaffeineStateHolder.swift in Sources */,
+				AB528BBB285C46C900C213C6 /* TodayStateHolder.swift in Sources */,
 				AB18CCF32856D8B300DD1C5A /* SideEffectManager.swift in Sources */,
 				DA11291028570EF20065BD33 /* DummyData.swift in Sources */,
+				AB528BC9285C485000C213C6 /* BackgroundAnimationView.swift in Sources */,
 				AB18CCFF2856D8B300DD1C5A /* HomeView_G.swift in Sources */,
+				AB528BCB285C485000C213C6 /* TodayView.swift in Sources */,
 				ABC0E9612859CDDE0046C9C8 /* EmptyListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -742,6 +798,14 @@
 				kind = branch;
 			};
 		};
+		AB528BCE285C4C1E00C213C6 /* XCRemoteSwiftPackageReference "SineWaveShape" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MrChens/SineWaveShape?ref=iosexample.com";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -749,6 +813,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2ABF49462856DCAC000E3387 /* XCRemoteSwiftPackageReference "BarChart" */;
 			productName = BarChart;
+		};
+		AB528BCF285C4C1E00C213C6 /* SineWaveShape */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AB528BCE285C4C1E00C213C6 /* XCRemoteSwiftPackageReference "SineWaveShape" */;
+			productName = SineWaveShape;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
