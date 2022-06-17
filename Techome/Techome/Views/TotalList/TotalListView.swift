@@ -54,7 +54,7 @@ struct TotalListLayoutValue {
 }
 
 struct TotalDataCell : Hashable {
-    var date = String()
+    var date = Date()
     var dataType: String
     var dataIndex: Int
 }
