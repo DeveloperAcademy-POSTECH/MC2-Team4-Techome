@@ -13,6 +13,11 @@
 		2ABF49482856DCAD000E3387 /* BarChart in Frameworks */ = {isa = PBXBuildFile; productRef = 2ABF49472856DCAD000E3387 /* BarChart */; };
 		2AE417CC285AB9EA00978C4B /* TrendStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE417CB285AB9EA00978C4B /* TrendStateHolder.swift */; };
 		5220177F2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */; };
+		52201783285A16C9005A5BEC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52201782285A16C9005A5BEC /* SettingsView.swift */; };
+		52201785285A16E4005A5BEC /* SettingsTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52201784285A16E4005A5BEC /* SettingsTeamView.swift */; };
+		52201787285A16F6005A5BEC /* SettingsOpenSourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52201786285A16F6005A5BEC /* SettingsOpenSourceView.swift */; };
+		52201789285A1706005A5BEC /* SettingsPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52201788285A1706005A5BEC /* SettingsPolicyView.swift */; };
+		5220178B285A1714005A5BEC /* SettingsMailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220178A285A1714005A5BEC /* SettingsMailView.swift */; };
 		52AFC473285704AB000199DF /* AddSideEffectStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */; };
 		52AFC4782858614E000199DF /* CaffeineBookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC4772858614E000199DF /* CaffeineBookDetailView.swift */; };
 		791F545C285A16620066F5B1 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791F545B285A16620066F5B1 /* NotificationManager.swift */; };
@@ -90,6 +95,11 @@
 		2A427E2C285859D700089AC0 /* TrendChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendChartView.swift; sourceTree = "<group>"; };
 		2AE417CB285AB9EA00978C4B /* TrendStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendStateHolder.swift; sourceTree = "<group>"; };
 		5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookDetailStateHolder.swift; sourceTree = "<group>"; };
+		52201782285A16C9005A5BEC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		52201784285A16E4005A5BEC /* SettingsTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTeamView.swift; sourceTree = "<group>"; };
+		52201786285A16F6005A5BEC /* SettingsOpenSourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOpenSourceView.swift; sourceTree = "<group>"; };
+		52201788285A1706005A5BEC /* SettingsPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPolicyView.swift; sourceTree = "<group>"; };
+		5220178A285A1714005A5BEC /* SettingsMailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMailView.swift; sourceTree = "<group>"; };
 		52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSideEffectStateHolder.swift; sourceTree = "<group>"; };
 		52AFC4772858614E000199DF /* CaffeineBookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookDetailView.swift; sourceTree = "<group>"; };
 		791F545B285A16620066F5B1 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -174,6 +184,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52201781285A144E005A5BEC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				52201782285A16C9005A5BEC /* SettingsView.swift */,
+				52201784285A16E4005A5BEC /* SettingsTeamView.swift */,
+				52201786285A16F6005A5BEC /* SettingsOpenSourceView.swift */,
+				52201788285A1706005A5BEC /* SettingsPolicyView.swift */,
+				5220178A285A1714005A5BEC /* SettingsMailView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		52AFC4762858612D000199DF /* CaffeineBookDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +308,7 @@
 		AB18CCDD2856D8B300DD1C5A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				52201781285A144E005A5BEC /* Settings */,
 				791F545D285A16CF0066F5B1 /* Setting */,
 				AB528BCC285C485B00C213C6 /* MainView.swift */,
 				AB528BBC285C485000C213C6 /* Today */,
@@ -570,6 +593,7 @@
 				AB18CD062856D8B300DD1C5A /* tempViewModel.swift in Sources */,
 				791F545C285A16620066F5B1 /* NotificationManager.swift in Sources */,
 				52AFC473285704AB000199DF /* AddSideEffectStateHolder.swift in Sources */,
+				52201785285A16E4005A5BEC /* SettingsTeamView.swift in Sources */,
 				ABC0E9622859CDDE0046C9C8 /* BeverageList.swift in Sources */,
 				AB18CD012856D8B300DD1C5A /* ContentView.swift in Sources */,
 				ABFE83F72859A876001461D4 /* EspressoShotCountCustomStepper.swift in Sources */,
@@ -592,6 +616,7 @@
 				ABC0E95D2859CDDE0046C9C8 /* FranchiseCell.swift in Sources */,
 				ABC0E95F2859CDDE0046C9C8 /* CategoryRow.swift in Sources */,
 				ABC0E9452859CD0E0046C9C8 /* BeverageRepository.swift in Sources */,
+				5220178B285A1714005A5BEC /* SettingsMailView.swift in Sources */,
 				ABC0E95C2859CDDE0046C9C8 /* CategoryCell.swift in Sources */,
 				AB18CCF02856D8B300DD1C5A /* tempExtension.swift in Sources */,
 				52AFC4782858614E000199DF /* CaffeineBookDetailView.swift in Sources */,
@@ -612,8 +637,11 @@
 				ABA3D6D42859DAFF00D60A6C /* Franchise.swift in Sources */,
 				AB18CCF82856D8B300DD1C5A /* tempResources.swift in Sources */,
 				AB18CCFB2856D8B300DD1C5A /* IntakeRecord.swift in Sources */,
+				52201783285A16C9005A5BEC /* SettingsView.swift in Sources */,
 				793214F8285702BB00D7E4E1 /* SearchBarView.swift in Sources */,
+				52201787285A16F6005A5BEC /* SettingsOpenSourceView.swift in Sources */,
 				AB18CCED2856D8B300DD1C5A /* SideEffectRepository.swift in Sources */,
+				52201789285A1706005A5BEC /* SettingsPolicyView.swift in Sources */,
 				2AE417CC285AB9EA00978C4B /* TrendStateHolder.swift in Sources */,
 				52AFC475285826B6000199DF /* Test_G.swift in Sources */,
 				AB18CD032856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift in Sources */,
@@ -759,7 +787,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Techome/Preview Content\"";
-				DEVELOPMENT_TEAM = 8QSTXVD8H9;
+				DEVELOPMENT_TEAM = 7PQ6FMV22H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -790,7 +818,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Techome/Preview Content\"";
-				DEVELOPMENT_TEAM = 8QSTXVD8H9;
+				DEVELOPMENT_TEAM = 7PQ6FMV22H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
