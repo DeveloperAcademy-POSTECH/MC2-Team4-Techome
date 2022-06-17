@@ -234,8 +234,8 @@ struct SideEffectCell: View {
                     .padding(.leading, 5)
             }
             .padding(.leading, TotalListLayoutValue.Paddings.sideEffectRecordRowHorizontalPadding)
-            
-            SideEffectsInCell()
+//            sideEffects
+            SideEffectsInCell(sideEffectsArr : cellData.sideEffects)
         }
         .padding(.top, TotalListLayoutValue.Paddings.sideEffectRecordRowVerticalPadding)
     }
@@ -248,18 +248,23 @@ struct SideEffectCell: View {
 //trend 의 sideEffectRecordsByDay 와 동일
 //부작용 데이터 컴포넌트 : 부작용 정보
 struct SideEffectsInCell: View {
+    
+    var sideEffectsArr : [SideEffect]
+    
     var body: some View {
-        VStack(alignment: .center, spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellVerticalPadding) {
-            ForEach(0 ..< 2) { sideEffectRowIndex in
+        VStack(alignment: .leading, spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellVerticalPadding) {
+            ForEach(0 ..< 1) { sideEffectRowIndex in
                 HStack(alignment: .center, spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding) {
                     //TODO: 임시 데이터 수
-                    ForEach(0 ..< 5) { sideEffectItemIndex in
-                        SideEffectItem()
+                    ForEach(sideEffectsArr, id: \.self) { sideEffect in
+                        SideEffectItem(curSideEffect : sideEffect)
                     }
+                    Spacer()
                 }
             }
         }
         .padding(.vertical, TotalListLayoutValue.Paddings.sideEffectRecordCellVerticalPadding)
+        .padding(.horizontal, TotalListLayoutValue.Paddings.sideEffectRecordRowHorizontalPadding)
         .frame(width: TotalListLayoutValue.Sizes.cardWidth)
     }
 }
@@ -268,10 +273,12 @@ struct SideEffectsInCell: View {
 //trend 의 SideEffectRecordItem 과 동일
 //부작용 데이터 컴포넌트 : 부작용 이미지 + 이름
 struct SideEffectItem: View {
+    var curSideEffect : SideEffect
+    
     var body: some View {
         VStack(spacing: 0) {
-            Image("esophagitis")
-            Text("식도염")
+            Image(curSideEffect.getImageName())
+            Text(curSideEffect.getSideEffectName())
                 .font(.caption)
         }
         .frame(width: TotalListLayoutValue.Sizes.sideEffectRecordCellFixedWidth)
