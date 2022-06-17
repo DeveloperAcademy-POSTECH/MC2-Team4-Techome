@@ -93,7 +93,7 @@ struct AddCaffeineDetailView: View {
                 .sectionTitleModifier()
                 EffectSectionView()
                 Spacer()
-                AddCaffeineButton()
+                AddCaffeineButton_q()
             }
             .navigationTitle("카페인 추가하기")
             .navigationBarTitleDisplayMode(.inline)
@@ -106,7 +106,7 @@ struct AddCaffeineDetailView: View {
     }
 }
 
-struct AddCaffeineButton: View {
+struct AddCaffeineButton_q: View {
     var body: some View {
         Button {
             //TODO: 추가하기 시 동작
