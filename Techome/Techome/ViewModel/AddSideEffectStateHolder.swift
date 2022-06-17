@@ -21,16 +21,18 @@ class AddSideEffectStateHolder: ObservableObject {
     func onButtonTouched(sideEffectIndex: Int) {
         
         isSelected[sideEffectIndex].toggle()
+        isDisabled = isSelected.contains(true) ? false : true
 
-        for eachSelected in isSelected {
-            if eachSelected == true {
-                isDisabled = false
-                break
-            }
-            isDisabled = true
-        }
-
+//        for eachSelected in isSelected {
+//            if eachSelected == true {
+//                isDisabled = false
+//                break
+//            }
+//            isDisabled = true
+//        }
+        
     }
+
     
     func onSavedPressed() {
         for selectedIndex in isSelected.indices {
