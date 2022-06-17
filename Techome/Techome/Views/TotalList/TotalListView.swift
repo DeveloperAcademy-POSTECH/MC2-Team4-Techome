@@ -54,6 +54,7 @@ struct TotalListLayoutValue {
 }
 
 struct TotalDataCell : Hashable {
+    var date = String()
     var dataType: String
     var dataIndex: Int
 }
@@ -64,7 +65,7 @@ struct TotalListView: View {
     @Environment(\.presentationMode) var presentationMode
 
     //TODO: 전체 데이터 받아오고 데이터 합쳐서 날짜로 정렬 및 그룹화하기
-    @ObservedObject var totalData = Datas(dataSortedByDate: dataResult)
+    @ObservedObject var totalData = Datas()
     
     var body: some View {
         ScrollView {
