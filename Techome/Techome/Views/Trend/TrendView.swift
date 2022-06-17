@@ -8,6 +8,7 @@
 //
 import SwiftUI
 
+
 struct TrendViewLayoutValue {
     
     struct Paddings {
@@ -57,12 +58,7 @@ struct TrendView: View {
                 ScrollView {
                     VStack(spacing: .zero) {
                         TrendChart()
-                        Group {
-                            SideEffectRecordsByDay()
-                            CaffeineRecordsByDay()
-                        }
-                        .background(CardBackground())
-                        .padding(.vertical, TrendViewLayoutValue.Paddings.dayRecordPadding)
+//                        TrendChartView().selectionCaffeineSideEffectLabelView()
                         
                         NavigationLink {
                             
@@ -83,10 +79,11 @@ struct TrendView: View {
 }
 
 struct TrendChart: View {
-    @State private var index = 0
+    //@EnvironmentObject var trendStates: TrendStateHolder
+    @State var index = 0
     var body: some View {
         //HStack() {
-            TabView(selection: $index) {
+        TabView(selection: $index) {
                 //TODO: 임시 데이터 수
                 ForEach(0 ..< 3) { chartIndex in
                     VStack(alignment: .leading, spacing: .zero) {
@@ -111,9 +108,11 @@ struct TrendChart: View {
                     .padding(TrendViewLayoutValue.Paddings.chartPadding)
                     
                 }
+                
             }
             .frame(width: TrendViewLayoutValue.Sizes.mainWidth, height: TrendViewLayoutValue.Sizes.chartHeight, alignment: .center)
             .tabViewStyle(.page(indexDisplayMode: .never))
+            //.transformEffect(CGAffineTransform(scaleX: -1, y: 1))
         //}
         //.frame(height: TrendViewLayoutValue.Sizes.chartHeight)
     }

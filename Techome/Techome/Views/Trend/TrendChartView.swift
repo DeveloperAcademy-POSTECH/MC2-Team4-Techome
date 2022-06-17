@@ -34,9 +34,9 @@ struct TrendChartView: View {
     
     @State private var xAxisTicksIntervalValue: Double = 1
     @State private var isXAxisTicksHidden: Bool = false
-    
-    var trendStates = TrendStateHolder()
     @Binding var index: Int
+    //@EnvironmentObject var trendStates: TrendStateHolder
+    var trendStates = TrendStateHolder()
     var body: some View {
         
         ZStack {
@@ -61,7 +61,9 @@ struct TrendChartView: View {
                     .selectionView {
                         SelectionLine(location: self.selectedBarTopCentreLocation,
                                       height: ChartLayoutValue.ChartIndicatorLayoutValue.selectionLineHeight)
+                        
                     }
+                
                     .onAppear() {
                         config.initChartView()
                         config.data.color = trendStates.sideEffectManager.getDailyRecords(date: Date.now).count == 0 ? .tertiaryBrown : .customRed
@@ -78,8 +80,6 @@ struct TrendChartView: View {
                     }
                     .onDisappear() {
                         selectedBarTopCentreLocation = nil
-                        print("-\(index)")
-                        
                     }
                     .animation(.easeInOut, value: index)
                     .onReceive([self.isXAxisTicksHidden].publisher.first()) { (value) in
@@ -88,7 +88,20 @@ struct TrendChartView: View {
                     .onReceive([self.xAxisTicksIntervalValue].publisher.first()) { (value) in
                         self.config.xAxis.ticksInterval = Int(value)
                     }
+                    selectionCaffeineSideEffectLabelView()
             }.padding(TrendViewLayoutValue.Paddings.chartInsidePadding)
+        }
+    }
+    func selectionCaffeineSideEffectLabelView() -> some View {
+        Group {
+            if self.selectedEntry != nil && self.selectedBarTopCentreLocation != nil {
+                Group {
+                    SideEffectRecordsByDay()
+                    CaffeineRecordsByDay()
+                }
+                .background(CardBackground())
+                .padding(.vertical, TrendViewLayoutValue.Paddings.dayRecordPadding)
+            }
         }
     }
     
@@ -96,7 +109,7 @@ struct TrendChartView: View {
         Group {
             if self.selectedEntry != nil && self.selectedBarTopCentreLocation != nil {
                 ChartSelectionIndicatorView(entry: self.selectedEntry!,
-                                   location: self.selectedBarTopCentreLocation?.x ?? 0)
+                                            location: self.selectedBarTopCentreLocation?.x ?? 0)
             } else {
                 Rectangle().foregroundColor(.clear)
             }
@@ -140,7 +153,7 @@ struct SetEntries {
     //@EnvironmentObject var trendStates: TrendStateHolder
     let trendStates = TrendStateHolder()
     private let xAxisLabelCount = 7
-
+    
     //TODO: 임시 formatter
     func getDayOfWeek(_ today:Date) -> String {
         let dateFormatter = DateFormatter()
