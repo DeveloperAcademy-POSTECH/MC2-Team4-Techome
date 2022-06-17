@@ -162,7 +162,7 @@ struct InfoGroup: View {
 
 struct GroupLabel: View {
     
-    var labelText: String
+    let labelText: String
     
     var body: some View {
         Text(labelText)
@@ -174,7 +174,7 @@ struct GroupLabel: View {
 
 struct NoticeRow: View {
     
-    var toggleText: String
+    let toggleText: String
     @Binding var isOnState: Bool
     
     var body: some View {
@@ -186,7 +186,7 @@ struct NoticeRow: View {
 
 struct InfoRow: View {
     
-    var informationText: String
+    let informationText: String
     
     var body: some View {
         HStack {
