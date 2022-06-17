@@ -34,9 +34,9 @@ struct TrendChartView: View {
     
     @State private var xAxisTicksIntervalValue: Double = 1
     @State private var isXAxisTicksHidden: Bool = false
-    
-    
-    
+    @Binding var index: Int
+    //@EnvironmentObject var trendStates: TrendStateHolder
+    var trendStates = TrendStateHolder()
     var body: some View {
         
         ZStack {
@@ -61,25 +61,47 @@ struct TrendChartView: View {
                     .selectionView {
                         SelectionLine(location: self.selectedBarTopCentreLocation,
                                       height: ChartLayoutValue.ChartIndicatorLayoutValue.selectionLineHeight)
+                        
                     }
+                
                     .onAppear() {
                         config.initChartView()
+                        config.data.color = trendStates.sideEffectManager.getDailyRecords(date: Date.now).count == 0 ? .tertiaryBrown : .customRed
+                        print(trendStates.sideEffectManager.getDailyRecords(date: Date.now).count)
+                        //TODO: 차트 데이터 삽입 테스트
+                        config.data.entries[4] = SetEntries().inputEntry()
+                        config.data.entries[4].y += 3.0
                         config.initTicksColor()
                         config.initTicksStyle()
                         config.initLabelsColor()
                         config.setLabelFont()
                         config.yUnitFormatter()
+                        print("+\(index)")
                     }
                     .onDisappear() {
                         selectedBarTopCentreLocation = nil
                     }
+                    .animation(.easeInOut, value: index)
                     .onReceive([self.isXAxisTicksHidden].publisher.first()) { (value) in
                         self.config.xAxis.ticksColor = value ? Color.clear : .chartBackgroundLineGray
                     }
                     .onReceive([self.xAxisTicksIntervalValue].publisher.first()) { (value) in
                         self.config.xAxis.ticksInterval = Int(value)
                     }
+                    selectionCaffeineSideEffectLabelView()
             }.padding(TrendViewLayoutValue.Paddings.chartInsidePadding)
+        }
+    }
+    func selectionCaffeineSideEffectLabelView() -> some View {
+        Group {
+            if self.selectedEntry != nil && self.selectedBarTopCentreLocation != nil {
+                Group {
+                    SideEffectRecordsByDay()
+                    CaffeineRecordsByDay()
+                }
+                .background(CardBackground())
+                .padding(.vertical, TrendViewLayoutValue.Paddings.dayRecordPadding)
+            }
         }
     }
     
@@ -87,7 +109,7 @@ struct TrendChartView: View {
         Group {
             if self.selectedEntry != nil && self.selectedBarTopCentreLocation != nil {
                 ChartSelectionIndicatorView(entry: self.selectedEntry!,
-                                   location: self.selectedBarTopCentreLocation?.x ?? 0)
+                                            location: self.selectedBarTopCentreLocation?.x ?? 0)
             } else {
                 Rectangle().foregroundColor(.clear)
             }
@@ -122,14 +144,16 @@ extension ChartConfiguration {
     }
     func initChartView() {
         self.data.entries = SetEntries().randomEntries()
-        self.data.color = .tertiaryBrown
+        
         self.yAxis.minTicksSpacing = ChartLayoutValue.yAxisSpacing
     }
 }
 
 struct SetEntries {
+    //@EnvironmentObject var trendStates: TrendStateHolder
+    let trendStates = TrendStateHolder()
     private let xAxisLabelCount = 7
-
+    
     //TODO: 임시 formatter
     func getDayOfWeek(_ today:Date) -> String {
         let dateFormatter = DateFormatter()
@@ -138,12 +162,20 @@ struct SetEntries {
         let currentDateString: String = dateFormatter.string(from: today)
         return currentDateString
     }
+    func inputEntry() -> ChartDataEntry {
+        let entries = [ChartDataEntry]()
+        let today = Date()
+        let caffeineAmountX = 20 //trendStates.intakeManager.getTodayIntakeCaffeineAmount()
+        let todayOfWeek = getDayOfWeek(today)
+        let newEntry = ChartDataEntry(x: todayOfWeek, y: Double(caffeineAmountX))
+        return newEntry
+    }
     //TODO: 임시 랜덤 데이터 넣는 함수
     func randomEntries() -> [ChartDataEntry] {
         var entries = [ChartDataEntry]()
         let dayOfWeek: [String] = ["일", "월", "화", "수", "목", "금", "토"]
         for data in 0 ..< xAxisLabelCount {
-            let randomDouble = Double.random(in: 0..<600)
+            let randomDouble = 0.0 //Double.random(in: 0..<600)
             let newEntry = ChartDataEntry(x: dayOfWeek[data], y: randomDouble)
             entries.append(newEntry)
         }

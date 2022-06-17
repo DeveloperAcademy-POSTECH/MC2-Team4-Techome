@@ -11,6 +11,7 @@
 		2A427E292858548900089AC0 /* ChartSelectionIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A427E282858548900089AC0 /* ChartSelectionIndicatorView.swift */; };
 		2A427E2D285859D700089AC0 /* TrendChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A427E2C285859D700089AC0 /* TrendChartView.swift */; };
 		2ABF49482856DCAD000E3387 /* BarChart in Frameworks */ = {isa = PBXBuildFile; productRef = 2ABF49472856DCAD000E3387 /* BarChart */; };
+		2AE417CC285AB9EA00978C4B /* TrendStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE417CB285AB9EA00978C4B /* TrendStateHolder.swift */; };
 		5220177F2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */; };
 		52AFC473285704AB000199DF /* AddSideEffectStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */; };
 		52AFC4782858614E000199DF /* CaffeineBookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC4772858614E000199DF /* CaffeineBookDetailView.swift */; };
@@ -87,6 +88,7 @@
 		1489907B285B98BC001315F3 /* TotalListStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalListStateHolder.swift; sourceTree = "<group>"; };
 		2A427E282858548900089AC0 /* ChartSelectionIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartSelectionIndicatorView.swift; sourceTree = "<group>"; };
 		2A427E2C285859D700089AC0 /* TrendChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendChartView.swift; sourceTree = "<group>"; };
+		2AE417CB285AB9EA00978C4B /* TrendStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendStateHolder.swift; sourceTree = "<group>"; };
 		5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookDetailStateHolder.swift; sourceTree = "<group>"; };
 		52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSideEffectStateHolder.swift; sourceTree = "<group>"; };
 		52AFC4772858614E000199DF /* CaffeineBookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookDetailView.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				79421B9C285722B400DFD58A /* SearchCaffeineStateHolder.swift */,
 				52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */,
 				5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */,
+				2AE417CB285AB9EA00978C4B /* TrendStateHolder.swift */,
 				1489907B285B98BC001315F3 /* TotalListStateHolder.swift */,
 				791F5460285A1C3B0066F5B1 /* NotificationStateHolder.swift */,
 			);
@@ -611,6 +614,8 @@
 				AB18CCFB2856D8B300DD1C5A /* IntakeRecord.swift in Sources */,
 				793214F8285702BB00D7E4E1 /* SearchBarView.swift in Sources */,
 				AB18CCED2856D8B300DD1C5A /* SideEffectRepository.swift in Sources */,
+				2AE417CC285AB9EA00978C4B /* TrendStateHolder.swift in Sources */,
+				52AFC475285826B6000199DF /* Test_G.swift in Sources */,
 				AB18CD032856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift in Sources */,
 				ABC0E95B2859CDDE0046C9C8 /* CaffeineBookLayoutValue.swift in Sources */,
 				AB18CCF42856D8B300DD1C5A /* JSONManager.swift in Sources */,
