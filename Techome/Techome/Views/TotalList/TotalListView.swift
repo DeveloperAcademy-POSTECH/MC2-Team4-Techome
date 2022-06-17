@@ -7,22 +7,22 @@
 
 import SwiftUI
 
-var dataResult : [String : [TotalDataCell]] =
-    [ "2022.06.03" : [ TotalDataCell(dataType: "drink", dataIndex: 1),
-                       TotalDataCell(dataType: "drink", dataIndex: 2),
-                      TotalDataCell(dataType: "sideEffect", dataIndex: 1),
-                       TotalDataCell(dataType: "sideEffect", dataIndex: 2) ],
-      "2022.06.02" : [ TotalDataCell(dataType: "drink", dataIndex: 3),
-                       TotalDataCell(dataType: "sideEffect", dataIndex: 3),
-                      TotalDataCell(dataType: "drink", dataIndex: 4),
-                       TotalDataCell(dataType: "sideEffect", dataIndex: 4) ],
-      "2022.06.01" : [ TotalDataCell(dataType: "drink", dataIndex: 5),
-                       TotalDataCell(dataType: "sideEffect", dataIndex: 5),
-                      TotalDataCell(dataType: "drink", dataIndex: 6) ],
-      "2022.05.31" : [ TotalDataCell(dataType: "drink", dataIndex: 7),
-                       TotalDataCell(dataType: "sideEffect", dataIndex: 6),
-                      TotalDataCell(dataType: "drink", dataIndex: 8) ]
-    ]
+//var dataResult : [String : [TotalDataCell]] =
+//    [ "2022.06.03" : [ TotalDataCell(dataType: "drink", dataIndex: 1),
+//                       TotalDataCell(dataType: "drink", dataIndex: 2),
+//                      TotalDataCell(dataType: "sideEffect", dataIndex: 1),
+//                       TotalDataCell(dataType: "sideEffect", dataIndex: 2) ],
+//      "2022.06.02" : [ TotalDataCell(dataType: "drink", dataIndex: 3),
+//                       TotalDataCell(dataType: "sideEffect", dataIndex: 3),
+//                      TotalDataCell(dataType: "drink", dataIndex: 4),
+//                       TotalDataCell(dataType: "sideEffect", dataIndex: 4) ],
+//      "2022.06.01" : [ TotalDataCell(dataType: "drink", dataIndex: 5),
+//                       TotalDataCell(dataType: "sideEffect", dataIndex: 5),
+//                      TotalDataCell(dataType: "drink", dataIndex: 6) ],
+//      "2022.05.31" : [ TotalDataCell(dataType: "drink", dataIndex: 7),
+//                       TotalDataCell(dataType: "sideEffect", dataIndex: 6),
+//                      TotalDataCell(dataType: "drink", dataIndex: 8) ]
+//    ]
 
 struct TotalListLayoutValue {
     
@@ -48,10 +48,11 @@ struct TotalListLayoutValue {
     }
 }
 
-struct TotalDataCell : Hashable {
-    var dataType: String
-    var dataIndex: Int
-}
+//struct TotalDataCell : Hashable {
+//    var dataType: String
+//    var dataIndex: Int
+//    var date: String
+//}
 
 // 전체 리스트
 struct TotalListView: View {
@@ -59,7 +60,8 @@ struct TotalListView: View {
     @Environment(\.presentationMode) var presentationMode
 
     //TODO: 전체 데이터 받아오고 데이터 합쳐서 날짜로 정렬 및 그룹화하기
-    @ObservedObject var totalData = datas(dataSortedByDate: dataResult)
+    
+    @ObservedObject var totalData = datas()
     
     var body: some View {
         ScrollView {
@@ -109,7 +111,7 @@ struct TotalListByDate: View {
             
             //curDate에 발생한 카페인과 부작용 정보 보여주기
             VStack(spacing: 0) {
-                ForEach(Array(totalData.dataSortedByDate[curDate]!.enumerated()), id: \.element) { index, cell in
+                ForEach(Array(totalData.dataGroupedByDate[curDate]!.enumerated()), id: \.element) { index, cell in
                     ZStack{
                         //삭제 버튼
                         deleteButton()
@@ -132,7 +134,7 @@ struct TotalListByDate: View {
                     }
                     
                     //마지막 cell 다음의 divider는 그리지 않음
-                    if (index != totalData.dataSortedByDate[curDate]!.count - 1) {
+                    if (index != totalData.dataGroupedByDate[curDate]!.count - 1) {
                         Divider()
                             .padding(.horizontal, TotalListLayoutValue.Paddings.dividerHorizontalPadding)
                             .background(Color.white)
@@ -188,7 +190,7 @@ struct deleteButton: View {
 //데이터 컴포넌트 (하나의 row) : 데이터 타입(카페인, 부작용)에 따라 맞는 컴포넌트 보여줌
 struct Cell: View {
     
-    var curCell : TotalDataCell
+    var curCell : groupDataCell
     
     var body : some View {
         Group{
