@@ -12,11 +12,15 @@ import MessageUI
 struct SettingsLayoutValue {
     
     struct Padding {
-
-    }
-    
-    struct Size {
-        
+        static let overallHorizontal: CGFloat = 15
+        static let groupTop: CGFloat = 8
+        static let dividerTop: CGFloat = 8
+        static let labelLeadingExtra: CGFloat = 3
+        static let labelTop: CGFloat = 35
+        static let toggleRowHorizontal: CGFloat = 17
+        static let toggleRowVertical: CGFloat = 11
+        static let infoRowHorizontal: CGFloat = 17
+        static let infoRowVertical: CGFloat = 16
     }
     
     struct Radius {
@@ -41,10 +45,10 @@ struct SettingsView: View {
                 
                 VStack(alignment: .leading, spacing: .zero) {
                     NoticeGroup()
-                    InformationGroup(showMailSheet: $showMailSheet)
+                    InfoGroup(showMailSheet: $showMailSheet)
                     Spacer()
                 }
-                .padding(.horizontal, 15)
+                .padding(.horizontal, SettingsLayoutValue.Padding.overallHorizontal)
                 .foregroundColor(.customBlack)
             }
             .navigationTitle("설정")
@@ -79,18 +83,18 @@ struct NoticeGroup: View {
             NoticeRow(toggleText: "기록 알림", isOnState: $recordNotice)
             Divider()
                 .foregroundColor(.primaryShadowGray)
-                .padding(.horizontal, 8)
+                .padding(.horizontal, SettingsLayoutValue.Padding.dividerTop)
             NoticeRow(toggleText: "추이 알림", isOnState: $trendNotice)
         }
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: SettingsLayoutValue.Radius.list))
-        .padding(.top, 8)
+        .padding(.top, SettingsLayoutValue.Padding.groupTop)
         .shadow(color: Color.primaryShadowGray, radius: SettingsLayoutValue.Radius.listShadow, x: .zero, y: .zero)
         .tint(.primaryBrown)
     }
 }
 
-struct InformationGroup: View {
+struct InfoGroup: View {
     
     @Binding var showMailSheet: Bool
     @State private var showAlert: Bool = false
@@ -98,55 +102,56 @@ struct InformationGroup: View {
     var body: some View {
         
         GroupLabel(labelText: "정보")
+        
         VStack(spacing: .zero) {
             NavigationLink(destination: {
                 SettingsTeamView()
                     .navigationBarHidden(true)
             }){
-                InformationRow(informationText: "팀 소개")
+                InfoRow(informationText: "팀 소개")
             }
             
             Divider()
                 .foregroundColor(.primaryShadowGray)
-                .padding(.horizontal, 8)
+                .padding(.horizontal, SettingsLayoutValue.Padding.dividerTop)
             
             NavigationLink(destination: {
                 SettingsOpenSourceView()
                     .navigationBarHidden(true)
             }){
-                InformationRow(informationText: "오픈소스 라이선스")
+                InfoRow(informationText: "오픈소스 라이선스")
             }
             
             Divider()
                 .foregroundColor(.primaryShadowGray)
-                .padding(.horizontal, 8)
+                .padding(.horizontal, SettingsLayoutValue.Padding.dividerTop)
             
             NavigationLink(destination: {
                 SettingsPolicyView()
                     .navigationBarHidden(true)
             }){
-                InformationRow(informationText: "개인정보 처리방침")
+                InfoRow(informationText: "개인정보 처리방침")
             }
             
             Divider()
                 .foregroundColor(.primaryShadowGray)
-                .padding(.horizontal, 8)
+                .padding(.horizontal, SettingsLayoutValue.Padding.dividerTop)
             
-            InformationRow(informationText: "개발자에게 의견 남기기")
+            InfoRow(informationText: "개발자에게 의견 남기기")
                 .onTapGesture {
                     mailConnectionFeature()
                 }
         }
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: SettingsLayoutValue.Radius.list))
-        .padding(.top, 8)
+        .padding(.top, SettingsLayoutValue.Padding.groupTop)
         .shadow(color: Color.primaryShadowGray, radius: SettingsLayoutValue.Radius.listShadow, x: .zero, y: .zero)
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Error"), message: Text("메일을 보낼 수 없습니다."))
         }
     }
     
-    func mailConnectionFeature() {
+    private func mailConnectionFeature() {
         if MFMailComposeViewController.canSendMail() {
             showMailSheet = true
         } else {
@@ -161,8 +166,8 @@ struct GroupLabel: View {
     
     var body: some View {
         Text(labelText)
-            .padding(.leading, 3)
-            .padding(.top, 35)
+            .padding(.leading, SettingsLayoutValue.Padding.labelLeadingExtra)
+            .padding(.top, SettingsLayoutValue.Padding.labelTop)
             .font(.title3)
     }
 }
@@ -174,12 +179,12 @@ struct NoticeRow: View {
     
     var body: some View {
         Toggle(toggleText, isOn: $isOnState)
-            .padding(.horizontal, 17)
-            .padding(.vertical, 11)
+            .padding(.horizontal, SettingsLayoutValue.Padding.toggleRowHorizontal)
+            .padding(.vertical, SettingsLayoutValue.Padding.toggleRowVertical)
     }
 }
 
-struct InformationRow: View {
+struct InfoRow: View {
     
     var informationText: String
     
@@ -190,8 +195,8 @@ struct InformationRow: View {
             Spacer()
             Image(systemName: "chevron.right")
         }
-        .padding(.horizontal, 17)
-        .padding(.vertical, 16)
+        .padding(.horizontal, SettingsLayoutValue.Padding.infoRowHorizontal)
+        .padding(.vertical, SettingsLayoutValue.Padding.infoRowVertical)
     }
 }
 
