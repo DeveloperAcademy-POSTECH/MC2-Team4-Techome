@@ -7,7 +7,7 @@
 import Foundation
 import SwiftUI
 
-final class datas: ObservableObject { //observable 객체 생성
+final class Datas: ObservableObject { //observable 객체 생성
     
     @Published var dataSortedByDate = [ String : [TotalDataCell] ]()
     @Published var offsetsArr = [ String : [CGFloat] ]()
@@ -26,11 +26,26 @@ final class datas: ObservableObject { //observable 객체 생성
     
     //선택된 cell 삭제
     func deleteData(curDate : String, index : Int) {
-        self.dataSortedByDate[curDate]!.remove(at: index)
-        self.offsetsArr[curDate]!.remove(at:index)
+//        guard self.dataSortedByDate[curDate] != nil else {
+//            return
+//        }
+        guard self.dataSortedByDate[curDate] != nil else {
+            return
+        }
+        self.dataSortedByDate[curDate]?.remove(at: index)
+
+        guard self.offsetsArr[curDate] != nil else {
+            return
+        }
+        self.offsetsArr[curDate]?.remove(at: index)
+
         
-        if (self.dataSortedByDate[curDate]!.count <= 0) {
-            self.datesArr.remove(at: self.datesArr.firstIndex(of: curDate)!)
+        guard let dateIndex = self.datesArr.firstIndex(of: curDate) else {
+            return
+        }
+        
+        if (self.dataSortedByDate[curDate]!.count <= 0 ) {
+            self.datesArr.remove(at: dateIndex)
         }
     }
     
