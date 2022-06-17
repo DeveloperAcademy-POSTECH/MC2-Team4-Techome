@@ -207,7 +207,7 @@ struct Cell: View {
         Group{
             switch curCell.dataType {
             case "intake" :
-                CaffeineCell(cellData: totalData.sourceData.intakes[curCell.dataIndex])
+                CaffeineCell(totalData: totalData, cellData: totalData.sourceData.intakes[curCell.dataIndex])
             case "sideEffect" :
                 SideEffectCell(cellData: totalData.sourceData.sideEffects[curCell.dataIndex])
             default :
@@ -290,6 +290,7 @@ struct SideEffectItem: View {
 //카페인 데이터 컴포넌트 : 카페인 시간 + 카페인 정보
 struct CaffeineCell: View {
     
+    @ObservedObject var totalData : Datas
     var cellData : IntakeRecord
     
     var body: some View {
@@ -301,17 +302,17 @@ struct CaffeineCell: View {
                         .foregroundColor(.secondaryTextGray)
                         .padding(.bottom, TotalListLayoutValue.Paddings.dayRecordPadding)
                     HStack(alignment: .firstTextBaseline, spacing: 0) {
-                        Text("아메리카노")
+                        Text(cellData.beverage.name)
                             .font(.title3)
                             .padding(.trailing, TotalListLayoutValue.Paddings.textVerticalPadding)
-                        Text("스타벅스/Tall")
+                        Text(cellData.beverage.franchise.getFranchiseName())
                             .font(.caption)
                             .foregroundColor(.secondaryTextGray)
                     }
                 }
                 Spacer()
                 HStack(alignment: .firstTextBaseline, spacing: 0) {
-                    Text("150")
+                    Text("\(totalData.sourceData.intakeManager.getCaffeineAmount(record: cellData))")
                         .font(.title)
                         .padding(.trailing, TotalListLayoutValue.Paddings.caffeineRecordAmountUnitPadding)
                     Text("mg")
