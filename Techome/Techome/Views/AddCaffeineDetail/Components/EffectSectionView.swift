@@ -98,7 +98,7 @@ struct CaffeineResidualTimeProviderView: View {
                 Image(systemName: "timer")
                     .padding(.trailing, AddCaffeineDetailViewLayoutValue.Paddings.EffectCard.sectionIconToText)
                 //TODO: 임시 더미데이터 변경 필요
-                Text("카페인 배출에 \(addCaffeineDetailStates.calculateHour(caffenineAmount:addCaffeineDetailStates.addCaffeineAmount))시간 \(addCaffeineDetailStates.calculateMinute(caffenineAmount:addCaffeineDetailStates.addCaffeineAmount))분이 더 소요됩니다.")
+                Text("카페인 배출에 \(addCaffeineDetailStates.calculatedHour(caffenineAmount:addCaffeineDetailStates.addCaffeineAmount))시간 \(addCaffeineDetailStates.calculatedMinute(caffenineAmount:addCaffeineDetailStates.addCaffeineAmount))분이 더 소요됩니다.")
                     .fontWeight(.semibold)
             }
             .headlineModifier()
@@ -111,12 +111,12 @@ struct CaffeineResidualTimeProviderView: View {
                 HStack(alignment: .firstTextBaseline, spacing: .zero) {
                     Text("오후")
                         .sideEffectSectionTimeUnit()
-                    Text("\(addCaffeineDetailStates.calculateHour(caffenineAmount:addCaffeineDetailStates.currentCaffeineAmount + addCaffeineDetailStates.addCaffeineAmount))")
+                    Text("\(addCaffeineDetailStates.calculatedHour(caffenineAmount:addCaffeineDetailStates.currentCaffeineAmount + addCaffeineDetailStates.addCaffeineAmount))")
                         .fontWeight(.bold)
                         .sideEffectValueHighlight()
                     Text("시")
                         .sideEffectSectionTimeUnit()
-                    Text("\(addCaffeineDetailStates.calculateMinute(caffenineAmount:addCaffeineDetailStates.currentCaffeineAmount + addCaffeineDetailStates.addCaffeineAmount))")
+                    Text("\(addCaffeineDetailStates.calculatedMinute(caffenineAmount:addCaffeineDetailStates.currentCaffeineAmount + addCaffeineDetailStates.addCaffeineAmount))")
                         .fontWeight(.bold)
                         .sideEffectValueHighlight()
                     Text("분")

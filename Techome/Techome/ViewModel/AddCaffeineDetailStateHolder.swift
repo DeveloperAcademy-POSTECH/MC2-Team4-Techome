@@ -35,13 +35,13 @@ final class AddCaffeineDetailStateHolder: ObservableObject {
         }
         return bevergeRecord.sizeInfo[isSelected].caffeineAmount
     }
-    func calculateHour(caffenineAmount: Int) -> Int {
+    func calculatedHour(caffenineAmount: Int) -> Int {
         let remainTimeToDischargeSecond: Int = intakeManager.getRemainTimeToDischarge(caffeine: Double(caffenineAmount))
         let remainTimeToDischargeHour: Int = remainTimeToDischargeSecond / 3600
         return remainTimeToDischargeHour
     }
     
-    func calculateMinute(caffenineAmount: Int) -> Int {
+    func calculatedMinute(caffenineAmount: Int) -> Int {
         let remainTimeToDischargeSecond: Int = intakeManager.getRemainTimeToDischarge(caffeine: Double(caffenineAmount))
         let remainTimeToDischargeMinute: Int = (remainTimeToDischargeSecond % 3600) / 60
         return remainTimeToDischargeMinute
