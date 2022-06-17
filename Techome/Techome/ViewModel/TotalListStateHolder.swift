@@ -157,11 +157,10 @@ func dateToTime(dateInfo : Date) -> String {
     var dateString : String
     
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy.MM.dd"
+    dateFormatter.dateFormat = "HH:mm"
     dateString = dateFormatter.string(from: dateInfo)
     
     return dateString
 }
-
 
 

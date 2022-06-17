@@ -7,23 +7,6 @@
 
 import SwiftUI
 
-//var dataResult : [String : [TotalDataCell]] =
-//    [ "2022.06.03" : [ TotalDataCell(dataType: "drink", dataIndex: 1),
-//                       TotalDataCell(dataType: "drink", dataIndex: 2),
-//                      TotalDataCell(dataType: "sideEffect", dataIndex: 1),
-//                       TotalDataCell(dataType: "sideEffect", dataIndex: 2) ],
-//      "2022.06.02" : [ TotalDataCell(dataType: "drink", dataIndex: 3),
-//                       TotalDataCell(dataType: "sideEffect", dataIndex: 3),
-//                      TotalDataCell(dataType: "drink", dataIndex: 4),
-//                       TotalDataCell(dataType: "sideEffect", dataIndex: 4) ],
-//      "2022.06.01" : [ TotalDataCell(dataType: "drink", dataIndex: 5),
-//                       TotalDataCell(dataType: "sideEffect", dataIndex: 5),
-//                      TotalDataCell(dataType: "drink", dataIndex: 6) ],
-//      "2022.05.31" : [ TotalDataCell(dataType: "drink", dataIndex: 7),
-//                       TotalDataCell(dataType: "sideEffect", dataIndex: 6),
-//                      TotalDataCell(dataType: "drink", dataIndex: 8) ]
-//    ]
-
 struct TotalListLayoutValue {
     
     struct Paddings {
@@ -224,7 +207,7 @@ struct SideEffectCell: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: 0) {
-                Text("09:30")
+                Text(dateToTime(dateInfo: cellData.date))
                     .font(.caption)
                     .foregroundColor(.secondaryTextGray)
                 Image(systemName: "exclamationmark.circle")
@@ -297,7 +280,7 @@ struct CaffeineCell: View {
         VStack(spacing: 0) {
             HStack(alignment: .center, spacing: 0) {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("09:30")
+                    Text(dateToTime(dateInfo: cellData.date))
                         .font(.caption)
                         .foregroundColor(.secondaryTextGray)
                         .padding(.bottom, TotalListLayoutValue.Paddings.dayRecordPadding)
