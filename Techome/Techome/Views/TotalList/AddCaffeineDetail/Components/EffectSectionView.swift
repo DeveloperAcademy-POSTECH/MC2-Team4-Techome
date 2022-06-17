@@ -28,7 +28,7 @@ struct EffectSectionAddCaffeineAmountProviderView: View {
                 Image(systemName: "circle.hexagongrid")
                     .padding(.trailing, AddCaffeineDetailViewLayoutValue.Paddings.EffectCard.sectionIconToText)
                 //TODO: 임시 더미데이터 변경 필요
-                Text("추가되는 카페인은 \( addCaffeineDetailStates.addedShotCount * addCaffeineDetailStates.beverge.franchise.getCaffeinPerShot()) 입니다.")
+                Text("추가되는 카페인은 \(addCaffeineDetailStates.getAddedCaffeineAmount())mg 입니다.")
                     .fontWeight(.semibold)
             }
             .headlineModifier()
@@ -78,7 +78,7 @@ struct AfterCaffeineAmount: View {
             Spacer()
             HStack(alignment: .firstTextBaseline, spacing: .zero) {
                 //TODO: 임시 더미데이터 변경 필요
-                Text("\(Int(IntakeManager.shared.getRemainCaffeineAmount()) + addCaffeineDetailStates.addedShotCount * addCaffeineDetailStates.beverge.franchise.getCaffeinPerShot())")
+                Text("\(round(addCaffeineDetailStates.getRemainCaffeineAmountAfterDrink()))")
                     .fontWeight(.semibold)
                     .sideEffectValueHighlight()
                     .padding(.trailing, AddCaffeineDetailViewLayoutValue.Paddings.addCaffeineAmountToUnit)
@@ -87,6 +87,10 @@ struct AfterCaffeineAmount: View {
                     .foregroundColor(.secondaryTextGray)
             }
         }
+    }
+    
+    private func round(_ val: Double) -> Int {
+        return Int(val + 0.5)
     }
 }
 struct CaffeineResidualTimeProviderView: View {
@@ -98,7 +102,8 @@ struct CaffeineResidualTimeProviderView: View {
                 Image(systemName: "timer")
                     .padding(.trailing, AddCaffeineDetailViewLayoutValue.Paddings.EffectCard.sectionIconToText)
                 //TODO: 임시 더미데이터 변경 필요
-                Text("카페인 배출에 \(addCaffeineDetailStates.calculatedHour(caffenineAmount:addCaffeineDetailStates.addedShotCount))시간 \(addCaffeineDetailStates.calculatedMinute(caffenineAmount:addCaffeineDetailStates.addedShotCount))분이 더 소요됩니다.")
+                
+                Text("카페인 배출에 \(addCaffeineDetailStates.getAddedTime())이 더 소요됩니다.")
                     .fontWeight(.semibold)
             }
             .headlineModifier()
@@ -109,24 +114,15 @@ struct CaffeineResidualTimeProviderView: View {
                     .sideEffectValueTitle()
                 Spacer()
                 HStack(alignment: .firstTextBaseline, spacing: .zero) {
-                    Text("오후")
-                        .sideEffectSectionTimeUnit()
-                    Text("\(addCaffeineDetailStates.calculatedHour(caffenineAmount:addCaffeineDetailStates.currentCaffeineAmount + addCaffeineDetailStates.addedShotCount))")
-                        .fontWeight(.bold)
-                        .sideEffectValueHighlight()
-                    Text("시")
-                        .sideEffectSectionTimeUnit()
-                    Text("\(addCaffeineDetailStates.calculatedMinute(caffenineAmount:addCaffeineDetailStates.currentCaffeineAmount + addCaffeineDetailStates.addedShotCount))")
-                        .fontWeight(.bold)
-                        .sideEffectValueHighlight()
-                    Text("분")
-                        .sideEffectSectionTimeUnit()
+                    Text(addCaffeineDetailStates.getTimeToDischarge())
                 }
             }
         }
         .padding(.vertical, AddCaffeineDetailViewLayoutValue.Paddings.EffectCard.insideVertical)
         .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.EffectCard.insideHorizontal)
     }
+    
+//    private func getTime
 }
 
 struct EffectSectionBackground: View {

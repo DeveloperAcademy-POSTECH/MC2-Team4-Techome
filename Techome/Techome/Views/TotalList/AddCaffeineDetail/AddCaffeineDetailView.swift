@@ -133,7 +133,7 @@ struct AddCaffeineButton: View {
     var body: some View {
         Button {
             print("Add Beverage : \(addCaffeineDetailStates.beverge)")
-            addCaffeineDetailStates.intakeManager.addRecord(beverage: addCaffeineDetailStates.beverge, sizeInfo: addCaffeineDetailStates.beverge.sizeInfo[addCaffeineDetailStates.isSelected], addedShotCount: addCaffeineDetailStates.addedShotCount)
+            addCaffeineDetailStates.intakeManager.addRecord(beverage: addCaffeineDetailStates.beverge, sizeInfo: addCaffeineDetailStates.selectedSizeInfo, addedShotCount: addCaffeineDetailStates.addedShotCount)
 //            presentationMode.wrappedValue.dismiss()
             todayStateHolder.setRemainingAmount()
             todayStateHolder.isSearchCaffeineView = false

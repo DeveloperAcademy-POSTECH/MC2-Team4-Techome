@@ -21,8 +21,8 @@ struct FranchiseDrinkSizeButtonsGroupView: View {
     var body: some View {
         HStack(alignment: .center, spacing: .zero) {
             //TODO: 임시 버튼 갯수 로직 구현 필요
-            ForEach(0 ..< addCaffeineDetailStates.beverge.sizeInfo.count, id: \.self) { drinkSizeButtonIndex in
-                FranchiseDrinkSizeButton(size: addCaffeineDetailStates.beverge.sizeInfo[drinkSizeButtonIndex].name, buttonIndex: drinkSizeButtonIndex)
+            ForEach(addCaffeineDetailStates.beverge.sizeInfo, id: \.self) { sizeInfo in
+                FranchiseDrinkSizeButton(sizeInfo: sizeInfo)
             }
             .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.DrinkSizeButton.horizontal)
         }
@@ -32,26 +32,24 @@ struct FranchiseDrinkSizeButtonsGroupView: View {
 
 struct FranchiseDrinkSizeButton: View {
     @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
-    fileprivate var size: String
-    fileprivate var buttonIndex: Int
+    let sizeInfo: SizeInfo
     private let buttonBackWidth: CGFloat = 116.65
     private let buttonBackHeight: CGFloat = 43
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: AddCaffeineDetailViewLayoutValue.CornerRadius.card)
-                .stroke(addCaffeineDetailStates.isSelected == buttonIndex ? Color.primaryBrown : .clear, lineWidth: 1)
+                .stroke(addCaffeineDetailStates.selectedSizeInfo == sizeInfo ? Color.primaryBrown : .clear, lineWidth: 1)
                 .foregroundColor(.white)
                 .shadow(color: .primaryShadowGray, radius: AddCaffeineDetailViewLayoutValue.CornerRadius.shadow, x: .zero, y: .zero)
                 .frame(width: buttonBackWidth, height: buttonBackHeight, alignment: .center)
-            Text(size)
+            Text(sizeInfo.name)
                 .font(.body)
-                .foregroundColor(addCaffeineDetailStates.isSelected == buttonIndex ? .primaryBrown : .secondaryTextGray)
+                .foregroundColor(addCaffeineDetailStates.selectedSizeInfo == sizeInfo ? .primaryBrown : .secondaryTextGray)
         }
         .onTapGesture {
-            addCaffeineDetailStates.isSelected = buttonIndex
-//            addCaffeineDetailStates.shotCount = addCaffeineDetailStates.getDefaultShot()
-//            addCaffeineDetailStates.defaultCaffeineAmount = addCaffeineDetailStates.beverage.sizeInfo[addCaffeineDetailStates.isSelected].caffeineAmount
-//            addCaffeineDetailStates.addedShotCount = addCaffeineDetailStates.getWillAddCaffeineAmount()
+            addCaffeineDetailStates.selectedSizeInfo = sizeInfo
+            addCaffeineDetailStates.addedShotCount = 0
         }
     }
 }
