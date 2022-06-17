@@ -24,6 +24,7 @@ struct TodayView: View {
                         .padding(.top, TodayLayoutValue.Padding.Content.top)
                         .padding(.trailing, TodayLayoutValue.Padding.Content.trailing)
                         .padding(.bottom, TodayLayoutValue.Padding.Content.buttonsToRemainingState)
+                        .environmentObject(todayStates)
                     RemainingCaffeineStatement(todayStates: todayStates)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.trailing, TodayLayoutValue.Padding.Content.trailing)

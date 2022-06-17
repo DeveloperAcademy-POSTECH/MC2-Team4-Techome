@@ -30,7 +30,7 @@ struct AddCaffeineButton_q: View {
             .fullScreenCover(isPresented: $todayStates.isSearchCaffeineView) {
                 SearchCaffeineView()
             }
-            Text("오늘 총 \(todayStates.getTodyIntakeAmount())mg 섭취")
+            Text("오늘 총 \(todayStates.getTodayIntakeAmount())mg 섭취")
                 .font(.caption)
         }
     }

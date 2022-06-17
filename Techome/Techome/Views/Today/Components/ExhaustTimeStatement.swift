@@ -13,7 +13,7 @@ struct ExhaustTimeStatement: View {
     var body: some View {
         VStack(spacing: .zero) {
             HStack(alignment: .firstTextBaseline, spacing: .zero) {
-                Text("\(todayStates.getRemainingTimeString())")
+                Text("\(todayStates.getTimeToDischarge())")
                     .font(.system(size: TodayLayoutValue.Size.exhaustTextSize).bold())
                     .foregroundColor(.primaryBrown)
                 Text("에")

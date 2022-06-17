@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct TodayViewTopBottons: View {
+    @EnvironmentObject var todayStateHolder: TodayStatesHolder
     let geometry: GeometryProxy
     
     var body: some View {
         HStack(spacing: .zero) {
             Spacer()
             Button {
-                // TODO: add sideEffect button pressed
+                todayStateHolder.isAddSideEffectView.toggle()
             } label: {
                 Image("AddSideEffectViewIcon")
                     .resizable()
@@ -24,7 +25,7 @@ struct TodayViewTopBottons: View {
             }
             .padding(.trailing, TodayLayoutValue.Padding.TopButtons.vInterval)
             Button {
-                // TODO: add setting button pressed
+                todayStateHolder.isSettingView.toggle()
             } label: {
                 Image(systemName: "gearshape.fill")
                     .resizable()
@@ -32,6 +33,12 @@ struct TodayViewTopBottons: View {
                     .frame(width: TodayLayoutValue.Size.addSideEffectButtonWidth)
                     .padding(.top, geometry.safeAreaInsets.top)
                     .foregroundColor(.primaryBrown)
+            }
+            .sheet(isPresented: $todayStateHolder.isAddSideEffectView) {
+                AddSideEffectView()
+            }
+            .sheet(isPresented: $todayStateHolder.isSettingView) {
+                SettingsView()
             }
         }
     }

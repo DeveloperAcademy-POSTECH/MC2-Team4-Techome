@@ -16,7 +16,7 @@ struct RemainingCaffeineStatement: View {
                 Text("몸속에")
                     .font(.title3)
                     .padding(.trailing, TodayLayoutValue.Padding.RemainingStatement.textVInterval)
-                Text("\(Int(todayStates.remainingAmount))")
+                Text("\(round(todayStates.remainingAmount))")
                     .font(.system(size: TodayLayoutValue.Size.remainingTextSize).bold())
                     .foregroundColor(.primaryBrown)
                 Text("mg의")
@@ -27,6 +27,10 @@ struct RemainingCaffeineStatement: View {
                 .font(.title3)
                 .frame(maxWidth: .infinity, alignment: .trailing)
         }
+    }
+    
+    private func round(_ val: Double) -> Int {
+        return Int(val + 0.5)
     }
 }
 

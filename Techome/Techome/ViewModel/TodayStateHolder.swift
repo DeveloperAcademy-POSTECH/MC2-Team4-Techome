@@ -11,6 +11,8 @@ final class TodayStatesHolder: ObservableObject {
     
     @Published var remainingAmount: Double
     @Published var isSearchCaffeineView = false
+    @Published var isAddSideEffectView = false
+    @Published var isSettingView = false
     
     private let intakeManager = IntakeManager.shared
     private let fullChargeAmount: Double = 1000 // TODO: 팀원 합의 필요
@@ -23,7 +25,7 @@ final class TodayStatesHolder: ObservableObject {
         remainingAmount = intakeManager.getRemainCaffeineAmount()
     }
     
-    func getTodyIntakeAmount() -> Int {
+    func getTodayIntakeAmount() -> Int {
         return intakeManager.getTodayIntakeCaffeineAmount()
     }
     
@@ -34,8 +36,8 @@ final class TodayStatesHolder: ObservableObject {
         return (returnChargeAmount / fullChargeAmount)
     }
     
-    func getRemainingTimeString() -> String {
-        let seconds = intakeManager.getRemainTimeToDischarge(caffeine: remainingAmount)
+    func getTimeToDischarge() -> String {
+        let seconds = intakeManager.getRemainTimeToDischarge(caffeine: intakeManager.getRemainCaffeineAmount())
         let hour = seconds / 3600
         let minutes = (seconds % 3600) / 60
         let today = Date()
