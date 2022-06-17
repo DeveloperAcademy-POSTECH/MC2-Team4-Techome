@@ -13,6 +13,11 @@
 		5220177F2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */; };
 		52AFC473285704AB000199DF /* AddSideEffectStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */; };
 		52AFC4782858614E000199DF /* CaffeineBookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFC4772858614E000199DF /* CaffeineBookDetailView.swift */; };
+		791F545C285A16620066F5B1 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791F545B285A16620066F5B1 /* NotificationManager.swift */; };
+		791F545F285A16DE0066F5B1 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791F545E285A16DE0066F5B1 /* NotificationView.swift */; };
+		791F5461285A1C3B0066F5B1 /* NotificationStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791F5460285A1C3B0066F5B1 /* NotificationStateHolder.swift */; };
+		791F5465285A20180066F5B1 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791F5464285A20180066F5B1 /* SettingView.swift */; };
+		791F5468285ABD2C0066F5B1 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791F5467285ABD2C0066F5B1 /* Notification.swift */; };
 		793214F6285702A500D7E4E1 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793214F5285702A500D7E4E1 /* UIApplication+.swift */; };
 		793214F8285702BB00D7E4E1 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793214F7285702BB00D7E4E1 /* SearchBarView.swift */; };
 		79421B9D285722B400DFD58A /* SearchCaffeineStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79421B9C285722B400DFD58A /* SearchCaffeineStateHolder.swift */; };
@@ -83,6 +88,11 @@
 		5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookDetailStateHolder.swift; sourceTree = "<group>"; };
 		52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSideEffectStateHolder.swift; sourceTree = "<group>"; };
 		52AFC4772858614E000199DF /* CaffeineBookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookDetailView.swift; sourceTree = "<group>"; };
+		791F545B285A16620066F5B1 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		791F545E285A16DE0066F5B1 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		791F5460285A1C3B0066F5B1 /* NotificationStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationStateHolder.swift; sourceTree = "<group>"; };
+		791F5464285A20180066F5B1 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		791F5467285ABD2C0066F5B1 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		793214F5285702A500D7E4E1 /* UIApplication+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		793214F7285702BB00D7E4E1 /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		79421B9C285722B400DFD58A /* SearchCaffeineStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCaffeineStateHolder.swift; sourceTree = "<group>"; };
@@ -168,6 +178,23 @@
 			path = CaffeineBookDetail;
 			sourceTree = "<group>";
 		};
+		791F545D285A16CF0066F5B1 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				791F545E285A16DE0066F5B1 /* NotificationView.swift */,
+				791F5464285A20180066F5B1 /* SettingView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		791F5466285ABD0A0066F5B1 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				791F5467285ABD2C0066F5B1 /* Notification.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		AB18CCC42856D8B300DD1C5A /* Global */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +233,7 @@
 				AB18CCCE2856D8B300DD1C5A /* SideEffectManager.swift */,
 				AB18CCCF2856D8B300DD1C5A /* JSONManager.swift */,
 				AB18CCD02856D8B300DD1C5A /* IntakeManager.swift */,
+				791F545B285A16620066F5B1 /* NotificationManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -227,6 +255,7 @@
 			children = (
 				AB18CCD62856D8B300DD1C5A /* tempModel.swift */,
 				AB18CCD72856D8B300DD1C5A /* Intake */,
+				791F5466285ABD0A0066F5B1 /* Notification */,
 				AB18CCDB2856D8B300DD1C5A /* SideEffect */,
 			);
 			path = Model;
@@ -253,6 +282,7 @@
 		AB18CCDD2856D8B300DD1C5A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				791F545D285A16CF0066F5B1 /* Setting */,
 				AB528BCC285C485B00C213C6 /* MainView.swift */,
 				AB528BBC285C485000C213C6 /* Today */,
 				ABC0E94E2859CDDE0046C9C8 /* CaffeineBook */,
@@ -308,6 +338,7 @@
 				79421B9C285722B400DFD58A /* SearchCaffeineStateHolder.swift */,
 				52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */,
 				5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */,
+				791F5460285A1C3B0066F5B1 /* NotificationStateHolder.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -531,6 +562,7 @@
 				ABC0E95E2859CDDE0046C9C8 /* FranchiseRow.swift in Sources */,
 				AB18CCFD2856D8B300DD1C5A /* SideEffectRecord.swift in Sources */,
 				AB18CD062856D8B300DD1C5A /* tempViewModel.swift in Sources */,
+				791F545C285A16620066F5B1 /* NotificationManager.swift in Sources */,
 				52AFC473285704AB000199DF /* AddSideEffectStateHolder.swift in Sources */,
 				ABC0E9622859CDDE0046C9C8 /* BeverageList.swift in Sources */,
 				AB18CD012856D8B300DD1C5A /* ContentView.swift in Sources */,
@@ -540,9 +572,12 @@
 				AB18CD052856D8B300DD1C5A /* TechomeApp.swift in Sources */,
 				ABFE83FA2859A876001461D4 /* AddCaffeineDetailCustomModifier.swift in Sources */,
 				AB18CD022856D8B300DD1C5A /* HomeView.swift in Sources */,
+				791F545F285A16DE0066F5B1 /* NotificationView.swift in Sources */,
 				ABC0E95A2859CDDE0046C9C8 /* CaffeineBookView.swift in Sources */,
 				DA11291228570F4C0065BD33 /* TestView_P.swift in Sources */,
 				AB18CD002856D8B300DD1C5A /* AddSideEffectView.swift in Sources */,
+				791F5461285A1C3B0066F5B1 /* NotificationStateHolder.swift in Sources */,
+				791F5465285A20180066F5B1 /* SettingView.swift in Sources */,
 				AB18CCF92856D8B300DD1C5A /* tempModel.swift in Sources */,
 				2A427E2D285859D700089AC0 /* TrendChartView.swift in Sources */,
 				5220177F2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift in Sources */,
@@ -580,6 +615,7 @@
 				79421B9D285722B400DFD58A /* SearchCaffeineStateHolder.swift in Sources */,
 				AB528BBB285C46C900C213C6 /* TodayStateHolder.swift in Sources */,
 				AB18CCF32856D8B300DD1C5A /* SideEffectManager.swift in Sources */,
+				791F5468285ABD2C0066F5B1 /* Notification.swift in Sources */,
 				DA11291028570EF20065BD33 /* DummyData.swift in Sources */,
 				AB528BC9285C485000C213C6 /* BackgroundAnimationView.swift in Sources */,
 				AB18CCFF2856D8B300DD1C5A /* HomeView_G.swift in Sources */,
