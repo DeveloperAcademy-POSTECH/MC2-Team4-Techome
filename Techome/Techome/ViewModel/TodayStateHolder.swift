@@ -15,7 +15,7 @@ final class TodayStatesHolder: ObservableObject {
     @Published var isSettingView = false
     
     private let intakeManager = IntakeManager.shared
-    private let fullChargeAmount: Double = 1000 // TODO: 팀원 합의 필요
+    private let fullChargeAmount: Double = 750 // TODO: 팀원 합의 필요
     
     init() {
         remainingAmount = intakeManager.getRemainCaffeineAmount()
