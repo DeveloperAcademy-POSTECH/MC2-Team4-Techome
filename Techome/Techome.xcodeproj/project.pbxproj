@@ -350,10 +350,10 @@
 			isa = PBXGroup;
 			children = (
 				793214F7285702BB00D7E4E1 /* SearchBarView.swift */,
-				AB18CCE52856D8B300DD1C5A /* HomeView.swift */,
-				AB18CCE62856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift */,
 				AB18CCE72856D8B300DD1C5A /* SearchCaffeineView.swift */,
 				797B456628570C4200DB45FA /* SearchResultView.swift */,
+				AB18CCE62856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift */,
+				AB18CCE52856D8B300DD1C5A /* HomeView.swift */,
 			);
 			path = AddCaffeine;
 			sourceTree = "<group>";

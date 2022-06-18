@@ -54,6 +54,17 @@ final class IntakeManager {
         return amount
     }
     
+    func getDailyIntakeCaffeineAmount(date: Date) -> Int {
+        let todayRecords = getDailyRecords(date: date)
+        
+        var amount = 0
+        for record in todayRecords {
+            amount += getCaffeineAmount(record: record)
+        }
+        
+        return amount
+    }
+    
     func getRemainTimeToDischarge(caffeine: Double) -> Int {
         //  카페인을 모두 배출된 시간을 위해 임의로 정한 값
         let standard = 30.0
