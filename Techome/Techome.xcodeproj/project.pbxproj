@@ -28,7 +28,7 @@
 		793214F6285702A500D7E4E1 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793214F5285702A500D7E4E1 /* UIApplication+.swift */; };
 		793214F8285702BB00D7E4E1 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793214F7285702BB00D7E4E1 /* SearchBarView.swift */; };
 		79421B9D285722B400DFD58A /* SearchCaffeineStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79421B9C285722B400DFD58A /* SearchCaffeineStateHolder.swift */; };
-		796CEF97285DB8570077CCB6 /* TwosomePlaceData.json in Resources */ = {isa = PBXBuildFile; fileRef = 796CEF96285DB8570077CCB6 /* TwosomePlaceData.json */; };
+		796CEF9B285DBAB00077CCB6 /* TwosomePlaceData.json in Resources */ = {isa = PBXBuildFile; fileRef = 796CEF9A285DBAB00077CCB6 /* TwosomePlaceData.json */; };
 		797B456728570C4200DB45FA /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797B456628570C4200DB45FA /* SearchResultView.swift */; };
 		AB18CCED2856D8B300DD1C5A /* SideEffectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCC62856D8B300DD1C5A /* SideEffectRepository.swift */; };
 		AB18CCEF2856D8B300DD1C5A /* IntakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCC82856D8B300DD1C5A /* IntakeRepository.swift */; };
@@ -109,7 +109,7 @@
 		793214F5285702A500D7E4E1 /* UIApplication+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		793214F7285702BB00D7E4E1 /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		79421B9C285722B400DFD58A /* SearchCaffeineStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCaffeineStateHolder.swift; sourceTree = "<group>"; };
-		796CEF96285DB8570077CCB6 /* TwosomePlaceData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TwosomePlaceData.json; sourceTree = "<group>"; };
+		796CEF9A285DBAB00077CCB6 /* TwosomePlaceData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TwosomePlaceData.json; path = "../../../../../../Library/Developer/CoreSimulator/Devices/F03FDD05-6CAA-4558-BF22-548252164023/data/Containers/Data/Application/171F7480-53C9-4ED6-81B3-3529AC7909EA/Documents/TwosomePlaceData.json"; sourceTree = "<group>"; };
 		797B456628570C4200DB45FA /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		AB18CCC62856D8B300DD1C5A /* SideEffectRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideEffectRepository.swift; sourceTree = "<group>"; };
 		AB18CCC82856D8B300DD1C5A /* IntakeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntakeRepository.swift; sourceTree = "<group>"; };
@@ -264,7 +264,7 @@
 		AB18CCD22856D8B300DD1C5A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				796CEF96285DB8570077CCB6 /* TwosomePlaceData.json */,
+				796CEF9A285DBAB00077CCB6 /* TwosomePlaceData.json */,
 				ABC0E9482859CD780046C9C8 /* StarbucksData.json */,
 				DA8E714728581674009836DE /* IntakeRecord.json */,
 				DA8E714828581674009836DE /* SideEffectRecord.json */,
@@ -567,9 +567,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				796CEF97285DB8570077CCB6 /* TwosomePlaceData.json in Resources */,
 				ABC0E9492859CD780046C9C8 /* StarbucksData.json in Resources */,
 				DA8E714928581674009836DE /* IntakeRecord.json in Resources */,
+				796CEF9B285DBAB00077CCB6 /* TwosomePlaceData.json in Resources */,
 				DA8E714A28581674009836DE /* SideEffectRecord.json in Resources */,
 				AB18CD072856D8B300DD1C5A /* Assets.xcassets in Resources */,
 				AB1FBDFA2856B93400EB4F95 /* Preview Assets.xcassets in Resources */,
