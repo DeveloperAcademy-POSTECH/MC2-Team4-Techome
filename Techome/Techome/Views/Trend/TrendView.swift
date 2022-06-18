@@ -8,6 +8,7 @@
 //
 import SwiftUI
 
+
 struct TrendViewLayoutValue {
     
     struct Paddings {
@@ -37,7 +38,6 @@ struct TrendViewLayoutValue {
         static let sideEffectRecordCellFixedWidth: CGFloat = 46
         static let chartSelectionIndicatorHeight: CGFloat = 83
     }
-    
     ///TrendView Radius
     struct Radius {
         static let cardRadius: CGFloat = 7
@@ -46,6 +46,9 @@ struct TrendViewLayoutValue {
 }
 
 struct TrendView: View {
+    @EnvironmentObject var trendStates: TrendStateHolder
+    
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -55,15 +58,11 @@ struct TrendView: View {
                 ScrollView {
                     VStack(spacing: .zero) {
                         TrendChart()
-                        Group {
-                            SideEffectRecordsByDay()
-                            CaffeineRecordsByDay()
-                        }
-                        .background(CardBackground())
-                        .padding(.vertical, TrendViewLayoutValue.Paddings.dayRecordPadding)
+//                        TrendChartView().selectionCaffeineSideEffectLabelView()
                         
                         NavigationLink {
-                            
+                            TotalListView()
+                                .environmentObject(TotalListStateHolder())
                         } label: {
                             Text("전체 리스트 보기")
                                 .font(.subheadline)
@@ -81,11 +80,13 @@ struct TrendView: View {
 }
 
 struct TrendChart: View {
+    //@EnvironmentObject var trendStates: TrendStateHolder
+    @State var index = 0
     var body: some View {
-        LazyHStack() {
-            TabView {
+        //HStack() {
+        TabView(selection: $index) {
                 //TODO: 임시 데이터 수
-                ForEach(0 ..< 5) { chartIndex in
+                ForEach(0 ..< 3) { chartIndex in
                     VStack(alignment: .leading, spacing: .zero) {
                         AverageCaffeineAmountForWeek()
                             .padding(TrendViewLayoutValue.Paddings.averageCaffeineAmountPadding)
@@ -100,19 +101,21 @@ struct TrendChart: View {
                                 .foregroundColor(.secondaryTextGray)
                         }
                         .padding(.trailing, TrendViewLayoutValue.Paddings.chartInsidePadding)
-                        TrendChartView()
+                        TrendChartView(index: $index)
                     }
-                    .tag(chartIndex)
+                    .tag(index)
                     .frame(maxWidth: TrendViewLayoutValue.Sizes.cardWidth, alignment: .leading)
                     .background(CardBackground())
                     .padding(TrendViewLayoutValue.Paddings.chartPadding)
                     
                 }
+                
             }
             .frame(width: TrendViewLayoutValue.Sizes.mainWidth, height: TrendViewLayoutValue.Sizes.chartHeight, alignment: .center)
             .tabViewStyle(.page(indexDisplayMode: .never))
-        }
-        .frame(height: TrendViewLayoutValue.Sizes.chartHeight)
+            //.transformEffect(CGAffineTransform(scaleX: -1, y: 1))
+        //}
+        //.frame(height: TrendViewLayoutValue.Sizes.chartHeight)
     }
 }
 
@@ -141,27 +144,36 @@ struct AverageCaffeineAmountForWeek: View {
 }
 
 struct SideEffectRecordsByDay: View {
+    let trendStates = TrendStateHolder()
+    let dailySideEffects: [SideEffect]
+    init() {
+        dailySideEffects = trendStates.sideEffectManager.getDailyRecords(date: Date.now)
+    }
     var body: some View {
-        VStack(alignment: .center, spacing: TrendViewLayoutValue.Paddings.sideEffectRecordCellVerticalPadding) {
-            ForEach(0..<2) { sideEffectRowIndex in
+        VStack(alignment: .leading, spacing: TrendViewLayoutValue.Paddings.sideEffectRecordCellVerticalPadding) {
+            ForEach(0 ..< 1) { sideEffectRowIndex in
                 HStack(alignment: .center, spacing: TrendViewLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding) {
                     //TODO: 임시 데이터 수
-                    ForEach(0..<5) { sideEffectItemIndex in
-                        SideEffectRecordItem()
+                    ForEach(dailySideEffects, id: \.self) { sideEffectItemIndex in
+                        SideEffectRecordItem(sideEffectRecord: sideEffectItemIndex)
                     }
                 }
             }
         }
         .padding(.vertical, TrendViewLayoutValue.Paddings.sideEffectRecordCellVerticalPadding)
-        .frame(width: TrendViewLayoutValue.Sizes.cardWidth)
+        .padding(.horizontal, TrendViewLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding)
+        .frame(width: TrendViewLayoutValue.Sizes.cardWidth, alignment: .leading)
     }
 }
 
 struct SideEffectRecordItem: View {
+    let trendStates = TrendStateHolder()
+    let sideEffectRecord: SideEffect
+    
     var body: some View {
         VStack(spacing: .zero) {
-            Image("esophagitis")
-            Text("식도염")
+            Image(sideEffectRecord.getImageName())
+            Text(sideEffectRecord.getSideEffectName())
                 .font(.caption)
         }
         .frame(width: TrendViewLayoutValue.Sizes.sideEffectRecordCellFixedWidth)
@@ -169,39 +181,44 @@ struct SideEffectRecordItem: View {
 }
 
 struct CaffeineRecordsByDay: View {
+    let trendStates = TrendStateHolder()
+    
     var body: some View {
         LazyVStack(spacing: .zero) {
             //TODO: 임시 데이터 수
-            ForEach(0 ..< 10) { CaffeineRecordCellIndex in
-                CaffeineRecordCell()
+            ForEach(trendStates.intakeRecords) { CaffeineRecordCellIndex in
+                CaffeineRecordCell(record: CaffeineRecordCellIndex)
             }
         }
         .frame(width: TrendViewLayoutValue.Sizes.cardWidth)
-        
     }
 }
 
 struct CaffeineRecordCell: View {
+    
+    let trendStates = TrendStateHolder()
+    let record: IntakeRecord
+    
     var body: some View {
         VStack(spacing: .zero) {
             HStack(alignment: .center, spacing: .zero) {
                 VStack(alignment: .leading, spacing: .zero) {
-                    Text("09:30")
+                    Text("\(record.date)")
                         .font(.caption)
                         .foregroundColor(.secondaryTextGray)
                         .padding(.bottom, TrendViewLayoutValue.Paddings.dayRecordPadding)
                     HStack(alignment: .firstTextBaseline, spacing: .zero) {
-                        Text("아메리카노")
+                        Text(record.beverage.name)
                             .font(.title3)
                             .padding(.trailing, TrendViewLayoutValue.Paddings.textVerticalPadding)
-                        Text("스타벅스/Tall")
+                        Text(record.beverage.franchise.getFranchiseName())
                             .font(.caption)
                             .foregroundColor(.secondaryTextGray)
                     }
                 }
                 Spacer()
                 HStack(alignment: .firstTextBaseline, spacing: .zero) {
-                    Text("150")
+                    Text("\(trendStates.intakeManager.getCaffeineAmount(record: record))")
                         .font(.title)
                         .padding(.trailing, TrendViewLayoutValue.Paddings.caffeineRecordAmountUnitPadding)
                     Text("mg")

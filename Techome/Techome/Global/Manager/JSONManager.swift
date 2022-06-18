@@ -19,6 +19,7 @@ final class JSONManager {
         guard let url = urls.first else {
             fatalError("Invalid URL")
         }
+        print(url)
         
         let fileURL = url.appendingPathComponent(filename)
         

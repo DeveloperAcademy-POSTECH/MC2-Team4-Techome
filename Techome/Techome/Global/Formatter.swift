@@ -19,4 +19,11 @@ struct Formatter {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter
     }
+    
+    static var remainingTime: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "a h시 mm분"
+        dateFormatter.locale = Locale(identifier: "ko")
+        return dateFormatter
+    }
 }

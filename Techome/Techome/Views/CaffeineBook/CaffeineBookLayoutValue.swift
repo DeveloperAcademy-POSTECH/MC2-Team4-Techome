@@ -27,7 +27,7 @@ enum CaffeineBookLayoutValue {
         }
         
         enum BeverageList: CGFloat {
-            case top = 20
+            case vertical = 20
             case horizontal = 15
             case innerHorizontal = 19
             case textBetweenSizeAndAmount = 7
