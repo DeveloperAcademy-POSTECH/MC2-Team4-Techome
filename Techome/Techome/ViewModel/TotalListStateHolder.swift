@@ -72,7 +72,7 @@ final class TotalListStateHolder: ObservableObject {
             return
         }
         
-        if (self.totalDataList[curDate]!.count <= 0 ) {
+        if ((self.totalDataList[curDate]?.count ?? 0) <= 0 ) {
             self.datesArr.remove(at: dateIndex)
         }
     }
@@ -80,7 +80,7 @@ final class TotalListStateHolder: ObservableObject {
     //모든 cell 원위치
     func resetOffsets() {
         for date in self.datesArr {
-            self.offsetsArr[date] = [CGFloat](repeating: .zero, count: totalDataList[date]!.count)
+            self.offsetsArr[date] = [CGFloat](repeating: .zero, count: totalDataList[date]?.count ?? 0)
         }
     }
     

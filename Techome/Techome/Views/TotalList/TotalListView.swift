@@ -159,7 +159,7 @@ struct TotalListByDate: View {
     }
     //onEnd : 제스쳐가 끝나는 시점 체크
     //왼쪽으로 74 이상 움직였을 경우 cell이 74만큼 왼쪽으로 이동된 상태 유지, 왼쪽으로 74 이상 움직이지 않았을 경우 cell 위치 원상복귀
-    func gestureEnd(curDate: String, index: Int){
+    func gestureEnd(curDate: String, index: Int) {
         guard totalData.offsetsArr[curDate] != nil else {
             return
         }
