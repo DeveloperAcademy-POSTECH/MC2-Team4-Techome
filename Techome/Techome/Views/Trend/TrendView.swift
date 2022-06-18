@@ -61,7 +61,8 @@ struct TrendView: View {
 //                        TrendChartView().selectionCaffeineSideEffectLabelView()
                         
                         NavigationLink {
-                            
+                            TotalListView()
+                                .environmentObject(TotalListStateHolder())
                         } label: {
                             Text("전체 리스트 보기")
                                 .font(.subheadline)
