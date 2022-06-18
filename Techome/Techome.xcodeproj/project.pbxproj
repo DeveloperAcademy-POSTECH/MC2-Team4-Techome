@@ -341,10 +341,10 @@
 			isa = PBXGroup;
 			children = (
 				793214F7285702BB00D7E4E1 /* SearchBarView.swift */,
-				AB18CCE52856D8B300DD1C5A /* HomeView.swift */,
-				AB18CCE62856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift */,
 				AB18CCE72856D8B300DD1C5A /* SearchCaffeineView.swift */,
 				797B456628570C4200DB45FA /* SearchResultView.swift */,
+				AB18CCE62856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift */,
+				AB18CCE52856D8B300DD1C5A /* HomeView.swift */,
 			);
 			path = AddCaffeine;
 			sourceTree = "<group>";
@@ -779,7 +779,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Techome/Preview Content\"";
-				DEVELOPMENT_TEAM = 7PQ6FMV22H;
+				DEVELOPMENT_TEAM = ZRTG6WMRW7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

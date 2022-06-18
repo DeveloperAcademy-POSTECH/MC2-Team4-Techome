@@ -22,7 +22,7 @@ struct Formatter {
     
     static var remainingTime: DateFormatter {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "a H시 mm분"
+        dateFormatter.dateFormat = "a h시 mm분"
         dateFormatter.locale = Locale(identifier: "ko")
         return dateFormatter
     }

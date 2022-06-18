@@ -27,8 +27,7 @@ struct EspressoShotCountCustomStepper: View {
     var body: some View {
         HStack(alignment: .center, spacing: .zero) {
             Button {
-                addCaffeineDetailStates.shotCount -= addCaffeineDetailStates.shotCount > 0 ? 1 : 0
-                addCaffeineDetailStates.addCaffeineAmount -= addCaffeineDetailStates.bevergeRecord.franchise.getCaffeinPerShot()
+                addCaffeineDetailStates.addedShotCount -= 1
             } label: {
                 Image(systemName: "minus")
                     .foregroundColor(.black)
@@ -37,7 +36,8 @@ struct EspressoShotCountCustomStepper: View {
                         .foregroundColor(.white)
                         .shadow(color: .primaryShadowGray, radius: AddCaffeineDetailViewLayoutValue.CornerRadius.shadow, x: .zero, y: .zero))
             }
-            Text("\(addCaffeineDetailStates.shotCount)")
+            .disabled(addCaffeineDetailStates.selectedSizeInfo.defaultShotCount + addCaffeineDetailStates.addedShotCount <= 1)
+            Text("\(addCaffeineDetailStates.selectedSizeInfo.defaultShotCount + addCaffeineDetailStates.addedShotCount)")
                 .font(.body)
                 .fontWeight(.bold)
                 .foregroundColor(.primaryBrown)
@@ -46,8 +46,7 @@ struct EspressoShotCountCustomStepper: View {
                     .foregroundColor(.white)
                     .shadow(color: .primaryShadowGray, radius: AddCaffeineDetailViewLayoutValue.CornerRadius.shadow, x: .zero, y: .zero))
             Button {
-                addCaffeineDetailStates.shotCount += 1
-                addCaffeineDetailStates.addCaffeineAmount += addCaffeineDetailStates.bevergeRecord.franchise.getCaffeinPerShot()
+                addCaffeineDetailStates.addedShotCount += 1
             } label: {
                 Image(systemName: "plus")
                     .foregroundColor(.black)

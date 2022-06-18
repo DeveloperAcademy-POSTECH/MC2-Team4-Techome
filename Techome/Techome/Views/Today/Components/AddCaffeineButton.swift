@@ -13,7 +13,7 @@ struct AddCaffeineButton_q: View {
     var body: some View {
         VStack(spacing: .zero) {
             Button {
-                // TODO: modal addCaffeine view
+                todayStates.isSearchCaffeineView.toggle()
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: TodayLayoutValue.Radius.addCaffeineButton)
@@ -27,7 +27,10 @@ struct AddCaffeineButton_q: View {
                 
             }
             .padding(.bottom, TodayLayoutValue.Padding.BottomButton.hInterval)
-            Text("오늘 총 \(todayStates.getTodyIntakeAmount())mg 섭취")
+            .fullScreenCover(isPresented: $todayStates.isSearchCaffeineView) {
+                SearchCaffeineView()
+            }
+            Text("오늘 총 \(todayStates.getTodayIntakeAmount())mg 섭취")
                 .font(.caption)
         }
     }
