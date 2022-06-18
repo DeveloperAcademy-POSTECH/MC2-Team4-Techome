@@ -90,6 +90,7 @@ struct SideEffectDate: View {
         
         DatePicker("부작용 일시", selection: $sideEffectStates.sideEffectDate, in: ...Date())
             .labelsHidden()
+            .environment(\.colorScheme, .light)
             .accentColor(.primaryBrown)
             .frame(alignment: .leading)
             .padding(.bottom, AddSideEffectLayoutValue.Padding.contentBetweenVertical)
