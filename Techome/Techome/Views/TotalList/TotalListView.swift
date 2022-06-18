@@ -43,13 +43,14 @@ struct TotalListLayoutValue {
 struct TotalListView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var totalData = Datas()
+    @EnvironmentObject var totalData : Datas
     
     var body: some View {
         ScrollView {
             LazyVStack (spacing: TotalListLayoutValue.Spacings.sectionByDateSpacing){
                 ForEach(totalData.datesArr, id: \.self) { curDate in
-                    TotalListByDate(totalData: totalData, curDate: curDate)
+                    TotalListByDate(curDate: curDate)
+                        .environmentObject(totalData)
                 }
             }
             .padding(.horizontal, TotalListLayoutValue.Paddings.fullViewHorizontalPadding)
@@ -86,7 +87,7 @@ struct TotalListView: View {
 //https://stackoverflow.com/questions/67238383/how-to-swipe-to-delete-in-swiftui-with-only-a-foreach-and-not-a-list
 struct TotalListByDate: View {
     
-    @ObservedObject var totalData : Datas
+    @EnvironmentObject var totalData : Datas
     var curDate : String
     
     var body: some View {
@@ -107,11 +108,10 @@ struct TotalListByDate: View {
                             }
                         
                         //데이터 표시
-//                        Cell(curCell : cell).environmentObject(totalData)
                         Group{
                             switch cell.dataType {
                             case "intake" :
-                                CaffeineCell(totalData: totalData, cellData: totalData.sourceData.intakes[cell.dataIndex])
+                                CaffeineCell(cellData: totalData.sourceData.intakes[cell.dataIndex])
                             case "sideEffect" :
                                 SideEffectCell(cellData: totalData.sourceData.sideEffects[cell.dataIndex])
                             default :
@@ -191,27 +191,6 @@ struct deleteButton: View {
     }
 }
 
-//데이터 컴포넌트 (하나의 row) : 데이터 타입(카페인, 부작용)에 따라 맞는 컴포넌트 보여줌
-struct Cell: View {
-    @EnvironmentObject var totalData : Datas
-    
-    var curCell : TotalDataCell
-    
-    var body : some View {
-        Group{
-            switch curCell.dataType {
-            case "intake" :
-                CaffeineCell(totalData: totalData, cellData: totalData.sourceData.intakes[curCell.dataIndex])
-            case "sideEffect" :
-                SideEffectCell(cellData: totalData.sourceData.sideEffects[curCell.dataIndex])
-            default :
-                EmptyView()
-            }
-        }
-        .background(Color.white)
-    }
-}
-
 //부작용 데이터 컴포넌트 : 부작용 시간 + 부작용 정보
 struct SideEffectCell: View {
     var cellData: SideEffectRecord
@@ -236,7 +215,6 @@ struct SideEffectCell: View {
 
 //============================================================================
 //trend에서 사용하는 컴포넌트 공유 예정
-
 
 //trend 의 sideEffectRecordsByDay
 //부작용 데이터 컴포넌트 : 부작용 정보
@@ -284,8 +262,6 @@ struct SideEffectItem: View {
 //trend 의 CaffeineRecordCell 에 padding (.vertical)로 제한하는 코드 추가 & Divider 삭제, 이외 동일
 //카페인 데이터 컴포넌트 : 카페인 시간 + 카페인 정보
 struct CaffeineCell: View {
-    
-    @ObservedObject var totalData : Datas
     var cellData : IntakeRecord
     
     var body: some View {
@@ -311,7 +287,7 @@ struct CaffeineCell: View {
                 }
                 Spacer()
                 HStack(alignment: .firstTextBaseline, spacing: 0) {
-                    Text("\(totalData.sourceData.intakeManager.getCaffeineAmount(record: cellData))")
+                    Text("\(intakeManager.getCaffeineAmount(record: cellData))")
                         .font(.title)
                         .padding(.trailing, TotalListLayoutValue.Paddings.caffeineRecordAmountUnitPadding)
                     Text("mg")

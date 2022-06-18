@@ -62,6 +62,7 @@ struct TrendView: View {
                         
                         NavigationLink {
                             TotalListView()
+                                .environmentObject(Datas())
                         } label: {
                             Text("전체 리스트 보기")
                                 .font(.subheadline)

@@ -7,6 +7,9 @@
 import Foundation
 import SwiftUI
 
+let intakeManager = IntakeManager.shared
+let sideEffectManager = SideEffectManager.shared
+
 struct TotalDataCell : Hashable {
     var date = Date()
     var dataType: String
@@ -14,21 +17,16 @@ struct TotalDataCell : Hashable {
 }
 
 final class totalListSourceData {
-    var intakeManager = IntakeManager.shared
-    var sideEffectManager = SideEffectManager.shared
     var intakes = [IntakeRecord]()
     var sideEffects = [SideEffectRecord]()
 
     func loadData() {
-        self.intakeManager = IntakeManager.shared
-        self.sideEffectManager = SideEffectManager.shared
         self.intakes = intakeManager.getAllRecords()
         self.sideEffects = sideEffectManager.getAllRecords()
     }
 }
 
 final class Datas: ObservableObject { //observable 객체 생성
-    
     @Published var dataSortedByDate = [ String : [TotalDataCell] ]() //뷰를 만들 때 최종으로 사용하는 데이터
     @Published var offsetsArr = [ String : [CGFloat] ]() //각 cell이 슬라이드 된 정도 저장
     @Published var datesArr = [String]() //데이터에 존재하는 날짜 리스트
@@ -53,9 +51,9 @@ final class Datas: ObservableObject { //observable 객체 생성
     func deleteData(curCell : TotalDataCell, curDate : String, index : Int) {
         //실제 데이터에서 삭제
         if curCell.dataType == "intake"{
-            sourceData.intakeManager.deleteRecord(intakeRecord: sourceData.intakes[curCell.dataIndex])
+            intakeManager.deleteRecord(intakeRecord: sourceData.intakes[curCell.dataIndex])
         } else if curCell.dataType == "sideEffect" {
-            sourceData.sideEffectManager.deleteRecord(sideEffectRecord: sourceData.sideEffects[curCell.dataIndex])
+            sideEffectManager.deleteRecord(sideEffectRecord: sourceData.sideEffects[curCell.dataIndex])
         }
         
         //클라이언트 단에서 사용하는 데이터에서 삭제 (dataSortedByDate, offsetsArr, datesArr)
