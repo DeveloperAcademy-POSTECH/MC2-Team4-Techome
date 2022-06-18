@@ -39,7 +39,8 @@ struct SearchCaffeineView: View {
                     .padding(.top, SearchCaffeineViewLayoutValue.Padding.mainVertical)
                     .frame(height: SearchCaffeineViewLayoutValue.Size.mainHeight, alignment: .top)
                 }
-                
+                .frame(width: screenWidth, height: screenHeight)
+                .background(.mint)
             }
             .navigationTitle("카페인 추가하기")
             .navigationBarTitleDisplayMode(.inline)
@@ -53,7 +54,6 @@ struct SearchCaffeineView: View {
                     }
                 }
             }
-            .frame(width: screenWidth, height: screenHeight)
         }
     }
 }
