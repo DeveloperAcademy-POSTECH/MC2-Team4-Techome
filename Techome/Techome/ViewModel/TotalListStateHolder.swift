@@ -20,7 +20,7 @@ final class Datas: ObservableObject { //observable 객체 생성
         self.dataSortedByDate = collectData.makeData(intakes: sourceData.intakes, sideEffects: sourceData.sideEffects)
         
         for key in self.dataSortedByDate.keys {
-            self.offsetsArr[key] = [CGFloat](repeating: .zero, count: self.dataSortedByDate[key]!.count)
+            self.offsetsArr[key] = [CGFloat](repeating: .zero, count: self.dataSortedByDate[key]?.count ?? 0)
             self.datesArr.append(key)
         }
         
@@ -54,7 +54,7 @@ final class Datas: ObservableObject { //observable 객체 생성
             return
         }
         
-        if (self.dataSortedByDate[curDate]!.count <= 0 ) {
+        if ((self.dataSortedByDate[curDate]?.count ?? 0) <= 0 ) {
             self.datesArr.remove(at: dateIndex)
         }
     }
@@ -62,7 +62,7 @@ final class Datas: ObservableObject { //observable 객체 생성
     //모든 cell 원위치
     func resetOffsets() {
         for date in self.datesArr {
-            self.offsetsArr[date] = [CGFloat](repeating: .zero, count: dataSortedByDate[date]!.count)
+            self.offsetsArr[date] = [CGFloat](repeating: .zero, count: dataSortedByDate[date]?.count ?? 0)
         }
     }
     
