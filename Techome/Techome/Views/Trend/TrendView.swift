@@ -7,6 +7,7 @@
 
 //
 import SwiftUI
+import BarChart
 
 
 struct TrendViewLayoutValue {
@@ -47,9 +48,23 @@ struct TrendViewLayoutValue {
 
 struct TrendView: View {
     @EnvironmentObject var trendStates: TrendStateHolder
-    
+
+    func selectionCaffeineSideEffectLabelView() -> some View {
+        Group {
+            if trendStates.selectedEntry != nil && trendStates.selectedBarTopCentreLocation != nil {
+                Group {
+                    SideEffectRecordsByDay()
+                    CaffeineRecordsByDay()
+                }
+                .background(CardBackground())
+                .padding(.vertical, TrendViewLayoutValue.Paddings.dayRecordPadding)
+            }
+        }
+    }
     
     var body: some View {
+        
+        
         NavigationView {
             ZStack {
                 Color.backgroundCream
@@ -58,7 +73,8 @@ struct TrendView: View {
                 ScrollView {
                     VStack(spacing: .zero) {
                         TrendChart()
-//                        TrendChartView().selectionCaffeineSideEffectLabelView()
+
+                        selectionCaffeineSideEffectLabelView()
                         
                         NavigationLink {
                             
@@ -78,14 +94,97 @@ struct TrendView: View {
     }
 }
 
+class TrendStateHolder: ObservableObject {
+    let intakeManager: IntakeManager = IntakeManager.shared
+    let sideEffectManager: SideEffectManager = SideEffectManager.shared
+    let intakeRecords: [IntakeRecord]
+//    let firstIntakeRecord : IntakeRecord
+    @Published var ChartWeekIndex: Int = 0
+    @Published var selectedBarTopCentreLocation: CGPoint?
+    @Published var selectedEntry: ChartDataEntry?
+//    @Published var dateFilteredRecords = [[IntakeRecord]]()
+    
+    var dateOfRecords: [Date] = [Date]()
+    var dateOfRecordsByWeek = [[Date]]()
+    
+    init() {
+        intakeRecords = intakeManager.getDailyRecords(date: Date.now)
+        getDateOfRecords()
+        getDateOfRecordsByWeek()
+//        firstIntakeRecord = intakeRecords[0]
+    }
+    
+//    func filterRecordsByDate(records: [IntakeRecord]) {
+//        guard records.count > 0 else {
+//            return
+//        }
+//        let dayOfWeek = SetEntries.getDayOfWeek(records.first?.date ?? Date())
+//        var firstWeek = [IntakeRecord]()
+//        var idx = 0
+//        for idx in 0 ..< (7 - (DayOfWeek.RawValue(dayOfWeek) ?? 0)) {
+//            if idx < records.count {
+//                firstWeek.append(records[idx])
+//            }
+//        }
+//
+//    }
+    //TODO: 리팩토링
+    
+    
+    
+    func getDateOfRecords() {
+        for intakeRecord in intakeRecords {
+            var isSameDate = false
+            for dateOfRecord in dateOfRecords {
+                if Calendar.current.isDate(intakeRecord.date, inSameDayAs: dateOfRecord) {
+                    isSameDate = true
+                    break
+                }
+            }
+            if !isSameDate {
+                dateOfRecords.append(intakeRecord.date)
+            }
+        }
+        print(dateOfRecords)
+    }
+    
+    
+    func getDateOfRecordsByWeek() {
+        var prepareToAppend = [Date]()
+        for dateOfRecord in dateOfRecords {
+            if SetEntries.getDayOfWeek(dateOfRecord) != "일" {
+                prepareToAppend.append(dateOfRecord)
+            } else {
+                dateOfRecordsByWeek.append(prepareToAppend)
+                prepareToAppend = [Date]()
+                prepareToAppend.append(dateOfRecord)
+            }
+        }
+        dateOfRecordsByWeek.append(prepareToAppend)
+        print(dateOfRecordsByWeek)
+    }
+    
+}
+
+enum DayOfWeek: Int {
+    case 일 = 0
+    case 월 = 1
+    case 화 = 2
+    case 수 = 3
+    case 목 = 4
+    case 금 = 5
+    case 토 = 6
+}
+
 struct TrendChart: View {
     //@EnvironmentObject var trendStates: TrendStateHolder
-    @State var index = 0
+    @State var index = 2 //caffeineRecord.count - 1
     var body: some View {
         //HStack() {
         TabView(selection: $index) {
                 //TODO: 임시 데이터 수
-                ForEach(0 ..< 3) { chartIndex in
+            ForEach(0 ..< 5) { chartIndex in
+                    
                     VStack(alignment: .leading, spacing: .zero) {
                         AverageCaffeineAmountForWeek()
                             .padding(TrendViewLayoutValue.Paddings.averageCaffeineAmountPadding)
@@ -102,7 +201,7 @@ struct TrendChart: View {
                         .padding(.trailing, TrendViewLayoutValue.Paddings.chartInsidePadding)
                         TrendChartView(index: $index)
                     }
-                    .tag(index)
+                    .tag(chartIndex)
                     .frame(maxWidth: TrendViewLayoutValue.Sizes.cardWidth, alignment: .leading)
                     .background(CardBackground())
                     .padding(TrendViewLayoutValue.Paddings.chartPadding)
@@ -241,6 +340,7 @@ struct CardBackground: View {
 }
 
 struct TrendView_Previews: PreviewProvider {
+    var selectedEntry = ChartDataEntry(x: "월", y: 1.0)
     static var previews: some View {
         TrendView()
     }
