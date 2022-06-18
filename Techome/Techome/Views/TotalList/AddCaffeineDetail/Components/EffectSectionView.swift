@@ -10,8 +10,8 @@ import SwiftUI
 struct EffectSectionView: View {
     var body: some View {
         Group {
-            EffectSectionAddCaffeineAmountProvider()
-            CaffeineResidualTimeProvider()
+            EffectSectionAddCaffeineAmountProviderView()
+            CaffeineResidualTimeProviderView()
         }
         .background(EffectSectionBackground())
         .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.cardVertical)
@@ -19,14 +19,16 @@ struct EffectSectionView: View {
     }
 }
 
-struct EffectSectionAddCaffeineAmountProvider: View {
+struct EffectSectionAddCaffeineAmountProviderView: View {
+    @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
+    
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
             HStack(alignment: .center, spacing: .zero) {
                 Image(systemName: "circle.hexagongrid")
                     .padding(.trailing, AddCaffeineDetailViewLayoutValue.Paddings.EffectCard.sectionIconToText)
                 //TODO: 임시 더미데이터 변경 필요
-                Text("추가되는 카페인은 150mg 입니다.")
+                Text("추가되는 카페인은 \(addCaffeineDetailStates.getAddedCaffeineAmount())mg 입니다.")
                     .fontWeight(.semibold)
             }
             .headlineModifier()
@@ -43,6 +45,8 @@ struct EffectSectionAddCaffeineAmountProvider: View {
 }
 
 struct CurrentCaffeineAmount: View {
+    @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
+
     var body: some View {
         HStack(alignment: .center, spacing: .zero) {
             Text("현재")
@@ -50,7 +54,7 @@ struct CurrentCaffeineAmount: View {
             Spacer()
             HStack(alignment: .firstTextBaseline, spacing: .zero) {
                 //TODO: 임시 더미데이터 변경 필요
-                Text("130")
+                Text("\(Int(IntakeManager.shared.getRemainCaffeineAmount()))")
                     .font(.title2)
                     .fontWeight(.semibold)
                 //TODO: customBlack으로 변경 필요
@@ -65,6 +69,8 @@ struct CurrentCaffeineAmount: View {
 }
 
 struct AfterCaffeineAmount: View {
+    @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
+    
     var body: some View {
         HStack(alignment: .center, spacing: .zero) {
             Text("섭취 후")
@@ -72,7 +78,7 @@ struct AfterCaffeineAmount: View {
             Spacer()
             HStack(alignment: .firstTextBaseline, spacing: .zero) {
                 //TODO: 임시 더미데이터 변경 필요
-                Text("280")
+                Text("\(round(addCaffeineDetailStates.getRemainCaffeineAmountAfterDrink()))")
                     .fontWeight(.semibold)
                     .sideEffectValueHighlight()
                     .padding(.trailing, AddCaffeineDetailViewLayoutValue.Paddings.addCaffeineAmountToUnit)
@@ -82,15 +88,22 @@ struct AfterCaffeineAmount: View {
             }
         }
     }
+    
+    private func round(_ val: Double) -> Int {
+        return Int(val + 0.5)
+    }
 }
-struct CaffeineResidualTimeProvider: View {
+struct CaffeineResidualTimeProviderView: View {
+    @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
+    
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
             HStack(alignment: .center, spacing: .zero) {
                 Image(systemName: "timer")
                     .padding(.trailing, AddCaffeineDetailViewLayoutValue.Paddings.EffectCard.sectionIconToText)
                 //TODO: 임시 더미데이터 변경 필요
-                Text("카페인 배출에 2시간 45분이 더 소요됩니다.")
+                
+                Text("카페인 배출에 \(addCaffeineDetailStates.getAddedTime())이 더 소요됩니다.")
                     .fontWeight(.semibold)
             }
             .headlineModifier()
@@ -101,24 +114,15 @@ struct CaffeineResidualTimeProvider: View {
                     .sideEffectValueTitle()
                 Spacer()
                 HStack(alignment: .firstTextBaseline, spacing: .zero) {
-                    Text("오후")
-                        .sideEffectSectionTimeUnit()
-                    Text("5")
-                        .fontWeight(.bold)
-                        .sideEffectValueHighlight()
-                    Text("시")
-                        .sideEffectSectionTimeUnit()
-                    Text("33")
-                        .fontWeight(.bold)
-                        .sideEffectValueHighlight()
-                    Text("분")
-                        .sideEffectSectionTimeUnit()
+                    Text(addCaffeineDetailStates.getTimeToDischarge())
                 }
             }
         }
         .padding(.vertical, AddCaffeineDetailViewLayoutValue.Paddings.EffectCard.insideVertical)
         .padding(.horizontal, AddCaffeineDetailViewLayoutValue.Paddings.EffectCard.insideHorizontal)
     }
+    
+//    private func getTime
 }
 
 struct EffectSectionBackground: View {
@@ -131,7 +135,10 @@ struct EffectSectionBackground: View {
 
 
 struct EffectSectionView_Previews: PreviewProvider {
+    
     static var previews: some View {
+        let addCaffeineDetailStates = AddCaffeineDetailStateHolder(beverage: dummyBeverages[0], size: SizeInfo(name: "Tall", caffeineAmount: 150, defaultShotCount: 2))
         EffectSectionView()
+            .environmentObject(addCaffeineDetailStates)
     }
 }

@@ -10,7 +10,8 @@ import SwiftUI
 struct SearchCaffeineView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var searchCaffeineStateHolder: SearchCaffeineStateHolder
+//    @EnvironmentObject var searchCaffeineStateHolder: SearchCaffeineStateHolder
+    @StateObject var searchCaffeineStateHolder = SearchCaffeineStateHolder()
     
     
     var body: some View {
@@ -21,10 +22,13 @@ struct SearchCaffeineView: View {
                 
                 VStack {
                     SearchBarView()
+                        .environmentObject(searchCaffeineStateHolder)
                     if (searchCaffeineStateHolder.searchText == "") {
                         RecentlyAddedCaffeine()
+                        
                     } else {
                         SearchResultView()
+                            .environmentObject(searchCaffeineStateHolder)
                     }
                 }
                 .padding(.top, SearchCaffeineViewLayoutValue.Padding.mainVertical)
@@ -86,33 +90,37 @@ struct CaffeineRecordRow: View {
     var recentRecord: IntakeRecord
     
     var body: some View {
-        VStack(spacing: .zero) {
-            HStack(alignment: .center, spacing: .zero) {
-                VStack (alignment: .leading){
-                    Text(recentRecord.beverage.name)
-                        .multilineTextAlignment(.leading)
-                    Text("\(recentRecord.beverage.franchise.rawValue)")
-                        .font(.caption)
-                        .foregroundColor(.secondaryTextGray)
+        NavigationLink(destination: {
+            AddCaffeineDetailView(beverage: recentRecord.beverage, size: recentRecord.size)
+        }) {
+            VStack(spacing: .zero) {
+                HStack(alignment: .center, spacing: .zero) {
+                    VStack (alignment: .leading){
+                        Text(recentRecord.beverage.name)
+                            .multilineTextAlignment(.leading)
+                        Text("\(recentRecord.beverage.franchise.rawValue)")
+                            .font(.caption)
+                            .foregroundColor(.secondaryTextGray)
+                    }
+                    Spacer()
+                    HStack (alignment: .firstTextBaseline, spacing: .zero){
+                        Text("Tall 기준")
+                            .font(.caption2)
+                            .foregroundColor(.secondaryTextGray)
+                            .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.sizeCriterion)
+                        Text("\(recentRecord.size.caffeineAmount)")
+                            .font(.title3)
+                            .frame(width: SearchCaffeineViewLayoutValue.Size.caffeineAmountText, alignment: .trailing)
+                        Text(" mg")
+                            .font(.caption2)
+                            .foregroundColor(.secondaryTextGray)
+                    }
                 }
-                Spacer()
-                HStack (alignment: .firstTextBaseline, spacing: .zero){
-                    Text("Tall 기준")
-                        .font(.caption2)
-                        .foregroundColor(.secondaryTextGray)
-                        .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.sizeCriterion)
-                    Text("\(recentRecord.size.caffeineAmount)")
-                        .font(.title3)
-                        .frame(width: SearchCaffeineViewLayoutValue.Size.caffeineAmountText, alignment: .trailing)
-                    Text(" mg")
-                        .font(.caption2)
-                        .foregroundColor(.secondaryTextGray)
-                }
+                .foregroundColor(.customBlack)
+                .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardItemHorizontalPadding)
+                .padding(.vertical, SearchCaffeineViewLayoutValue.Padding.cardItemVerticalPadding)
+                Divider()
             }
-            .foregroundColor(.customBlack)
-            .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardItemHorizontalPadding)
-            .padding(.vertical, SearchCaffeineViewLayoutValue.Padding.cardItemVerticalPadding)
-            Divider()
         }
     }
 }

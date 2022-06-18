@@ -38,7 +38,7 @@ struct BeverageList: View {
                     }
                 }
             }
-            .padding(.top, CaffeineBookLayoutValue.Padding.BeverageList.top.rawValue)
+            .padding(.vertical, CaffeineBookLayoutValue.Padding.BeverageList.vertical.rawValue)
             .padding(.horizontal, CaffeineBookLayoutValue.Padding.BeverageList.horizontal.rawValue)
             .shadow(color: .primaryShadowGray, radius: CaffeineBookLayoutValue.Radius.shadow.rawValue, x: 0, y: 0)
         }

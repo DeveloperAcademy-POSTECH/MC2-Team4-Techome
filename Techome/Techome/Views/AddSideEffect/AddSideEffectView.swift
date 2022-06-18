@@ -38,7 +38,8 @@ struct AddSideEffectLayoutValue {
 struct AddSideEffectView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @EnvironmentObject var sideEffectStates: AddSideEffectStateHolder
+//    @EnvironmentObject var sideEffectStates: AddSideEffectStateHolder
+    @StateObject var sideEffectStates = AddSideEffectStateHolder()
     
     var body: some View {
         NavigationView {
@@ -47,7 +48,9 @@ struct AddSideEffectView: View {
                 
                 VStack(alignment: .leading, spacing: .zero) {
                     SideEffectDate()
+                        .environmentObject(sideEffectStates)
                     SideEffectType()
+                        .environmentObject(sideEffectStates)
                     Spacer()
                 }
                 .padding(.horizontal, AddSideEffectLayoutValue.Padding.contentHorizontal)

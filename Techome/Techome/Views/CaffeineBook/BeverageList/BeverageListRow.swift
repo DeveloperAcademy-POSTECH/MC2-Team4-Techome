@@ -49,6 +49,7 @@ struct BeverageListRow: View {
                     .frame(height: CaffeineBookLayoutValue.Size.BeverageList.height.rawValue)
                     
                     Divider()
+                        .padding(.horizontal, CaffeineBookLayoutValue.Padding.BeverageList.innerHorizontal.rawValue)
                 }
             }
         }
