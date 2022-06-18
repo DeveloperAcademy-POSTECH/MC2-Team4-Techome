@@ -15,16 +15,19 @@ struct RemainingCaffeineStatement: View {
             HStack(alignment: .firstTextBaseline, spacing: .zero) {
                 Text("몸속에")
                     .font(.title3)
+                    .foregroundColor(.customBlack)
                     .padding(.trailing, TodayLayoutValue.Padding.RemainingStatement.textVInterval)
                 Text("\(round(todayStates.remainingAmount))")
                     .font(.system(size: TodayLayoutValue.Size.remainingTextSize).bold())
                     .foregroundColor(.primaryBrown)
                 Text("mg의")
                     .font(.title3)
+                    .foregroundColor(.customBlack)
             }
             .frame(maxWidth: .infinity, alignment: .trailing)
             Text("카페인이 남아있고")
                 .font(.title3)
+                .foregroundColor(.customBlack)
                 .frame(maxWidth: .infinity, alignment: .trailing)
         }
     }
