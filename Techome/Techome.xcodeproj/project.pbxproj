@@ -69,7 +69,7 @@
 		AB528BDE285C59BF00C213C6 /* AddCaffeineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB528BD9285C59BF00C213C6 /* AddCaffeineDetailView.swift */; };
 		ABA3D6D42859DAFF00D60A6C /* Franchise.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA3D6D32859DAFF00D60A6C /* Franchise.swift */; };
 		ABC0E9452859CD0E0046C9C8 /* BeverageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0E9442859CD0E0046C9C8 /* BeverageRepository.swift */; };
-		ABC0E9492859CD780046C9C8 /* BeverageData.json in Resources */ = {isa = PBXBuildFile; fileRef = ABC0E9482859CD780046C9C8 /* BeverageData.json */; };
+		ABC0E9492859CD780046C9C8 /* StarbucksData.json in Resources */ = {isa = PBXBuildFile; fileRef = ABC0E9482859CD780046C9C8 /* StarbucksData.json */; };
 		ABC0E94D2859CDC60046C9C8 /* CaffeineBookStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0E94C2859CDC60046C9C8 /* CaffeineBookStateHolder.swift */; };
 		ABC0E95A2859CDDE0046C9C8 /* CaffeineBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0E94F2859CDDE0046C9C8 /* CaffeineBookView.swift */; };
 		ABC0E95B2859CDDE0046C9C8 /* CaffeineBookLayoutValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0E9502859CDDE0046C9C8 /* CaffeineBookLayoutValue.swift */; };
@@ -149,7 +149,7 @@
 		AB528BD9285C59BF00C213C6 /* AddCaffeineDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCaffeineDetailView.swift; sourceTree = "<group>"; };
 		ABA3D6D32859DAFF00D60A6C /* Franchise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Franchise.swift; sourceTree = "<group>"; };
 		ABC0E9442859CD0E0046C9C8 /* BeverageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageRepository.swift; sourceTree = "<group>"; };
-		ABC0E9482859CD780046C9C8 /* BeverageData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BeverageData.json; sourceTree = "<group>"; };
+		ABC0E9482859CD780046C9C8 /* StarbucksData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StarbucksData.json; sourceTree = "<group>"; };
 		ABC0E94C2859CDC60046C9C8 /* CaffeineBookStateHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaffeineBookStateHolder.swift; sourceTree = "<group>"; };
 		ABC0E94F2859CDDE0046C9C8 /* CaffeineBookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaffeineBookView.swift; sourceTree = "<group>"; };
 		ABC0E9502859CDDE0046C9C8 /* CaffeineBookLayoutValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaffeineBookLayoutValue.swift; sourceTree = "<group>"; };
@@ -262,7 +262,7 @@
 		AB18CCD22856D8B300DD1C5A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				ABC0E9482859CD780046C9C8 /* BeverageData.json */,
+				ABC0E9482859CD780046C9C8 /* StarbucksData.json */,
 				DA8E714728581674009836DE /* IntakeRecord.json */,
 				DA8E714828581674009836DE /* SideEffectRecord.json */,
 				DA11290F28570EF20065BD33 /* DummyData.swift */,
@@ -564,7 +564,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABC0E9492859CD780046C9C8 /* BeverageData.json in Resources */,
+				ABC0E9492859CD780046C9C8 /* StarbucksData.json in Resources */,
 				DA8E714928581674009836DE /* IntakeRecord.json in Resources */,
 				DA8E714A28581674009836DE /* SideEffectRecord.json in Resources */,
 				AB18CD072856D8B300DD1C5A /* Assets.xcassets in Resources */,
