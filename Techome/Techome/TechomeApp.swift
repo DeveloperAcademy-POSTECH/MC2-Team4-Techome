@@ -11,8 +11,9 @@ import SwiftUI
 struct TechomeApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
-                .preferredColorScheme(.light)
+//            MainView()
+//                .preferredColorScheme(.light)
+            CaffeineBookView()
         }
     }
 }

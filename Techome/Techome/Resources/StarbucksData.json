@@ -451,4 +451,525 @@
       }
     ]
   }
+  {
+    "id" : "5796D80E-2156-410E-A7F1-648106078E6F",
+    "name" : "스페니쉬 연유 카페라떼",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 177,
+        "defaultShotCount" : 2
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 265,
+        "defaultShotCount" : 3
+      }
+    ]
+  },
+  {
+    "id" : "C72203DF-594A-4E65-B2E9-5ED2A2C5E73B",
+    "name" : "카라멜 마끼아또",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 177,
+        "defaultShotCount" : 2
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 265,
+        "defaultShotCount" : 3
+      }
+    ]
+  },
+  {
+    "id" : "3A850994-F236-4119-AAA9-F657689DEB6F",
+    "name" : "바닐라 카페라떼",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 177,
+        "defaultShotCount" : 2
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 265,
+        "defaultShotCount" : 3
+      }
+    ]
+  },
+  {
+    "id" : "3CA3915D-D195-4120-88BF-E57DFB634C74",
+    "name" : "카페 모카",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 197,
+        "defaultShotCount" : 2
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 295,
+        "defaultShotCount" : 3
+      }
+    ]
+  },
+  {
+    "id" : "EB281E02-8217-422A-83D1-7F43EDC507AB",
+    "name" : "카푸치노",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 177,
+        "defaultShotCount" : 2
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 265,
+        "defaultShotCount" : 3
+      }
+    ]
+  },
+  {
+    "id" : "DEB886D0-9F86-4617-9EAD-6B8331DE2936",
+    "name" : "숏 카페라떼",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 177,
+        "defaultShotCount" : 2
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 265,
+        "defaultShotCount" : 3
+      }
+    ]
+  },
+  {
+    "id" : "0EB5D946-75D3-4979-B7D0-5CF615044380",
+    "name" : "아메리카노",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 177,
+        "defaultShotCount" : 2
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 265,
+        "defaultShotCount" : 3
+      }
+    ]
+  },
+  {
+    "id" : "B755001E-1058-4A14-86D6-C988984A4D91",
+    "name" : "롱블랙",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 177,
+        "defaultShotCount" : 2
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 265,
+        "defaultShotCount" : 3
+      }
+    ]
+  },
+  {
+    "id" : "0277CC02-4DB1-454A-9F5F-887476749FBC",
+    "name" : "에스프레소",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 89,
+        "defaultShotCount" : 1
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 177,
+        "defaultShotCount" : 2
+      }
+    ]
+  },
+  {
+    "id" : "ED4ADA21-1144-47F3-AB35-06B4D21E314F",
+    "name" : "에스프레소 콘 파나",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 89,
+        "defaultShotCount" : 1
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 177,
+        "defaultShotCount" : 2
+      }
+    ]
+  },
+  {
+    "id" : "CB898094-7C15-49B5-AAFB-C332D2849C57",
+    "name" : "에스프레소 마키아또",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 89,
+        "defaultShotCount" : 1
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 177,
+        "defaultShotCount" : 2
+      }
+    ]
+  },
+  {
+    "id" : "2C191847-C86A-4621-A02F-15B218FC82DF",
+    "name" : "아이스크림 카페라떼",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 177,
+        "defaultShotCount" : 2
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 265,
+        "defaultShotCount" : 3
+      }
+    ]
+  },
+  {
+    "id" : "630264DF-65ED-43E6-B0E1-55D9CA0D64B9",
+    "name" : "콜드브루",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 196,
+        "defaultShotCount" : 0
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 258,
+        "defaultShotCount" : 0
+      }
+    ]
+  },
+  {
+    "id" : "7A2FEAC3-85BE-4B95-8EA9-21D5930756AB",
+    "name" : "콜드브루 라떼",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 196,
+        "defaultShotCount" : 0
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 258,
+        "defaultShotCount" : 0
+      }
+    ]
+  },
+  {
+    "id" : "588415B7-215C-4A56-B39A-DE9A4879C015",
+    "name" : "프렌치 얼그레이",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Large",
+        "caffeineAmount" : 62,
+        "defaultShotCount" : 0
+      }
+    ]
+  },
+  {
+    "id" : "CF703C96-1F8B-4428-BEF5-757214CCF1CD",
+    "name" : "그나와 민트티",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Large",
+        "caffeineAmount" : 30,
+        "defaultShotCount" : 0
+      }
+    ]
+  },
+  {
+    "id" : "C7EBA5F0-5266-4275-9FAB-5C34162C8165",
+    "name" : "잉글리쉬 브렉퍼스트",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Large",
+        "caffeineAmount" : 59,
+        "defaultShotCount" : 0
+      }
+    ]
+  },
+  {
+    "id" : "C0D7F893-DAAE-4B31-9B23-99EE05F90D36",
+    "name" : "허니 레몬티",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 48,
+        "defaultShotCount" : 0
+      }
+    ]
+  },
+  {
+    "id" : "6008195A-BF77-4CDD-8926-A22CBFD4245D",
+    "name" : "애플 민트티",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 30,
+        "defaultShotCount" : 0
+      }
+    ]
+  },
+  {
+    "id" : "B4CD622F-025F-4875-93D5-D6942FB32FC5",
+    "name" : "로얄 밀크티",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 101,
+        "defaultShotCount" : 0
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 133,
+        "defaultShotCount" : 0
+      }
+    ]
+  },
+  {
+    "id" : "C5785028-AFFC-4E07-A585-73F9CBF18798",
+    "name" : "그린티 라떼",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 55,
+        "defaultShotCount" : 0
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 68,
+        "defaultShotCount" : 0
+      }
+    ]
+  },
+  {
+    "id" : "0B1F064C-5051-4E07-A7CA-46B691E38452",
+    "name" : "아이스 로얄 밀크티",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 128,
+        "defaultShotCount" : 0
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 171,
+        "defaultShotCount" : 0
+      }
+    ]
+  },
+  {
+    "id" : "84C7D2C0-E633-40E9-B3FF-F8B6363ED98C",
+    "name" : "아이스 크린티 라떼",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 53,
+        "defaultShotCount" : 0
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 69,
+        "defaultShotCount" : 0
+      }
+    ]
+  },
+  {
+    "id" : "9BBFA134-2D53-4A20-BB59-D3A8D525923F",
+    "name" : "바닐라 아포가토",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 89,
+        "defaultShotCount" : 0
+      }
+    ]
+  },
+  {
+    "id" : "899B5366-A8E8-45C9-B4EE-7F238F1AF7AE",
+    "name" : "제주 말차 프라페",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 106,
+        "defaultShotCount" : 0
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 135,
+        "defaultShotCount" : 0
+      }
+    ]
+  },
+  {
+    "id" : "0ECB2319-AA69-44FD-B245-F0F23E015C60",
+    "name" : "모카칩 커피 프라페",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 270,
+        "defaultShotCount" : 2
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 307,
+        "defaultShotCount" : 3
+      }
+    ]
+  },
+  {
+    "id" : "AD38C327-B9B1-46AD-B878-78C107DB24AF",
+    "name" : "카라멜 커피 프라페",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 284,
+        "defaultShotCount" : 2
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 353,
+        "defaultShotCount" : 3
+      }
+    ]
+  },
+  {
+    "id" : "09FC54AA-CA37-426D-8BA1-0ABC271C64CF",
+    "name" : "로얄 밀크티 쉐이크",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 84,
+        "defaultShotCount" : 0
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 110,
+        "defaultShotCount" : 0
+      }
+    ]
+  },
+  {
+    "id" : "032E0EA7-1335-4D8A-9323-B0BB89288C25",
+    "name" : "초코 밀크 쉐이크",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 20,
+        "defaultShotCount" : 0
+      }
+    ]
+  },
+  {
+    "id" : "ED70219F-0A7F-403D-8CCF-B66314B59628",
+    "name" : "커피 밀크 쉐이크",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 182,
+        "defaultShotCount" : 2
+      }
+    ]
+  },
+  {
+    "id" : "F2014482-5109-4849-B844-06FBEEF0554C",
+    "name" : "초콜릿 라떼",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 16,
+        "defaultShotCount" : 0
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 21,
+        "defaultShotCount" : 0
+      }
+    ]
+  },
+  {
+    "id" : "D05F6F90-1EA0-4198-A34C-30E96B2B0EF2",
+    "name" : "흑임자 카페라떼",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 177,
+        "defaultShotCount" : 2
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 265,
+        "defaultShotCount" : 3
+      }
+    ]
+  },
+  {
+    "id" : "1F26B4CA-9B4E-4A31-B95F-07AB4BFF62F7",
+    "name" : "달고나 카페라떼",
+    "franchise" : "투썸플레이스",
+    "sizeInfo" : [
+      {
+        "name" : "Regular",
+        "caffeineAmount" : 50,
+        "defaultShotCount" : 0
+      },
+      {
+        "name" : "Large",
+        "caffeineAmount" : 60,
+        "defaultShotCount" : 0
+      }
+    ]
+  }
 ]
