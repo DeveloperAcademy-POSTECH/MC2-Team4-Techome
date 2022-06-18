@@ -30,8 +30,29 @@ final class IntakeRepository {
         })
     }
     
-    func findRecent(count: Int) -> [IntakeRecord] {
-        return records.suffix(count).reversed()
+    func findRecentDifferentRecords(count: Int) -> [IntakeRecord] {
+        var recentRecords: [IntakeRecord] = []
+        for record in records.reversed() {
+            if !isRecordContained(records: recentRecords, addedRecord: record) {
+                recentRecords.append(record)
+            }
+            
+            if recentRecords.count == count {
+                return recentRecords
+            }
+        }
+        
+        return recentRecords
+    }
+    
+    private func isRecordContained(records: [IntakeRecord], addedRecord: IntakeRecord) -> Bool{
+        for record in records {
+            if addedRecord.beverage == record.beverage && addedRecord.size == record.size {
+                return true
+            }
+        }
+        
+        return false
     }
     
     func findAll() -> [IntakeRecord] {

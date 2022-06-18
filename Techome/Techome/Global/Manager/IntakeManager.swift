@@ -25,7 +25,7 @@ final class IntakeManager {
     }
     
     func getRecentRecords(count: Int) -> [IntakeRecord] {
-        return repository.findRecent(count: count)
+        return repository.findRecentDifferentRecords(count: count)
     }
     
     func getAllRecords() -> [IntakeRecord] {
