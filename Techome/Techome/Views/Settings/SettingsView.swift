@@ -57,8 +57,7 @@ struct SettingsView: View {
                 leading: Button(action: {
                     self.presentation.wrappedValue.dismiss()
                 }) {
-                    Image(systemName: "chevron.left")
-                        .font(.headline)
+                    Text("취소")
                         .foregroundColor(.primaryBrown)
                 }
             )
