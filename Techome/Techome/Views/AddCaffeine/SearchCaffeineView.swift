@@ -47,6 +47,7 @@ struct SearchCaffeineView: View {
                 }
             }
         }
+        .ignoresSafeArea(.keyboard)
     }
 }
 
@@ -81,7 +82,7 @@ struct RecentlyAddedCaffeine: View {
             }
         }
         .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardHorizontalPadding)
-        .padding(.top, SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding)
+        .padding(.top, SearchCaffeineViewLayoutValue.Padding.cardTopPadding)
     }
 }
 
