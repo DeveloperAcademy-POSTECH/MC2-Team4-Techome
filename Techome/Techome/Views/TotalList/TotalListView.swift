@@ -36,18 +36,10 @@ struct TotalListLayoutValue {
     }
 }
 
-struct TotalDataCell : Hashable {
-    var date = Date()
-    var dataType: String
-    var dataIndex: Int
-}
-
 // 전체 리스트
 struct TotalListView: View {
     
     @Environment(\.presentationMode) var presentationMode
-
-    //TODO: 전체 데이터 받아오고 데이터 합쳐서 날짜로 정렬 및 그룹화하기
     @ObservedObject var totalData = Datas()
     
     var body: some View {
@@ -74,6 +66,11 @@ struct TotalListView: View {
                                 .foregroundColor(.primaryBrown)
                         }
             }
+        }
+        .onAppear{
+            print("새로운 화면")
+            self.totalData.loadData()
+            
         }
     }
 }
@@ -107,21 +104,32 @@ struct TotalListByDate: View {
                             }
                         
                         //데이터 표시
-                        Cell(totalData : totalData, curCell : cell)
-                            .offset(x: totalData.offsetsArr[curDate]![index])
-                            .gesture(
-                                DragGesture()
-                                    .onChanged { gesture in
-                                        gestureChanged(value: gesture, curDate: curDate, index: index)
-                                    }
-                                    .onEnded { _ in
-                                        gestureEnd(curDate: curDate, index: index)
-                                    }
-                                )
+//                        Cell(curCell : cell).environmentObject(totalData)
+                        Group{
+                            switch cell.dataType {
+                            case "intake" :
+                                CaffeineCell(totalData: totalData, cellData: totalData.sourceData.intakes[cell.dataIndex])
+                            case "sideEffect" :
+                                SideEffectCell(cellData: totalData.sourceData.sideEffects[cell.dataIndex])
+                            default :
+                                EmptyView()
+                            }
+                        }
+                        .background(Color.white)
+                        .offset(x: totalData.offsetsArr[curDate]?[index] ?? .zero)
+                        .gesture(
+                            DragGesture()
+                                .onChanged { gesture in
+                                    gestureChanged(value: gesture, curDate: curDate, index: index)
+                                }
+                                .onEnded { _ in
+                                    gestureEnd(curDate: curDate, index: index)
+                                }
+                            )
                     }
                     
                     //마지막 cell 다음의 divider는 그리지 않음
-                    if (index != totalData.dataSortedByDate[curDate]!.count - 1) {
+                    if (index != (totalData.dataSortedByDate[curDate]?.count ?? 0) - 1) {
                         Divider()
                             .padding(.horizontal, TotalListLayoutValue.Paddings.dividerHorizontalPadding)
                             .background(Color.white)
@@ -182,7 +190,7 @@ struct deleteButton: View {
 
 //데이터 컴포넌트 (하나의 row) : 데이터 타입(카페인, 부작용)에 따라 맞는 컴포넌트 보여줌
 struct Cell: View {
-    @ObservedObject var totalData : Datas
+    @EnvironmentObject var totalData : Datas
     
     var curCell : TotalDataCell
     

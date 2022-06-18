@@ -7,38 +7,58 @@
 import Foundation
 import SwiftUI
 
+struct TotalDataCell : Hashable {
+    var date = Date()
+    var dataType: String
+    var dataIndex: Int
+}
+
+final class totalListSourceData {
+    var intakeManager = IntakeManager.shared
+    var sideEffectManager = SideEffectManager.shared
+    var intakes = [IntakeRecord]()
+    var sideEffects = [SideEffectRecord]()
+
+    func loadData() {
+        self.intakeManager = IntakeManager.shared
+        self.sideEffectManager = SideEffectManager.shared
+        self.intakes = intakeManager.getAllRecords()
+        self.sideEffects = sideEffectManager.getAllRecords()
+    }
+}
+
 final class Datas: ObservableObject { //observable 객체 생성
     
     @Published var dataSortedByDate = [ String : [TotalDataCell] ]() //뷰를 만들 때 최종으로 사용하는 데이터
-    @Published var offsetsArr = [ String : [CGFloat] ]()
-    @Published var datesArr = [String]()
-    let sourceData = totalListSourceData() //카페인, 부작용 접근 sourceData 통해서 접근하기
-    let collectData = totalListCollectData() //데이터 합치는 함수를 불러오기 위함
-        
-    init() {
-        //데이터 만들기
+    @Published var offsetsArr = [ String : [CGFloat] ]() //각 cell이 슬라이드 된 정도 저장
+    @Published var datesArr = [String]() //데이터에 존재하는 날짜 리스트
+    var sourceData = totalListSourceData() //카페인, 부작용 데이터 sourceData 통해서 접근하기
+    var collectData = totalListCollectData() //데이터 합치는 함수를 불러오기 위함
+    
+    //데이터 로드
+    func loadData() {
+        sourceData.loadData()
+        dataSortedByDate.removeAll()
+        offsetsArr.removeAll()
+        datesArr.removeAll()
         self.dataSortedByDate = collectData.makeData(intakes: sourceData.intakes, sideEffects: sourceData.sideEffects)
-        
         for key in self.dataSortedByDate.keys {
             self.offsetsArr[key] = [CGFloat](repeating: .zero, count: self.dataSortedByDate[key]!.count)
             self.datesArr.append(key)
         }
-        
         self.datesArr = datesArr.sorted(by: >)
-        
-        print(self.dataSortedByDate)
     }
     
     //선택된 cell 삭제
     func deleteData(curCell : TotalDataCell, curDate : String, index : Int) {
         //실제 데이터에서 삭제
-        
         if curCell.dataType == "intake"{
             sourceData.intakeManager.deleteRecord(intakeRecord: sourceData.intakes[curCell.dataIndex])
         } else if curCell.dataType == "sideEffect" {
             sourceData.sideEffectManager.deleteRecord(sideEffectRecord: sourceData.sideEffects[curCell.dataIndex])
         }
         
+        //클라이언트 단에서 사용하는 데이터에서 삭제 (dataSortedByDate, offsetsArr, datesArr)
         guard self.dataSortedByDate[curDate] != nil else {
             return
         }
@@ -68,54 +88,29 @@ final class Datas: ObservableObject { //observable 객체 생성
     
 }
 
-struct totalListSourceData {
-    let intakeManager = IntakeManager.shared
-    let sideEffectManager = SideEffectManager.shared
-    let intakes : [IntakeRecord]
-    let sideEffects : [SideEffectRecord]
-    
-    
-    init() {
-        intakes = intakeManager.getAllRecords()
-        sideEffects = sideEffectManager.getAllRecords()
-        print(intakes)
-        print(sideEffects)
-    }
-}
-
-
 class totalListCollectData {
-//    struct TotalDataCell {
-//        var date : Date
-//        var dataType : String
-//        var dataIndex : Int
-//    }
-    
     var finalData = [ String : [TotalDataCell] ]()
     var sourceDataMerged = [TotalDataCell]() //카페인, 부작용 데이터 합친 결과 (date, datatype, dataindex) -> 완성 후 date 기준으로 정렬
-    var sourceDataGrouped = [TotalDataCell]() //합친 데이터의 date를 yyyy.mm.dd 형식으로 바꾼 결과
     
     //view에서 활용할 data 구조 만들기
     func makeData(intakes : [IntakeRecord], sideEffects : [SideEffectRecord]) -> [String : [TotalDataCell]]{
+        sourceDataMerged.removeAll()
+        finalData.removeAll()
+        
         //카페인, 부작용 데이터 합치기
         for (i, intake) in intakes.enumerated() {
             sourceDataMerged.append(TotalDataCell(date: intake.date, dataType: "intake", dataIndex: i))
         }
-        print("카페인 합치기 완료")
-        print(sourceDataMerged)
-        
         for (i, sideEffect) in sideEffects.enumerated() {
             sourceDataMerged.append(TotalDataCell(date: sideEffect.date, dataType: "sideEffect", dataIndex: i))
         }
-        print("부작용 합치기 완료")
-        print(sourceDataMerged)
         
         //date 기준으로 전체 데이터 내림차순 정렬
         self.sourceDataMerged = self.sourceDataMerged.sorted{
             $0.date > $1.date
         }
-        print("date 기준으로 정렬 완료")
-        
+
+        //date 기준으로 그룹핑
         self.finalData = Dictionary(grouping: sourceDataMerged) { (oneData) -> String in
             let dateString = dateToString(dateInfo: oneData.date)
             return dateString
@@ -125,28 +120,24 @@ class totalListCollectData {
         for (dateKey, dataValue) in finalData {
             self.finalData[dateKey] = dataValue.sorted(by: {$0.date < $1.date})
         }
-
-        print(finalData)
-        
-        print("최종 데이터 만들기 완료")
         
         return finalData
     }
-
-    //date를 년.월.일 형식의 string으로 바꿔주는 함수
-    func dateToString(dateInfo : Date) -> String {
-        
-        var dateString : String
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy.MM.dd"
-        dateString = dateFormatter.string(from: dateInfo)
-        
-        return dateString
-    }
-    
 }
 
+//date를 년.월.일 형식의 string으로 바꿔주는 함수
+func dateToString(dateInfo : Date) -> String {
+    
+    var dateString : String
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy.MM.dd"
+    dateString = dateFormatter.string(from: dateInfo)
+    
+    return dateString
+}
+
+//date를 시간. 분 형식의 string으로 바꿔주는 함수
 func dateToTime(dateInfo : Date) -> String {
     
     var dateString : String
