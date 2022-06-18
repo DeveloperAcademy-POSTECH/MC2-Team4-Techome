@@ -11,6 +11,7 @@ struct MainView: View {
     
     init() {
         UITabBar.appearance().backgroundColor = .white
+//        UITabBar.appearance().barTintColor =
     }
     
     @ObservedObject private var todayStates: TodayStatesHolder = TodayStatesHolder()
@@ -22,23 +23,24 @@ struct MainView: View {
                 .environmentObject(todayStates)
                 .navigationBarHidden(true)
                 .tabItem {
-                    Image(systemName: "1.square.fill")
+                    selectedTab == 0 ? Image("TodaySelected") : Image("Today")
                     Text("투데이")
                 }
                 .tag(0)
             CaffeineBookView()
                 .tabItem {
-                    Image(systemName: "2.square.fill")
+                    selectedTab == 1 ? Image("CaffeineBookSelected") : Image("CaffeineBook")
                     Text("카페인북")
                 }
                 .tag(1)
             TrendView()
                 .tabItem {
-                    Image(systemName: "3.square.fill")
+                    selectedTab == 2 ? Image("ReportSelected") : Image("Report")
                     Text("리포트")
                 }
                 .tag(2)
         }
+        .accentColor(.secondaryBrown)
         .onChange(of: selectedTab) { newValue in
             if newValue == 0 {
                 todayStates.setRemainingAmount()
