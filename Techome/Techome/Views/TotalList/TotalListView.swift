@@ -10,6 +10,7 @@ import SwiftUI
 struct TotalListLayoutValue {
     
     struct Paddings {
+        static let sectionByDateVerticalPadding: CGFloat = 3
         static let dayRecordPadding: CGFloat = 4
         static let caffeineRecordRowVerticalPadding: CGFloat = 15
         static let caffeineRecordRowHorizontalPadding: CGFloat = 20
@@ -23,16 +24,18 @@ struct TotalListLayoutValue {
         static let fullViewVerticalPadding: CGFloat = 23
         static let dateVerticalPadding: CGFloat = 6
         static let dividerHorizontalPadding: CGFloat = 15
+        static let sideEffectIconHorizontalPadding: CGFloat = 5
     }
     
     struct Sizes {
         static let cardWidth: CGFloat = UIScreen.main.bounds.width - 30
         static let sideEffectRecordCellFixedWidth: CGFloat = 46
         static let deleteButtonWidth: CGFloat = 74
+        static let sideEffectIconSize: CGFloat = 15
     }
     
     struct Spacings {
-        static let sectionByDateSpading: CGFloat = 23
+        static let sectionByDateSpacing: CGFloat = 23
     }
 }
 
@@ -44,7 +47,7 @@ struct TotalListView: View {
     
     var body: some View {
         ScrollView {
-            LazyVStack (spacing: TotalListLayoutValue.Spacings.sectionByDateSpading){
+            LazyVStack (spacing: TotalListLayoutValue.Spacings.sectionByDateSpacing){
                 ForEach(totalData.datesArr, id: \.self) { curDate in
                     TotalListByDate(totalData: totalData, curDate: curDate)
                 }
@@ -87,14 +90,14 @@ struct TotalListByDate: View {
     var curDate : String
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .leading, spacing: .zero) {
             Text(curDate)
                 .font(.title3)
                 .fontWeight(.semibold)
                 .padding(.bottom, TotalListLayoutValue.Paddings.dateVerticalPadding)
             
             //curDate에 발생한 카페인과 부작용 정보 보여주기
-            VStack(spacing: 0) {
+            VStack(spacing: .zero) {
                 ForEach(Array(totalData.dataSortedByDate[curDate]!.enumerated()), id: \.element) { index, cell in
                     ZStack{
                         //삭제 버튼
@@ -136,7 +139,7 @@ struct TotalListByDate: View {
                     }
                 }
             }
-            .padding(.vertical, 3)
+            .padding(.vertical, TotalListLayoutValue.Paddings.sectionByDateVerticalPadding)
             .clipShape(RoundedRectangle(cornerRadius: 7))
             .shadow(color: Color.primaryShadowGray, radius: 7, x: 0, y: 0)
         }
@@ -220,9 +223,9 @@ struct SideEffectCell: View {
                     .foregroundColor(.secondaryTextGray)
                 Image(systemName: "exclamationmark.circle")
                     .resizable()
-                    .frame(width: 15, height: 15)
+                    .frame(width: TotalListLayoutValue.Sizes.sideEffectIconSize, height: TotalListLayoutValue.Sizes.sideEffectIconSize)
                     .foregroundColor(.customRed)
-                    .padding(.leading, 5)
+                    .padding(.leading, TotalListLayoutValue.Paddings.sideEffectIconHorizontalPadding)
             }
             .padding(.horizontal, TotalListLayoutValue.Paddings.sideEffectRecordRowHorizontalPadding)
             SideEffectsInCell(sideEffectsArr : cellData.sideEffects)
