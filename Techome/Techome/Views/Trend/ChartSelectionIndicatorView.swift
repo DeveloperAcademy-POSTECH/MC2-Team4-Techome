@@ -10,7 +10,7 @@ import BarChart
 
 ///https://github.com/romanbaitaliuk/BarChart
 struct ChartSelectionIndicatorView: View {
-    @Environment var trendStates: TrendStateHolder
+    @StateObject var trendStates: TrendStateHolder
     var dayIndex = 0
     func getDay(_ today:Date) -> String {
         let dateFormatter = DateFormatter()

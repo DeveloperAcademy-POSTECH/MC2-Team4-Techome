@@ -32,15 +32,16 @@ struct TrendChartView: View {
     @State private var xAxisTicksIntervalValue: Double = 1
     @State private var isXAxisTicksHidden: Bool = false
     @Binding var index: Int
-    @EnvironmentObject var trendStates: TrendStateHolder
-    //var trendStates: TrendStateHolder
+    @StateObject var trendStates: TrendStateHolder
+    
+
     var body: some View {
         
         ZStack {
             RoundedRectangle(cornerRadius: TrendViewLayoutValue.Radius.cardRadius)
                 .foregroundColor(.white)
                 .onTapGesture {
-                    trendStates.selectedBarTopCentreLocation = nil
+//                    trendStates.selectedBarTopCentreLocation = nil
                 }
             VStack(alignment: .leading, spacing: .zero) {
                 selectionIndicatorView()
@@ -58,28 +59,26 @@ struct TrendChartView: View {
                     .selectionView {
                         SelectionLine(location: trendStates.selectedBarTopCentreLocation,
                                       height: ChartLayoutValue.ChartIndicatorLayoutValue.selectionLineHeight)
-                        
                     }
-                
                     .onAppear() {
+                        config.data.entries = SetEntries(trendStates: trendStates).initEntries()
                         config.initChartView()
                         config.data.color = trendStates.sideEffectManager.getDailyRecords(date: Date.now).count == 0 ? .tertiaryBrown : .customRed
                         print(trendStates.sideEffectManager.getDailyRecords(date: Date.now).count)
                         //TODO: 차트 데이터 삽입 테스트
-                        for entryIndex in 0 ..< 7 {
-                            //config.data.entries[entryIndex].y = trendStates.intakeManager.getDailyRecords(date: trendStates.dateOfRecordsByWeek[trendStates.weekChartCount][entryIndex])
-                        }
+//                        for entryIndex in 0 ..< 7 {
+//                            print("\(trendStates.weekChartCount)")
+//                            config.data.entries[entryIndex].y = Double(trendStates.intakeManager.getDailyIntakeCaffeineAmount(date: trendStates.dateOfRecordsByWeek[trendStates.weekChartCount][entryIndex]))
+//                        }
                         config.initTicksColor()
                         config.initTicksStyle()
                         config.initLabelsColor()
                         config.setLabelFont()
                         config.yUnitFormatter()
-                        print("+\(index)")
                     }
                     .onDisappear() {
                         trendStates.selectedBarTopCentreLocation = nil
                     }
-                    .animation(.easeInOut, value: index)
                     .onReceive([self.isXAxisTicksHidden].publisher.first()) { (value) in
                         self.config.xAxis.ticksColor = value ? Color.clear : .chartBackgroundLineGray
                     }
@@ -93,7 +92,7 @@ struct TrendChartView: View {
     func selectionIndicatorView() -> some View {
         Group {
             if trendStates.selectedEntry != nil && trendStates.selectedBarTopCentreLocation != nil {
-                ChartSelectionIndicatorView(entry: trendStates.selectedEntry!,
+                ChartSelectionIndicatorView(trendStates: trendStates, entry: trendStates.selectedEntry!,
                                             location: trendStates.selectedBarTopCentreLocation?.x ?? 0)
             } else {
                 Rectangle().foregroundColor(.clear)
@@ -101,6 +100,7 @@ struct TrendChartView: View {
         }
         .frame(height: TrendViewLayoutValue.Sizes.chartSelectionIndicatorHeight)
     }
+
 }
 //TODO: merge 과정에서 Extension으로 옮길 예정
 extension ChartConfiguration {
@@ -128,7 +128,7 @@ extension ChartConfiguration {
         self.yAxis.ticksColor = .chartBackgroundLineGray
     }
     func initChartView() {
-        self.data.entries = SetEntries().initEntries()
+        //self
         self.yAxis.minTicksSpacing = ChartLayoutValue.yAxisSpacing
     }
 }
@@ -136,7 +136,7 @@ extension ChartConfiguration {
 
 
 struct SetEntries {
-    @EnvironmentObject var trendStates: TrendStateHolder
+    @StateObject var trendStates: TrendStateHolder
     //let trendStates = TrendStateHolder()
     private let xAxisLabelCount = 7
     

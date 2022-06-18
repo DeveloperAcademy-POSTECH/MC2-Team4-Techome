@@ -47,7 +47,7 @@ struct TrendViewLayoutValue {
 }
 
 struct TrendView: View {
-    @EnvironmentObject var trendStates: TrendStateHolder
+    @StateObject var trendStates: TrendStateHolder = TrendStateHolder()
 
     func selectionCaffeineSideEffectLabelView() -> some View {
         Group {
@@ -63,8 +63,6 @@ struct TrendView: View {
     }
     
     var body: some View {
-        
-        
         NavigationView {
             ZStack {
                 Color.backgroundCream
@@ -72,10 +70,8 @@ struct TrendView: View {
                 
                 ScrollView {
                     VStack(spacing: .zero) {
-                        TrendChart()
-
+                        TrendChart(trendStates: trendStates)
                         selectionCaffeineSideEffectLabelView()
-                        
                         NavigationLink {
                             
                         } label: {
@@ -106,30 +102,14 @@ class TrendStateHolder: ObservableObject {
     
     var dateOfRecords: [Date] = [Date]()
     var dateOfRecordsByWeek = [[Date]]()
-    var weekChartCount: Int = 1
+    var weekChartCount: Int = 0
+    var firstDateRecord: Date
     
     init() {
         intakeRecords = intakeManager.getDailyRecords(date: Date.now)
-        getDateOfRecords()
+        firstDateRecord = intakeRecords.first?.date ?? Date()
         getDateOfRecordsByWeek()
-        weekChartCount = dateOfRecordsByWeek.count
-//        firstIntakeRecord = intakeRecords[0]
     }
-    
-//    func filterRecordsByDate(records: [IntakeRecord]) {
-//        guard records.count > 0 else {
-//            return
-//        }
-//        let dayOfWeek = SetEntries.getDayOfWeek(records.first?.date ?? Date())
-//        var firstWeek = [IntakeRecord]()
-//        var idx = 0
-//        for idx in 0 ..< (7 - (DayOfWeek.RawValue(dayOfWeek) ?? 0)) {
-//            if idx < records.count {
-//                firstWeek.append(records[idx])
-//            }
-//        }
-//
-//    }
     //TODO: 리팩토링
     
     
@@ -147,28 +127,46 @@ class TrendStateHolder: ObservableObject {
                 dateOfRecords.append(intakeRecord.date)
             }
         }
-        print(dateOfRecords)
+        //print(dateOfRecords)
+    }
+    func getDateOfRecordsByWeek() {
+        //print("\(getDayOfWeek())")
+        //print(firstDateRecord)
+        var prepareToAppend = [Date]()
+        for index in 0 ... getDayOfWeek() {
+            prepareToAppend.insert(Calendar.current.date(byAdding: .day, value: -index, to: firstDateRecord) ?? firstDateRecord, at: 0)
+            print("\(index)")
+            print(prepareToAppend)
+         
+        }
+        print("---------------")
+        for index in getDayOfWeek()+1 ..< 7 {
+            prepareToAppend.insert(Calendar.current.date(byAdding: .day, value: index, to: firstDateRecord) ?? firstDateRecord, at: 0)
+            print("\(index)")
+            print(prepareToAppend)
+        }
+        
+        dateOfRecordsByWeek.append(prepareToAppend)
+        prepareToAppend = [Date]()
+        let firstDayOfSecondWeek = Calendar.current.date(byAdding: .day, value: 7 - getDayOfWeek(), to: firstDateRecord) ?? firstDateRecord
+        var addedDate = firstDayOfSecondWeek
+        while addedDate < Date() {
+            for _ in 0 ..< 7 {
+                let newDate = Calendar.current.date(byAdding: .day , value: 1, to: addedDate)
+                prepareToAppend.append(newDate ?? Date())
+                addedDate = newDate ?? Date()
+            }
+            dateOfRecordsByWeek.append(prepareToAppend)
+        }
+        print("---------------------")
+        print(dateOfRecordsByWeek.count)
+        weekChartCount = dateOfRecordsByWeek.count-1
     }
     
-    
-    func getDateOfRecordsByWeek() {
-        var prepareToAppend = [Date]()
-        for dateOfRecord in dateOfRecords {
-            if SetEntries.getDayOfWeek(dateOfRecord) != "일" {
-                prepareToAppend.append(dateOfRecord)
-            } else {
-                dateOfRecordsByWeek.append(prepareToAppend)
-                prepareToAppend = [Date]()
-                prepareToAppend.append(dateOfRecord)
-            }
-        }
-        dateOfRecordsByWeek.append(prepareToAppend)
-        print(dateOfRecordsByWeek)
-        print("-------------------")
-        print(weekChartCount)
+    func getDayOfWeek() -> Int {
+        return 6
     }
 }
-
 enum DayOfWeek: Int {
     case 일 = 0
     case 월 = 1
@@ -180,13 +178,13 @@ enum DayOfWeek: Int {
 }
 
 struct TrendChart: View {
-    @EnvironmentObject var trendStates: TrendStateHolder
+    @StateObject var trendStates: TrendStateHolder
     
     var body: some View {
         //HStack() {
         TabView(selection: $trendStates.weekChartCount) {
                 //TODO: 임시 데이터 수
-            ForEach(0 ..< trendStates.weekChartCount) { chartIndex in
+            ForEach(0 ..< trendStates.weekChartCount+5) { chartIndex in
                     VStack(alignment: .leading, spacing: .zero) {
                         AverageCaffeineAmountForWeek()
                             .padding(TrendViewLayoutValue.Paddings.averageCaffeineAmountPadding)
@@ -201,7 +199,7 @@ struct TrendChart: View {
                                 .foregroundColor(.secondaryTextGray)
                         }
                         .padding(.trailing, TrendViewLayoutValue.Paddings.chartInsidePadding)
-                        TrendChartView(index: $trendStates.weekChartCount)
+                        TrendChartView(index: $trendStates.weekChartCount, trendStates: trendStates)
                     }
                     .tag(chartIndex)
                     .frame(maxWidth: TrendViewLayoutValue.Sizes.cardWidth, alignment: .leading)
