@@ -79,8 +79,8 @@ final class JSONManager {
                 fatalError("No Url")
             }
             
-            try fileManager.copyItem(at: sourceUrl.appendingPathComponent("StarbucksData.json"),
-                                     to: destinationUrl.appendingPathComponent("StarbucksData.json"))
+            try fileManager.copyItem(at: sourceUrl.appendingPathComponent("BeverageData.json"),
+                                     to: destinationUrl.appendingPathComponent("BeverageData.json"))
         } catch {
             fatalError("Init Data Error")
         }
