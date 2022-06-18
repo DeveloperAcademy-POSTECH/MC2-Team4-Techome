@@ -34,7 +34,8 @@ struct SearchCaffeineView: View {
                         
                         Spacer()
                     }
-                    .frame(width: screenWidth, height: screenHeight)
+                    .padding(.bottom, SearchCaffeineViewLayoutValue.Padding.cardBottomPadding)
+                    .frame(maxHeight: .infinity)
 //                    .ignoresSafeArea(.keyboard)
                     .padding(.top, SearchCaffeineViewLayoutValue.Padding.mainVertical)
                     .frame(height: SearchCaffeineViewLayoutValue.Size.mainHeight, alignment: .top)

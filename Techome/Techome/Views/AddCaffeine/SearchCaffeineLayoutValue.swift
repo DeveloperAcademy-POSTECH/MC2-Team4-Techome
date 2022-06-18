@@ -12,7 +12,7 @@ struct SearchCaffeineViewLayoutValue {
     struct Padding {
         static let cardHorizontalPadding: CGFloat = 15
         static let cardTopPadding: CGFloat = 28
-        static let cardBottomPadding: CGFloat = 70
+        static let cardBottomPadding: CGFloat = 60
         static let cardItemHorizontalPadding: CGFloat = 19
         static let cardItemVerticalPadding: CGFloat = 17
         static let cardTitleHorizontalPadding: CGFloat = 6
