@@ -16,23 +16,30 @@ struct SearchCaffeineView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                Color.backgroundCream
-                    .ignoresSafeArea()
-                
-                VStack {
-                    SearchBarView()
-                        .environmentObject(searchCaffeineStateHolder)
-                    if (searchCaffeineStateHolder.searchText == "") {
-                        RecentlyAddedCaffeine()
-                        
-                    } else {
-                        SearchResultView()
+            GeometryReader { _ in
+                ZStack {
+                    Color.backgroundCream
+                        .ignoresSafeArea()
+                    
+                    VStack {
+                        SearchBarView()
                             .environmentObject(searchCaffeineStateHolder)
+                        if (searchCaffeineStateHolder.searchText == "") {
+                            RecentlyAddedCaffeine()
+                            
+                        } else {
+                            SearchResultView()
+                                .environmentObject(searchCaffeineStateHolder)
+                        }
+                        
+                        Spacer()
                     }
+                    .frame(width: screenWidth, height: screenHeight)
+//                    .ignoresSafeArea(.keyboard)
+                    .padding(.top, SearchCaffeineViewLayoutValue.Padding.mainVertical)
+                    .frame(height: SearchCaffeineViewLayoutValue.Size.mainHeight, alignment: .top)
                 }
-                .padding(.top, SearchCaffeineViewLayoutValue.Padding.mainVertical)
-                .frame(height: SearchCaffeineViewLayoutValue.Size.mainHeight, alignment: .top)
+                
             }
             .navigationTitle("카페인 추가하기")
             .navigationBarTitleDisplayMode(.inline)
@@ -46,8 +53,8 @@ struct SearchCaffeineView: View {
                     }
                 }
             }
+            .frame(width: screenWidth, height: screenHeight)
         }
-        .ignoresSafeArea(.keyboard)
     }
 }
 
