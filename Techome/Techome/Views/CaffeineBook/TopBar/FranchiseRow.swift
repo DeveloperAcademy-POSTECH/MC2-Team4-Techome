@@ -17,9 +17,9 @@ struct FranchiseRow: View {
                     FranchiseCell(franchise: franchise,
                                       isSelected: franchise == stateHolder.selectedFranchise)
                     .onTapGesture {
-                        withAnimation(.linear(duration: CaffeineBookAnimationValue.Duration.tabBar.rawValue)) {
-                            stateHolder.selectedFranchise = franchise
-                        }
+//                        withAnimation(.linear(duration: CaffeineBookAnimationValue.Duration.tabBar.rawValue)) {
+                        stateHolder.selectedFranchise = franchise
+//                        }
                     }
                 }
             }
