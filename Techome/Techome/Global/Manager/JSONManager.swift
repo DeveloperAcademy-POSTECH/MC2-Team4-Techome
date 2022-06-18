@@ -67,7 +67,9 @@ final class JSONManager {
     }
     
     //  referenced by https://stackoverflow.com/questions/37947509/swift-how-to-determine-application-folder
-    func copyBeverageData() {
+    func copyBeverageData(franchise: String) {
+//        let franchise: String = franchise
+        
         let fileManager = FileManager.default
         let sourceUrl = URL(fileURLWithPath: Bundle.main.bundleURL.absoluteString)
         let destinationUrls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
@@ -77,8 +79,8 @@ final class JSONManager {
                 fatalError("No Url")
             }
             
-            try fileManager.copyItem(at: sourceUrl.appendingPathComponent("BeverageData.json"),
-                                     to: destinationUrl.appendingPathComponent("BeverageData.json"))
+            try fileManager.copyItem(at: sourceUrl.appendingPathComponent("\(franchise)Data.json"),
+                                     to: destinationUrl.appendingPathComponent("\(franchise)Data.json"))
         } catch {
             fatalError("Init Data Error")
         }
