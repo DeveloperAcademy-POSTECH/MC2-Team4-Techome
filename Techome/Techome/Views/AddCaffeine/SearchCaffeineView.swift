@@ -104,7 +104,7 @@ struct CaffeineRecordRow: View {
                     }
                     Spacer()
                     HStack (alignment: .firstTextBaseline, spacing: .zero){
-                        Text("Tall 기준")
+                        Text("\(recentRecord.size.name)기준")
                             .font(.caption2)
                             .foregroundColor(.secondaryTextGray)
                             .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.sizeCriterion)
