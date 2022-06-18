@@ -363,7 +363,7 @@
 			children = (
 				AB528BD1285C599900C213C6 /* AddCaffeineDetailStateHolder.swift */,
 				AB528BBA285C46C900C213C6 /* TodayStateHolder.swift */,
-				ABC0E94B2859CDC60046C9C8 /* CaffeineBook */,
+				ABC0E94C2859CDC60046C9C8 /* CaffeineBookStateHolder.swift */,
 				AB18CCEA2856D8B300DD1C5A /* tempViewModel.swift */,
 				79421B9C285722B400DFD58A /* SearchCaffeineStateHolder.swift */,
 				52AFC472285704AB000199DF /* AddSideEffectStateHolder.swift */,
@@ -455,14 +455,6 @@
 				AB528BD7285C59BF00C213C6 /* FranchiseDrinkSizeButtonsGroupView.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		ABC0E94B2859CDC60046C9C8 /* CaffeineBook */ = {
-			isa = PBXGroup;
-			children = (
-				ABC0E94C2859CDC60046C9C8 /* CaffeineBookStateHolder.swift */,
-			);
-			path = CaffeineBook;
 			sourceTree = "<group>";
 		};
 		ABC0E94E2859CDDE0046C9C8 /* CaffeineBook */ = {
