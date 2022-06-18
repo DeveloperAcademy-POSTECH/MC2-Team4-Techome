@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct TodayView: View {
-    @ObservedObject private var todayStates: TodayStatesHolder = TodayStatesHolder()
+    @EnvironmentObject var todayStates: TodayStatesHolder
     private let refreshInterval: TimeInterval = 60
     private let refreshTolerance: TimeInterval = 3
     private var refreshTimer: Publishers.Autoconnect<Timer.TimerPublisher> { Timer.publish(every: refreshInterval, tolerance: refreshTolerance, on: .main, in: .common).autoconnect()
