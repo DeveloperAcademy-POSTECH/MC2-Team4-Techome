@@ -30,7 +30,7 @@ struct ChartSelectionIndicatorView: View {
                 Text("\(Int(self.entry.y))mg")
                     .font(.title)
                     .fontWeight(.bold)
-                Text(getDay(trendStates.dateOfRecordsByWeek[trendStates.ChartWeekIndex][dayIndex]))
+                Text(getDay(trendStates.dateOfRecordsByWeek[trendStates.weekChartCount][entry.x.count]))
                     .font(.footnote).foregroundColor(.black)
             }
             .padding(.horizontal, TrendViewLayoutValue.Paddings.chartInsidePadding)
