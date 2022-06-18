@@ -106,11 +106,13 @@ class TrendStateHolder: ObservableObject {
     
     var dateOfRecords: [Date] = [Date]()
     var dateOfRecordsByWeek = [[Date]]()
+    var weekChartCount: Int = 1
     
     init() {
         intakeRecords = intakeManager.getDailyRecords(date: Date.now)
         getDateOfRecords()
         getDateOfRecordsByWeek()
+        weekChartCount = dateOfRecordsByWeek.count
 //        firstIntakeRecord = intakeRecords[0]
     }
     
@@ -162,8 +164,9 @@ class TrendStateHolder: ObservableObject {
         }
         dateOfRecordsByWeek.append(prepareToAppend)
         print(dateOfRecordsByWeek)
+        print("-------------------")
+        print(weekChartCount)
     }
-    
 }
 
 enum DayOfWeek: Int {
@@ -177,14 +180,13 @@ enum DayOfWeek: Int {
 }
 
 struct TrendChart: View {
-    //@EnvironmentObject var trendStates: TrendStateHolder
-    @State var index = 2 //caffeineRecord.count - 1
+    @EnvironmentObject var trendStates: TrendStateHolder
+    
     var body: some View {
         //HStack() {
-        TabView(selection: $index) {
+        TabView(selection: $trendStates.weekChartCount) {
                 //TODO: 임시 데이터 수
-            ForEach(0 ..< 5) { chartIndex in
-                    
+            ForEach(0 ..< trendStates.weekChartCount) { chartIndex in
                     VStack(alignment: .leading, spacing: .zero) {
                         AverageCaffeineAmountForWeek()
                             .padding(TrendViewLayoutValue.Paddings.averageCaffeineAmountPadding)
@@ -199,7 +201,7 @@ struct TrendChart: View {
                                 .foregroundColor(.secondaryTextGray)
                         }
                         .padding(.trailing, TrendViewLayoutValue.Paddings.chartInsidePadding)
-                        TrendChartView(index: $index)
+                        TrendChartView(index: $trendStates.weekChartCount)
                     }
                     .tag(chartIndex)
                     .frame(maxWidth: TrendViewLayoutValue.Sizes.cardWidth, alignment: .leading)

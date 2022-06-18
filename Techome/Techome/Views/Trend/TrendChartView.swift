@@ -66,7 +66,9 @@ struct TrendChartView: View {
                         config.data.color = trendStates.sideEffectManager.getDailyRecords(date: Date.now).count == 0 ? .tertiaryBrown : .customRed
                         print(trendStates.sideEffectManager.getDailyRecords(date: Date.now).count)
                         //TODO: 차트 데이터 삽입 테스트
-                        config.data.entries[4] = SetEntries().inputEntry()
+                        for entryIndex in 0 ..< 7 {
+                            //config.data.entries[entryIndex].y = trendStates.intakeManager.getDailyRecords(date: trendStates.dateOfRecordsByWeek[trendStates.weekChartCount][entryIndex])
+                        }
                         config.initTicksColor()
                         config.initTicksStyle()
                         config.initLabelsColor()
@@ -134,8 +136,8 @@ extension ChartConfiguration {
 
 
 struct SetEntries {
-    //@EnvironmentObject var trendStates: TrendStateHolder
-    let trendStates = TrendStateHolder()
+    @EnvironmentObject var trendStates: TrendStateHolder
+    //let trendStates = TrendStateHolder()
     private let xAxisLabelCount = 7
     
     //TODO: 임시 formatter
@@ -153,19 +155,12 @@ struct SetEntries {
         let newEntry = ChartDataEntry(x: todayOfWeek, y: Double(caffeineAmountX))
         return newEntry
     }
-//    func getDayOfWeektoInt() -> Int {
-//        let selectedDate = trendStates.intakeRecords[0].date
-//        let selectedDayOfWeek = getDayOfWeek(selectedDate)
-//        let selectedDayOfWeekInt = DayOfWeek.getDayOfWeekIndex(DayOfWeek(rawValue: selectedDayOfWeek) ?? 0)
-//        return selectedDayOfWeekInt
-//    }
-    //TODO: 임시 랜덤 데이터 넣는 함수
+    //TODO: 차트 값 0 으로 초기화하는 함수
     func initEntries() -> [ChartDataEntry] {
         var entries = [ChartDataEntry]()
         let dayOfWeek: [String] = ["일", "월", "화", "수", "목", "금", "토"]
-        for data in 0 ..< xAxisLabelCount {
-            let randomDouble = 0.0 //Double.random(in: 0..<600)
-            let newEntry = ChartDataEntry(x: dayOfWeek[data], y: randomDouble)
+        for data in 0 ..< dayOfWeek.count {
+            let newEntry = ChartDataEntry(x: dayOfWeek[data], y: 600.0)
             entries.append(newEntry)
         }
         return entries

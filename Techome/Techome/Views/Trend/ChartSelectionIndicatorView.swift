@@ -10,6 +10,8 @@ import BarChart
 
 ///https://github.com/romanbaitaliuk/BarChart
 struct ChartSelectionIndicatorView: View {
+    @Environment var trendStates: TrendStateHolder
+    var dayIndex = 0
     func getDay(_ today:Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY.MM.dd"
@@ -24,10 +26,11 @@ struct ChartSelectionIndicatorView: View {
             VStack(alignment: .leading, spacing: .zero) {
                 Text("총")
                     .font(.footnote)
+                //TODO: Manager 에서 총량 받아올떄 사용
                 Text("\(Int(self.entry.y))mg")
                     .font(.title)
                     .fontWeight(.bold)
-                Text(getDay(Date()))
+                Text(getDay(trendStates.dateOfRecordsByWeek[trendStates.ChartWeekIndex][dayIndex]))
                     .font(.footnote).foregroundColor(.black)
             }
             .padding(.horizontal, TrendViewLayoutValue.Paddings.chartInsidePadding)
