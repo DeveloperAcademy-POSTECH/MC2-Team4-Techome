@@ -8,8 +8,8 @@
 import Foundation
 
 final class NotificationStateHolder: ObservableObject {
-    @Published var isRecordNotificationOn: Bool = false
-    @Published var isTrendNotificationOn: Bool = false
+    @Published var isRecordNotificationOn: Bool = UserDefaults.standard.bool(forKey: "isRecordNotificationOn")
+    @Published var isTrendNotificationOn: Bool = UserDefaults.standard.bool(forKey: "isTrendNotificationOn")
     
     func setNotification(textType: NotificationText) -> Void {
         let manager = NotificationManager()

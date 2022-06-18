@@ -72,11 +72,6 @@ struct SettingsView: View {
 struct NoticeGroup: View {
     
     @ObservedObject var notificationStateHolder = NotificationStateHolder()
-//    @State private var recordNotice: Bool = true
-//    @State private var trendNotice: Bool = true
-    
-    @AppStorage(wrappedValue: true, "recordNotice") var recordNotice
-    @AppStorage(wrappedValue: true, "trendNotice") var trendNotice
     
     var body: some View {
         
@@ -85,6 +80,7 @@ struct NoticeGroup: View {
         VStack(spacing: .zero) {
             NoticeRow(toggleText: "기록 알림", isOnState: $notificationStateHolder.isRecordNotificationOn)
                 .onChange(of: notificationStateHolder.isRecordNotificationOn) { value in
+                    UserDefaults.standard.set(value, forKey: "isRecordNotificationOn")
                     if value {
                         notificationStateHolder.setNotification(textType: NotificationText.recordNotification)
                     }else {
@@ -97,6 +93,7 @@ struct NoticeGroup: View {
             NoticeRow(toggleText: "추이 알림", isOnState: $notificationStateHolder.isTrendNotificationOn)
 //                .labelsHidden()
                 .onChange(of: notificationStateHolder.isTrendNotificationOn) { value in
+                    UserDefaults.standard.set(value, forKey: "isTrendNotificationOn")
                     if value {
                         notificationStateHolder.setNotification(textType: NotificationText.trendNotification)
                     }else {
