@@ -43,7 +43,7 @@ struct TotalListLayoutValue {
 struct TotalListView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var totalData : Datas
+    @EnvironmentObject var totalData : TotalListStateHolder
     
     var body: some View {
         ScrollView {
@@ -81,13 +81,12 @@ struct TotalListView: View {
 
 
 //날짜별 카페인 + 부작용 데이터
-//TODO: 날짜별로 스트레스 + 부작용 데이터 받아와서 뷰 만들기
 //버튼 구현 reference
 //https://www.youtube.com/watch?v=jXVQDmeNb8A
 //https://stackoverflow.com/questions/67238383/how-to-swipe-to-delete-in-swiftui-with-only-a-foreach-and-not-a-list
 struct TotalListByDate: View {
     
-    @EnvironmentObject var totalData : Datas
+    @EnvironmentObject var totalData : TotalListStateHolder
     var curDate : String
     
     var body: some View {
@@ -99,7 +98,7 @@ struct TotalListByDate: View {
             
             //curDate에 발생한 카페인과 부작용 정보 보여주기
             VStack(spacing: .zero) {
-                ForEach(Array(totalData.dataSortedByDate[curDate]!.enumerated()), id: \.element) { index, cell in
+                ForEach(Array(totalData.totalDataList[curDate]!.enumerated()), id: \.element) { index, cell in
                     ZStack{
                         //삭제 버튼
                         deleteButton()
@@ -132,7 +131,7 @@ struct TotalListByDate: View {
                     }
                     
                     //마지막 cell 다음의 divider는 그리지 않음
-                    if (index != (totalData.dataSortedByDate[curDate]?.count ?? 0) - 1) {
+                    if (index != (totalData.totalDataList[curDate]?.count ?? 0) - 1) {
                         Divider()
                             .padding(.horizontal, TotalListLayoutValue.Paddings.dividerHorizontalPadding)
                             .background(Color.white)
@@ -228,7 +227,6 @@ struct SideEffectsInCell: View {
         GridItem(.fixed(TotalListLayoutValue.Sizes.sideEffectRecordCellFixedWidth), spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding),
         GridItem(.fixed(TotalListLayoutValue.Sizes.sideEffectRecordCellFixedWidth), spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding),
         GridItem(.fixed(TotalListLayoutValue.Sizes.sideEffectRecordCellFixedWidth), spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding)
-        
     ]
     
     var body: some View {
