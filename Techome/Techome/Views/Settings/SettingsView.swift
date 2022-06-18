@@ -71,6 +71,7 @@ struct SettingsView: View {
 
 struct NoticeGroup: View {
     
+    @ObservedObject var notificationStateHolder = NotificationStateHolder()
 //    @State private var recordNotice: Bool = true
 //    @State private var trendNotice: Bool = true
     
@@ -82,11 +83,26 @@ struct NoticeGroup: View {
         GroupLabel(labelText: "알림")
         
         VStack(spacing: .zero) {
-            NoticeRow(toggleText: "기록 알림", isOnState: $recordNotice)
+            NoticeRow(toggleText: "기록 알림", isOnState: $notificationStateHolder.isRecordNotificationOn)
+                .onChange(of: notificationStateHolder.isRecordNotificationOn) { value in
+                    if value {
+                        notificationStateHolder.setNotification(textType: NotificationText.recordNotification)
+                    }else {
+                        notificationStateHolder.delNotification(textType: NotificationText.recordNotification)
+                    }
+                }
             Divider()
                 .foregroundColor(.primaryShadowGray)
                 .padding(.horizontal, SettingsLayoutValue.Padding.dividerTop)
-            NoticeRow(toggleText: "추이 알림", isOnState: $trendNotice)
+            NoticeRow(toggleText: "추이 알림", isOnState: $notificationStateHolder.isTrendNotificationOn)
+//                .labelsHidden()
+                .onChange(of: notificationStateHolder.isTrendNotificationOn) { value in
+                    if value {
+                        notificationStateHolder.setNotification(textType: NotificationText.trendNotification)
+                    }else {
+                        notificationStateHolder.delNotification(textType: NotificationText.trendNotification)
+                    }
+                }
         }
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: SettingsLayoutValue.Radius.list))
