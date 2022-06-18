@@ -143,6 +143,7 @@ struct AddCaffeineButton: View {
                 .fontWeight(.bold)
                 .foregroundColor(.backgroundCream)
                 .background(AddCaffeineButtonBackground())
+                .frame(width: UIScreen.main.bounds.width, height: AddCaffeineDetailViewLayoutValue.Sizes.addCaffeineButtonHeight, alignment: .center)
         }
     }
 }

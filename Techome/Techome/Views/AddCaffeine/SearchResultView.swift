@@ -30,7 +30,7 @@ struct SearchResultView: View {
                         Text("검색 결과 없음")
                             .font(.title3)
                             .foregroundColor(.customBlack)
-                            .padding(.top, SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding)
+                            .padding(.top, SearchCaffeineViewLayoutValue.Padding.cardTopPadding)
                     } else {
                         LazyVStack (spacing: .zero) {
                             ForEach (searchCaffeineStateHolder.currentItems, id: \.self) { item in
@@ -44,7 +44,8 @@ struct SearchResultView: View {
                 }
             }
             .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardHorizontalPadding)
-            .padding(.top, SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding)
+            .padding(.top, SearchCaffeineViewLayoutValue.Padding.cardTopPadding)
+            .padding(.bottom, SearchCaffeineViewLayoutValue.Padding.cardBottomPadding)
         }
         .frame(width: SearchCaffeineViewLayoutValue.Size.mainWidth, alignment: .top)
     }

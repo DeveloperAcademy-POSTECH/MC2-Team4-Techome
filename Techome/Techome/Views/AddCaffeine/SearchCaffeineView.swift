@@ -16,23 +16,30 @@ struct SearchCaffeineView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                Color.backgroundCream
-                    .ignoresSafeArea()
-                
-                VStack {
-                    SearchBarView()
-                        .environmentObject(searchCaffeineStateHolder)
-                    if (searchCaffeineStateHolder.searchText == "") {
-                        RecentlyAddedCaffeine()
-                        
-                    } else {
-                        SearchResultView()
+            GeometryReader { _ in
+                ZStack {
+                    Color.backgroundCream
+                        .ignoresSafeArea()
+                    
+                    VStack {
+                        SearchBarView()
                             .environmentObject(searchCaffeineStateHolder)
+                        if (searchCaffeineStateHolder.searchText == "") {
+                            RecentlyAddedCaffeine()
+                            
+                        } else {
+                            SearchResultView()
+                                .environmentObject(searchCaffeineStateHolder)
+                        }
+                        
+                        Spacer()
                     }
+                    .frame(width: screenWidth, height: screenHeight)
+//                    .ignoresSafeArea(.keyboard)
+                    .padding(.top, SearchCaffeineViewLayoutValue.Padding.mainVertical)
+                    .frame(height: SearchCaffeineViewLayoutValue.Size.mainHeight, alignment: .top)
                 }
-                .padding(.top, SearchCaffeineViewLayoutValue.Padding.mainVertical)
-                .frame(height: SearchCaffeineViewLayoutValue.Size.mainHeight, alignment: .top)
+                
             }
             .navigationTitle("카페인 추가하기")
             .navigationBarTitleDisplayMode(.inline)
@@ -46,6 +53,7 @@ struct SearchCaffeineView: View {
                     }
                 }
             }
+            .frame(width: screenWidth, height: screenHeight)
         }
     }
 }
@@ -81,7 +89,7 @@ struct RecentlyAddedCaffeine: View {
             }
         }
         .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardHorizontalPadding)
-        .padding(.top, SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding)
+        .padding(.top, SearchCaffeineViewLayoutValue.Padding.cardTopPadding)
     }
 }
 
@@ -104,7 +112,7 @@ struct CaffeineRecordRow: View {
                     }
                     Spacer()
                     HStack (alignment: .firstTextBaseline, spacing: .zero){
-                        Text("Tall 기준")
+                        Text("\(recentRecord.size.name)기준")
                             .font(.caption2)
                             .foregroundColor(.secondaryTextGray)
                             .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.sizeCriterion)
