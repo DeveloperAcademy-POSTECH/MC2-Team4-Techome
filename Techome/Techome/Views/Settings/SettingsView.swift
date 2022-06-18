@@ -72,8 +72,11 @@ struct SettingsView: View {
 
 struct NoticeGroup: View {
     
-    @State private var recordNotice: Bool = true
-    @State private var trendNotice: Bool = true
+//    @State private var recordNotice: Bool = true
+//    @State private var trendNotice: Bool = true
+    
+    @AppStorage(wrappedValue: true, "recordNotice") var recordNotice
+    @AppStorage(wrappedValue: true, "trendNotice") var trendNotice
     
     var body: some View {
         
