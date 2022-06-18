@@ -53,17 +53,23 @@ struct AddCaffeineDetailViewLayoutValue {
 }
 
 struct AddCaffeineDetailView: View {
-    @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
+//    @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
+    @Environment(\.presentationMode) var presentationMode
+    let addCaffeineDetailStates: AddCaffeineDetailStateHolder
+    
+    init(beverage: Beverage, size: SizeInfo) {
+        self.addCaffeineDetailStates = AddCaffeineDetailStateHolder(beverage: beverage, size: size)
+    }
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             VStack(alignment: .center, spacing: .zero) {
                 HStack(alignment: .firstTextBaseline, spacing: .zero) {
-                    Text(addCaffeineDetailStates.bevergeRecord.name)
+                    Text(addCaffeineDetailStates.beverge.name)
                         .font(.title)
                         .fontWeight(.bold)
                         .padding(.leading, AddCaffeineDetailViewLayoutValue.Paddings.cardVertical)
-                    Text(addCaffeineDetailStates.bevergeRecord.franchise.getFranchiseName())
+                    Text(addCaffeineDetailStates.beverge.franchise.getFranchiseName())
                         .font(.title3)
                         .foregroundColor(.secondaryTextGray)
                         .padding(.leading, AddCaffeineDetailViewLayoutValue.Paddings.titleToBrand)
@@ -79,6 +85,7 @@ struct AddCaffeineDetailView: View {
                 .sectionTitleModifier()
                 
                 FranchiseDrinkSizeButtonsGroupView()
+                    .environmentObject(addCaffeineDetailStates)
                     .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.section)
                 
                 HStack(alignment: .center, spacing: .zero) {
@@ -87,6 +94,7 @@ struct AddCaffeineDetailView: View {
                 }
                 .sectionTitleModifier()
                 EspressoShotCountCustomStepper()
+                    .environmentObject(addCaffeineDetailStates)
                     .padding(.bottom, AddCaffeineDetailViewLayoutValue.Paddings.section)
                 HStack(alignment: .center, spacing: .zero) {
                     Text("영향")
@@ -94,33 +102,48 @@ struct AddCaffeineDetailView: View {
                 }
                 .sectionTitleModifier()
                 EffectSectionView()
+                    .environmentObject(addCaffeineDetailStates)
                 Spacer()
                 AddCaffeineButton()
-            }
-            .navigationTitle("카페인 추가하기")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(leading: Image(systemName: "chevron.left")
-                .font(.headline)
-                .foregroundColor(.primaryBrown), trailing: Text("취소")
-                .font(.body)
-                .foregroundColor(.primaryBrown))
+                    .environmentObject(addCaffeineDetailStates)
+//            }
+            
         }
+        .navigationTitle("카페인 추가하기")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(
+            leading: Button(action: {
+                self.presentationMode.wrappedValue.dismiss()
+                
+            }) {
+                Image(systemName: "chevron.left")
+                    .font(.headline)
+                    .foregroundColor(.primaryBrown)
+            }
+        )
     }
 }
 
 struct AddCaffeineButton: View {
     @EnvironmentObject var addCaffeineDetailStates: AddCaffeineDetailStateHolder
+    @EnvironmentObject var todayStateHolder: TodayStatesHolder
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         Button {
-            addCaffeineDetailStates.intakeManager.addRecord(beverage: addCaffeineDetailStates.bevergeRecord, sizeInfo: addCaffeineDetailStates.bevergeRecord.sizeInfo[addCaffeineDetailStates.isSelected], addedShotCount: addCaffeineDetailStates.shotCount)
-            print()
+            print("Add Beverage : \(addCaffeineDetailStates.beverge)")
+            addCaffeineDetailStates.intakeManager.addRecord(beverage: addCaffeineDetailStates.beverge, sizeInfo: addCaffeineDetailStates.selectedSizeInfo, addedShotCount: addCaffeineDetailStates.addedShotCount)
+//            presentationMode.wrappedValue.dismiss()
+            todayStateHolder.setRemainingAmount()
+            todayStateHolder.isSearchCaffeineView = false
         } label: {
             Text("추가하기")
                 .font(.title2)
                 .fontWeight(.bold)
                 .foregroundColor(.backgroundCream)
                 .background(AddCaffeineButtonBackground())
+                .frame(width: UIScreen.main.bounds.width, height: AddCaffeineDetailViewLayoutValue.Sizes.addCaffeineButtonHeight, alignment: .center)
         }
     }
 }
@@ -137,8 +160,8 @@ struct AddCaffeineButtonBackground: View {
 struct AddCaffeineDetailView_Previews: PreviewProvider {
     
     static var previews: some View {
-        let addCaffeineDetailState = AddCaffeineDetailStateHolder()
-        AddCaffeineDetailView()
+        let addCaffeineDetailState = AddCaffeineDetailStateHolder(beverage: dummyBeverages[0], size: SizeInfo(name: "Tall", caffeineAmount: 150, defaultShotCount: 2))
+        AddCaffeineDetailView(beverage: dummyBeverages[0], size: SizeInfo(name: "Tall", caffeineAmount: 150, defaultShotCount: 2))
             .environmentObject(addCaffeineDetailState)
     }
 }

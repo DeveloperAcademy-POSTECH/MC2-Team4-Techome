@@ -30,7 +30,7 @@ struct SearchResultView: View {
                         Text("검색 결과 없음")
                             .font(.title3)
                             .foregroundColor(.customBlack)
-                            .padding(.top, SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding)
+                            .padding(.top, SearchCaffeineViewLayoutValue.Padding.cardTopPadding)
                     } else {
                         LazyVStack (spacing: .zero) {
                             ForEach (searchCaffeineStateHolder.currentItems, id: \.self) { item in
@@ -44,7 +44,8 @@ struct SearchResultView: View {
                 }
             }
             .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardHorizontalPadding)
-            .padding(.top, SearchCaffeineViewLayoutValue.Padding.cardVerticalPadding)
+            .padding(.top, SearchCaffeineViewLayoutValue.Padding.cardTopPadding)
+            .padding(.bottom, SearchCaffeineViewLayoutValue.Padding.cardBottomPadding)
         }
         .frame(width: SearchCaffeineViewLayoutValue.Size.mainWidth, alignment: .top)
     }
@@ -55,34 +56,39 @@ struct SatisfiedCaffeineItem: View {
     var satisfiedCaffeineItem: Beverage
     
     var body: some View {
-        VStack(spacing: .zero) {
-            HStack(alignment: .center, spacing: .zero) {
-                VStack (alignment: .leading){
-                    Text(satisfiedCaffeineItem.name)
-                        .multilineTextAlignment(.leading)
-                    Text("\(satisfiedCaffeineItem.franchise.rawValue)")
-                        .font(.caption)
-                        .foregroundColor(.secondaryTextGray)
+        NavigationLink(destination: {
+            AddCaffeineDetailView(beverage: satisfiedCaffeineItem, size: satisfiedCaffeineItem.sizeInfo[0])
+        }) {
+            VStack(spacing: .zero) {
+                HStack(alignment: .center, spacing: .zero) {
+                    VStack (alignment: .leading){
+                        Text(satisfiedCaffeineItem.name)
+                            .multilineTextAlignment(.leading)
+                        Text("\(satisfiedCaffeineItem.franchise.rawValue)")
+                            .font(.caption)
+                            .foregroundColor(.secondaryTextGray)
+                    }
+                    Spacer()
+                    HStack (alignment: .firstTextBaseline, spacing: .zero){
+                        Text("Tall 기준")
+                            .font(.caption2)
+                            .foregroundColor(.secondaryTextGray)
+                            .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.sizeCriterion)
+                        Text("\(satisfiedCaffeineItem.sizeInfo[0].caffeineAmount)")
+                            .font(.title3)
+                            .frame(width: SearchCaffeineViewLayoutValue.Size.caffeineAmountText, alignment: .trailing)
+                        Text(" mg")
+                            .font(.caption2)
+                            .foregroundColor(.secondaryTextGray)
+                    }
                 }
-                Spacer()
-                HStack (alignment: .firstTextBaseline, spacing: .zero){
-                    Text("Tall 기준")
-                        .font(.caption2)
-                        .foregroundColor(.secondaryTextGray)
-                        .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.sizeCriterion)
-                    Text("\(satisfiedCaffeineItem.sizeInfo[0].caffeineAmount)")
-                        .font(.title3)
-                        .frame(width: SearchCaffeineViewLayoutValue.Size.caffeineAmountText, alignment: .trailing)
-                    Text(" mg")
-                        .font(.caption2)
-                        .foregroundColor(.secondaryTextGray)
-                }
+                .foregroundColor(.customBlack)
+                .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardItemHorizontalPadding)
+                .padding(.vertical, SearchCaffeineViewLayoutValue.Padding.cardItemVerticalPadding)
+                Divider()
             }
-            .foregroundColor(.customBlack)
-            .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardItemHorizontalPadding)
-            .padding(.vertical, SearchCaffeineViewLayoutValue.Padding.cardItemVerticalPadding)
-            Divider()
         }
+        
     }
 }
 

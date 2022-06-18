@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    private var searchCaffeineStateHolder = SearchCaffeineStateHolder()
+//    private var searchCaffeineStateHolder = SearchCaffeineStateHolder()
     
     @State var isShowedSheet: Bool = false
     
@@ -28,7 +28,7 @@ struct HomeView: View {
                     .background(Color.white)
                     .fullScreenCover(isPresented: $isShowedSheet, content: {
                         SearchCaffeineView()
-                            .environmentObject(searchCaffeineStateHolder)
+//                            .environmentObject(searchCaffeineStateHolder)
                     })
             }
         }

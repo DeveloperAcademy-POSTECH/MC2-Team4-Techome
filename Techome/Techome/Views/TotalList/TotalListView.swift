@@ -7,26 +7,10 @@
 
 import SwiftUI
 
-var dataResult : [String : [TotalDataCell]] =
-    [ "2022.06.03" : [ TotalDataCell(dataType: "drink", dataIndex: 1),
-                       TotalDataCell(dataType: "drink", dataIndex: 2),
-                      TotalDataCell(dataType: "sideEffect", dataIndex: 1),
-                       TotalDataCell(dataType: "sideEffect", dataIndex: 2) ],
-      "2022.06.02" : [ TotalDataCell(dataType: "drink", dataIndex: 3),
-                       TotalDataCell(dataType: "sideEffect", dataIndex: 3),
-                      TotalDataCell(dataType: "drink", dataIndex: 4),
-                       TotalDataCell(dataType: "sideEffect", dataIndex: 4) ],
-      "2022.06.01" : [ TotalDataCell(dataType: "drink", dataIndex: 5),
-                       TotalDataCell(dataType: "sideEffect", dataIndex: 5),
-                      TotalDataCell(dataType: "drink", dataIndex: 6) ],
-      "2022.05.31" : [ TotalDataCell(dataType: "drink", dataIndex: 7),
-                       TotalDataCell(dataType: "sideEffect", dataIndex: 6),
-                      TotalDataCell(dataType: "drink", dataIndex: 8) ]
-    ]
-
 struct TotalListLayoutValue {
     
     struct Paddings {
+        static let sectionByDateVerticalPadding: CGFloat = 3
         static let dayRecordPadding: CGFloat = 4
         static let caffeineRecordRowVerticalPadding: CGFloat = 15
         static let caffeineRecordRowHorizontalPadding: CGFloat = 20
@@ -40,37 +24,33 @@ struct TotalListLayoutValue {
         static let fullViewVerticalPadding: CGFloat = 23
         static let dateVerticalPadding: CGFloat = 6
         static let dividerHorizontalPadding: CGFloat = 15
+        static let sideEffectIconHorizontalPadding: CGFloat = 5
     }
     
     struct Sizes {
         static let cardWidth: CGFloat = UIScreen.main.bounds.width - 30
         static let sideEffectRecordCellFixedWidth: CGFloat = 46
         static let deleteButtonWidth: CGFloat = 74
+        static let sideEffectIconSize: CGFloat = 15
     }
     
     struct Spacings {
-        static let sectionByDateSpading: CGFloat = 23
+        static let sectionByDateSpacing: CGFloat = 23
     }
-}
-
-struct TotalDataCell : Hashable {
-    var dataType: String
-    var dataIndex: Int
 }
 
 // 전체 리스트
 struct TotalListView: View {
     
     @Environment(\.presentationMode) var presentationMode
-
-    //TODO: 전체 데이터 받아오고 데이터 합쳐서 날짜로 정렬 및 그룹화하기
-    @ObservedObject var totalData = Datas(dataSortedByDate: dataResult)
+    @EnvironmentObject var totalData : TotalListStateHolder
     
     var body: some View {
         ScrollView {
-            LazyVStack (spacing: TotalListLayoutValue.Spacings.sectionByDateSpading){
+            LazyVStack (spacing: TotalListLayoutValue.Spacings.sectionByDateSpacing){
                 ForEach(totalData.datesArr, id: \.self) { curDate in
-                    TotalListByDate(totalData: totalData, curDate: curDate)
+                    TotalListByDate(curDate: curDate)
+                        .environmentObject(totalData)
                 }
             }
             .padding(.horizontal, TotalListLayoutValue.Paddings.fullViewHorizontalPadding)
@@ -91,60 +71,75 @@ struct TotalListView: View {
                         }
             }
         }
+        .onAppear{
+            print("새로운 화면")
+            self.totalData.loadData()
+            
+        }
     }
 }
 
 
 //날짜별 카페인 + 부작용 데이터
-//TODO: 날짜별로 스트레스 + 부작용 데이터 받아와서 뷰 만들기
 //버튼 구현 reference
 //https://www.youtube.com/watch?v=jXVQDmeNb8A
 //https://stackoverflow.com/questions/67238383/how-to-swipe-to-delete-in-swiftui-with-only-a-foreach-and-not-a-list
 struct TotalListByDate: View {
     
-    @ObservedObject var totalData : Datas
+    @EnvironmentObject var totalData : TotalListStateHolder
     var curDate : String
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .leading, spacing: .zero) {
             Text(curDate)
                 .font(.title3)
                 .fontWeight(.semibold)
                 .padding(.bottom, TotalListLayoutValue.Paddings.dateVerticalPadding)
             
             //curDate에 발생한 카페인과 부작용 정보 보여주기
-            VStack(spacing: 0) {
-                ForEach(Array(totalData.dataSortedByDate[curDate]!.enumerated()), id: \.element) { index, cell in
+            VStack(spacing: .zero) {
+                ForEach(Array(totalData.totalDataList[curDate]!.enumerated()), id: \.element) { index, cell in
                     ZStack{
                         //삭제 버튼
                         deleteButton()
                             .onTapGesture{
-                                totalData.deleteData(curDate : curDate, index : index)
+                                totalData.deleteData(curCell : cell, curDate : curDate, index : index)
                             }
                         
                         //데이터 표시
-                        Cell(curCell : cell)
-                            .offset(x: totalData.offsetsArr[curDate]![index])
-                            .gesture(
-                                DragGesture()
-                                    .onChanged { gesture in
-                                        gestureChanged(value: gesture, curDate: curDate, index: index)
-                                    }
-                                    .onEnded { _ in
-                                        gestureEnd(curDate: curDate, index: index)
-                                    }
-                                )
+                        Group{
+                            switch cell.dataType {
+                            case "intake" :
+                                CaffeineCell(cellData: totalData.sourceData.intakes[cell.dataIndex])
+                            case "sideEffect" :
+                                SideEffectCell(cellData: totalData.sourceData.sideEffects[cell.dataIndex])
+                            default :
+                                EmptyView()
+                            }
+                        }
+                        .background(Color.white)
+                        .offset(x: totalData.offsetsArr[curDate]?[index] ?? .zero)
+                        .animation(.spring(), value: totalData.offsetsArr[curDate]?[index] ?? .zero)
+                        .gesture(
+                            DragGesture()
+                                .onChanged { gesture in
+                                    gestureChanged(value: gesture, curDate: curDate, index: index)
+                                }
+                                .onEnded { _ in
+                                    gestureEnd(curDate: curDate, index: index)
+                                }
+                            )
                     }
                     
                     //마지막 cell 다음의 divider는 그리지 않음
-                    if (index != totalData.dataSortedByDate[curDate]!.count - 1) {
+                    if (index != (totalData.totalDataList[curDate]?.count ?? 0) - 1) {
                         Divider()
                             .padding(.horizontal, TotalListLayoutValue.Paddings.dividerHorizontalPadding)
                             .background(Color.white)
                     }
                 }
             }
-            .padding(.vertical, 3)
+            .padding(.vertical, TotalListLayoutValue.Paddings.sectionByDateVerticalPadding)
             .clipShape(RoundedRectangle(cornerRadius: 7))
             .shadow(color: Color.primaryShadowGray, radius: 7, x: 0, y: 0)
         }
@@ -158,14 +153,16 @@ struct TotalListByDate: View {
         guard totalData.offsetsArr[curDate] != nil else {
             return
         }
-        totalData.offsetsArr[curDate]?[index] = value.translation.width
+        if value.translation.width < -10 || value.translation.width > 0 {
+            totalData.offsetsArr[curDate]?[index] = value.translation.width
+        }
         if totalData.offsetsArr[curDate]?[index] ?? .zero > TotalListLayoutValue.Sizes.deleteButtonWidth {
             totalData.offsetsArr[curDate]?[index] = .zero
         }
     }
     //onEnd : 제스쳐가 끝나는 시점 체크
     //왼쪽으로 74 이상 움직였을 경우 cell이 74만큼 왼쪽으로 이동된 상태 유지, 왼쪽으로 74 이상 움직이지 않았을 경우 cell 위치 원상복귀
-    func gestureEnd(curDate: String, index: Int){
+    func gestureEnd(curDate: String, index: Int) {
         guard totalData.offsetsArr[curDate] != nil else {
             return
         }
@@ -196,43 +193,23 @@ struct deleteButton: View {
     }
 }
 
-//데이터 컴포넌트 (하나의 row) : 데이터 타입(카페인, 부작용)에 따라 맞는 컴포넌트 보여줌
-struct Cell: View {
-    
-    var curCell : TotalDataCell
-    
-    var body : some View {
-        Group{
-            switch curCell.dataType {
-            case "drink" :
-                CaffeineCell()
-            case "sideEffect" :
-                SideEffectCell()
-            default :
-                EmptyView()
-            }
-        }
-        .background(Color.white)
-    }
-}
-
 //부작용 데이터 컴포넌트 : 부작용 시간 + 부작용 정보
 struct SideEffectCell: View {
+    var cellData: SideEffectRecord
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: 0) {
-                Text("09:30")
+                Text(dateToTime(dateInfo: cellData.date))
                     .font(.caption)
                     .foregroundColor(.secondaryTextGray)
                 Image(systemName: "exclamationmark.circle")
                     .resizable()
-                    .frame(width: 15, height: 15)
+                    .frame(width: TotalListLayoutValue.Sizes.sideEffectIconSize, height: TotalListLayoutValue.Sizes.sideEffectIconSize)
                     .foregroundColor(.customRed)
-                    .padding(.leading, 5)
+                    .padding(.leading, TotalListLayoutValue.Paddings.sideEffectIconHorizontalPadding)
             }
-            .padding(.leading, TotalListLayoutValue.Paddings.sideEffectRecordRowHorizontalPadding)
-            
-            SideEffectsInCell()
+            .padding(.horizontal, TotalListLayoutValue.Paddings.sideEffectRecordRowHorizontalPadding)
+            SideEffectsInCell(sideEffectsArr : cellData.sideEffects)
         }
         .padding(.top, TotalListLayoutValue.Paddings.sideEffectRecordRowVerticalPadding)
     }
@@ -241,37 +218,44 @@ struct SideEffectCell: View {
 //============================================================================
 //trend에서 사용하는 컴포넌트 공유 예정
 
-
-//trend 의 sideEffectRecordsByDay 와 동일
+//trend 의 sideEffectRecordsByDay
 //부작용 데이터 컴포넌트 : 부작용 정보
 struct SideEffectsInCell: View {
+    
+    var sideEffectsArr : [SideEffect]
+    
+    let columns: [GridItem] = [
+        GridItem(.fixed(TotalListLayoutValue.Sizes.sideEffectRecordCellFixedWidth), spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding),
+        GridItem(.fixed(TotalListLayoutValue.Sizes.sideEffectRecordCellFixedWidth), spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding),
+        GridItem(.fixed(TotalListLayoutValue.Sizes.sideEffectRecordCellFixedWidth), spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding),
+        GridItem(.fixed(TotalListLayoutValue.Sizes.sideEffectRecordCellFixedWidth), spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding),
+        GridItem(.fixed(TotalListLayoutValue.Sizes.sideEffectRecordCellFixedWidth), spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding)
+    ]
+    
     var body: some View {
-        VStack(alignment: .center, spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellVerticalPadding) {
-            ForEach(0 ..< 2) { sideEffectRowIndex in
-                HStack(alignment: .center, spacing: TotalListLayoutValue.Paddings.sideEffectRecordCellHorizontalPadding) {
-                    //TODO: 임시 데이터 수
-                    ForEach(0 ..< 5) { sideEffectItemIndex in
-                        SideEffectItem()
-                    }
-                }
+        LazyVGrid(columns: columns, spacing : TotalListLayoutValue.Paddings.sideEffectRecordCellVerticalPadding) {
+            ForEach(sideEffectsArr, id: \.self) { sideEffect in
+                SideEffectItem(curSideEffect : sideEffect)
             }
         }
         .padding(.vertical, TotalListLayoutValue.Paddings.sideEffectRecordCellVerticalPadding)
+        .padding(.horizontal, TotalListLayoutValue.Paddings.sideEffectRecordRowHorizontalPadding)
         .frame(width: TotalListLayoutValue.Sizes.cardWidth)
     }
 }
 
 
-//trend 의 SideEffectRecordItem 과 동일
+//trend 의 SideEffectRecordItem
 //부작용 데이터 컴포넌트 : 부작용 이미지 + 이름
 struct SideEffectItem: View {
+    var curSideEffect : SideEffect
+    
     var body: some View {
         VStack(spacing: 0) {
-            Image("esophagitis")
-            Text("식도염")
+            Image(curSideEffect.getImageName())
+            Text(curSideEffect.getSideEffectName())
                 .font(.caption)
         }
-        .frame(width: TotalListLayoutValue.Sizes.sideEffectRecordCellFixedWidth)
     }
 }
 
@@ -279,26 +263,32 @@ struct SideEffectItem: View {
 //trend 의 CaffeineRecordCell 에 padding (.vertical)로 제한하는 코드 추가 & Divider 삭제, 이외 동일
 //카페인 데이터 컴포넌트 : 카페인 시간 + 카페인 정보
 struct CaffeineCell: View {
+    var cellData : IntakeRecord
+    
     var body: some View {
         VStack(spacing: 0) {
             HStack(alignment: .center, spacing: 0) {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("09:30")
+                    Text(dateToTime(dateInfo: cellData.date))
                         .font(.caption)
                         .foregroundColor(.secondaryTextGray)
                         .padding(.bottom, TotalListLayoutValue.Paddings.dayRecordPadding)
                     HStack(alignment: .firstTextBaseline, spacing: 0) {
-                        Text("아메리카노")
+                        Text(cellData.beverage.name)
                             .font(.title3)
                             .padding(.trailing, TotalListLayoutValue.Paddings.textVerticalPadding)
-                        Text("스타벅스/Tall")
-                            .font(.caption)
-                            .foregroundColor(.secondaryTextGray)
+                        Group {
+                            Text(cellData.beverage.franchise.getFranchiseName())
+                            Text("/")
+                            Text(cellData.size.name)
+                        }
+                        .font(.caption)
+                        .foregroundColor(.secondaryTextGray)
                     }
                 }
                 Spacer()
                 HStack(alignment: .firstTextBaseline, spacing: 0) {
-                    Text("150")
+                    Text("\(intakeManager.getCaffeineAmount(record: cellData))")
                         .font(.title)
                         .padding(.trailing, TotalListLayoutValue.Paddings.caffeineRecordAmountUnitPadding)
                     Text("mg")
@@ -308,8 +298,6 @@ struct CaffeineCell: View {
             }
             .padding(.vertical, TotalListLayoutValue.Paddings.caffeineRecordRowVerticalPadding)
             .padding(.horizontal, TotalListLayoutValue.Paddings.caffeineRecordRowHorizontalPadding)
-//            Divider()
-            
         }
     }
 }
@@ -320,10 +308,10 @@ struct TotalListView_Previews: PreviewProvider {
         
         TotalListView()
         
-        NavigationView {
-            NavigationLink("to total list") {
-                TotalListView()
-            }
-        }
+//        NavigationView {
+//            NavigationLink("to total list") {
+//                TotalListView()
+//            }
+//        }
     }
 }

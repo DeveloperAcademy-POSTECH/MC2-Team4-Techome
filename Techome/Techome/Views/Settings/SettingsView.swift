@@ -57,8 +57,7 @@ struct SettingsView: View {
                 leading: Button(action: {
                     self.presentation.wrappedValue.dismiss()
                 }) {
-                    Image(systemName: "chevron.left")
-                        .font(.headline)
+                    Text("취소")
                         .foregroundColor(.primaryBrown)
                 }
             )
@@ -73,9 +72,11 @@ struct SettingsView: View {
 struct NoticeGroup: View {
     
     @ObservedObject var notificationStateHolder = NotificationStateHolder()
+//    @State private var recordNotice: Bool = true
+//    @State private var trendNotice: Bool = true
     
-    @State private var recordNotice: Bool = true
-    @State private var trendNotice: Bool = true
+    @AppStorage(wrappedValue: true, "recordNotice") var recordNotice
+    @AppStorage(wrappedValue: true, "trendNotice") var trendNotice
     
     var body: some View {
         

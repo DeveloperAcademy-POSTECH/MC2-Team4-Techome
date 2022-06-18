@@ -11,39 +11,79 @@ final class AddCaffeineDetailStateHolder: ObservableObject {
 
     let intakeManager = IntakeManager.shared
     
-    @Published var bevergeRecord: Beverage = dummyBeverages[0]
-    @Published var isSelected: Int = 0
-    @Published var shotCount: Int = 0
-    @Published var addCaffeineAmount: Int = 0
-    var currentCaffeineAmount: Int
+    var beverge: Beverage
+    @Published var selectedSizeInfo: SizeInfo
+    @Published var addedShotCount: Int = 0
     
-    init() {
-        self.currentCaffeineAmount = intakeManager.getTodayIntakeCaffeineAmount()
-        self.shotCount = bevergeRecord.sizeInfo[isSelected].defaultShotCount
-        self.addCaffeineAmount = bevergeRecord.sizeInfo[isSelected].caffeineAmount
+    init(beverage: Beverage, size: SizeInfo) {
+        self.beverge = beverage
+        //  first optional 처리
+        selectedSizeInfo = size
     }
+    
     
     func getDefaultShot() -> Int {
-        guard isSelected >= bevergeRecord.sizeInfo.count else {
-            return 0
-        }
-        return bevergeRecord.sizeInfo[isSelected].defaultShotCount
+        return selectedSizeInfo.defaultShotCount
     }
-    func getWillAddCaffeineAmount() -> Int {
-        guard isSelected >= bevergeRecord.sizeInfo.count else {
-            return 0
-        }
-        return bevergeRecord.sizeInfo[isSelected].caffeineAmount
+    func getRemainCaffeineAmountCurrent() -> Double {
+        return intakeManager.getRemainCaffeineAmount()
     }
-    func calculatedHour(caffenineAmount: Int) -> Int {
-        let remainTimeToDischargeSecond: Int = intakeManager.getRemainTimeToDischarge(caffeine: Double(caffenineAmount))
-        let remainTimeToDischargeHour: Int = remainTimeToDischargeSecond / 3600
-        return remainTimeToDischargeHour
+    func getAddedCaffeineAmount() -> Int {
+        return selectedSizeInfo.caffeineAmount + addedShotCount * beverge.franchise.getCaffeinPerShot()
+    }
+    func getRemainCaffeineAmountAfterDrink() -> Double {
+        return getRemainCaffeineAmountCurrent() + Double(getAddedCaffeineAmount())
+    }
+    func getAddedTime() -> String {
+        let seconds = intakeManager.getRemainTimeToDischarge(caffeine: getRemainCaffeineAmountAfterDrink()) - intakeManager.getRemainTimeToDischarge(caffeine: getRemainCaffeineAmountCurrent())
+        let hours = seconds / 3600
+        let minutes = (seconds % 3600) / 60
+        
+        return "\(hours)시 \(minutes)분"
+    }
+    func getTimeToDischarge() -> String {
+        let seconds = intakeManager.getRemainTimeToDischarge(caffeine: getRemainCaffeineAmountAfterDrink())
+        let hours = seconds / 3600
+        let minutes = (seconds % 3600) / 60
+        
+        var dischargeTime = Calendar.current.date(byAdding: .hour, value: hours, to: Date()) ?? Date()
+        dischargeTime = Calendar.current.date(byAdding: .minute, value: minutes, to: dischargeTime) ?? Date()
+        
+        return Formatter.remainingTime.string(from: dischargeTime)
     }
     
-    func calculatedMinute(caffenineAmount: Int) -> Int {
-        let remainTimeToDischargeSecond: Int = intakeManager.getRemainTimeToDischarge(caffeine: Double(caffenineAmount))
-        let remainTimeToDischargeMinute: Int = (remainTimeToDischargeSecond % 3600) / 60
-        return remainTimeToDischargeMinute
-    }
+//    func calculatedHour(caffenineAmount: Int) -> Int {
+//        let remainTimeToDischargeSecond: Int = intakeManager.getRemainTimeToDischarge(caffeine: Double(caffenineAmount))
+//        let remainTimeToDischargeHour: Int = remainTimeToDischargeSecond / 3600
+//        return remainTimeToDischargeHour
+//    }
+//
+//    func calculatedMinute(caffenineAmount: Int) -> Int {
+//        let remainTimeToDischargeSecond: Int = intakeManager.getRemainTimeToDischarge(caffeine: Double(caffenineAmount))
+//        let remainTimeToDischargeMinute: Int = (remainTimeToDischargeSecond % 3600) / 60
+//        return remainTimeToDischargeMinute
+//    }
+//
+//    func calculateHours(second: Int) -> Int {
+//        return second / 3600
+//    }
+//
+//    func calculateMinutes(second: Int) -> Int {
+//        return (second % 3600) / 60
+//    }
+//
+//    func getRemainingTimeString() -> String {
+//        let caffeineAmount = intakeManager.getRemainCaffeineAmount() + Double(getRemainCaffeineAmountAfterDrink())
+//        let seconds = intakeManager.getRemainTimeToDischarge(caffeine: caffeineAmount)
+//        print("caffeineAmount: \(caffeineAmount)")
+//        print("seconds: \(seconds)")
+//
+//        let hours = calculateHours(second: seconds)
+//        let minutes = calculateHours(second: seconds)
+//        print("add: [\(hours):\(minutes)]")
+//
+//        var updatedDate = Calendar.current.date(byAdding: .hour, value: hours, to: Date()) ?? Date()
+//        updatedDate = Calendar.current.date(byAdding: .minute, value: minutes, to: updatedDate) ?? Date()
+//        return Formatter.remainingTime.string(from: updatedDate)
+//    }
 }

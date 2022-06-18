@@ -19,6 +19,7 @@ final class JSONManager {
         guard let url = urls.first else {
             fatalError("Invalid URL")
         }
+        print(url)
         
         let fileURL = url.appendingPathComponent(filename)
         
@@ -67,6 +68,8 @@ final class JSONManager {
     
     //  referenced by https://stackoverflow.com/questions/37947509/swift-how-to-determine-application-folder
     func copyBeverageData() {
+//        let franchise: String = franchise
+        
         let fileManager = FileManager.default
         let sourceUrl = URL(fileURLWithPath: Bundle.main.bundleURL.absoluteString)
         let destinationUrls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
