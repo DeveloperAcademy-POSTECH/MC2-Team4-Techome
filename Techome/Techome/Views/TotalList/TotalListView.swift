@@ -119,6 +119,7 @@ struct TotalListByDate: View {
                         }
                         .background(Color.white)
                         .offset(x: totalData.offsetsArr[curDate]?[index] ?? .zero)
+                        .animation(.spring(), value: totalData.offsetsArr[curDate]?[index] ?? .zero)
                         .gesture(
                             DragGesture()
                                 .onChanged { gesture in
