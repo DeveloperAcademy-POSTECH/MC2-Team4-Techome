@@ -28,7 +28,6 @@ struct CaffeineBookView: View {
             }
             .navigationTitle("카페인 찾아보기")
         }
-        .preferredColorScheme(.light)
     }
 }
 
