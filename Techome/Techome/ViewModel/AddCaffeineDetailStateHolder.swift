@@ -15,10 +15,10 @@ final class AddCaffeineDetailStateHolder: ObservableObject {
     @Published var selectedSizeInfo: SizeInfo
     @Published var addedShotCount: Int = 0
     
-    init(beverage: Beverage) {
+    init(beverage: Beverage, size: SizeInfo) {
         self.beverge = beverage
         //  first optional 처리
-        selectedSizeInfo = beverage.sizeInfo[0]
+        selectedSizeInfo = size
     }
     
     

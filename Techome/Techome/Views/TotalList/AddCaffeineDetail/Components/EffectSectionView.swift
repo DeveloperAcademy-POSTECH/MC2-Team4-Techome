@@ -137,7 +137,7 @@ struct EffectSectionBackground: View {
 struct EffectSectionView_Previews: PreviewProvider {
     
     static var previews: some View {
-        let addCaffeineDetailStates = AddCaffeineDetailStateHolder(beverage: dummyBeverages[0])
+        let addCaffeineDetailStates = AddCaffeineDetailStateHolder(beverage: dummyBeverages[0], size: SizeInfo(name: "Tall", caffeineAmount: 150, defaultShotCount: 2))
         EffectSectionView()
             .environmentObject(addCaffeineDetailStates)
     }

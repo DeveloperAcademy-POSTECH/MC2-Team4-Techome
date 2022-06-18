@@ -56,7 +56,7 @@ struct SatisfiedCaffeineItem: View {
     
     var body: some View {
         NavigationLink(destination: {
-            AddCaffeineDetailView(beverage: satisfiedCaffeineItem)
+            AddCaffeineDetailView(beverage: satisfiedCaffeineItem, size: satisfiedCaffeineItem.sizeInfo[0])
         }) {
             VStack(spacing: .zero) {
                 HStack(alignment: .center, spacing: .zero) {

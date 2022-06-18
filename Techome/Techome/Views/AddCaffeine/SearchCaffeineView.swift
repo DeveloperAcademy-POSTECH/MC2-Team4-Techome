@@ -91,7 +91,7 @@ struct CaffeineRecordRow: View {
     
     var body: some View {
         NavigationLink(destination: {
-            AddCaffeineDetailView(beverage: recentRecord.beverage)
+            AddCaffeineDetailView(beverage: recentRecord.beverage, size: recentRecord.size)
         }) {
             VStack(spacing: .zero) {
                 HStack(alignment: .center, spacing: .zero) {

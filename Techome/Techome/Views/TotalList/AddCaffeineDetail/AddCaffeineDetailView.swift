@@ -57,8 +57,8 @@ struct AddCaffeineDetailView: View {
     @Environment(\.presentationMode) var presentationMode
     let addCaffeineDetailStates: AddCaffeineDetailStateHolder
     
-    init(beverage: Beverage) {
-        self.addCaffeineDetailStates = AddCaffeineDetailStateHolder(beverage: beverage)
+    init(beverage: Beverage, size: SizeInfo) {
+        self.addCaffeineDetailStates = AddCaffeineDetailStateHolder(beverage: beverage, size: size)
     }
     
     var body: some View {
@@ -159,8 +159,8 @@ struct AddCaffeineButtonBackground: View {
 struct AddCaffeineDetailView_Previews: PreviewProvider {
     
     static var previews: some View {
-        let addCaffeineDetailState = AddCaffeineDetailStateHolder(beverage: dummyBeverages[0])
-        AddCaffeineDetailView(beverage: dummyBeverages[0])
+        let addCaffeineDetailState = AddCaffeineDetailStateHolder(beverage: dummyBeverages[0], size: SizeInfo(name: "Tall", caffeineAmount: 150, defaultShotCount: 2))
+        AddCaffeineDetailView(beverage: dummyBeverages[0], size: SizeInfo(name: "Tall", caffeineAmount: 150, defaultShotCount: 2))
             .environmentObject(addCaffeineDetailState)
     }
 }
