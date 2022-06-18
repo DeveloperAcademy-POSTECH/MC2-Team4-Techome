@@ -119,6 +119,7 @@ struct TotalListByDate: View {
                         }
                         .background(Color.white)
                         .offset(x: totalData.offsetsArr[curDate]?[index] ?? .zero)
+                        .animation(.spring(), value: totalData.offsetsArr[curDate]?[index] ?? .zero)
                         .gesture(
                             DragGesture()
                                 .onChanged { gesture in
@@ -152,7 +153,9 @@ struct TotalListByDate: View {
         guard totalData.offsetsArr[curDate] != nil else {
             return
         }
-        totalData.offsetsArr[curDate]?[index] = value.translation.width
+        if value.translation.width < -10 || value.translation.width > 0 {
+            totalData.offsetsArr[curDate]?[index] = value.translation.width
+        }
         if totalData.offsetsArr[curDate]?[index] ?? .zero > TotalListLayoutValue.Sizes.deleteButtonWidth {
             totalData.offsetsArr[curDate]?[index] = .zero
         }
