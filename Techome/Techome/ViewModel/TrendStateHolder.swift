@@ -6,14 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+import BarChart
 
-class TrendStateHolder: ObservableObject {
-    let intakeManager: IntakeManager = IntakeManager.shared
-    let sideEffectManager: SideEffectManager = SideEffectManager.shared
-    let intakeRecords: [IntakeRecord]
-    @Published var ChartWeekIndex: Int = 0
-    
-    init() {
-        intakeRecords = intakeManager.getDailyRecords(date: Date.now)
-    }
-}
+
+

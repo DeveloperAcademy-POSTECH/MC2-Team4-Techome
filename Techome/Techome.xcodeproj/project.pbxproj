@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1489907C285B98BC001315F3 /* TotalListStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1489907B285B98BC001315F3 /* TotalListStateHolder.swift */; };
-		2A427E292858548900089AC0 /* ChartSelectionIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A427E282858548900089AC0 /* ChartSelectionIndicatorView.swift */; };
-		2A427E2D285859D700089AC0 /* TrendChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A427E2C285859D700089AC0 /* TrendChartView.swift */; };
 		2ABF49482856DCAD000E3387 /* BarChart in Frameworks */ = {isa = PBXBuildFile; productRef = 2ABF49472856DCAD000E3387 /* BarChart */; };
 		2AE417CC285AB9EA00978C4B /* TrendStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE417CB285AB9EA00978C4B /* TrendStateHolder.swift */; };
 		5220177F2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */; };
@@ -89,8 +87,6 @@
 
 /* Begin PBXFileReference section */
 		1489907B285B98BC001315F3 /* TotalListStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalListStateHolder.swift; sourceTree = "<group>"; };
-		2A427E282858548900089AC0 /* ChartSelectionIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartSelectionIndicatorView.swift; sourceTree = "<group>"; };
-		2A427E2C285859D700089AC0 /* TrendChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendChartView.swift; sourceTree = "<group>"; };
 		2AE417CB285AB9EA00978C4B /* TrendStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendStateHolder.swift; sourceTree = "<group>"; };
 		5220177E2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineBookDetailStateHolder.swift; sourceTree = "<group>"; };
 		52201782285A16C9005A5BEC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -315,8 +311,6 @@
 			isa = PBXGroup;
 			children = (
 				AB18CCDF2856D8B300DD1C5A /* TrendView.swift */,
-				2A427E2C285859D700089AC0 /* TrendChartView.swift */,
-				2A427E282858548900089AC0 /* ChartSelectionIndicatorView.swift */,
 			);
 			path = Trend;
 			sourceTree = "<group>";
@@ -535,6 +529,7 @@
 			packageReferences = (
 				2ABF49462856DCAC000E3387 /* XCRemoteSwiftPackageReference "BarChart" */,
 				AB528BCE285C4C1E00C213C6 /* XCRemoteSwiftPackageReference "SineWaveShape" */,
+				AB528BE0285F1B5500C213C6 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = AB1FBDF02856B93300EB4F95 /* Products */;
 			projectDirPath = "";
@@ -589,7 +584,6 @@
 				DA11291228570F4C0065BD33 /* TestView_P.swift in Sources */,
 				AB18CD002856D8B300DD1C5A /* AddSideEffectView.swift in Sources */,
 				791F5461285A1C3B0066F5B1 /* NotificationStateHolder.swift in Sources */,
-				2A427E2D285859D700089AC0 /* TrendChartView.swift in Sources */,
 				5220177F2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift in Sources */,
 				AB18CCEF2856D8B300DD1C5A /* IntakeRepository.swift in Sources */,
 				AB528BD2285C599900C213C6 /* AddCaffeineDetailStateHolder.swift in Sources */,
@@ -601,7 +595,6 @@
 				52AFC4782858614E000199DF /* CaffeineBookDetailView.swift in Sources */,
 				ABC3E9572858122F0091CC8E /* TotalListView.swift in Sources */,
 				AB528BC5285C485000C213C6 /* TodayLayoutValue.swift in Sources */,
-				2A427E292858548900089AC0 /* ChartSelectionIndicatorView.swift in Sources */,
 				AB528BCA285C485000C213C6 /* RemainingCaffeineStatement.swift in Sources */,
 				AB528BDE285C59BF00C213C6 /* AddCaffeineDetailView.swift in Sources */,
 				AB528BCD285C485B00C213C6 /* MainView.swift in Sources */,
@@ -765,7 +758,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Techome/Preview Content\"";
-				DEVELOPMENT_TEAM = ZRTG6WMRW7;
+				DEVELOPMENT_TEAM = 25YUTG4RN5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Techome/Info.plist;
@@ -797,7 +790,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Techome/Preview Content\"";
-				DEVELOPMENT_TEAM = 7PQ6FMV22H;
+				DEVELOPMENT_TEAM = 25YUTG4RN5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Techome/Info.plist;
@@ -854,6 +847,14 @@
 		AB528BCE285C4C1E00C213C6 /* XCRemoteSwiftPackageReference "SineWaveShape" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MrChens/SineWaveShape?ref=iosexample.com";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		AB528BE0285F1B5500C213C6 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
