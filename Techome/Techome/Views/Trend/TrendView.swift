@@ -117,7 +117,9 @@ class TrendStateHolder: ObservableObject {
     var firstDateRecord: Date //= [IntakeRecord]().first?.date ?? Date()
     
     init() {
-        intakeRecords = intakeManager.getDailyRecords(date: Date.now)
+        intakeRecords = intakeManager.getAllRecords()
+        print("0000000000000")
+        print(intakeRecords)
         firstDateRecord = intakeRecords.first?.date ?? Date()
         
         getDateOfRecordsByWeek()
@@ -138,48 +140,81 @@ class TrendStateHolder: ObservableObject {
             }
         }
     }
+    // getDayOfWeek -> DayOfWeekOfFirstRecord
     func getDateOfRecordsByWeek() {
-        var prepareToAppend = [Date]()
-        for index in 0 ... getDayOfWeek() {
-            prepareToAppend.insert(Calendar.current.date(byAdding: .day, value: -index, to: firstDateRecord) ?? firstDateRecord, at: 0)
-            print("\(index)")
-            print(prepareToAppend)
+        var tempDates = [Date]()
+        let dayOfWeekOfFirstRecord = getDayOfWeek()
+        
+        for index in 0 ..< dayOfWeekOfFirstRecord {
+            print("11111111111111111111 \(getDayOfWeek())")
+            print("22222222222222222222 \(firstDateRecord)")
+            tempDates.insert(Calendar.current.date(byAdding: .day, value: -index, to: firstDateRecord) ?? Date(), at: 0)
+        }
+        var firstDayOfNextWeek: Date = Date().startOfDay
+        for index in dayOfWeekOfFirstRecord ..< 7 {
+            tempDates.append(Calendar.current.date(byAdding: .day, value: index - dayOfWeekOfFirstRecord, to: firstDateRecord) ?? Date())
+            firstDayOfNextWeek = Calendar.current.date(byAdding: .day, value: index - dayOfWeekOfFirstRecord + 1, to: firstDateRecord)?.startOfDay ?? Date().startOfDay
         }
         
-        print("-----------------------------------------")
-        for index in getDayOfWeek()+1 ..< 7 {
-            prepareToAppend.insert(Calendar.current.date(byAdding: .day, value: index, to: firstDateRecord) ?? firstDateRecord, at: 0)
-            print("\(index)")
-            print(prepareToAppend)
-            print("---------------------------------------")
-
-        }
-        dateOfRecordsByWeek.append(prepareToAppend)
-        print("\(dateOfRecordsByWeek)")
-        prepareToAppend = [Date]()
-        let firstDayOfSecondWeek = Calendar.current.date(byAdding: .day, value: 7 - getDayOfWeek(), to: firstDateRecord) ?? Date()
-        print("------------------adfadf")
-        print(firstDateRecord)
-        print(firstDayOfSecondWeek)
-        var addedDate = firstDayOfSecondWeek
-        print("today:\( Date())")
-        print("today:\( Date().startOfDay)")
-        while addedDate.startOfDay <= Date().startOfDay {
-            print("input: \(addedDate)")
-            for _ in 0 ..< 7 {
-                let newDate = Calendar.current.date(byAdding: .day , value: 1, to: addedDate)
-                prepareToAppend.insert(newDate ?? Date(), at: 0)
-                addedDate = newDate ?? Date()
+        dateOfRecordsByWeek.append(tempDates)
+        tempDates.removeAll()
+        
+        print("3333333333333333333333 \(firstDayOfNextWeek)")
+        
+        var addedDate = firstDayOfNextWeek
+        
+        while addedDate <= Date().startOfDay {
+            for index in 0 ..< 7 {
+                tempDates.append(Calendar.current.date(byAdding: .day, value: index, to: addedDate) ?? Date())
             }
-            dateOfRecordsByWeek.append(prepareToAppend)
+            dateOfRecordsByWeek.append(tempDates)
+            addedDate = Calendar.current.date(byAdding: .day, value: 7, to: addedDate) ?? Date()
         }
-        weekChartCount = dateOfRecordsByWeek.count-1
-        print("----------------------")
+        print("4444444444444444444444444")
         print(dateOfRecordsByWeek)
+        
+        
+//        var prepareToAppend = [Date]()
+//        for index in 0 ... getDayOfWeek() {
+//            prepareToAppend.insert(Calendar.current.date(byAdding: .day, value: -index, to: firstDateRecord) ?? firstDateRecord, at: 0)
+//            print("\(index)")
+//            print(prepareToAppend)
+//        }
+//
+//        print("-----------------------------------------")
+//        for index in getDayOfWeek()+1 ..< 7 {
+//            prepareToAppend.insert(Calendar.current.date(byAdding: .day, value: index, to: firstDateRecord) ?? firstDateRecord, at: 0)
+//            print("\(index)")
+//            print(prepareToAppend)
+//            print("---------------------------------------")
+//
+//        }
+//        dateOfRecordsByWeek.append(prepareToAppend)
+//        print("\(dateOfRecordsByWeek)")
+//        prepareToAppend = [Date]()
+//        let firstDayOfSecondWeek = Calendar.current.date(byAdding: .day, value: 7 - getDayOfWeek(), to: firstDateRecord) ?? Date()
+//        print("------------------adfadf")
+//        print(firstDateRecord)
+//        print(firstDayOfSecondWeek)
+//        var addedDate = firstDayOfSecondWeek
+//        print("today:\( Date())")
+//        print("today:\( Date().startOfDay)")
+//        while addedDate.startOfDay <= Date().startOfDay {
+//            print("input: \(addedDate)")
+//            for _ in 0 ..< 7 {
+//                let newDate = Calendar.current.date(byAdding: .day , value: 1, to: addedDate)
+//                prepareToAppend.insert(newDate ?? Date(), at: 0)
+//                addedDate = newDate ?? Date()
+//            }
+//            dateOfRecordsByWeek.append(prepareToAppend)
+//        }
+//        weekChartCount = dateOfRecordsByWeek.count-1
+//        print("----------------------")
+//        print(dateOfRecordsByWeek)
     }
     
     func getDayOfWeek() -> Int {
-        return 1
+        return 3
     }
 }
 enum DayOfWeek: Int {
