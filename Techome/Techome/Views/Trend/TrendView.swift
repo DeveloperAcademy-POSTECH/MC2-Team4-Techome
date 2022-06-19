@@ -173,48 +173,17 @@ class TrendStateHolder: ObservableObject {
         print("4444444444444444444444444")
         print(dateOfRecordsByWeek)
         
-        
-//        var prepareToAppend = [Date]()
-//        for index in 0 ... getDayOfWeek() {
-//            prepareToAppend.insert(Calendar.current.date(byAdding: .day, value: -index, to: firstDateRecord) ?? firstDateRecord, at: 0)
-//            print("\(index)")
-//            print(prepareToAppend)
-//        }
-//
-//        print("-----------------------------------------")
-//        for index in getDayOfWeek()+1 ..< 7 {
-//            prepareToAppend.insert(Calendar.current.date(byAdding: .day, value: index, to: firstDateRecord) ?? firstDateRecord, at: 0)
-//            print("\(index)")
-//            print(prepareToAppend)
-//            print("---------------------------------------")
-//
-//        }
-//        dateOfRecordsByWeek.append(prepareToAppend)
-//        print("\(dateOfRecordsByWeek)")
-//        prepareToAppend = [Date]()
-//        let firstDayOfSecondWeek = Calendar.current.date(byAdding: .day, value: 7 - getDayOfWeek(), to: firstDateRecord) ?? Date()
-//        print("------------------adfadf")
-//        print(firstDateRecord)
-//        print(firstDayOfSecondWeek)
-//        var addedDate = firstDayOfSecondWeek
-//        print("today:\( Date())")
-//        print("today:\( Date().startOfDay)")
-//        while addedDate.startOfDay <= Date().startOfDay {
-//            print("input: \(addedDate)")
-//            for _ in 0 ..< 7 {
-//                let newDate = Calendar.current.date(byAdding: .day , value: 1, to: addedDate)
-//                prepareToAppend.insert(newDate ?? Date(), at: 0)
-//                addedDate = newDate ?? Date()
-//            }
-//            dateOfRecordsByWeek.append(prepareToAppend)
-//        }
-//        weekChartCount = dateOfRecordsByWeek.count-1
-//        print("----------------------")
-//        print(dateOfRecordsByWeek)
+        weekChartCount = dateOfRecordsByWeek.count
     }
     
     func getDayOfWeek() -> Int {
-        return 3
+        let firstDate = intakeRecords.first?.date ?? Date()
+        let firstDateDayOfWeekString = SetEntries.getDayOfWeek(firstDate)
+        let dayOfWeekDict = ["일" : DayOfWeek.일, "월" : DayOfWeek.월, "화" : DayOfWeek.화, "수" : DayOfWeek.수, "목" : DayOfWeek.목, "금" : DayOfWeek.금, "토" : DayOfWeek.토]
+        
+        let dayOfWeekDictnum: DayOfWeek = dayOfWeekDict[firstDateDayOfWeekString] ?? .일
+        
+        return dayOfWeekDictnum.rawValue
     }
 }
 enum DayOfWeek: Int {
@@ -248,7 +217,7 @@ struct TrendChart: View {
         //HStack() {
         TabView(selection: $trendStates.weekChartCount) {
             //TODO: 임시 데이터 수
-            ForEach(0 ..< trendStates.weekChartCount) { chartIndex in
+            ForEach(0 ..< trendStates.weekChartCount, id: \.self) { chartIndex in
                 VStack(alignment: .leading, spacing: .zero) {
                     AverageCaffeineAmountForWeek(trendStates: trendStates)
                         .padding(TrendViewLayoutValue.Paddings.averageCaffeineAmountPadding)
@@ -282,15 +251,16 @@ struct AverageCaffeineAmountForWeek: View {
     @StateObject var trendStates: TrendStateHolder
     
     func getAverageAmount() -> Int {
-        var averageAmount = 0
-        var intakeCaffeineIndex = 0
-        for entryIndex in 0 ..< 7 {
-            averageAmount += trendStates.intakeManager.getDailyIntakeCaffeineAmount(date: trendStates.dateOfRecordsByWeek[trendStates.weekChartCount][entryIndex])
-            if trendStates.intakeManager.getDailyIntakeCaffeineAmount(date: trendStates.dateOfRecordsByWeek[trendStates.weekChartCount][entryIndex]) != 0 {
-                intakeCaffeineIndex += 1
-            }
-        }
-        return averageAmount / intakeCaffeineIndex
+//        var averageAmount = 0
+//        var intakeCaffeineIndex = 0
+//        for entryIndex in 0 ..< 7 {
+//            averageAmount += trendStates.intakeManager.getDailyIntakeCaffeineAmount(date: trendStates.dateOfRecordsByWeek[trendStates.weekChartCount][entryIndex])
+//            if trendStates.intakeManager.getDailyIntakeCaffeineAmount(date: trendStates.dateOfRecordsByWeek[trendStates.weekChartCount][entryIndex]) != 0 {
+//                intakeCaffeineIndex += 1
+//            }
+//        }
+        return 300
+        
     }
     
     var body: some View {
@@ -310,9 +280,9 @@ struct AverageCaffeineAmountForWeek: View {
             }
             .padding(.bottom, TrendViewLayoutValue.Paddings.averageCaffeineWeekPadding)
             HStack(spacing:0) {
-                Text(Formatter.date.string(from:  trendStates.dateOfRecordsByWeek[trendStates.weekChartCount][0]))
+                Text(Formatter.date.string(from:  trendStates.dateOfRecordsByWeek[trendStates.weekChartCount - 1][0]))
                 Text("~")
-                Text(Formatter.date.string(from: trendStates.dateOfRecordsByWeek[trendStates.weekChartCount][6]))
+                Text(Formatter.date.string(from: trendStates.dateOfRecordsByWeek[trendStates.weekChartCount - 1][6]))
             }
             .font(.body)
             .foregroundColor(.secondaryTextGray)

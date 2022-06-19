@@ -71,7 +71,7 @@ struct TrendChartView: View {
                         config.data.color = trendStates.sideEffectManager.getDailyRecords(date: Date.now).count == 0 ? .tertiaryBrown : .customRed
                         //TODO: 차트 데이터 삽입 테스트
                         for entryIndex in 0 ..< 7 {
-                            config.data.entries[entryIndex].y = Double(trendStates.intakeManager.getDailyIntakeCaffeineAmount(date: trendStates.dateOfRecordsByWeek[trendStates.weekChartCount][entryIndex]))
+                            config.data.entries[entryIndex].y = Double(trendStates.intakeManager.getDailyIntakeCaffeineAmount(date: trendStates.dateOfRecordsByWeek[trendStates.weekChartCount - 1][entryIndex]))
                         }
                         config.initTicksColor()
                         config.initTicksStyle()
