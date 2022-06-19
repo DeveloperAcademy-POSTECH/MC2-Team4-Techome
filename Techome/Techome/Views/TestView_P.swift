@@ -118,26 +118,34 @@ struct TestView_P: View {
             }) {
                 Text("음료 검색하기")
             }
-
-            Button(action: {
-                print("[오늘 마신 카페인 양]")
-                print(intakeManager.getTodayIntakeCaffeineAmount())
-            }) {
-                Text("오늘 카페인 섭취량")
-            }
             
-            Button(action: {
-                print("[잔존량]")
-                print(Int(intakeManager.getRemainCaffeineAmount()))
+            VStack {
+                Button(action: {
+                    print("[오늘 마신 카페인 양]")
+                    print(intakeManager.getTodayIntakeCaffeineAmount())
+                }) {
+                    Text("오늘 카페인 섭취량")
+                }
                 
-                let time = intakeManager.getRemainTimeToDischarge(caffeine: intakeManager.getRemainCaffeineAmount())
-                let hours = time / 3600
-                let minutes = (time % 3600) / 60
-                let seconds = time % 60
-                print("[배출까지 남은 시간")
-                print("[\(String(format: "%02d", hours)):\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))]")
-            }) {
-                Text("잔존량 & 배출까지 남은 시간")
+                Button(action: {
+                    print("[잔존량]")
+                    print(Int(intakeManager.getRemainCaffeineAmount()))
+                    
+                    let time = intakeManager.getRemainTimeToDischarge(caffeine: intakeManager.getRemainCaffeineAmount())
+                    let hours = time / 3600
+                    let minutes = (time % 3600) / 60
+                    let seconds = time % 60
+                    print("[배출까지 남은 시간")
+                    print("[\(String(format: "%02d", hours)):\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))]")
+                }) {
+                    Text("잔존량 & 배출까지 남은 시간")
+                }
+                
+                Button(action: {
+                    JSONManager.shared.store(data: dummyEdiyaCoffeeBeverages, filename: "EdiyaCoffeeData.json")
+                }) {
+                    Text("음료 json파일 만들기")
+                }
             }
         }
     }

@@ -11,7 +11,7 @@ struct FranchiseRow: View {
     @EnvironmentObject var stateHolder: CaffenineBookStateHolder
     
     var body: some View {
-        ScrollView(.horizontal) {
+        ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: .zero) {
                 ForEach(stateHolder.franchises, id: \.self) { franchise in
                     FranchiseCell(franchise: franchise,

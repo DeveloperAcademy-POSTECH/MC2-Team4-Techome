@@ -84,6 +84,7 @@
 		DA11291228570F4C0065BD33 /* TestView_P.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11291128570F4C0065BD33 /* TestView_P.swift */; };
 		DA8E714928581674009836DE /* IntakeRecord.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8E714728581674009836DE /* IntakeRecord.json */; };
 		DA8E714A28581674009836DE /* SideEffectRecord.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8E714828581674009836DE /* SideEffectRecord.json */; };
+		DAB95679285EF1D500DBFA0D /* EdiyaCoffeeData.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB95678285EF1D500DBFA0D /* EdiyaCoffeeData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -163,6 +164,7 @@
 		DA11291128570F4C0065BD33 /* TestView_P.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView_P.swift; sourceTree = "<group>"; };
 		DA8E714728581674009836DE /* IntakeRecord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = IntakeRecord.json; sourceTree = "<group>"; };
 		DA8E714828581674009836DE /* SideEffectRecord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SideEffectRecord.json; sourceTree = "<group>"; };
+		DAB95678285EF1D500DBFA0D /* EdiyaCoffeeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EdiyaCoffeeData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +253,7 @@
 		AB18CCD22856D8B300DD1C5A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DAB95678285EF1D500DBFA0D /* EdiyaCoffeeData.json */,
 				7980FF40285DBE0300E4FF0B /* TwosomePlaceData.json */,
 				ABC0E9482859CD780046C9C8 /* BeverageData.json */,
 				DA8E714728581674009836DE /* IntakeRecord.json */,
@@ -546,6 +549,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABC0E9492859CD780046C9C8 /* BeverageData.json in Resources */,
+				DAB95679285EF1D500DBFA0D /* EdiyaCoffeeData.json in Resources */,
 				DA8E714928581674009836DE /* IntakeRecord.json in Resources */,
 				7980FF41285DBE0300E4FF0B /* TwosomePlaceData.json in Resources */,
 				DA8E714A28581674009836DE /* SideEffectRecord.json in Resources */,
