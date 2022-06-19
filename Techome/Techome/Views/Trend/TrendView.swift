@@ -88,7 +88,8 @@ struct TrendView: View {
                         TrendChart(trendStates: trendStates, selectedBarTopCentreLocation: $selectedBarTopCentreLocation, selectedEntry: $selectedEntry)
                         selectionCaffeineSideEffectLabelView(selectedBarTopCentreLocation: $selectedBarTopCentreLocation, selectedEntry: $selectedEntry)
                         NavigationLink {
-                            
+                            TotalListView()
+                                .environmentObject(TotalListStateHolder())
                         } label: {
                             Text("전체 리스트 보기")
                                 .font(.subheadline)
