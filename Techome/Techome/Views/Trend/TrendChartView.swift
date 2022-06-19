@@ -35,6 +35,7 @@ struct TrendChartView: View {
     @StateObject var trendStates: TrendStateHolder
     @Binding var selectedBarTopCentreLocation: CGPoint?
     @Binding var selectedEntry: ChartDataEntry?
+    @Binding var selectionIdx: Int
     var selectedYIndex = 0
     
     
@@ -71,14 +72,14 @@ struct TrendChartView: View {
                         config.data.color = trendStates.sideEffectManager.getDailyRecords(date: Date.now).count == 0 ? .tertiaryBrown : .customRed
                         //TODO: 차트 데이터 삽입 테스트
                         for entryIndex in 0 ..< 7 {
-                            config.data.entries[entryIndex].y = Double(trendStates.intakeManager.getDailyIntakeCaffeineAmount(date: trendStates.dateOfRecordsByWeek[trendStates.weekChartCount - 1][entryIndex]))
+                            config.data.entries[entryIndex].y = Double(trendStates.intakeManager.getDailyIntakeCaffeineAmount(date: trendStates.dateOfRecordsByWeek[selectionIdx][entryIndex]))
                         }
                         config.initTicksColor()
                         config.initTicksStyle()
                         config.initLabelsColor()
                         config.setLabelFont()
                         config.yUnitFormatter()
-                        
+                        print(selectionIdx)
                     }
                     .onDisappear() {
                         self.selectedBarTopCentreLocation = nil
@@ -96,7 +97,7 @@ struct TrendChartView: View {
     func selectionIndicatorView() -> some View {
         Group {
             if self.selectedEntry != nil && self.selectedBarTopCentreLocation != nil {
-                ChartSelectionIndicatorView(trendStates: trendStates, dateIndex: TrendView().isSelectedChartCell(), entry: self.selectedEntry!,
+                ChartSelectionIndicatorView(trendStates: trendStates, dateIndex: TrendView().isSelectedChartCell(), selectionIdx: $selectionIdx, entry: self.selectedEntry!,
                                             location: self.selectedBarTopCentreLocation?.x ?? 0)
             } else {
                 Rectangle().foregroundColor(.clear)
