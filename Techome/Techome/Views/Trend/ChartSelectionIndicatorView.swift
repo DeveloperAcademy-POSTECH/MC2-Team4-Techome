@@ -11,15 +11,17 @@ import BarChart
 ///https://github.com/romanbaitaliuk/BarChart
 struct ChartSelectionIndicatorView: View {
     @StateObject var trendStates: TrendStateHolder
-    var dayIndex = 0
+    var dateIndex: Int
     func getDay(_ today:Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY.MM.dd"
         let currentDateString: String = dateFormatter.string(from: today)
-        return currentDateString    }
-    
+        return currentDateString
+    }
+    //let xAxis: XAxisReference
     let entry: ChartDataEntry
     let location: CGFloat
+    //let entries: [ChartDataEntry]
     
     var body: some View {
         GeometryReader { proxy in
@@ -30,8 +32,9 @@ struct ChartSelectionIndicatorView: View {
                 Text("\(Int(self.entry.y))mg")
                     .font(.title)
                     .fontWeight(.bold)
-                Text(getDay(trendStates.dateOfRecordsByWeek[trendStates.weekChartCount][entry.x.count]))
+                Text(getDay(trendStates.dateOfRecordsByWeek[trendStates.weekChartCount][dateIndex]))
                     .font(.footnote).foregroundColor(.black)
+                //Text("\(entries.endIndex)")
             }
             .padding(.horizontal, TrendViewLayoutValue.Paddings.chartInsidePadding)
             .padding(.vertical, TrendViewLayoutValue.Paddings.chartIndicatorVertical)

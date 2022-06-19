@@ -19,7 +19,7 @@ struct ChartLayoutValue {
         static let infoRectangleWidth: CGFloat = 130
         static let selectionLineWidth: CGFloat = 2.5
         static let moveSelectionLineY: CGFloat = -10
-        static let drawSelectionLineY: CGFloat = 170
+        static let drawSelectionLineY: CGFloat = 150
     }
 }
 
@@ -33,9 +33,12 @@ struct TrendChartView: View {
     @State private var isXAxisTicksHidden: Bool = false
     //@Binding var index: Int
     @StateObject var trendStates: TrendStateHolder
-    @State private var selectedBarTopCentreLocation: CGPoint?
-    @State private var selectedEntry: ChartDataEntry?
-
+    @Binding var selectedBarTopCentreLocation: CGPoint?
+    @Binding var selectedEntry: ChartDataEntry?
+    var selectedYIndex = 0
+    
+    
+    
     var body: some View {
         
         ZStack {
@@ -45,6 +48,8 @@ struct TrendChartView: View {
                     self.selectedBarTopCentreLocation = nil
                 }
             VStack(alignment: .leading, spacing: .zero) {
+                //Text("\(config.data.entries.count)")
+                    //.font(.largeTitle)
                 selectionIndicatorView()
                 SelectableBarChartView<SelectionLine>(config: self.config)
                     .onBarSelection { entry, location in
@@ -67,13 +72,13 @@ struct TrendChartView: View {
                         //TODO: 차트 데이터 삽입 테스트
                         for entryIndex in 0 ..< 7 {
                             config.data.entries[entryIndex].y = Double(trendStates.intakeManager.getDailyIntakeCaffeineAmount(date: trendStates.dateOfRecordsByWeek[trendStates.weekChartCount][entryIndex]))
-                            print(entryIndex)
                         }
                         config.initTicksColor()
                         config.initTicksStyle()
                         config.initLabelsColor()
                         config.setLabelFont()
                         config.yUnitFormatter()
+                        
                     }
                     .onDisappear() {
                         self.selectedBarTopCentreLocation = nil
@@ -91,7 +96,7 @@ struct TrendChartView: View {
     func selectionIndicatorView() -> some View {
         Group {
             if self.selectedEntry != nil && self.selectedBarTopCentreLocation != nil {
-                ChartSelectionIndicatorView(trendStates: trendStates, entry: self.selectedEntry!,
+                ChartSelectionIndicatorView(trendStates: trendStates, dateIndex: TrendView().isSelectedChartCell(), entry: self.selectedEntry!,
                                             location: self.selectedBarTopCentreLocation?.x ?? 0)
             } else {
                 Rectangle().foregroundColor(.clear)
