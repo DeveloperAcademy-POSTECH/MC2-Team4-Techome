@@ -13,8 +13,8 @@ struct CaffeineBookView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: .zero) {
-                CategoryRow()
-                    .environmentObject(stateHolder)
+//                CategoryRow()
+//                    .environmentObject(stateHolder)
                 
                 if stateHolder.selectedCategory == .franchise {
                     FranchiseRow()

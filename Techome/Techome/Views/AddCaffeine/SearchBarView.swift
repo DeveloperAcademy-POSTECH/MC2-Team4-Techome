@@ -23,6 +23,7 @@ struct SearchBarView: View {
                 .disableAutocorrection(true)
                 .multilineTextAlignment(.leading)
                 .foregroundColor(.customBlack)
+                .environment(\.colorScheme, .light)
                 .overlay(
                     Image(systemName: "xmark.circle.fill")
                         .foregroundColor(.primaryBrown)
