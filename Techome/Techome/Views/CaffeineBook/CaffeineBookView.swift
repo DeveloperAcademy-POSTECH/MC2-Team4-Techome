@@ -16,10 +16,19 @@ struct CaffeineBookView: View {
 //                CategoryRow()
 //                    .environmentObject(stateHolder)
                 
-                if stateHolder.selectedCategory == .franchise {
-                    FranchiseRow()
-                        .environmentObject(stateHolder)
-                }
+//                if stateHolder.selectedCategory == .franchise {
+                FranchiseRow()
+                    .background {
+                        VStack(spacing: .zero) {
+                            Spacer()
+                            
+                            Rectangle()
+                                .frame(height: CaffeineBookLayoutValue.Size.TopBar.Line.height.rawValue)
+                                .foregroundColor(.secondaryShadowGray)
+                        }
+                    }
+                    .environmentObject(stateHolder)
+//                }
                 
                 BeverageList()
                     .frame(width: screenWidth)

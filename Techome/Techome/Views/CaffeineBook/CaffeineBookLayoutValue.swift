@@ -46,7 +46,8 @@ enum CaffeineBookLayoutValue {
             }
             
             enum Line: CGFloat {
-                case height = 3
+                case height = 1
+                case selectedCellHeight = 3
             }
         }
         

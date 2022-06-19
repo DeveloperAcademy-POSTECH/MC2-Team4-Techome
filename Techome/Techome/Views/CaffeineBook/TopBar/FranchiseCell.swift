@@ -23,11 +23,11 @@ struct FranchiseCell: View {
                 .padding(.bottom, CaffeineBookLayoutValue.Padding.TopBar.Franchise.bottom.rawValue)
                 .padding(.horizontal, CaffeineBookLayoutValue.Padding.TopBar.Franchise.horizontal.rawValue)
             
-            Rectangle()
-                .frame(height: CaffeineBookLayoutValue.Size.TopBar.Line.height.rawValue)
-                .foregroundColor(isSelected
-                                 ? .primaryBrown
-                                 : .white)
+            if isSelected {
+                Rectangle()
+                    .frame(height: CaffeineBookLayoutValue.Size.TopBar.Line.selectedCellHeight.rawValue)
+                    .foregroundColor(.primaryBrown)
+            }
         }
     }
 }
