@@ -48,27 +48,17 @@ struct TrendViewLayoutValue {
 
 struct TrendView: View {
     @StateObject var trendStates: TrendStateHolder = TrendStateHolder()
-    @State private var selectedBarTopCentreLocation: CGPoint? = nil
-    @State private var selectedEntry: ChartDataEntry? = nil
-    @State private var selectionIdx = 0
     @State private var dailySideEffects: [SideEffect] = []
     @State private var caffeineWeekRecords: [IntakeRecord] = []
-    func isSelectedChartCell() -> Int {
-        for entryIndex in 0 ..< 7 {
-            if selectedEntry?.y == Double(trendStates.intakeManager.getDailyIntakeCaffeineAmount(date: trendStates.dateOfRecordsByWeek[selectionIdx][entryIndex])) && selectedEntry?.x == SetEntries.getDayOfWeek(trendStates.dateOfRecordsByWeek[selectionIdx][entryIndex]) {
-                return entryIndex
-            }
-        }
-        return 0
-    }
+
     
     struct selectionCaffeineSideEffectLabelView: View {
-        @Binding var selectedBarTopCentreLocation: CGPoint?
-        @Binding var selectedEntry: ChartDataEntry?
         @Binding var dailySideEffects: [SideEffect]
         @Binding var caffeineWeekRecords: [IntakeRecord]
+        @StateObject var trendStates: TrendStateHolder
+        
         var body: some View {
-                if self.selectedEntry != nil && self.selectedBarTopCentreLocation != nil {
+            if trendStates.selectedEntry != nil && trendStates.selectedBarTopCentreLocation != nil {
                     Group {
                         SideEffectRecordsByDay(dailySideEffects: $dailySideEffects)
                         CaffeineRecordsByDay(caffeineWeekRecords: $caffeineWeekRecords)
@@ -90,9 +80,9 @@ struct TrendView: View {
                 
                 ScrollView {
                     VStack(spacing: .zero) {
-                        Text("\(selectionIdx)")
-                        TrendChart(trendStates: trendStates, selectedBarTopCentreLocation:$selectedBarTopCentreLocation, selectedEntry: $selectedEntry,  selectionIdx: $selectionIdx)
-                        selectionCaffeineSideEffectLabelView(selectedBarTopCentreLocation: $selectedBarTopCentreLocation, selectedEntry: $selectedEntry, dailySideEffects: $dailySideEffects, caffeineWeekRecords: $caffeineWeekRecords)
+                        Text("\(trendStates.selectionIdx)")
+                        TrendChart(trendStates: trendStates)
+                        selectionCaffeineSideEffectLabelView( dailySideEffects: $dailySideEffects, caffeineWeekRecords: $caffeineWeekRecords, trendStates: trendStates)
                         NavigationLink {
                             TotalListView()
                                 .environmentObject(TotalListStateHolder())
@@ -115,8 +105,10 @@ class TrendStateHolder: ObservableObject {
     let intakeManager: IntakeManager = IntakeManager.shared
     let sideEffectManager: SideEffectManager = SideEffectManager.shared
     var intakeRecords: [IntakeRecord]
-    @Published var ChartWeekIndex: Int = 0
+    var ChartWeekIndex: Int = 0
     @Published var selectionIdx = 0
+    @Published var selectedBarTopCentreLocation: CGPoint? = nil
+    @Published var selectedEntry: ChartDataEntry? = nil
     var dateOfRecords: [Date] = [Date]()
     var dateOfRecordsByWeek = [[Date]]()
     var weekChartCount: Int = 0
@@ -129,6 +121,15 @@ class TrendStateHolder: ObservableObject {
         firstDateRecord = intakeRecords.first?.date ?? Date()
         
         getDateOfRecordsByWeek()
+    }
+    
+    func isSelectedChartCell() -> Int {
+        for entryIndex in 0 ..< 7 {
+            if selectedEntry?.y == Double(intakeManager.getDailyIntakeCaffeineAmount(date: dateOfRecordsByWeek[selectionIdx][entryIndex])) && selectedEntry?.x == SetEntries.getDayOfWeek(dateOfRecordsByWeek[selectionIdx][entryIndex]) {
+                return entryIndex
+            }
+        }
+        return 0
     }
     //TODO: 리팩토링
     func getDateOfRecords() {
@@ -218,16 +219,14 @@ extension Date {
 
 struct TrendChart: View {
     @StateObject var trendStates: TrendStateHolder
-    @Binding var selectedBarTopCentreLocation: CGPoint?
-    @Binding var selectedEntry: ChartDataEntry?
-    @Binding var selectionIdx: Int
+   
     var body: some View {
         //HStack() {
-        TabView(selection: $selectionIdx) {
+        TabView(selection: $trendStates.selectionIdx) {
             //TODO: 임시 데이터 수
             ForEach(0 ..< trendStates.weekChartCount, id: \.self) { chartIndex in
                 VStack(alignment: .leading, spacing: .zero) {
-                    AverageCaffeineAmountForWeek(trendStates: trendStates, selectionIdx: $selectionIdx)
+                    AverageCaffeineAmountForWeek(trendStates: trendStates)
                         .padding(TrendViewLayoutValue.Paddings.averageCaffeineAmountPadding)
                     HStack(alignment: .center, spacing: .zero) {
                         Spacer()
@@ -240,8 +239,9 @@ struct TrendChart: View {
                             .foregroundColor(.secondaryTextGray)
                     }
                     .padding(.trailing, TrendViewLayoutValue.Paddings.chartInsidePadding)
-                    TrendChartView(trendStates: trendStates, selectedBarTopCentreLocation: $selectedBarTopCentreLocation, selectedEntry: $selectedEntry, selectionIdx: $selectionIdx)
+                    TrendChartView(trendStates: trendStates)
                 }
+                .tag(chartIndex)
                 .frame(maxWidth: TrendViewLayoutValue.Sizes.cardWidth, alignment: .leading)
                 .background(CardBackground())
                 .padding(TrendViewLayoutValue.Paddings.chartPadding)
@@ -249,17 +249,18 @@ struct TrendChart: View {
             }
             
         }
+
         .frame(width: TrendViewLayoutValue.Sizes.mainWidth, height: TrendViewLayoutValue.Sizes.chartHeight, alignment: .center)
         .tabViewStyle(.page(indexDisplayMode: .never))
         .onAppear {
-            selectionIdx = trendStates.weekChartCount - 1
+            trendStates.selectionIdx = trendStates.weekChartCount - 1
         }
     }
 }
 
 struct AverageCaffeineAmountForWeek: View {
     @StateObject var trendStates: TrendStateHolder
-    @Binding var selectionIdx: Int
+   
     func getAverageAmount() -> Int {
 //        var averageAmount = 0
 //        var intakeCaffeineIndex = 0
@@ -290,9 +291,9 @@ struct AverageCaffeineAmountForWeek: View {
             }
             .padding(.bottom, TrendViewLayoutValue.Paddings.averageCaffeineWeekPadding)
             HStack(spacing:0) {
-                Text(Formatter.date.string(from:  trendStates.dateOfRecordsByWeek[selectionIdx][0]))
+                Text(Formatter.date.string(from:  trendStates.dateOfRecordsByWeek[trendStates.selectionIdx][0]))
                 Text("~")
-                Text(Formatter.date.string(from: trendStates.dateOfRecordsByWeek[selectionIdx][6]))
+                Text(Formatter.date.string(from: trendStates.dateOfRecordsByWeek[trendStates.selectionIdx][6]))
             }
             .font(.body)
             .foregroundColor(.secondaryTextGray)
@@ -303,8 +304,8 @@ struct AverageCaffeineAmountForWeek: View {
 struct SideEffectRecordsByDay: View {
     let trendStates = TrendStateHolder()
     @Binding var dailySideEffects: [SideEffect]
-    let SelectedChartIndex = TrendView().isSelectedChartCell()
-    @Binding var selectionIdx: Int
+    var SelectedChartIndex: Int { trendStates.isSelectedChartCell() }
+   
 
     var body: some View {
         VStack(alignment: .leading, spacing: TrendViewLayoutValue.Paddings.sideEffectRecordCellVerticalPadding) {
@@ -319,7 +320,7 @@ struct SideEffectRecordsByDay: View {
         }
         .frame(width: TrendViewLayoutValue.Sizes.cardWidth, alignment: .leading)
         .onAppear {
-            dailySideEffects = trendStates.sideEffectManager.getDailyRecords(date: trendStates.dateOfRecordsByWeek[selectionIdx][SelectedChartIndex])
+            dailySideEffects = trendStates.sideEffectManager.getDailyRecords(date: trendStates.dateOfRecordsByWeek[trendStates.selectionIdx][SelectedChartIndex])
         }
     }
 }
@@ -341,8 +342,8 @@ struct SideEffectRecordItem: View {
 struct CaffeineRecordsByDay: View {
     let trendStates = TrendStateHolder()
     @Binding var caffeineWeekRecords: [IntakeRecord]
-    let SelectedChartIndex = TrendView().isSelectedChartCell()
-    @Binding var selectionIdx: Int
+    var SelectedChartIndex: Int { trendStates.isSelectedChartCell() }
+   
     
     var body: some View {
         LazyVStack(spacing: .zero) {
@@ -353,7 +354,8 @@ struct CaffeineRecordsByDay: View {
         }
         .frame(width: TrendViewLayoutValue.Sizes.cardWidth)
         .onAppear {
-            caffeineWeekRecords = trendStates.intakeManager.getDailyRecords(date: trendStates.dateOfRecordsByWeek[selectionIdx][SelectedChartIndex])
+            caffeineWeekRecords = trendStates.intakeManager.getDailyRecords(date: trendStates.dateOfRecordsByWeek[trendStates.selectionIdx][SelectedChartIndex])
+            print("123123123123123 \(SelectedChartIndex)")
         }
     }
 }

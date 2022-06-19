@@ -12,7 +12,6 @@ import BarChart
 struct ChartSelectionIndicatorView: View {
     @StateObject var trendStates: TrendStateHolder
     var dateIndex: Int
-    @Binding var selectionIdx: Int
     func getDay(_ today:Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY.MM.dd"
@@ -31,7 +30,7 @@ struct ChartSelectionIndicatorView: View {
                 Text("\(Int(self.entry.y))mg")
                     .font(.title)
                     .fontWeight(.bold)
-                Text(getDay(trendStates.dateOfRecordsByWeek[selectionIdx][dateIndex]))
+                Text(getDay(trendStates.dateOfRecordsByWeek[trendStates.selectionIdx][dateIndex]))
                     .font(.footnote).foregroundColor(.black)
                 //Text("\(entries.endIndex)")
             }
