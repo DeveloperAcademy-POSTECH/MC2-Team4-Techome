@@ -151,7 +151,7 @@ extension Date {
 
 struct ChartsView: View {
     @ObservedObject var trendStates: TrendStateHolder
-    let intakeManager = IntakeManager.shared
+    @State private var intakeManager = IntakeManager.shared
     let sideEffectManager = SideEffectManager.shared
     let dayOfWeekString = ["일", "월", "화", "수", "목", "금", "토"]
     let columns: [GridItem] = [
@@ -167,7 +167,7 @@ struct ChartsView: View {
     @State var dayIndex: Int? = nil
     var dailySideEffects = [SideEffect]()
     @State var zStackIndex = Array(repeating: Double(0.0), count: 7)
-    
+    //@State private var count = 0
     func getDailyAvarageAmount() -> Int {
         var averageAmount = 0
         var count = 0
@@ -176,6 +176,9 @@ struct ChartsView: View {
             if intakeManager.getDailyIntakeCaffeineAmount(date: trendStates.dateOfRecordsByWeek[tabViewIndex][entryIndex]) != 0 {
                 count += 1
             }
+        }
+        if count == 0 {
+            return 0
         }
         return averageAmount / count
     }
@@ -300,7 +303,7 @@ struct ChartsView: View {
                             }
                         }
                         .padding(.vertical, TotalListLayoutValue.Paddings.sideEffectRecordCellVerticalPadding)
-                        .padding(.horizontal, TotalListLayoutValue.Paddings.sideEffectRecordRowHorizontalPadding)
+                        .padding(.horizontal, 15)
                         .background(CardBackground())
                         .frame(width: TrendViewLayoutValue.Sizes.cardWidth)
                     }
