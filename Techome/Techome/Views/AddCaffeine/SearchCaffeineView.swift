@@ -80,6 +80,9 @@ struct RecentlyAddedCaffeine: View {
                     VStack(spacing: .zero) {
                         ForEach (IntakeManager.shared.getRecentRecords(count: SearchCaffeineViewLayoutValue.Number.recentRecords), id: \.self) { record in
                             CaffeineRecordRow(recentRecord: record)
+                            if record != IntakeManager.shared.getRecentRecords(count: SearchCaffeineViewLayoutValue.Number.recentRecords).last {
+                                Divider()
+                            }
                         }
                     }
                     .background(RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.card)
@@ -128,7 +131,6 @@ struct CaffeineRecordRow: View {
                 .foregroundColor(.customBlack)
                 .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardItemHorizontalPadding)
                 .padding(.vertical, SearchCaffeineViewLayoutValue.Padding.cardItemVerticalPadding)
-                Divider()
             }
         }
     }
