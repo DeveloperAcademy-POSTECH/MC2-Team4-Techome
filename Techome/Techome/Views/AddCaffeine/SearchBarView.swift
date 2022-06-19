@@ -45,7 +45,7 @@ struct SearchBarView: View {
         .background(
             RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.searchbar)
                 .fill(.white)
-                .shadow(color: .secondaryShadowGray, radius: SearchCaffeineViewLayoutValue.Radius.shadow, x: .zero, y: .zero)
+                .shadow(color: .primaryShadowGray, radius: SearchCaffeineViewLayoutValue.Radius.shadow, x: .zero, y: .zero)
         )
         .padding(.horizontal, SearchCaffeineViewLayoutValue.Padding.cardHorizontalPadding)
     }
