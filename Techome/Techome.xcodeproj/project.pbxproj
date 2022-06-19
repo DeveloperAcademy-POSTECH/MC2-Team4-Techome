@@ -165,6 +165,7 @@
 		DA8E714728581674009836DE /* IntakeRecord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = IntakeRecord.json; sourceTree = "<group>"; };
 		DA8E714828581674009836DE /* SideEffectRecord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SideEffectRecord.json; sourceTree = "<group>"; };
 		DAB95678285EF1D500DBFA0D /* EdiyaCoffeeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EdiyaCoffeeData.json; sourceTree = "<group>"; };
+		DAF63040285F75D3008D3B52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,6 +378,7 @@
 		AB1FBDF12856B93300EB4F95 /* Techome */ = {
 			isa = PBXGroup;
 			children = (
+				DAF63040285F75D3008D3B52 /* Info.plist */,
 				AB18CCEB2856D8B300DD1C5A /* Assets.xcassets */,
 				AB18CCD22856D8B300DD1C5A /* Resources */,
 				AB18CCC42856D8B300DD1C5A /* Global */,
@@ -766,6 +768,7 @@
 				DEVELOPMENT_TEAM = ZRTG6WMRW7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Techome/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -797,6 +800,7 @@
 				DEVELOPMENT_TEAM = 7PQ6FMV22H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Techome/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -62,7 +62,7 @@ struct SettingsView: View {
                 }
             )
             .sheet(isPresented: $showMailSheet) {
-                SettingsMailView(result: self.$result, title: "[앱이름]", body: "[제안 내용]")
+                SettingsMailView(result: self.$result, title: "[잔잔이]", body: "[제안 내용]")
             }
         }
         
