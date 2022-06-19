@@ -12,7 +12,8 @@ struct TechomeApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-                .environment(\.colorScheme, .light)
+//                .environment(\.colorScheme, .light)
+                .preferredColorScheme(.light)
         }
     }
 }
