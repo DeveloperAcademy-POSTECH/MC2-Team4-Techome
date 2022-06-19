@@ -99,6 +99,42 @@ class TrendStateHolder: ObservableObject {
     }
 }
 
+struct TrendViewLayoutValue {
+
+    struct Paddings {
+        ///TrendView Paddings
+        static let dayRecordPadding: CGFloat = 4
+        static let caffeineRecordRowVerticalPadding: CGFloat = 15
+        static let caffeineRecordRowHorizontalPadding: CGFloat = 20
+        static let chartPadding: CGFloat = 8
+        static let textVerticalPadding: CGFloat = 5
+        static let averageCaffeineWeekPadding: CGFloat = 7
+        static let sideEffectRecordCellHorizontalPadding: CGFloat = 21
+        static let sideEffectRecordCellVerticalPadding: CGFloat = 20
+        static let averageCaffeineAmountPadding: CGFloat = 15
+        static let caffeineRecordAmountUnitPadding: CGFloat = 1
+        static let totalListViewPadding: CGFloat = 20
+        static let chartInsidePadding: CGFloat = 15
+        static let chartIndicatorVertical: CGFloat = 10
+    }
+
+    ///TrendView Sizes
+    struct Sizes {
+        static let mainWidth: CGFloat = UIScreen.main.bounds.width
+        static let mainHeight: CGFloat = UIScreen.main.bounds.height
+        static let cardWidth: CGFloat = UIScreen.main.bounds.width - 30
+        static let chartHeight: CGFloat = cardWidth * 1.26
+        static let sideEffectRecordHeight: CGFloat = cardWidth / 2.4
+        static let sideEffectRecordCellFixedWidth: CGFloat = 46
+        static let chartSelectionIndicatorHeight: CGFloat = 83
+    }
+    ///TrendView Radius
+    struct Radius {
+        static let cardRadius: CGFloat = 7
+        static let shadowRadius: CGFloat = 2
+    }
+}
+
 extension Date {
     var startOfDay: Date {
         return Calendar.current.startOfDay(for: self)
@@ -122,6 +158,7 @@ struct ChartsView: View {
     @State var dayIndex: Int? = nil
     
     var body: some View {
+        NavigationView {
         GeometryReader { geometry in
                 VStack(spacing: 0) {
                     TabView(selection: $tabViewIndex) {
@@ -178,6 +215,7 @@ struct ChartsView: View {
                     
                 }
             }
+        }
     }
     
     private func getBiggestNum(datas: [Date]) -> CGFloat {
@@ -197,6 +235,8 @@ struct ChartIndicator: View {
     
     var body: some View {
         VStack(spacing: 0) {
+            Text("총")
+                .font(.footnote)
             Text("\(Int(caffeineAmount))")
                 .font(.title)
                 .lineLimit(1)
@@ -204,6 +244,8 @@ struct ChartIndicator: View {
                 .padding(.vertical, 13)
                 .background(RoundedRectangle(cornerRadius: 7)
                     .foregroundColor(.chartIndicatorBackgroundGray))
+            Text("")
+                .font(.footnote)
             Rectangle()
                 .frame(width: 1, height: 20)
             
