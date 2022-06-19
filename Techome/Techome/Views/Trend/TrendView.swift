@@ -177,7 +177,7 @@ struct ChartsView: View {
                 count += 1
             }
         }
-        return averageAmount
+        return averageAmount / count
     }
     
     var body: some View {
