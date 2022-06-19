@@ -84,7 +84,7 @@ struct RecentlyAddedCaffeine: View {
                     }
                     .background(RoundedRectangle(cornerRadius: SearchCaffeineViewLayoutValue.Radius.card)
                         .foregroundColor(.white)
-                        .shadow(color: .secondaryShadowGray, radius: SearchCaffeineViewLayoutValue.Radius.shadow, x: .zero, y: .zero)
+                        .shadow(color: .primaryShadowGray, radius: SearchCaffeineViewLayoutValue.Radius.shadow, x: .zero, y: .zero)
                     )
                 }
             }
