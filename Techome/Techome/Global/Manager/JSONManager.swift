@@ -82,7 +82,8 @@ final class JSONManager {
             try fileManager.copyItem(at: sourceUrl.appendingPathComponent("BeverageData.json"),
                                      to: destinationUrl.appendingPathComponent("BeverageData.json"))
         } catch {
-            fatalError("Init Data Error")
+//            fatalError("Init Data Error")
+            return
         }
     }
 }

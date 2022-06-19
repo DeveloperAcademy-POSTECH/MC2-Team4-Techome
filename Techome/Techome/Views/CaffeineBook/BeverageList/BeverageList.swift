@@ -25,7 +25,12 @@ struct BeverageList: View {
                         if beverages.count == 0 {
                             EmptyListView()
                         } else {
-                            ForEach(beverages, id: \.self) { beverage in
+                            BeverageListRow(beverage: beverages[0])
+                            
+                            ForEach(beverages.dropFirst(), id: \.self) { beverage in
+                                Divider()
+                                    .padding(.horizontal, CaffeineBookLayoutValue.Padding.BeverageList.innerHorizontal.rawValue)
+                                
                                 BeverageListRow(beverage: beverage)
                             }
                         }
@@ -50,6 +55,7 @@ struct BeverageList: View {
 struct BeverageList_Previews: PreviewProvider {
     static var previews: some View {
         BeverageList()
+            .environmentObject(CaffenineBookStateHolder())
             .previewLayout(.sizeThatFits)
     }
 }
