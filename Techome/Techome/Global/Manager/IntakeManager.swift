@@ -77,7 +77,7 @@ final class IntakeManager {
         return Int((-log2(standard / caffeine) * halfLifeInSecond))
     }
     
-    private func isRecordExist(days: Int) -> Bool {
+    func isRecordExist(days: Int) -> Bool {
         return getRecentRecords(days: days).count == 0 ? false : true
     }
     
@@ -115,4 +115,7 @@ final class IntakeManager {
         return records
     }
 
+    func getFirstRecordDate() -> Date? {
+        return repository.findFirstRecord()
+    }
 }

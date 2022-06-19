@@ -11,8 +11,9 @@ import SwiftUI
 struct TechomeApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
-//                .environment(\.colorScheme, .light)
+//            MainView()
+//            TestView_P()
+            ChartView_P()
                 .preferredColorScheme(.light)
         }
     }

@@ -85,6 +85,13 @@
 		DA8E714928581674009836DE /* IntakeRecord.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8E714728581674009836DE /* IntakeRecord.json */; };
 		DA8E714A28581674009836DE /* SideEffectRecord.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8E714828581674009836DE /* SideEffectRecord.json */; };
 		DAB95679285EF1D500DBFA0D /* EdiyaCoffeeData.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB95678285EF1D500DBFA0D /* EdiyaCoffeeData.json */; };
+		DAB9567E285F1A6400DBFA0D /* ChartStateHolder_P.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB9567D285F1A6400DBFA0D /* ChartStateHolder_P.swift */; };
+		DAB95680285F382100DBFA0D /* ChartView_P.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB9567F285F382100DBFA0D /* ChartView_P.swift */; };
+		DAB95682285F38F500DBFA0D /* WeekChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB95681285F38F500DBFA0D /* WeekChart.swift */; };
+		DAB95686285F3CDC00DBFA0D /* ChartForeground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB95685285F3CDC00DBFA0D /* ChartForeground.swift */; };
+		DAB95688285F3E7C00DBFA0D /* ChartViewLayoutValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB95687285F3E7C00DBFA0D /* ChartViewLayoutValue.swift */; };
+		DAB9568A285F3F3400DBFA0D /* WeekAverageCaffeineAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB95689285F3F3400DBFA0D /* WeekAverageCaffeineAmount.swift */; };
+		DAB9568C285F437B00DBFA0D /* ChartBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB9568B285F437B00DBFA0D /* ChartBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +172,13 @@
 		DA8E714728581674009836DE /* IntakeRecord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = IntakeRecord.json; sourceTree = "<group>"; };
 		DA8E714828581674009836DE /* SideEffectRecord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SideEffectRecord.json; sourceTree = "<group>"; };
 		DAB95678285EF1D500DBFA0D /* EdiyaCoffeeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EdiyaCoffeeData.json; sourceTree = "<group>"; };
+		DAB9567D285F1A6400DBFA0D /* ChartStateHolder_P.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartStateHolder_P.swift; sourceTree = "<group>"; };
+		DAB9567F285F382100DBFA0D /* ChartView_P.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView_P.swift; sourceTree = "<group>"; };
+		DAB95681285F38F500DBFA0D /* WeekChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekChart.swift; sourceTree = "<group>"; };
+		DAB95685285F3CDC00DBFA0D /* ChartForeground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartForeground.swift; sourceTree = "<group>"; };
+		DAB95687285F3E7C00DBFA0D /* ChartViewLayoutValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewLayoutValue.swift; sourceTree = "<group>"; };
+		DAB95689285F3F3400DBFA0D /* WeekAverageCaffeineAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekAverageCaffeineAmount.swift; sourceTree = "<group>"; };
+		DAB9568B285F437B00DBFA0D /* ChartBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +308,7 @@
 		AB18CCDD2856D8B300DD1C5A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DAB9567A285F1A0C00DBFA0D /* Chart_P */,
 				52201781285A144E005A5BEC /* Settings */,
 				AB528BCC285C485B00C213C6 /* MainView.swift */,
 				AB528BBC285C485000C213C6 /* Today */,
@@ -354,6 +369,7 @@
 				2AE417CB285AB9EA00978C4B /* TrendStateHolder.swift */,
 				1489907B285B98BC001315F3 /* TotalListStateHolder.swift */,
 				791F5460285A1C3B0066F5B1 /* NotificationStateHolder.swift */,
+				DAB9567D285F1A6400DBFA0D /* ChartStateHolder_P.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -481,6 +497,19 @@
 			path = Techome/Views/TotalList;
 			sourceTree = SOURCE_ROOT;
 		};
+		DAB9567A285F1A0C00DBFA0D /* Chart_P */ = {
+			isa = PBXGroup;
+			children = (
+				DAB9567F285F382100DBFA0D /* ChartView_P.swift */,
+				DAB95681285F38F500DBFA0D /* WeekChart.swift */,
+				DAB95689285F3F3400DBFA0D /* WeekAverageCaffeineAmount.swift */,
+				DAB95685285F3CDC00DBFA0D /* ChartForeground.swift */,
+				DAB9568B285F437B00DBFA0D /* ChartBar.swift */,
+				DAB95687285F3E7C00DBFA0D /* ChartViewLayoutValue.swift */,
+			);
+			path = Chart_P;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -591,6 +620,7 @@
 				5220177F2859B6AD005A5BEC /* CaffeineBookDetailStateHolder.swift in Sources */,
 				AB18CCEF2856D8B300DD1C5A /* IntakeRepository.swift in Sources */,
 				AB528BD2285C599900C213C6 /* AddCaffeineDetailStateHolder.swift in Sources */,
+				DAB95686285F3CDC00DBFA0D /* ChartForeground.swift in Sources */,
 				ABC0E95D2859CDDE0046C9C8 /* FranchiseCell.swift in Sources */,
 				ABC0E95F2859CDDE0046C9C8 /* CategoryRow.swift in Sources */,
 				ABC0E9452859CD0E0046C9C8 /* BeverageRepository.swift in Sources */,
@@ -618,21 +648,27 @@
 				AB18CCED2856D8B300DD1C5A /* SideEffectRepository.swift in Sources */,
 				52201789285A1706005A5BEC /* SettingsPolicyView.swift in Sources */,
 				2AE417CC285AB9EA00978C4B /* TrendStateHolder.swift in Sources */,
+				DAB9567E285F1A6400DBFA0D /* ChartStateHolder_P.swift in Sources */,
 				AB528BDC285C59BF00C213C6 /* FranchiseDrinkSizeButtonsGroupView.swift in Sources */,
 				AB18CD032856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift in Sources */,
 				ABC0E95B2859CDDE0046C9C8 /* CaffeineBookLayoutValue.swift in Sources */,
+				DAB95680285F382100DBFA0D /* ChartView_P.swift in Sources */,
+				DAB95688285F3E7C00DBFA0D /* ChartViewLayoutValue.swift in Sources */,
 				AB18CCF42856D8B300DD1C5A /* JSONManager.swift in Sources */,
 				AB18CCFE2856D8B300DD1C5A /* TrendView.swift in Sources */,
 				79421B9D285722B400DFD58A /* SearchCaffeineStateHolder.swift in Sources */,
 				1489907C285B98BC001315F3 /* TotalListStateHolder.swift in Sources */,
 				AB528BBB285C46C900C213C6 /* TodayStateHolder.swift in Sources */,
+				DAB9568A285F3F3400DBFA0D /* WeekAverageCaffeineAmount.swift in Sources */,
 				AB18CCF32856D8B300DD1C5A /* SideEffectManager.swift in Sources */,
+				DAB95682285F38F500DBFA0D /* WeekChart.swift in Sources */,
 				791F5468285ABD2C0066F5B1 /* Notification.swift in Sources */,
 				AB528BDA285C59BF00C213C6 /* EspressoShotCountCustomStepper.swift in Sources */,
 				DA11291028570EF20065BD33 /* DummyData.swift in Sources */,
 				AB528BC9285C485000C213C6 /* BackgroundAnimationView.swift in Sources */,
 				AB18CCFF2856D8B300DD1C5A /* HomeView_G.swift in Sources */,
 				AB528BCB285C485000C213C6 /* TodayView.swift in Sources */,
+				DAB9568C285F437B00DBFA0D /* ChartBar.swift in Sources */,
 				ABC0E9612859CDDE0046C9C8 /* EmptyListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

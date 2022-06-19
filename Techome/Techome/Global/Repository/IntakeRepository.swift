@@ -69,4 +69,8 @@ final class IntakeRepository {
         records.remove(at: index)
         jsonManager.store(data: records, filename: resourceFileName)
     }
+    
+    func findFirstRecord() -> Date? {
+        return records.first?.date
+    }
 }

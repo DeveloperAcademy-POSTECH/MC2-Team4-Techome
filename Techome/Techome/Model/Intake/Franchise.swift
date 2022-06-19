@@ -11,7 +11,7 @@ enum Franchise: String, CaseIterable, Hashable, Codable {
     case starbucks = "스타벅스"
     case twosomePlace = "투썸플레이스"
 //    case coffeeBean = "커피빈"
-    case ediyaCoffee = "이디아커피"
+    case ediyaCoffee = "이디야커피"
     
     func getFranchiseName() -> String {
         return self.rawValue

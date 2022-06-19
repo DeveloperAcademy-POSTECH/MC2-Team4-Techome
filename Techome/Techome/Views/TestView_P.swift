@@ -146,6 +146,47 @@ struct TestView_P: View {
                 }) {
                     Text("음료 json파일 만들기")
                 }
+                
+                Button(action: {
+                    let chartStateHolder = ChartStateHolder()
+                    print(chartStateHolder.getFirstChartDay())
+                }) {
+                    Text("요일 가져오기")
+                }
+                
+                Button(action: {
+                    JSONManager.shared.store(data: dummyIntakeRecords, filename: "IntakeRecord.json")
+//                    JSONManager.shared.load(filename: "IntakeRecord.json")
+                }) {
+                    Text("음료 섭취 기록 만들기")
+                }
+                
+                Button(action: {
+                    let chartStateHolder = ChartStateHolder()
+                    print("[차트 날짜 배열]")
+//                    chartStateHolder.makeDateArray()
+                    print(chartStateHolder.dateArray)
+                }) {
+                    Text("차트 날짜 배열")
+                }
+                
+                Button(action: {
+                    let chartStateHolder = ChartStateHolder()
+                    let day = 24 * 60 * 60
+                    print("[차트 기록 가져오기]")
+//                    chartStateHolder.makeDateArray()
+                    
+                    for week in chartStateHolder.dateArray {
+                        for d in 0..<7 {
+                            print(intakeManager.getDailyRecords(date: week.addingTimeInterval(TimeInterval(day * d))).map{ $0.date })
+                        }
+                        
+                        print("----------------------------------------------")
+                    }
+                    
+                }) {
+                    Text("차트 기록 가져오기")
+                }
             }
         }
     }
