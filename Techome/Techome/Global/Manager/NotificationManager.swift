@@ -59,7 +59,8 @@ final class NotificationManager {
             content.body = notification.textType.getNotificationBody()
             content.badge = 0
             
-            let trigger = notification.textType.getNotificationType(date: notification.textType.getNotificationTime())
+//            let trigger = notification.textType.getNotificationType(date: notification.textType.getNotificationTime())
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
             let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
             
             if isOn {

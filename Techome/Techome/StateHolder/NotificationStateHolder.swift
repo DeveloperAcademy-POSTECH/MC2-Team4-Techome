@@ -14,13 +14,13 @@ final class NotificationStateHolder: ObservableObject {
     func setNotification(textType: NotificationText) -> Void {
         let manager = NotificationManager()
         manager.requestPermission()
-        manager.addNotification(title: "잔잔이 􀸙", textType: textType)
+        manager.addNotification(title: "잔잔이", textType: textType)
         manager.schedule(textType: textType)
     }
 
     func delNotification(textType: NotificationText) -> Void {
         let manager = NotificationManager()
-        manager.addNotification(title: "잔잔이 􀸙", textType: textType)
+        manager.addNotification(title: "잔잔이", textType: textType)
         manager.scheduleNotifications(isOn: false, textType: textType)
         
     }
