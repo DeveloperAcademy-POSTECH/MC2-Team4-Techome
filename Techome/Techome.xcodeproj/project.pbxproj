@@ -32,10 +32,7 @@
 		AB18CCFB2856D8B300DD1C5A /* IntakeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCD92856D8B300DD1C5A /* IntakeRecord.swift */; };
 		AB18CCFD2856D8B300DD1C5A /* SideEffectRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCDC2856D8B300DD1C5A /* SideEffectRecord.swift */; };
 		AB18CCFE2856D8B300DD1C5A /* TrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCDF2856D8B300DD1C5A /* TrendView.swift */; };
-		AB18CCFF2856D8B300DD1C5A /* HomeView_G.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCE12856D8B300DD1C5A /* HomeView_G.swift */; };
 		AB18CD002856D8B300DD1C5A /* AddSideEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCE22856D8B300DD1C5A /* AddSideEffectView.swift */; };
-		AB18CD012856D8B300DD1C5A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCE32856D8B300DD1C5A /* ContentView.swift */; };
-		AB18CD022856D8B300DD1C5A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCE52856D8B300DD1C5A /* HomeView.swift */; };
 		AB18CD032856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCE62856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift */; };
 		AB18CD042856D8B300DD1C5A /* SearchCaffeineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCE72856D8B300DD1C5A /* SearchCaffeineView.swift */; };
 		AB18CD052856D8B300DD1C5A /* TechomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB18CCE82856D8B300DD1C5A /* TechomeApp.swift */; };
@@ -63,7 +60,6 @@
 		AB9114DA285FA84D003CA580 /* TodayStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9114D0285FA84D003CA580 /* TodayStateHolder.swift */; };
 		AB9114DB285FA84D003CA580 /* NotificationStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9114D1285FA84D003CA580 /* NotificationStateHolder.swift */; };
 		AB9114DC285FA84D003CA580 /* AddSideEffectStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9114D2285FA84D003CA580 /* AddSideEffectStateHolder.swift */; };
-		AB9114DD285FA84D003CA580 /* tempViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9114D3285FA84D003CA580 /* tempViewModel.swift */; };
 		AB9114DE285FA84D003CA580 /* TrendStateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9114D4285FA84D003CA580 /* TrendStateHolder.swift */; };
 		ABA3D6D42859DAFF00D60A6C /* Franchise.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA3D6D32859DAFF00D60A6C /* Franchise.swift */; };
 		ABC0E9452859CD0E0046C9C8 /* BeverageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0E9442859CD0E0046C9C8 /* BeverageRepository.swift */; };
@@ -78,8 +74,6 @@
 		ABC0E9612859CDDE0046C9C8 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0E9582859CDDE0046C9C8 /* EmptyListView.swift */; };
 		ABC0E9622859CDDE0046C9C8 /* BeverageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0E9592859CDDE0046C9C8 /* BeverageList.swift */; };
 		ABC3E9572858122F0091CC8E /* TotalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC3E9562858122F0091CC8E /* TotalListView.swift */; };
-		DA11291028570EF20065BD33 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11290F28570EF20065BD33 /* DummyData.swift */; };
-		DA11291228570F4C0065BD33 /* TestView_P.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11291128570F4C0065BD33 /* TestView_P.swift */; };
 		DA8E714928581674009836DE /* IntakeRecord.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8E714728581674009836DE /* IntakeRecord.json */; };
 		DA8E714A28581674009836DE /* SideEffectRecord.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8E714828581674009836DE /* SideEffectRecord.json */; };
 		DAB95679285EF1D500DBFA0D /* EdiyaCoffeeData.json in Resources */ = {isa = PBXBuildFile; fileRef = DAB95678285EF1D500DBFA0D /* EdiyaCoffeeData.json */; };
@@ -110,10 +104,7 @@
 		AB18CCD92856D8B300DD1C5A /* IntakeRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntakeRecord.swift; sourceTree = "<group>"; };
 		AB18CCDC2856D8B300DD1C5A /* SideEffectRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideEffectRecord.swift; sourceTree = "<group>"; };
 		AB18CCDF2856D8B300DD1C5A /* TrendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendView.swift; sourceTree = "<group>"; };
-		AB18CCE12856D8B300DD1C5A /* HomeView_G.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView_G.swift; sourceTree = "<group>"; };
 		AB18CCE22856D8B300DD1C5A /* AddSideEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSideEffectView.swift; sourceTree = "<group>"; };
-		AB18CCE32856D8B300DD1C5A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		AB18CCE52856D8B300DD1C5A /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		AB18CCE62856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCaffeineLayoutValue.swift; sourceTree = "<group>"; };
 		AB18CCE72856D8B300DD1C5A /* SearchCaffeineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCaffeineView.swift; sourceTree = "<group>"; };
 		AB18CCE82856D8B300DD1C5A /* TechomeApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechomeApp.swift; sourceTree = "<group>"; };
@@ -141,7 +132,6 @@
 		AB9114D0285FA84D003CA580 /* TodayStateHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayStateHolder.swift; sourceTree = "<group>"; };
 		AB9114D1285FA84D003CA580 /* NotificationStateHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationStateHolder.swift; sourceTree = "<group>"; };
 		AB9114D2285FA84D003CA580 /* AddSideEffectStateHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSideEffectStateHolder.swift; sourceTree = "<group>"; };
-		AB9114D3285FA84D003CA580 /* tempViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempViewModel.swift; sourceTree = "<group>"; };
 		AB9114D4285FA84D003CA580 /* TrendStateHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendStateHolder.swift; sourceTree = "<group>"; };
 		ABA3D6D32859DAFF00D60A6C /* Franchise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Franchise.swift; sourceTree = "<group>"; };
 		ABC0E9442859CD0E0046C9C8 /* BeverageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageRepository.swift; sourceTree = "<group>"; };
@@ -156,8 +146,6 @@
 		ABC0E9582859CDDE0046C9C8 /* EmptyListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		ABC0E9592859CDDE0046C9C8 /* BeverageList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageList.swift; sourceTree = "<group>"; };
 		ABC3E9562858122F0091CC8E /* TotalListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalListView.swift; sourceTree = "<group>"; };
-		DA11290F28570EF20065BD33 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
-		DA11291128570F4C0065BD33 /* TestView_P.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView_P.swift; sourceTree = "<group>"; };
 		DA8E714728581674009836DE /* IntakeRecord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = IntakeRecord.json; sourceTree = "<group>"; };
 		DA8E714828581674009836DE /* SideEffectRecord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SideEffectRecord.json; sourceTree = "<group>"; };
 		DAB95678285EF1D500DBFA0D /* EdiyaCoffeeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EdiyaCoffeeData.json; sourceTree = "<group>"; };
@@ -181,10 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				52201782285A16C9005A5BEC /* SettingsView.swift */,
-				52201784285A16E4005A5BEC /* SettingsTeamView.swift */,
-				52201786285A16F6005A5BEC /* SettingsOpenSourceView.swift */,
-				52201788285A1706005A5BEC /* SettingsPolicyView.swift */,
-				5220178A285A1714005A5BEC /* SettingsMailView.swift */,
+				ABE104182861629A0096826A /* Components */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -209,8 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				AB18CCC52856D8B300DD1C5A /* Repository */,
-				AB18CCC92856D8B300DD1C5A /* Extension */,
 				AB18CCCC2856D8B300DD1C5A /* Manager */,
+				AB18CCC92856D8B300DD1C5A /* Extension */,
 				AB18CCD12856D8B300DD1C5A /* Formatter.swift */,
 			);
 			path = Global;
@@ -255,7 +240,6 @@
 				ABC0E9482859CD780046C9C8 /* BeverageData.json */,
 				DA8E714728581674009836DE /* IntakeRecord.json */,
 				DA8E714828581674009836DE /* SideEffectRecord.json */,
-				DA11290F28570EF20065BD33 /* DummyData.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -264,8 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				AB18CCD72856D8B300DD1C5A /* Intake */,
-				791F5466285ABD0A0066F5B1 /* Notification */,
 				AB18CCDB2856D8B300DD1C5A /* SideEffect */,
+				791F5466285ABD0A0066F5B1 /* Notification */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,18 +275,14 @@
 		AB18CCDD2856D8B300DD1C5A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				52201781285A144E005A5BEC /* Settings */,
 				AB528BCC285C485B00C213C6 /* MainView.swift */,
 				AB528BBC285C485000C213C6 /* Today */,
-				ABC0E94E2859CDDE0046C9C8 /* CaffeineBook */,
-				52AFC4762858612D000199DF /* CaffeineBookDetail */,
-				AB18CCDE2856D8B300DD1C5A /* Trend */,
-				AB18CCE02856D8B300DD1C5A /* AddSideEffect */,
-				AB18CCE32856D8B300DD1C5A /* ContentView.swift */,
-				DA11291128570F4C0065BD33 /* TestView_P.swift */,
 				AB18CCE42856D8B300DD1C5A /* AddCaffeine */,
+				AB18CCE02856D8B300DD1C5A /* AddSideEffect */,
+				AB18CCDE2856D8B300DD1C5A /* Trend */,
+				ABC0E94E2859CDDE0046C9C8 /* CaffeineBook */,
 				ABC3E9552858122F0091CC8E /* TotalList */,
-				AB528BD3285C59BF00C213C6 /* AddCaffeineDetail */,
+				52201781285A144E005A5BEC /* Settings */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,7 +298,6 @@
 		AB18CCE02856D8B300DD1C5A /* AddSideEffect */ = {
 			isa = PBXGroup;
 			children = (
-				AB18CCE12856D8B300DD1C5A /* HomeView_G.swift */,
 				AB18CCE22856D8B300DD1C5A /* AddSideEffectView.swift */,
 			);
 			path = AddSideEffect;
@@ -327,11 +306,8 @@
 		AB18CCE42856D8B300DD1C5A /* AddCaffeine */ = {
 			isa = PBXGroup;
 			children = (
-				793214F7285702BB00D7E4E1 /* SearchBarView.swift */,
-				AB18CCE72856D8B300DD1C5A /* SearchCaffeineView.swift */,
-				797B456628570C4200DB45FA /* SearchResultView.swift */,
-				AB18CCE62856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift */,
-				AB18CCE52856D8B300DD1C5A /* HomeView.swift */,
+				ABE10415286162430096826A /* AddCaffeine */,
+				AB528BD3285C59BF00C213C6 /* AddCaffeineDetail */,
 			);
 			path = AddCaffeine;
 			sourceTree = "<group>";
@@ -357,10 +333,10 @@
 			children = (
 				DAF63040285F75D3008D3B52 /* Info.plist */,
 				AB18CCEB2856D8B300DD1C5A /* Assets.xcassets */,
+				AB18CCE82856D8B300DD1C5A /* TechomeApp.swift */,
 				AB18CCD22856D8B300DD1C5A /* Resources */,
 				AB18CCC42856D8B300DD1C5A /* Global */,
 				AB18CCD52856D8B300DD1C5A /* Model */,
-				AB18CCE82856D8B300DD1C5A /* TechomeApp.swift */,
 				AB9114CA285FA84D003CA580 /* StateHolder */,
 				AB18CCDD2856D8B300DD1C5A /* Views */,
 				AB1FBDF82856B93400EB4F95 /* Preview Content */,
@@ -379,9 +355,9 @@
 		AB528BBC285C485000C213C6 /* Today */ = {
 			isa = PBXGroup;
 			children = (
+				AB528BC4285C485000C213C6 /* TodayView.swift */,
 				AB528BBD285C485000C213C6 /* TodayLayoutValue.swift */,
 				AB528BBE285C485000C213C6 /* Components */,
-				AB528BC4285C485000C213C6 /* TodayView.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -401,12 +377,11 @@
 		AB528BD3285C59BF00C213C6 /* AddCaffeineDetail */ = {
 			isa = PBXGroup;
 			children = (
-				AB528BD4285C59BF00C213C6 /* Components */,
-				AB528BD8285C59BF00C213C6 /* AddCaffeineDetailCustomModifier.swift */,
 				AB528BD9285C59BF00C213C6 /* AddCaffeineDetailView.swift */,
+				AB528BD8285C59BF00C213C6 /* AddCaffeineDetailCustomModifier.swift */,
+				AB528BD4285C59BF00C213C6 /* Components */,
 			);
-			name = AddCaffeineDetail;
-			path = TotalList/AddCaffeineDetail;
+			path = AddCaffeineDetail;
 			sourceTree = "<group>";
 		};
 		AB528BD4285C59BF00C213C6 /* Components */ = {
@@ -422,16 +397,13 @@
 		AB9114CA285FA84D003CA580 /* StateHolder */ = {
 			isa = PBXGroup;
 			children = (
-				AB9114CB285FA84D003CA580 /* TotalListStateHolder.swift */,
-				AB9114CC285FA84D003CA580 /* AddCaffeineDetailStateHolder.swift */,
-				AB9114CD285FA84D003CA580 /* CaffeineBookDetailStateHolder.swift */,
-				AB9114CE285FA84D003CA580 /* SearchCaffeineStateHolder.swift */,
-				AB9114CF285FA84D003CA580 /* CaffeineBookStateHolder.swift */,
-				AB9114D0285FA84D003CA580 /* TodayStateHolder.swift */,
-				AB9114D1285FA84D003CA580 /* NotificationStateHolder.swift */,
-				AB9114D2285FA84D003CA580 /* AddSideEffectStateHolder.swift */,
-				AB9114D3285FA84D003CA580 /* tempViewModel.swift */,
-				AB9114D4285FA84D003CA580 /* TrendStateHolder.swift */,
+				ABE1040D2861607A0096826A /* Today */,
+				ABE1040E286160870096826A /* AddCaffeine */,
+				ABE1040F286160BE0096826A /* AddSideEffect */,
+				ABE10411286160F30096826A /* Trend */,
+				ABE10410286160E30096826A /* CaffeineBook */,
+				ABE10412286160FC0096826A /* TotalList */,
+				ABE10413286161100096826A /* Notification */,
 			);
 			path = StateHolder;
 			sourceTree = "<group>";
@@ -439,10 +411,8 @@
 		ABC0E94E2859CDDE0046C9C8 /* CaffeineBook */ = {
 			isa = PBXGroup;
 			children = (
-				ABC0E94F2859CDDE0046C9C8 /* CaffeineBookView.swift */,
-				ABC0E9502859CDDE0046C9C8 /* CaffeineBookLayoutValue.swift */,
-				ABC0E9512859CDDE0046C9C8 /* TopBar */,
-				ABC0E9562859CDDE0046C9C8 /* BeverageList */,
+				ABE10416286162640096826A /* CaffeineBook */,
+				52AFC4762858612D000199DF /* CaffeineBookDetail */,
 			);
 			path = CaffeineBook;
 			sourceTree = "<group>";
@@ -476,6 +446,113 @@
 			name = TotalList;
 			path = Techome/Views/TotalList;
 			sourceTree = SOURCE_ROOT;
+		};
+		ABE1040D2861607A0096826A /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				AB9114D0285FA84D003CA580 /* TodayStateHolder.swift */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		ABE1040E286160870096826A /* AddCaffeine */ = {
+			isa = PBXGroup;
+			children = (
+				AB9114CE285FA84D003CA580 /* SearchCaffeineStateHolder.swift */,
+				AB9114CC285FA84D003CA580 /* AddCaffeineDetailStateHolder.swift */,
+			);
+			path = AddCaffeine;
+			sourceTree = "<group>";
+		};
+		ABE1040F286160BE0096826A /* AddSideEffect */ = {
+			isa = PBXGroup;
+			children = (
+				AB9114D2285FA84D003CA580 /* AddSideEffectStateHolder.swift */,
+			);
+			path = AddSideEffect;
+			sourceTree = "<group>";
+		};
+		ABE10410286160E30096826A /* CaffeineBook */ = {
+			isa = PBXGroup;
+			children = (
+				AB9114CF285FA84D003CA580 /* CaffeineBookStateHolder.swift */,
+				AB9114CD285FA84D003CA580 /* CaffeineBookDetailStateHolder.swift */,
+			);
+			path = CaffeineBook;
+			sourceTree = "<group>";
+		};
+		ABE10411286160F30096826A /* Trend */ = {
+			isa = PBXGroup;
+			children = (
+				AB9114D4285FA84D003CA580 /* TrendStateHolder.swift */,
+			);
+			path = Trend;
+			sourceTree = "<group>";
+		};
+		ABE10412286160FC0096826A /* TotalList */ = {
+			isa = PBXGroup;
+			children = (
+				AB9114CB285FA84D003CA580 /* TotalListStateHolder.swift */,
+			);
+			path = TotalList;
+			sourceTree = "<group>";
+		};
+		ABE10413286161100096826A /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				AB9114D1285FA84D003CA580 /* NotificationStateHolder.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		ABE104142861621C0096826A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				793214F7285702BB00D7E4E1 /* SearchBarView.swift */,
+				797B456628570C4200DB45FA /* SearchResultView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		ABE10415286162430096826A /* AddCaffeine */ = {
+			isa = PBXGroup;
+			children = (
+				AB18CCE72856D8B300DD1C5A /* SearchCaffeineView.swift */,
+				AB18CCE62856D8B300DD1C5A /* SearchCaffeineLayoutValue.swift */,
+				ABE104142861621C0096826A /* Components */,
+			);
+			path = AddCaffeine;
+			sourceTree = "<group>";
+		};
+		ABE10416286162640096826A /* CaffeineBook */ = {
+			isa = PBXGroup;
+			children = (
+				ABC0E94F2859CDDE0046C9C8 /* CaffeineBookView.swift */,
+				ABC0E9502859CDDE0046C9C8 /* CaffeineBookLayoutValue.swift */,
+				ABE10417286162820096826A /* Components */,
+			);
+			path = CaffeineBook;
+			sourceTree = "<group>";
+		};
+		ABE10417286162820096826A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				ABC0E9512859CDDE0046C9C8 /* TopBar */,
+				ABC0E9562859CDDE0046C9C8 /* BeverageList */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		ABE104182861629A0096826A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				52201784285A16E4005A5BEC /* SettingsTeamView.swift */,
+				52201786285A16F6005A5BEC /* SettingsOpenSourceView.swift */,
+				52201788285A1706005A5BEC /* SettingsPolicyView.swift */,
+				5220178A285A1714005A5BEC /* SettingsMailView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -573,15 +650,12 @@
 				52201785285A16E4005A5BEC /* SettingsTeamView.swift in Sources */,
 				AB528BDD285C59BF00C213C6 /* AddCaffeineDetailCustomModifier.swift in Sources */,
 				ABC0E9622859CDDE0046C9C8 /* BeverageList.swift in Sources */,
-				AB18CD012856D8B300DD1C5A /* ContentView.swift in Sources */,
 				AB18CCF12856D8B300DD1C5A /* Color+.swift in Sources */,
 				AB18CD042856D8B300DD1C5A /* SearchCaffeineView.swift in Sources */,
 				AB18CD052856D8B300DD1C5A /* TechomeApp.swift in Sources */,
 				AB9114D9285FA84D003CA580 /* CaffeineBookStateHolder.swift in Sources */,
 				AB9114DC285FA84D003CA580 /* AddSideEffectStateHolder.swift in Sources */,
-				AB18CD022856D8B300DD1C5A /* HomeView.swift in Sources */,
 				ABC0E95A2859CDDE0046C9C8 /* CaffeineBookView.swift in Sources */,
-				DA11291228570F4C0065BD33 /* TestView_P.swift in Sources */,
 				AB18CD002856D8B300DD1C5A /* AddSideEffectView.swift in Sources */,
 				AB18CCEF2856D8B300DD1C5A /* IntakeRepository.swift in Sources */,
 				ABC0E95D2859CDDE0046C9C8 /* FranchiseCell.swift in Sources */,
@@ -618,13 +692,10 @@
 				AB18CCF42856D8B300DD1C5A /* JSONManager.swift in Sources */,
 				AB18CCFE2856D8B300DD1C5A /* TrendView.swift in Sources */,
 				AB18CCF32856D8B300DD1C5A /* SideEffectManager.swift in Sources */,
-				AB9114DD285FA84D003CA580 /* tempViewModel.swift in Sources */,
 				AB9114D7285FA84D003CA580 /* CaffeineBookDetailStateHolder.swift in Sources */,
 				791F5468285ABD2C0066F5B1 /* Notification.swift in Sources */,
 				AB528BDA285C59BF00C213C6 /* EspressoShotCountCustomStepper.swift in Sources */,
-				DA11291028570EF20065BD33 /* DummyData.swift in Sources */,
 				AB528BC9285C485000C213C6 /* BackgroundAnimationView.swift in Sources */,
-				AB18CCFF2856D8B300DD1C5A /* HomeView_G.swift in Sources */,
 				AB9114DE285FA84D003CA580 /* TrendStateHolder.swift in Sources */,
 				AB528BCB285C485000C213C6 /* TodayView.swift in Sources */,
 				AB9114DB285FA84D003CA580 /* NotificationStateHolder.swift in Sources */,
@@ -758,7 +829,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Techome/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8QSTXVD8H9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Techome/Info.plist;
@@ -790,7 +861,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Techome/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8QSTXVD8H9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Techome/Info.plist;

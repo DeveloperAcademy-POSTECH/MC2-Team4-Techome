@@ -33,7 +33,7 @@ struct TodayView: View {
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.trailing, TodayLayoutValue.Padding.Content.trailing)
                         .padding(.bottom, TodayLayoutValue.Padding.Content.exhaustTimeToAddCaffeine)
-                    AddCaffeineButton_q(todayStates: todayStates)
+                    TodayAddCaffeineButton(todayStates: todayStates)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.trailing, TodayLayoutValue.Padding.Content.trailing)
                         .padding(.bottom, TodayLayoutValue.Padding.Content.bottom)

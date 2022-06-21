@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddCaffeineButton_q: View {
+struct TodayAddCaffeineButton: View {
     @ObservedObject var todayStates: TodayStatesHolder
     
     var body: some View {
@@ -39,7 +39,7 @@ struct AddCaffeineButton_q: View {
 struct AddCaffeineButton_Previews: PreviewProvider {
     static var previews: some View {
         let todayStates: TodayStatesHolder = TodayStatesHolder()
-        AddCaffeineButton_q(todayStates: todayStates)
+        TodayAddCaffeineButton(todayStates: todayStates)
             .previewLayout(.sizeThatFits)
     }
 }
