@@ -15,11 +15,11 @@
 
 |투데이|카페인 기록|카페인 기록 상세화면|부작용 추가|
 |-|-|-|-|
-|<img width="323" src="https://user-images.githubusercontent.com/103012087/174701183-484c2ca9-beab-4b90-92fc-a1ed2c6b738d.gif">|<img width="323" src="https://user-images.githubusercontent.com/103012087/174706190-8ab90c7c-5edc-4382-a930-8d6c433884e0.gif">|<img width="323" src="https://user-images.githubusercontent.com/103012087/174702895-672fe559-3ec8-486a-8880-1e85a963ad0f.png">|<img width="323" src="https://user-images.githubusercontent.com/103012087/174702923-0fcb0390-001d-4d5c-a3ac-5278045b5f5c.png">|
+|<img width="223" src="https://user-images.githubusercontent.com/103012087/174701183-484c2ca9-beab-4b90-92fc-a1ed2c6b738d.gif">|<img width="223" src="https://user-images.githubusercontent.com/103012087/174706190-8ab90c7c-5edc-4382-a930-8d6c433884e0.gif">|<img width="223" src="https://user-images.githubusercontent.com/103012087/174702895-672fe559-3ec8-486a-8880-1e85a963ad0f.png">|<img width="223" src="https://user-images.githubusercontent.com/103012087/174702923-0fcb0390-001d-4d5c-a3ac-5278045b5f5c.png">|
 
 |카페인북|카페인북 상세화면|리포트|전체 기록|
 |-|-|-|-|
-|<img width="323" src="https://user-images.githubusercontent.com/103012087/174705883-e4d866ec-fbd7-455e-a4b5-118869a9b68e.png">|<img width="323" src="https://user-images.githubusercontent.com/103012087/174705974-83ab5929-0e3f-40e5-9cdb-d7d3a58132e1.png">|<img width="323" src="https://user-images.githubusercontent.com/103012087/174706066-be6d180b-1458-48dc-8730-bcb8afe783ee.gif">|<img width="323" src="https://user-images.githubusercontent.com/103012087/174706141-6f0af2f4-a0b1-4699-86f3-b79ff09489ed.png">|
+|<img width="223" src="https://user-images.githubusercontent.com/103012087/174705883-e4d866ec-fbd7-455e-a4b5-118869a9b68e.png">|<img width="223" src="https://user-images.githubusercontent.com/103012087/174705974-83ab5929-0e3f-40e5-9cdb-d7d3a58132e1.png">|<img width="223" src="https://user-images.githubusercontent.com/103012087/174706066-be6d180b-1458-48dc-8730-bcb8afe783ee.gif">|<img width="223" src="https://user-images.githubusercontent.com/103012087/174706141-6f0af2f4-a0b1-4699-86f3-b79ff09489ed.png">|
 
 <br/><br/><br/>
 
