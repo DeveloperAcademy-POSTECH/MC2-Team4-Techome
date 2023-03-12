@@ -79,12 +79,12 @@ Techome
 <br/><br/><br/>
 
 ### 🧑‍💻 Authors
-|[Ginger](https://github.com/Guel-git)|[Mary](https://github.com/hwiwonK)|[Nick](https://github.com/sy5072)|
+|[Ginger 김유나](https://github.com/Guel-git)|[Mary 김휘원](https://github.com/hwiwonK)|[Nick 김승윤](https://github.com/sy5072)|
 |:---:|:---:|:---:|
 |[![Ginger](https://user-images.githubusercontent.com/76167532/174706855-116134fe-89e7-415b-8b89-af30bb7fd6de.png)](https://github.com/Guel-git)|[![Mary](https://user-images.githubusercontent.com/76167532/174706861-7d776de1-d038-46c5-bdd8-0aa2148f81ab.png)](https://github.com/hwiwonK)|[![Nick](https://user-images.githubusercontent.com/76167532/174706865-338bd2fe-a480-4de6-bcfa-466024a4b264.png)](https://github.com/sy5072)|
 |택이네 폭주족|택이네 평화지킴이|택이네 활력소|
 
-|[Noasdaq](https://github.com/feldblume5263)|[Poding](https://github.com/Yeongwoo-Poding)|[Taek](https://github.com/TaekH)|
+|[Noasdaq 박준홍](https://github.com/feldblume5263)|[Poding 김영우](https://github.com/Yeongwoo-Poding)|[Taek 한택환](https://github.com/TaekH)|
 |:---:|:---:|:---:|
 |[![Noasdaq](https://user-images.githubusercontent.com/76167532/174706867-6cc52664-517f-475a-8d1a-e2b32cc8d0cc.png)](https://github.com/feldblume5263)|[![Poding](https://user-images.githubusercontent.com/76167532/174706869-72963d58-79f7-47cf-b4af-896d4523c3bc.png)](https://github.com/Yeongwoo-Poding)|[![Taek](https://user-images.githubusercontent.com/76167532/174706870-fbe085e6-8fe9-4503-8b08-4b6ef7a334dc.png)](https://github.com/TaekH)|
 |택이네 버팀목|택이네 과속측정기|택이네 길잡이|
